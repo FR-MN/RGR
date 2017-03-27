@@ -11,7 +11,7 @@ namespace ArtAlbum.BLL.Abstract
     {
         bool AddImageToUser(Guid userId, Guid imageId);
         bool RemoveImageFromUser(Guid userId, Guid imageId);
-        IEnumerable<ImageDTO> GetAwardsByUser(Guid userId);
+        IEnumerable<ImageDTO> GetImagesByUser(Guid userId);
         IEnumerable<UserDTO> GetUsersByImage(Guid imageId);
     }
 }

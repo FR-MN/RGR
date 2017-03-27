@@ -41,7 +41,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             foreach (var userData in GetAllUsers())
             {
-                if (user.Name == userData.Name && user.DateOfBirth == userData.DateOfBirth)
+                if (user.FirstName == userData.FirstName && user.LastName == userData.LastName && user.DateOfBirth == userData.DateOfBirth)// забыл как работает такое и И что будет если фамилии одинаковые...
                 {
                     return false;
                 }
@@ -83,7 +83,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             foreach (var userData in GetAllUsers())
             {
-                if (user.Name == userData.Name && user.DateOfBirth == userData.DateOfBirth)
+                if (user.FirstName == userData.FirstName && user.LastName == userData.LastName && user.DateOfBirth == userData.DateOfBirth)// забыл как работает такое и И что будет если фамилии одинаковые...
                 {
                     return false;
                 }

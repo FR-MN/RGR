@@ -10,9 +10,9 @@ namespace ArtAlbum.BLL.Abstract
    public interface IImageBLL
     {
         bool AddImage(ImageDTO image);
-        UserDTO GetImageById(Guid imageId);
+        ImageDTO GetImageById(Guid imageId);
         bool RemoveImageById(Guid imageId);
         bool UpdateImage(ImageDTO user);
-        IEnumerable<ImageDTO> GetAllImage();
+        IEnumerable<ImageDTO> GetAllImages();
     }
 }
