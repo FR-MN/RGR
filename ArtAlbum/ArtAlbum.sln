@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtAlbum.DAL", "ArtAlbum.DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtAlbum.BLL.Abstract", "ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj", "{6A4979D1-9706-4E2A-822A-2AA7120EE892}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtAlbum.BLL.DefaultLogic", "ArtAlbum.BLL.DefaultLogic\ArtAlbum.BLL.DefaultLogic.csproj", "{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{6A4979D1-9706-4E2A-822A-2AA7120EE892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A4979D1-9706-4E2A-822A-2AA7120EE892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A4979D1-9706-4E2A-822A-2AA7120EE892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +48,6 @@ Global
 		{44A12A35-1389-408D-8E08-80A213AE314B} = {82676A8F-38A9-41B5-98EC-E3197B926E1F}
 		{06C18F8C-7AF3-47CD-B9E4-D07B6F03762E} = {1CA10A4A-BF6B-4C93-B9FC-B1436100878D}
 		{6A4979D1-9706-4E2A-822A-2AA7120EE892} = {E4263950-C072-4B0D-A30A-0B533847197B}
+		{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF} = {E4263950-C072-4B0D-A30A-0B533847197B}
 	EndGlobalSection
 EndGlobal
