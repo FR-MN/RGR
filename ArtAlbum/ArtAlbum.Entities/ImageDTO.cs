@@ -8,5 +8,6 @@ namespace ArtAlbum.Entities
 {
     public class ImageDTO
     {
+
     }
 }
