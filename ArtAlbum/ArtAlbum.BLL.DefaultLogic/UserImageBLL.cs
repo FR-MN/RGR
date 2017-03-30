@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ArtAlbum.BLL.Abstract;
 using ArtAlbum.Entities;
+using ArtAlbum.DAL.Abstract;
 
 namespace ArtAlbum.BLL.DefaultLogic
 {
@@ -30,7 +31,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             try
             {
                 usersDAL.GetUserById(userId);
-                imagesDAL.GetAwardById(imageId);
+                imagesDAL.GetImageById(imageId);
             }
             catch
             {
@@ -61,19 +62,62 @@ namespace ArtAlbum.BLL.DefaultLogic
 
 
 
-        public IEnumerable<UserDTO> GetUsersByImage(Guid imageId)
+        public IEnumerable<UserDTO> GetUsersByImage(Guid imageId)//fix ультрадлинная строчка
         {
-            throw new NotImplementedException();
-        }
+            if (imageId == null)
+            {
+                throw new ArgumentNullException("image id is null");
+            }
+            try
+            {
+                imagesDAL.GetImageById(imageId);
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentException("image id is incorrect, image doesn't exist", e);
+            }
+            return usersDAL.GetAllUsers().Join(relationsDAL.GetUsersIdsByImageId(imageId), user => user.Id, userId => userId, (user, userId) => new UserDTO { Id = userId, FirstName = user.FirstName, DateOfBirth = user.DateOfBirth ,Email = user.Email,HashOfPassword = user.HashOfPassword,LastName = user.LastName,Nickname=user.LastName });
 
+        }
+        public IEnumerable<ImageDTO> GetImagesByUser(Guid userId)//fix ультрадлинная строчка
+        {
+
+            if (userId == null)
+            {
+                throw new ArgumentNullException("user id is null");
+            }
+            try
+            {
+                usersDAL.GetUserById(userId);
+            }
+            catch (Exception e)
+            {
+                throw new ArgumentException("user id is incorrect, user doesn't exist", e);
+            }
+            return imagesDAL.GetAllImages().Join(relationsDAL.GetImagesIdsByUserId(userId), image => image.Id, imageId => imageId, (image, imageId) => new ImageDTO { Id = imageId, Author = image.Author,DateOfCreating = image.DateOfCreating,Description = image.Description});
+
+        }
         public bool RemoveImageFromUser(Guid userId, Guid imageId)
         {
-            throw new NotImplementedException();
+            if (userId == null || imageId == null)
+            {
+                throw new ArgumentNullException("one of the relation ids are null");
+            }
+            if (!IsRelationExist(userId, imageId))
+            {
+                throw new ArgumentException("one of the ids are incorrect, user or award doesn't exist");
+            }
+            foreach (var user in GetUsersByImage(imageId))
+            {
+                if (user.Id == userId)
+                {
+                    return relationsDAL.RemoveRelation(userId, imageId);
+
+                }
+            }
+            return false;
         }
 
-        public IEnumerable<ImageDTO> GetImagesByUser(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

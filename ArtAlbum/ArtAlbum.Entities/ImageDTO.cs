@@ -8,6 +8,9 @@ namespace ArtAlbum.Entities
 {
     public class ImageDTO
     {
-
+        public Guid Id { get; set; }
+        public string Description { get; set; }       
+        public string Author { get; set; }       
+        public DateTime DateOfCreating { get; set; }
     }
 }

@@ -50,6 +50,10 @@
       <Project>{6a4979d1-9706-4e2a-822a-2aa7120ee892}</Project>
       <Name>ArtAlbum.BLL.Abstract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ArtAlbum.DAL.Abstract\ArtAlbum.DAL.Abstract.csproj">
+      <Project>{8911e4b4-1882-4f41-944d-0f6c4d8ccafe}</Project>
+      <Name>ArtAlbum.DAL.Abstract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">
       <Project>{44a12a35-1389-408d-8e08-80a213ae314b}</Project>
       <Name>ArtAlbum.Entities</Name>
