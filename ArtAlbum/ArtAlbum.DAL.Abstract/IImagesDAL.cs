@@ -10,7 +10,7 @@ namespace ArtAlbum.DAL.Abstract
     public interface IImagesDAL
     {
         bool AddImage(ImageDTO image);
-        UserDTO GetImageById(Guid imageId);
+        ImageDTO GetImageById(Guid imageId);
         bool RemoveImageById(Guid imageId);
         bool UpdateImage(ImageDTO image);
         IEnumerable<ImageDTO> GetAllImages();

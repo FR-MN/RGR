@@ -23,7 +23,7 @@ namespace ArtAlbum.DAL.DataBase
             }
             catch (Exception e)
             {
-                throw new ConfigurationFileException("Error in configuration file", e);
+                throw new ConfigurationFileException("error in configuration file", e);
             }
         }
 
@@ -35,9 +35,9 @@ namespace ArtAlbum.DAL.DataBase
             }
             foreach (var userData in GetAllUsers())
             {
-                if (userData.Email == user.Email)
+                if (userData.Id == userData.Id)
                 {
-                    throw new ArgumentException("User already exist");
+                    throw new ArgumentException("user already exist");
                 }
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -48,7 +48,6 @@ namespace ArtAlbum.DAL.DataBase
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
                 command.Parameters.AddWithValue("@Email", user.Email);
-                command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
                 command.Parameters.AddWithValue("@HashOfPassword", user.HashOfPassword);
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
@@ -80,6 +79,10 @@ namespace ArtAlbum.DAL.DataBase
 
         public UserDTO GetUserById(Guid userId)
         {
+            if (userId == null)
+            {
+                throw new ArgumentNullException("user id is null");
+            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT Id,FirstName,LastName,DateOfBirth,Email,HashOfPassword FROM Users WHERE Id=@Id", connection);
@@ -98,12 +101,16 @@ namespace ArtAlbum.DAL.DataBase
                         HashOfPassword = (int)reader["HashOfPassword"]
                     };
                 }
-                throw new NotFoundDataException("User not found");
+                throw new NotFoundDataException("user not found");
             }
         }
 
         public bool RemoveUserById(Guid userId)
         {
+            if (userId == null)
+            {
+                throw new ArgumentNullException("user id is null");
+            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("DELETE FROM Users WHERE Id=@Id", connection);
@@ -116,6 +123,10 @@ namespace ArtAlbum.DAL.DataBase
 
         public bool UpdateUser(UserDTO user)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user data is null");
+            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("UPDATE Users SET Id=@Id, FirstName=@FirstName, LastName=@LastName, DateOfBirth=@DateOfBirth, Email=@Email, HashOfPassword=@HashOfPassword WHERE Id=@Id", connection);
@@ -124,7 +135,6 @@ namespace ArtAlbum.DAL.DataBase
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
                 command.Parameters.AddWithValue("@Email", user.Email);
-                command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
                 command.Parameters.AddWithValue("@HashOfPassword", user.HashOfPassword);
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();

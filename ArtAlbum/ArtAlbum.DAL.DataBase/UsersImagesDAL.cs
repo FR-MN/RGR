@@ -16,7 +16,7 @@ namespace ArtAlbum.DAL.DataBase
         private class Relation
         {
             public Guid UserId;
-            public Guid AwardId;
+            public Guid ImageId;
         }
        
 
@@ -30,22 +30,22 @@ namespace ArtAlbum.DAL.DataBase
             }
             catch (Exception e)
             {
-                throw new ConfigurationFileException("Error in configuration file", e);
+                throw new ConfigurationFileException("error in configuration file", e);
             }
             
             
         }
         public bool AddRelation(Guid userId, Guid imageId)
         {
-            if (userId == null || imageId == null)// добавить проверку на повторяющиеся Id
+            if (userId == null || imageId == null)
             {
-                throw new ArgumentNullException("user data is null");
-            }          
+                throw new ArgumentNullException("one of the relation ids are null");
+            }        
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand("INSERT INTO UsersImages(userId,imgeId) VALUES(@userId, @imgeId)", connection);
                 command.Parameters.AddWithValue("@userId", userId);
-                command.Parameters.AddWithValue("@imgeId", imageId);                
+                command.Parameters.AddWithValue("@imageId", imageId);                
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
                 return countRow == 1;
@@ -60,34 +60,37 @@ namespace ArtAlbum.DAL.DataBase
                 command.Parameters.AddWithValue("@userId", userId);
                 connection.Open();
                 var reader = command.ExecuteReader();
-
-              
-                Queue<Guid> result;
                 while (reader.Read())
                 {
-                    
-                    Guid temp = (Guid)reader["userId"];
-                    
-                       
-                  
+                    yield return (Guid)reader["imageId"];
                 }
-                throw new NotFoundDataException("Image not found");
+                throw new NotFoundDataException("images not found");
             }
         }
 
         public IEnumerable<Guid> GetUsersIdsByImageId(Guid imageId)
         {
-            throw new Exception();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT userId,imgeId FROM UsersImages WHERE imageId=@imageId", connection);
+                command.Parameters.AddWithValue("@imageId", imageId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return(Guid)reader["userId"];
+                }
+                throw new NotFoundDataException("users not found");
+            }
         }
 
         public bool RemoveRelation(Guid userId, Guid imageId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("DELETE FROM UsersImages WHERE userId=@userId ", connection);//как ставить двойные условие у WHERE
+                SqlCommand command = new SqlCommand("DELETE FROM UsersImages WHERE userId=@userId AND imagesId=@imagesId", connection);
                 command.Parameters.AddWithValue("@userId", userId);
                 command.Parameters.AddWithValue("@imageId", imageId);
-
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
                 return countRow == 1;
