@@ -15,7 +15,6 @@ namespace ArtAlbum.BLL.DefaultLogic
         private IUsersDAL usersDAL;
         private IUsersImagesDAL relationsDAL;
 
-
         public UsersImagesBLL(IUsersDAL usersDAL, IImagesDAL imagesDAL, IUsersImagesDAL relationsDAL)
         {
             if (usersDAL == null || imagesDAL == null || relationsDAL == null)
@@ -60,9 +59,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             return relationsDAL.AddRelation(userId, imageId);
         }
 
-
-
-        public IEnumerable<UserDTO> GetUsersByImage(Guid imageId)//fix ультрадлинная строчка
+        public IEnumerable<UserDTO> GetUsersByImage(Guid imageId)
         {
             if (imageId == null)
             {
@@ -81,7 +78,7 @@ namespace ArtAlbum.BLL.DefaultLogic
                 { Id = userId, FirstName = user.FirstName, DateOfBirth = user.DateOfBirth ,Email = user.Email,HashOfPassword = user.HashOfPassword,LastName = user.LastName,Nickname=user.LastName });
 
         }
-        public IEnumerable<ImageDTO> GetImagesByUser(Guid userId)//fix ультрадлинная строчка
+        public IEnumerable<ImageDTO> GetImagesByUser(Guid userId)
         {
 
             if (userId == null)

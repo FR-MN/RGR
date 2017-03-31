@@ -24,8 +24,8 @@ namespace ArtAlbum.DI.Provaiders
                 case "DataBase":
                     {
                         UsersDAL = new UsersDAL();
-                        AwardsDAL = new AwardsDAL();
-                        RelationsDAL = new UsersAwardsDAL();
+                        ImagesDAL = new ImagesDAL();
+                        RelationsDAL = new UsersImagesDAL();
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }

@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArtAlbum.BLL.DefaultLogic.Exceptions
+{
+    public class IncorrectDataException : Exception
+    {
+        public IncorrectDataException()
+        {
+
+        }
+        public IncorrectDataException(string message) : base(message)
+        {
+
+        }
+        public IncorrectDataException(string message, Exception innerException) : base(message, innerException)
+        {
+
+        }
+    }
+}

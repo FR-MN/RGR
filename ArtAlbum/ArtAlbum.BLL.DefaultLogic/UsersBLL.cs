@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ArtAlbum.BLL.Abstract;
 using ArtAlbum.Entities;
 using ArtAlbum.DAL.Abstract;
+using System.Text.RegularExpressions;
+using ArtAlbum.BLL.DefaultLogic.Exceptions;
 
 namespace ArtAlbum.BLL.DefaultLogic
 {
@@ -13,7 +15,16 @@ namespace ArtAlbum.BLL.DefaultLogic
     {
         private IUsersDAL usersDAL;
         private IUsersImagesDAL relationsDAL;
+        private static Regex regexEmail;
+        private static Regex regexNickname;
+        private static Regex regexName;
 
+        static UsersBLL()
+        {
+            regexEmail = new Regex(@"^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$");
+            regexNickname = new Regex(@"^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$");
+            regexName = new Regex(@"^[a-zA-Zа-яА-Я]+((-[a-zA-Zа-яА-Я]+)+)|([a-zA-Zа-яА-Я]+)$");
+        }
         public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL)
         {
             if (usersDAL == null || relationsDAL == null)
@@ -24,27 +35,34 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.relationsDAL = relationsDAL;
         }
 
-        //добавить больше проверок и выровнять чтобы код был не в одну строчку
         private bool IsUserCorrect(UserDTO user)
         {
-           
+
             return !string.IsNullOrWhiteSpace(user.FirstName)
                 && !string.IsNullOrWhiteSpace(user.LastName)
                 && !string.IsNullOrWhiteSpace(user.Nickname)
-                && user.DateOfBirth < DateTime.Now 
-                && user.DateOfBirth.Year >= 1900;
-
+                && !string.IsNullOrWhiteSpace(user.Email)
+                && user.DateOfBirth < DateTime.Now
+                && user.DateOfBirth.Year >= 1900
+                && user.FirstName.Length < 50
+                && user.LastName.Length < 50
+                && user.Nickname.Length < 50
+                && user.Email.Length < 100
+                && regexEmail.IsMatch(user.Email)
+                && regexNickname.IsMatch(user.Nickname)
+                && regexName.IsMatch(user.FirstName)
+                && regexName.IsMatch(user.LastName);
         }
         
         public bool AddUser(UserDTO user)
         {
             if (user == null)
             {
-                throw new ArgumentNullException("data is null");
+                throw new ArgumentNullException("user data is null");
             }
             else if (!IsUserCorrect(user))
             {
-                throw new Exception("IncorrectData");
+                throw new IncorrectDataException();
             }
             foreach (var userData in GetAllUsers())
             {

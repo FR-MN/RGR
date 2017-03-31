@@ -94,7 +94,7 @@ namespace ArtAlbum.PL.Models
             get { return email; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value) && !regexEmail.IsMatch(value))
+                if (string.IsNullOrWhiteSpace(value) && !regexEmail.IsMatch(value) && value.Length > 100)
                 {
                     throw new ArgumentException("incorrect email");
                 }
