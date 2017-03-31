@@ -49,6 +49,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj">
+      <Project>{6a4979d1-9706-4e2a-822a-2aa7120ee892}</Project>
+      <Name>ArtAlbum.BLL.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">
+      <Project>{44a12a35-1389-408d-8e08-80a213ae314b}</Project>
+      <Name>ArtAlbum.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtAlbum.PL.Models\ArtAlbum.PL.Models.csproj">
+      <Project>{b31e028b-781a-4f8e-9898-c3eee13bc8e2}</Project>
+      <Name>ArtAlbum.PL.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

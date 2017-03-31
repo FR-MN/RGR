@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ArtAlbum.Entities;
 using ArtAlbum.BLL.Abstract;
-using UsersImages.PL.Models;
+using ArtAlbum.PL.Models;
 
 namespace UsersImages.PL.Console
 {
@@ -18,9 +18,9 @@ namespace UsersImages.PL.Console
         {
             try
             {
-                usersBLL = Provaider.UsersBLL;
-                imagesBLL = Provaider.AwardsBLL;
-                relationsBLL = Provaider.RelationsBLL;
+                //usersBLL = Provaider.UsersBLL;
+                //imagesBLL = Provaider.AwardsBLL;
+                //relationsBLL = Provaider.RelationsBLL;
 
                 bool succes;
                 int menuNumber = 0;
@@ -34,11 +34,11 @@ namespace UsersImages.PL.Console
                         System.Console.WriteLine(" 3 - Show all specific user images");
                         System.Console.WriteLine(" 4 - Show all users with specific images");
                         System.Console.WriteLine(" 5 - Add new user");
-                        System.Console.WriteLine(" 6 - Add new images");
+                        System.Console.WriteLine(" 6 - -");
                         System.Console.WriteLine(" 7 - Add images to user");
                         System.Console.WriteLine(" 8 - Remove images from user");
                         System.Console.WriteLine(" 9 - Remove user");
-                        System.Console.WriteLine("10 - Remove image");
+                        System.Console.WriteLine("10 - -");
                         System.Console.WriteLine("11 - Update user");
                         System.Console.WriteLine("12 - Update image");
                         System.Console.WriteLine("13 - Exit");
@@ -55,13 +55,13 @@ namespace UsersImages.PL.Console
                             case 3: { ShowImagesOfUser(); } break;
                             case 4: { ShowUsersWithImages(); } break;
                             case 5: { AddUser(); } break;
-                            case 6: { AddImage(); } break;//я думаю такое делать не надо
+                            case 6: {  } break;//я думаю такое делать не надо AddImage();
                             case 7: { AddImageToUser(); } break;
                             case 8: { DeleteImageFromUser(); } break;
                             case 9: { DeleteUser(); } break;
-                            case 10: { DeleteAward(); } break;//тоже не нада
+                            case 10: {  } break;//тоже не нада DeleteAward();
                             case 11: { UpdateUser(); } break;
-                            case 12: { UpdateAward(); } break;
+                            case 12: { UpdateImage(); } break;
                         }
                     }
                 } while (menuNumber != 13);
@@ -147,7 +147,7 @@ namespace UsersImages.PL.Console
         private static void ShowUsersWithImages()
         {
             var images = imagesBLL.GetAllImages().OrderBy(image => image.DateOfCreating);
-            int number = GetSelectedNumberOfAward(images);
+            int number = GetSelectedNumberOfImage(images);
             if (number != 0)
             {
                 var image = images.Skip(number - 1).First();
@@ -183,7 +183,7 @@ namespace UsersImages.PL.Console
             string email = System.Console.ReadLine();
 
             System.Console.Write("Actually right now We don't have working convector to password  , and you can register without password )))) ");
-            string password = System.Console.ReadLine();
+            //string password = System.Console.ReadLine();
 
             System.Console.Write("Enter your's Nickname: ");
             string nickname = System.Console.ReadLine();
@@ -205,7 +205,7 @@ namespace UsersImages.PL.Console
             {
                 try
                 {
-                    if (usersBLL.AddUser(new UserVM(firstname, lastname, nickname, email, dateOfBirth)))
+                    if (usersBLL.AddUser(new UserVM(firstname, lastname, nickname, email, dateOfBirth,123)))
                     {
                         System.Console.WriteLine("Successfully added");
                     }
@@ -234,7 +234,7 @@ namespace UsersImages.PL.Console
             }
             else
             {
-                if (imagesBLL.AddImage(new ImageVM()))//Что туда пихать?
+                if (imagesBLL.AddImage(new ImageVM(description)))
                 {
                     System.Console.WriteLine("Successfully added");
                 }
@@ -312,7 +312,7 @@ namespace UsersImages.PL.Console
                 }
                 else
                 {
-                    if (imagesBLL.UpdateImage(new ImageVM(image.Id, description)))
+                    if (imagesBLL.UpdateImage(new ImageVM(image.Id, description, image.DateOfCreating)))
                     {
                         System.Console.WriteLine("Successfully updated");
                     }
@@ -345,7 +345,7 @@ namespace UsersImages.PL.Console
                 {
                     try
                     {
-                        if (usersBLL.UpdateUser(new UserVM(user.Id, name, user.LastName, user.Nickname, user.Email, dateOfBirth)))
+                        if (usersBLL.UpdateUser(new UserVM(user.Id, name, user.LastName, user.Nickname, user.Email, dateOfBirth,123)))
                         {
                             System.Console.WriteLine("Successfully updated");
                         }

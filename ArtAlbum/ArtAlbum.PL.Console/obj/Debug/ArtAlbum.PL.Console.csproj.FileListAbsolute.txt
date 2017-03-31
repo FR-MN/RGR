@@ -1,0 +1,12 @@
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.PL.Console.exe.config
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.PL.Console.exe
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.PL.Console.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.BLL.Abstract.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.Entities.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.PL.Models.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.BLL.Abstract.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.Entities.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.PL.Models.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\obj\Debug\ArtAlbum.PL.Console.csprojResolveAssemblyReference.cache
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\obj\Debug\ArtAlbum.PL.Console.exe
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\obj\Debug\ArtAlbum.PL.Console.pdb
