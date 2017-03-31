@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ArtAlbum.Entities;
 using ArtAlbum.BLL.Abstract;
 using ArtAlbum.PL.Models;
+using ArtAlbum.DI.Provaiders;
+
 
 namespace UsersImages.PL.Console
 {
@@ -18,9 +20,9 @@ namespace UsersImages.PL.Console
         {
             try
             {
-                //usersBLL = Provaider.UsersBLL;
-                //imagesBLL = Provaider.AwardsBLL;
-                //relationsBLL = Provaider.RelationsBLL;
+                usersBLL = Provaider.UsersBLL;
+                imagesBLL = Provaider.ImagesBLL;
+                relationsBLL = Provaider.RelationsBLL;
 
                 bool succes;
                 int menuNumber = 0;
@@ -69,6 +71,7 @@ namespace UsersImages.PL.Console
             catch
             {
                 System.Console.WriteLine("ЧТО ТО НЕ ТАК");
+                System.Console.ReadLine();
             }
         }
         private static void ShowAllUsers()

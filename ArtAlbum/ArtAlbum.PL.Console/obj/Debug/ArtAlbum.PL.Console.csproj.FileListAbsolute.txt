@@ -10,3 +10,11 @@ C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.PL
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\obj\Debug\ArtAlbum.PL.Console.csprojResolveAssemblyReference.cache
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\obj\Debug\ArtAlbum.PL.Console.exe
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\obj\Debug\ArtAlbum.PL.Console.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.DI.Provaiders.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.DAL.Abstract.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.DAL.DataBase.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.BLL.DefaultLogic.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.DI.Provaiders.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.DAL.Abstract.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.DAL.DataBase.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Console\bin\Debug\ArtAlbum.BLL.DefaultLogic.pdb
