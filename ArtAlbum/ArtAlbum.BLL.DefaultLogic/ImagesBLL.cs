@@ -23,12 +23,24 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.imagesDAL = imagesDAL;
             this.relationsDAL = relationsDAL;
         }
-        // крутая проверка на нал
-        private bool IsImageCorrect(ImageDTO image) // fix;
+
+        private bool IsImageCorrect(ImageDTO image) 
         {
             if (image == null)
             {
                 throw new ArgumentNullException("image data is null");
+            }
+            if (image.DateOfCreating > DateTime.Now || image.DateOfCreating.Year < 1960 ) 
+            {
+                throw new ArgumentNullException("image dateofcreating is null");
+            }
+            if (string.IsNullOrWhiteSpace(image.Description) && image.Description.Length > 500)
+            {
+                throw new ArgumentException("incorrect description");
+            }
+            if (image.Id != null)
+            {
+                throw new ArgumentException("incorrect Id");
             }
             return true;
         }
