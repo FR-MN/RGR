@@ -98,6 +98,7 @@ namespace ArtAlbum.PL.Models
                 {
                     throw new ArgumentException("incorrect email");
                 }
+                email = value;
             }
         }
         public DateTime DateOfBirth
@@ -137,7 +138,7 @@ namespace ArtAlbum.PL.Models
         }
         public static implicit operator UserDTO(UserVM data)
         {
-            return new UserDTO() { Id = data.Id, FirstName = data.FirstName, Nickname = data.Nickname, Email = data.Email, DateOfBirth = data.DateOfBirth, HashOfPassword = data.HashOfPassword };
+            return new UserDTO() { Id = data.Id, FirstName = data.FirstName, LastName = data.LastName, Nickname = data.Nickname, Email = data.Email, DateOfBirth = data.DateOfBirth, HashOfPassword = data.HashOfPassword };
         }
     }
 }

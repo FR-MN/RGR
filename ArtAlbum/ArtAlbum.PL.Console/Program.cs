@@ -57,11 +57,11 @@ namespace UsersImages.PL.Console
                             case 3: { ShowImagesOfUser(); } break;
                             case 4: { ShowUsersWithImages(); } break;
                             case 5: { AddUser(); } break;
-                            case 6: {  } break;//я думаю такое делать не надо AddImage();
+                            case 6: {  } break;
                             case 7: { AddImageToUser(); } break;
                             case 8: { DeleteImageFromUser(); } break;
                             case 9: { DeleteUser(); } break;
-                            case 10: {  } break;//тоже не нада DeleteAward();
+                            case 10: {  } break;
                             case 11: { UpdateUser(); } break;
                             case 12: { UpdateImage(); } break;
                         }
@@ -70,7 +70,7 @@ namespace UsersImages.PL.Console
             }
             catch
             {
-                System.Console.WriteLine("ЧТО ТО НЕ ТАК");
+                System.Console.WriteLine("Critical error");
                 System.Console.ReadLine();
             }
         }

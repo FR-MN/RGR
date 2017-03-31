@@ -19,7 +19,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             try
             {
-                connectionString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
+                connectionString = ConfigurationManager.ConnectionStrings["ArtAlbumDB"].ConnectionString;
             }
             catch (Exception e)
             {
@@ -35,17 +35,18 @@ namespace ArtAlbum.DAL.DataBase
             }
             foreach (var userData in GetAllUsers())
             {
-                if (userData.Id == userData.Id)
+                if (userData.Id == user.Id)
                 {
                     throw new ArgumentException("user already exist");
                 }
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Users(Id, FirstName, LastName, DateOfBirth, Email, HashOfPassword) VALUES(@Id, @FirstName, @LastName, @DateOfBirth, @Email, @HashOfPassword)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Users(Id, FirstName, LastName, Nickname, DateOfBirth, Email, HashOfPassword) VALUES(@Id, @FirstName, @LastName, @Nickname @DateOfBirth, @Email, @HashOfPassword)", connection);
                 command.Parameters.AddWithValue("@Id", user.Id);
                 command.Parameters.AddWithValue("@FirstName", user.FirstName);
                 command.Parameters.AddWithValue("@LastName", user.LastName);
+                command.Parameters.AddWithValue("@Nickname", user.Nickname);
                 command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
                 command.Parameters.AddWithValue("@Email", user.Email);
                 command.Parameters.AddWithValue("@HashOfPassword", user.HashOfPassword);
@@ -59,7 +60,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT Id,FirstName,LastName,DateOfBirth,Email,HashOfPassword FROM Users", connection);
+                SqlCommand command = new SqlCommand("SELECT Id,FirstName,LastName,Nickname,DateOfBirth,Email,HashOfPassword FROM Users", connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -69,6 +70,7 @@ namespace ArtAlbum.DAL.DataBase
                         Id = (Guid)reader["Id"],
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
+                        Nickname = (string)reader["Nickname"],
                         DateOfBirth = (DateTime)reader["DateOfBirth"],
                         Email = (string)reader["Email"],
                         HashOfPassword = (int)reader["HashOfPassword"]
@@ -85,7 +87,7 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT Id,FirstName,LastName,DateOfBirth,Email,HashOfPassword FROM Users WHERE Id=@Id", connection);
+                SqlCommand command = new SqlCommand("SELECT Id,FirstName,LastName,Nickname,DateOfBirth,Email,HashOfPassword FROM Users WHERE Id=@Id", connection);
                 command.Parameters.AddWithValue("@Id", userId);
                 connection.Open();
                 var reader = command.ExecuteReader();
@@ -96,6 +98,7 @@ namespace ArtAlbum.DAL.DataBase
                         Id = (Guid)reader["Id"],
                         FirstName = (string)reader["FirstName"],
                         LastName = (string)reader["LastName"],
+                        Nickname = (string)reader["Nickname"],
                         DateOfBirth = (DateTime)reader["DateOfBirth"],
                         Email = (string)reader["Email"],
                         HashOfPassword = (int)reader["HashOfPassword"]
@@ -129,10 +132,11 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("UPDATE Users SET Id=@Id, FirstName=@FirstName, LastName=@LastName, DateOfBirth=@DateOfBirth, Email=@Email, HashOfPassword=@HashOfPassword WHERE Id=@Id", connection);
+                SqlCommand command = new SqlCommand("UPDATE Users SET Id=@Id, FirstName=@FirstName, LastName=@LastName, Nickname=@Nickname, DateOfBirth=@DateOfBirth, Email=@Email, HashOfPassword=@HashOfPassword WHERE Id=@Id", connection);
                 command.Parameters.AddWithValue("@Id", user.Id);
                 command.Parameters.AddWithValue("@FirstName", user.FirstName);
                 command.Parameters.AddWithValue("@LastName", user.LastName);
+                command.Parameters.AddWithValue("@Nickname", user.Nickname);
                 command.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
                 command.Parameters.AddWithValue("@Email", user.Email);
                 command.Parameters.AddWithValue("@HashOfPassword", user.HashOfPassword);

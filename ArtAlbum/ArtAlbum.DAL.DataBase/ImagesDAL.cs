@@ -19,7 +19,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             try
             {
-                connectionString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
+                connectionString = ConfigurationManager.ConnectionStrings["ArtAlbumDB"].ConnectionString;
             }
             catch (Exception e)
             {

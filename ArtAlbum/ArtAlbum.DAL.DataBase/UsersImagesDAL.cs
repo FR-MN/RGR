@@ -26,7 +26,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             try
             {
-                connectionString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
+                connectionString = ConfigurationManager.ConnectionStrings["ArtAlbumDB"].ConnectionString;
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ namespace ArtAlbum.DAL.DataBase
             }        
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO UsersImages(userId,imgeId) VALUES(@userId, @imgeId)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO UsersImages(userId,imageId) VALUES(@userId, @imageId)", connection);
                 command.Parameters.AddWithValue("@userId", userId);
                 command.Parameters.AddWithValue("@imageId", imageId);                
                 connection.Open();
@@ -56,7 +56,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT userId,imgeId FROM UsersImages WHERE userId=@userId", connection);
+                SqlCommand command = new SqlCommand("SELECT userId,imageId FROM UsersImages WHERE userId=@userId", connection);
                 command.Parameters.AddWithValue("@userId", userId);
                 connection.Open();
                 var reader = command.ExecuteReader();
@@ -72,7 +72,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT userId,imgeId FROM UsersImages WHERE imageId=@imageId", connection);
+                SqlCommand command = new SqlCommand("SELECT userId,imageId FROM UsersImages WHERE imageId=@imageId", connection);
                 command.Parameters.AddWithValue("@imageId", imageId);
                 connection.Open();
                 var reader = command.ExecuteReader();

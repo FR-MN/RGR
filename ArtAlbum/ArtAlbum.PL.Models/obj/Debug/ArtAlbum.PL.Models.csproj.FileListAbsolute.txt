@@ -5,3 +5,10 @@ C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Ent
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.csprojResolveAssemblyReference.cache
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.dll
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.PL.Models.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.PL.Models.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.csprojResolveAssemblyReference.cache
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.pdb

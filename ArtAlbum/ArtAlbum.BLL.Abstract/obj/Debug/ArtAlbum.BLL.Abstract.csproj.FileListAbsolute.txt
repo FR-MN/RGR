@@ -5,3 +5,10 @@ C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\bin\Debug\ArtAlbum.
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\obj\Debug\ArtAlbum.BLL.Abstract.csprojResolveAssemblyReference.cache
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\obj\Debug\ArtAlbum.BLL.Abstract.dll
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\obj\Debug\ArtAlbum.BLL.Abstract.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\bin\Debug\ArtAlbum.BLL.Abstract.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\bin\Debug\ArtAlbum.BLL.Abstract.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\bin\Debug\ArtAlbum.Entities.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\bin\Debug\ArtAlbum.Entities.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\obj\Debug\ArtAlbum.BLL.Abstract.csprojResolveAssemblyReference.cache
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\obj\Debug\ArtAlbum.BLL.Abstract.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.BLL.Abstract\obj\Debug\ArtAlbum.BLL.Abstract.pdb
