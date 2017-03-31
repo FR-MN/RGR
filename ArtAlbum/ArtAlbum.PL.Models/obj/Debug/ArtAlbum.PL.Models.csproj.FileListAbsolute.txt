@@ -1,0 +1,7 @@
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.PL.Models.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.PL.Models.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.pdb
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.csprojResolveAssemblyReference.cache
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.dll
+C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.pdb
