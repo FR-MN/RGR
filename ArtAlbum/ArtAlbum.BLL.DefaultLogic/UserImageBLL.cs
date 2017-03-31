@@ -48,7 +48,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             if (!IsRelationExist(userId, imageId))
             {
-                throw new ArgumentException("one of the ids are incorrect, user or award doesn't exist");
+                throw new ArgumentException("one of the ids are incorrect, user or image doesn't exist");
             }
             foreach (var user in GetUsersByImage(imageId))
             {
@@ -76,7 +76,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new ArgumentException("image id is incorrect, image doesn't exist", e);
             }
-            return usersDAL.GetAllUsers().Join(relationsDAL.GetUsersIdsByImageId(imageId), user => user.Id, userId => userId, (user, userId) => new UserDTO { Id = userId, FirstName = user.FirstName, DateOfBirth = user.DateOfBirth ,Email = user.Email,HashOfPassword = user.HashOfPassword,LastName = user.LastName,Nickname=user.LastName });
+            return usersDAL.GetAllUsers().Join(relationsDAL.GetUsersIdsByImageId(imageId),
+                user => user.Id, userId => userId, (user, userId) => new UserDTO
+                { Id = userId, FirstName = user.FirstName, DateOfBirth = user.DateOfBirth ,Email = user.Email,HashOfPassword = user.HashOfPassword,LastName = user.LastName,Nickname=user.LastName });
 
         }
         public IEnumerable<ImageDTO> GetImagesByUser(Guid userId)//fix ультрадлинная строчка
@@ -94,7 +96,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new ArgumentException("user id is incorrect, user doesn't exist", e);
             }
-            return imagesDAL.GetAllImages().Join(relationsDAL.GetImagesIdsByUserId(userId), image => image.Id, imageId => imageId, (image, imageId) => new ImageDTO { Id = imageId, Author = image.Author,DateOfCreating = image.DateOfCreating,Description = image.Description});
+            return imagesDAL.GetAllImages().Join(relationsDAL.GetImagesIdsByUserId(userId),
+                   image => image.Id, imageId => imageId, (image, imageId) => new ImageDTO
+                   { Id = imageId,DateOfCreating = image.DateOfCreating,Description = image.Description});
 
         }
         public bool RemoveImageFromUser(Guid userId, Guid imageId)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UsersImages.PL.Models
 {
-    class ImageVM
+    public class ImageVM
     {
     }
 }

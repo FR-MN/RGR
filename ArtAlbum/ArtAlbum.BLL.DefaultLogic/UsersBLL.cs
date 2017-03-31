@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using ArtAlbum.BLL.Abstract;
 using ArtAlbum.Entities;
+using ArtAlbum.DAL.Abstract;
 
 namespace ArtAlbum.BLL.DefaultLogic
 {
     public class UsersBLL : IUserBLL
     {
-        private IUserDAL usersDAL;
-        private IUserImageDAL relationsDAL;
+        private IUsersDAL usersDAL;
+        private IUsersImagesDAL relationsDAL;
 
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL)//не уверен на счет названия
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL)
         {
             if (usersDAL == null || relationsDAL == null)
             {
@@ -23,12 +24,18 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.relationsDAL = relationsDAL;
         }
 
-        private bool IsUserCorrect(UserDTO user)// четкая форма записи,знаю
-
+        //добавить больше проверок и выровнять чтобы код был не в одну строчку
+        private bool IsUserCorrect(UserDTO user)
         {
-            return !string.IsNullOrWhiteSpace(user.FirstName) && !string.IsNullOrWhiteSpace(user.LastName) && user.DateOfBirth < DateTime.Now && user.DateOfBirth.Year >= 1900;
-        }
+           
+            return !string.IsNullOrWhiteSpace(user.FirstName)
+                && !string.IsNullOrWhiteSpace(user.LastName)
+                && !string.IsNullOrWhiteSpace(user.Nickname)
+                && user.DateOfBirth < DateTime.Now 
+                && user.DateOfBirth.Year >= 1900;
 
+        }
+        
         public bool AddUser(UserDTO user)
         {
             if (user == null)
@@ -37,11 +44,11 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             else if (!IsUserCorrect(user))
             {
-                throw new IncorrectDataException();
+                throw new Exception("IncorrectData");
             }
             foreach (var userData in GetAllUsers())
             {
-                if (user.FirstName == userData.FirstName && user.LastName == userData.LastName && user.DateOfBirth == userData.DateOfBirth)// забыл как работает такое и И что будет если фамилии одинаковые...
+                if (user.Email == userData.Email && user.Nickname == userData.Nickname)
                 {
                     return false;
                 }
@@ -64,7 +71,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new ArgumentNullException("user id is null");
             }
-            foreach (var awardId in relationsDAL.GetAwardsIdsByUserId(userId).ToArray())
+            foreach (var awardId in relationsDAL.GetImagesIdsByUserId(userId).ToArray())
             {
                 relationsDAL.RemoveRelation(userId, awardId);
             }
@@ -79,11 +86,11 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             else if (!IsUserCorrect(user))
             {
-                throw new IncorrectDataException();
+                throw new Exception("IncorrectData");
             }
             foreach (var userData in GetAllUsers())
             {
-                if (user.FirstName == userData.FirstName && user.LastName == userData.LastName && user.DateOfBirth == userData.DateOfBirth)// забыл как работает такое и И что будет если фамилии одинаковые...
+                if (user.Email == userData.Email && user.Nickname == userData.Nickname)
                 {
                     return false;
                 }
