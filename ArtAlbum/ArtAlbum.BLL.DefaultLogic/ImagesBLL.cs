@@ -5,79 +5,82 @@ using System.Text;
 using System.Threading.Tasks;
 using ArtAlbum.BLL.Abstract;
 using ArtAlbum.Entities;
-
+using ArtAlbum.DAL.Abstract;
 
 namespace ArtAlbum.BLL.DefaultLogic
 {
     public class ImagesBLL : IImageBLL
     {
         private IImagesDAL imagesDAL;
-        private IUserImageDAL relationsDAL;
+        private IUsersImagesDAL relationsDAL;
 
-        public ImagesBLL(IImagesDAL awardsDAL, IUsersImagesDAL relationsDAL)
+        public ImagesBLL(IImagesDAL imagesDAL, IUsersImagesDAL relationsDAL)
         {
-            if (awardsDAL == null || relationsDAL == null)
+            if (imagesDAL == null || relationsDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
-            this.imagesDAL = awardsDAL;
+            this.imagesDAL = imagesDAL;
             this.relationsDAL = relationsDAL;
         }
-
-        private bool IsImageCorrect(ImageDTO award) // fix;
+        // крутая проверка на нал
+        private bool IsImageCorrect(ImageDTO image) // fix;
         {
-            //Какие проверки надо накладывать на изображение
+            if (image == null)
+            {
+                throw new ArgumentNullException("image data is null");
+            }
             return true;
         }
 
-        public bool AddImage(ImageDTO award)
+        public bool AddImage(ImageDTO image)
         {
-            if (award == null)
+            if (image == null)
             {
-                throw new ArgumentNullException("award data is null");
+                throw new ArgumentNullException("image data is null");
             }
-            else if (!IsImageCorrect(award))
+            else if (!IsImageCorrect(image))
             {
-                throw new IncorrectDataException();
+                throw new Exception("IncorrectDataException");
             }
 
-            return imagesDAL.AddAward(award);
+            return imagesDAL.AddImage(image);
         }
 
         public ImageDTO GetImageById(Guid imageId)
         {
             if (imageId == null)
             {
-                throw new ArgumentNullException("award id is null");
+                throw new ArgumentNullException("image id is null");
             }
-            return imagesDAL.GetAwardById(imageId);
+            return imagesDAL.GetImageById(imageId);
         }
 
         public bool RemoveImageById(Guid imageId)
         {
             if (imageId == null)
             {
-                throw new ArgumentNullException("award id is null");
+                throw new ArgumentNullException("image id is null");
             }
-            foreach (var userId in relationsDAL.GetUsersIdsByAwardId(imageId).ToArray())
+            foreach (var userId in relationsDAL.GetUsersIdsByImageId(imageId).ToArray())
             {
                 relationsDAL.RemoveRelation(userId, imageId);
             }
-            return imagesDAL.RemoveAwardById(imageId);
+            return imagesDAL.RemoveImageById(imageId);
         }
 
-        public bool UpdateImage(ImageDTO award)
+        public bool UpdateImage(ImageDTO image)
         {
-            if (award == null)
+            if (image == null)
             {
-                throw new ArgumentNullException("award data is null");
+                throw new ArgumentNullException("image data is null");
             }
-            else if (!IsImageCorrect(award))
+            else if (!IsImageCorrect(image))
             {
-                throw new IncorrectDataException();
+                throw new Exception("IncorrectDataException");
             }
 
-            return imagesDAL.UpdateAward(award);
+            return imagesDAL.UpdateImage(image);
         }
 
         public IEnumerable<ImageDTO> GetAllImages()
