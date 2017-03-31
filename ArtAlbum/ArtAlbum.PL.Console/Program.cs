@@ -11,9 +11,9 @@ namespace UsersImages.PL.Console
 {
     class Program
     {
-        private static IUserBLL usersBLL;
-        private static IImageBLL imagesBLL;
-        private static IUserImageBLL relationsBLL;
+        private static IUsersBLL usersBLL;
+        private static IImagesBLL imagesBLL;
+        private static IUsersImagesBLL relationsBLL;
         static void Main(string[] args)
         {
             try
@@ -124,7 +124,7 @@ namespace UsersImages.PL.Console
                 System.Console.WriteLine(((UserVM)user).ToString());
                 System.Console.WriteLine("Count of awards of this user: {0}", relationsBLL.GetImagesByUser(user.Id).Count());
                 System.Console.WriteLine("List of awards:\n");
-                ViewImagesFromContainer(relationsBLL.GetImagesByUser(user.Id).OrderBy(image =>image.DateOfCreating));
+                ViewImagesFromContainer(relationsBLL.GetImagesByUser(user.Id).OrderBy(image => image.DateOfCreating));
                 System.Console.ReadLine();
             }
         }
@@ -205,7 +205,7 @@ namespace UsersImages.PL.Console
             {
                 try
                 {
-                    if (usersBLL.AddUser(new UserVM(firstname,lastname,nickname,email, dateOfBirth)))
+                    if (usersBLL.AddUser(new UserVM(firstname, lastname, nickname, email, dateOfBirth)))
                     {
                         System.Console.WriteLine("Successfully added");
                     }
@@ -243,7 +243,7 @@ namespace UsersImages.PL.Console
                     System.Console.WriteLine("Such award already exists");
                 }
             }
-            
+
             var users = usersBLL.GetAllUsers().OrderBy(user => user.LastName);
             int numberUser = GetSelectedNumberOfUser(users);
             if (numberUser != 0)
@@ -345,7 +345,7 @@ namespace UsersImages.PL.Console
                 {
                     try
                     {
-                        if (usersBLL.UpdateUser(new UserVM(user.Id, name,user.LastName ,user.Nickname,user.Email, dateOfBirth )))
+                        if (usersBLL.UpdateUser(new UserVM(user.Id, name, user.LastName, user.Nickname, user.Email, dateOfBirth)))
                         {
                             System.Console.WriteLine("Successfully updated");
                         }
@@ -365,3 +365,4 @@ namespace UsersImages.PL.Console
 
     }
 }
+

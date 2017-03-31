@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3073170-0219-4E05-B9BB-845BB1E4580C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{B31E028B-781A-4F8E-9898-C3EEE13BC8E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UsersImages.PL.Console</RootNamespace>
-    <AssemblyName>UsersImages.PL.Console</AssemblyName>
+    <RootNamespace>ArtAlbum.PL.Models</RootNamespace>
+    <AssemblyName>ArtAlbum.PL.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,24 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ImageVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserVM.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj">
-      <Project>{6a4979d1-9706-4e2a-822a-2aa7120ee892}</Project>
-      <Name>ArtAlbum.BLL.Abstract</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">
-      <Project>{44a12a35-1389-408d-8e08-80a213ae314b}</Project>
+      <Project>{44A12A35-1389-408D-8E08-80A213AE314B}</Project>
       <Name>ArtAlbum.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UsersImages.PL.Models\UsersImages.PL.Models.csproj">
-      <Project>{4a687321-93b7-4607-969a-167e160159a8}</Project>
-      <Name>UsersImages.PL.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

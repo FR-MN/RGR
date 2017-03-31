@@ -1,11 +1,7 @@
 ﻿using ArtAlbum.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UsersImages.PL.Models
+namespace ArtAlbum.PL.Models
 {
     public class ImageVM
     {

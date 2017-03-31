@@ -9,7 +9,7 @@ using ArtAlbum.DAL.Abstract;
 
 namespace ArtAlbum.BLL.DefaultLogic
 {
-    public class ImagesBLL : IImageBLL
+    public class ImagesBLL : IImagesBLL
     {
         private IImagesDAL imagesDAL;
         private IUsersImagesDAL relationsDAL;

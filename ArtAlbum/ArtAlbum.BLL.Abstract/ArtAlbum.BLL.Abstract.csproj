@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IImagesBLL.cs" />
-    <Compile Include="IUserBLL.cs" />
-    <Compile Include="IUserImageBLL.cs" />
+    <Compile Include="IUsersBLL.cs" />
+    <Compile Include="IUsersImagesBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,14 +9,14 @@ using ArtAlbum.DAL.Abstract;
 
 namespace ArtAlbum.BLL.DefaultLogic
 {
-    public class UserImageBLL : IUserImageBLL
+    public class UsersImagesBLL : IUsersImagesBLL
     {
         private IImagesDAL imagesDAL;
         private IUsersDAL usersDAL;
         private IUsersImagesDAL relationsDAL;
 
 
-        public UserImageBLL(IUsersDAL usersDAL, IImagesDAL imagesDAL, IUsersImagesDAL relationsDAL)
+        public UsersImagesBLL(IUsersDAL usersDAL, IImagesDAL imagesDAL, IUsersImagesDAL relationsDAL)
         {
             if (usersDAL == null || imagesDAL == null || relationsDAL == null)
             {

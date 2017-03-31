@@ -8,7 +8,7 @@ using ArtAlbum.Entities;
 
 namespace ArtAlbum.BLL.Abstract
 {
-    public interface IUserBLL
+    public interface IUsersBLL
     {
         bool AddUser(UserDTO user);
         UserDTO GetUserById(Guid userId);

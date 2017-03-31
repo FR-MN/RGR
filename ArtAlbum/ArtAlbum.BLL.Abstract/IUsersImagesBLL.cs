@@ -7,7 +7,7 @@ using ArtAlbum.Entities;
 
 namespace ArtAlbum.BLL.Abstract
 {
-    public interface IUserImageBLL
+    public interface IUsersImagesBLL
     {
         bool AddImageToUser(Guid userId, Guid imageId);
         bool RemoveImageFromUser(Guid userId, Guid imageId);

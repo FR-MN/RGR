@@ -7,7 +7,7 @@ using ArtAlbum.Entities;
 
 namespace ArtAlbum.BLL.Abstract
 {
-    public interface IImageBLL
+    public interface IImagesBLL
     {
         bool AddImage(ImageDTO image);
         ImageDTO GetImageById(Guid imageId);

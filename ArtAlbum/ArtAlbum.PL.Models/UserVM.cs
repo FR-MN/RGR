@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ArtAlbum.Entities;
 using System.Text.RegularExpressions;
 
-namespace UsersImages.PL.Models
+namespace ArtAlbum.PL.Models
 {
     public class UserVM
     {
@@ -94,7 +94,7 @@ namespace UsersImages.PL.Models
             get { return email; }
             set
             {
-                if(string.IsNullOrWhiteSpace(value) && !regexEmail.IsMatch(value))
+                if (string.IsNullOrWhiteSpace(value) && !regexEmail.IsMatch(value))
                 {
                     throw new ArgumentException("incorrect email");
                 }
@@ -128,7 +128,7 @@ namespace UsersImages.PL.Models
 
         public override string ToString()
         {
-            return string.Format("FirstName: {0} , LastName: {1}, date of birth: {2}, age: {3}, email: {4}, nickname: {5}", FirstName,LastName, DateOfBirth.ToShortDateString(), Age, Email, Nickname);
+            return string.Format("FirstName: {0} , LastName: {1}, date of birth: {2}, age: {3}, email: {4}, nickname: {5}", FirstName, LastName, DateOfBirth.ToShortDateString(), Age, Email, Nickname);
         }
 
         public static explicit operator UserVM(UserDTO data)
@@ -137,7 +137,7 @@ namespace UsersImages.PL.Models
         }
         public static implicit operator UserDTO(UserVM data)
         {
-            return new UserDTO() { Id = data.Id, FirstName = data.FirstName, Nickname= data.Nickname, Email = data.Email, DateOfBirth = data.DateOfBirth, HashOfPassword = data.HashOfPassword };
+            return new UserDTO() { Id = data.Id, FirstName = data.FirstName, Nickname = data.Nickname, Email = data.Email, DateOfBirth = data.DateOfBirth, HashOfPassword = data.HashOfPassword };
         }
     }
 }

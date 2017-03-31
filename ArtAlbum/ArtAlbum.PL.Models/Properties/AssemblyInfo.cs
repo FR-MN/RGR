@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("UsersImages.PL.Console")]
+[assembly: AssemblyTitle("ArtAlbum.PL.Models")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UsersImages.PL.Console")]
+[assembly: AssemblyProduct("ArtAlbum.PL.Models")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("b3073170-0219-4e05-b9bb-845bb1e4580c")]
+[assembly: Guid("b31e028b-781a-4f8e-9898-c3eee13bc8e2")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

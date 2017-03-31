@@ -46,8 +46,8 @@ namespace ArtAlbum.DI.Provaiders
         public static IUsersDAL UsersDAL { get; private set; }
         public static IImagesDAL ImagesDAL { get; private set; }
         public static IUsersImagesDAL RelationsDAL { get; private set; }
-        public static IUserBLL UsersBLL { get; private set; }
-        public static IImageBLL ImagesBLL { get; private set; }
-        public static IUserImageBLL RelationsBLL { get; private set; }
+        public static IUsersBLL UsersBLL { get; private set; }
+        public static IImagesBLL ImagesBLL { get; private set; }
+        public static IUsersImagesBLL RelationsBLL { get; private set; }
     }
 }
