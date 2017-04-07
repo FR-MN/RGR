@@ -38,7 +38,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new ArgumentException("incorrect description");
             }
-            if (image.Id != null)
+            if (image.Id == null)
             {
                 throw new ArgumentException("incorrect Id");
             }
@@ -91,7 +91,14 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new Exception("IncorrectDataException");
             }
-
+            try
+            {
+                imagesDAL.GetImageById(image.Id);
+            }
+            catch
+            {
+                throw new ArgumentNullException("such image does not exist");
+            }
             return imagesDAL.UpdateImage(image);
         }
 

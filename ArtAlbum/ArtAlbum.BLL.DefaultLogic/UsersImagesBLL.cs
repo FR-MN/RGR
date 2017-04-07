@@ -75,7 +75,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             return usersDAL.GetAllUsers().Join(relationsDAL.GetUsersIdsByImageId(imageId),
                 user => user.Id, userId => userId, (user, userId) => new UserDTO
-                { Id = userId, FirstName = user.FirstName, DateOfBirth = user.DateOfBirth ,Email = user.Email,HashOfPassword = user.HashOfPassword,LastName = user.LastName,Nickname=user.LastName });
+                { Id = userId, FirstName = user.FirstName, DateOfBirth = user.DateOfBirth ,Email = user.Email,HashOfPassword = user.HashOfPassword,LastName = user.LastName,Nickname=user.Nickname });
 
         }
         public IEnumerable<ImageDTO> GetImagesByUser(Guid userId)

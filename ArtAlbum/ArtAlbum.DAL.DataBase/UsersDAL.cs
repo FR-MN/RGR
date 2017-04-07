@@ -42,7 +42,7 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Users(Id, FirstName, LastName, Nickname, DateOfBirth, Email, HashOfPassword) VALUES(@Id, @FirstName, @LastName, @Nickname @DateOfBirth, @Email, @HashOfPassword)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Users(Id, FirstName, LastName, Nickname, DateOfBirth, Email, HashOfPassword) VALUES(@Id, @FirstName, @LastName, @Nickname, @DateOfBirth, @Email, @HashOfPassword)", connection);
                 command.Parameters.AddWithValue("@Id", user.Id);
                 command.Parameters.AddWithValue("@FirstName", user.FirstName);
                 command.Parameters.AddWithValue("@LastName", user.LastName);

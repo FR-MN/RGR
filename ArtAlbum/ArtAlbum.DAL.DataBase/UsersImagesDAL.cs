@@ -64,7 +64,6 @@ namespace ArtAlbum.DAL.DataBase
                 {
                     yield return (Guid)reader["imageId"];
                 }
-                throw new NotFoundDataException("images not found");
             }
         }
 
@@ -80,7 +79,6 @@ namespace ArtAlbum.DAL.DataBase
                 {
                     yield return(Guid)reader["userId"];
                 }
-                throw new NotFoundDataException("users not found");
             }
         }
 
@@ -88,7 +86,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("DELETE FROM UsersImages WHERE userId=@userId AND imagesId=@imagesId", connection);
+                SqlCommand command = new SqlCommand("DELETE FROM UsersImages WHERE userId=@userId AND imageId=@imageId", connection);
                 command.Parameters.AddWithValue("@userId", userId);
                 command.Parameters.AddWithValue("@imageId", imageId);
                 connection.Open();

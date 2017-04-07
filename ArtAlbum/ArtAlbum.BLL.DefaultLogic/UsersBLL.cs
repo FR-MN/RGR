@@ -106,9 +106,17 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new Exception("IncorrectData");
             }
+            try
+            {
+                usersDAL.GetUserById(user.Id);
+            }
+            catch
+            {
+                throw new ArgumentNullException("such user does not exist");
+            }
             foreach (var userData in GetAllUsers())
             {
-                if (user.Email == userData.Email && user.Nickname == userData.Nickname)
+                if (user.Email == userData.Email && user.Nickname == userData.Nickname && user.Id != userData.Id)
                 {
                     return false;
                 }
