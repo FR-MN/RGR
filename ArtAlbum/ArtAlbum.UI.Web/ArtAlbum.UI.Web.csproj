@@ -137,6 +137,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ImageVM.cs" />
+    <Compile Include="Models\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +154,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\ArtAlbum\Index.cshtml" />
+    <Content Include="Views\ArtAlbum\AddImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,8 +165,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\ArtAlbum\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj">
+      <Project>{6A4979D1-9706-4E2A-822A-2AA7120EE892}</Project>
+      <Name>ArtAlbum.BLL.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtAlbum.BLL.DefaultLogic\ArtAlbum.BLL.DefaultLogic.csproj">
+      <Project>{0C1F5C86-A0C6-412A-B23F-6A7E9E3B48EF}</Project>
+      <Name>ArtAlbum.BLL.DefaultLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtAlbum.DI.Provaiders\ArtAlbum.DI.Provaiders.csproj">
+      <Project>{DC524918-B567-462B-A90F-742C54F1EB44}</Project>
+      <Name>ArtAlbum.DI.Provaiders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">
+      <Project>{44A12A35-1389-408D-8E08-80A213AE314B}</Project>
+      <Name>ArtAlbum.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

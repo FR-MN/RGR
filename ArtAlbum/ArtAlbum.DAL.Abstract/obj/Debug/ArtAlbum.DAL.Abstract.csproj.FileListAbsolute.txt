@@ -5,3 +5,10 @@ C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.csprojResolveAssemblyReference.cache
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.dll
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.DAL.Abstract.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.DAL.Abstract.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.Entities.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.Entities.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.csprojResolveAssemblyReference.cache
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.dll
+D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.pdb

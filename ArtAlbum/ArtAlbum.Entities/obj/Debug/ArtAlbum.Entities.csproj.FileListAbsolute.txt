@@ -7,3 +7,4 @@ C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.Entities\bin\Debug\ArtAlbum.Enti
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.Entities\obj\Debug\ArtAlbum.Entities.csprojResolveAssemblyReference.cache
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.Entities\obj\Debug\ArtAlbum.Entities.dll
 C:\Users\RoLand\Documents\RGR\ArtAlbum\ArtAlbum.Entities\obj\Debug\ArtAlbum.Entities.pdb
+D:\Development\RGR\ArtAlbum\ArtAlbum.Entities\obj\Debug\ArtAlbum.Entities.csprojResolveAssemblyReference.cache

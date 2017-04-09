@@ -11,5 +11,7 @@ namespace ArtAlbum.Entities
         public Guid Id { get; set; }
         public string Description { get; set; }           
         public DateTime DateOfCreating { get; set; }
+        public byte[] Data { get; set; }
+        public string Type { get; set; }
     }
 }

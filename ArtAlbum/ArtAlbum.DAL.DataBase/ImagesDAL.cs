@@ -41,10 +41,12 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Images(Id, Description, DateOfCreating) VALUES(@Id, @Description, @DateOfCreating)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Images(Id, Description, DateOfCreating, Data, Type) VALUES(@Id, @Description, @DateOfCreating, @Data, @Type)", connection);
                 command.Parameters.AddWithValue("@Id", image.Id);
                 command.Parameters.AddWithValue("@Description", image.Description);
                 command.Parameters.AddWithValue("@DateOfCreating", image.DateOfCreating);
+                command.Parameters.AddWithValue("@Data", image.Data);
+                command.Parameters.AddWithValue("@Type", image.Type);
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
                 return countRow == 1;
@@ -55,7 +57,7 @@ namespace ArtAlbum.DAL.DataBase
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT Id,Description,DateOfCreating FROM Images", connection);
+                SqlCommand command = new SqlCommand("SELECT Id,Description,DateOfCreating,Data,Type FROM Images", connection);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -64,7 +66,9 @@ namespace ArtAlbum.DAL.DataBase
                     {
                         Id = (Guid)reader["Id"],
                         Description = (string)reader["Description"],
-                        DateOfCreating = (DateTime)reader["DateOfCreating"]
+                        DateOfCreating = (DateTime)reader["DateOfCreating"],
+                        Data = (byte[])reader["Data"],
+                        Type = (string)reader["Type"]
                     };
                 }
             }
@@ -78,7 +82,7 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT Id,Description,DateOfCreating FROM Images WHERE Id=@Id", connection);
+                SqlCommand command = new SqlCommand("SELECT Id,Description,DateOfCreating,Data,Type FROM Images WHERE Id=@Id", connection);
                 command.Parameters.AddWithValue("@Id", imageId);
                 connection.Open();
                 var reader = command.ExecuteReader();
@@ -88,7 +92,9 @@ namespace ArtAlbum.DAL.DataBase
                     {
                         Id = (Guid)reader["Id"],
                         Description = (string)reader["Description"],
-                        DateOfCreating = (DateTime)reader["DateOfCreating"]
+                        DateOfCreating = (DateTime)reader["DateOfCreating"],
+                        Data = (byte[])reader["Data"],
+                        Type = (string)reader["Type"]
                     };
                 }
                 throw new NotFoundDataException("image not found");
@@ -119,10 +125,12 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("UPDATE Images SET Id=@Id, Description=@Description, DateOfCreating=@DateOfCreating WHERE Id=@Id", connection);
+                SqlCommand command = new SqlCommand("UPDATE Images SET Id=@Id, Description=@Description, DateOfCreating=@DateOfCreating, Data=@Data, Type=@Type WHERE Id=@Id", connection);
                 command.Parameters.AddWithValue("@Id", image.Id);
                 command.Parameters.AddWithValue("@Description", image.Description);
                 command.Parameters.AddWithValue("@DateOfCreating", image.DateOfCreating);
+                command.Parameters.AddWithValue("@Data", image.Data);
+                command.Parameters.AddWithValue("@Type", image.Type);
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
                 return countRow == 1;

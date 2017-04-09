@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Изображения</h2>
+<table class="table table-striped">
+    <tr>
+        <td>Дата создания</td>
+        <td>Описание</td>
+        <td>Изображение</td>
+    </tr>
+    @{
+        foreach (var image in Model)
+        {
+            <tr>
+                <td>@image.DateOfCreating</td>
+                <td>@image.Description</td>
+                <td><img src="/artalbum/getimage/@image.Id" /></td>
+            </tr>
+        }
+    }
+</table>
+
