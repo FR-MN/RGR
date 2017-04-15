@@ -2,9 +2,243 @@
 @{
     ViewBag.Title = "AddImage";
 }
+<div class="container ">
+    <ul id="gn-menu" class="gn-menu-main">
+        <li class="gn-trigger">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+                <div class="gn-scroller">
+                    <ul class="gn-menu">
+                        <li class="gn-search-item">
+                            <input placeholder="Search" type="search" class="gn-search">
+                            <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                        </li>
+                        <li>
+                            <a href="#about" class="gn-icon gn-icon-download">About</a>
+                        </li>
+                        <li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
+                        <li><a href="#works" class="gn-icon gn-icon-help">Works</a></li>
+                        <li>
+                            <a href="#contact" class="gn-icon gn-icon-archive">Contact</a>
+                        </li>
+                    </ul>
+                </div><!-- /gn-scroller -->
+            </nav>
+        </li>
+        <li><a href="index.html">AA</a></li>
 
-<h2>Добавить изображение</h2>
-<form method="post" enctype="multipart/form-data">
+        <li class="right">
+            <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+                Иван Иванов
+                <ul class="dropdown">
+                    <li><a href="#"><i class="icon-user"></i>Профиль</a></li>
+                    <li><a href="#"><i class="icon-cog"></i>Настройки</a></li>
+                    <li><a href="#"><i class="icon-remove"></i>Выйти</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="container bg-gray ">
+    <div class="row">
+        <section class="home-section text-center bg-gray">
+
+            <div id="main info" style="text-align: center" class="col-xs-12 col-sm-12 col-md-4">
+                <div class="row">
+
+
+                    <h2 class="Header">Krutoy Nick</h2>
+
+                    <div class="col-md-3">
+                        <a href="img/works/1.jpg" data-lightbox-gallery="gallery1">
+                            <img width="250" height="250" src="img/k5wifKaPaZs.jpg" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="list_dropdowns" class="col-md-4">
+
+                        <div class="dropdown_menu">
+                            <h3><span>Settings</span></h3>
+                            <ul class="list_item" style="display: none;">
+                                <li> <a>Change Avatar</a></li>
+                                <li>Change My page</li>
+                                <li>Delete My page</li>
+
+                            </ul>
+                        </div>
+
+                        <!--<button class="btn btn-primary ">
+
+                        </button>
+                        <button class="btn btn-primary ">
+
+                        </button>
+                        <button class="btn btn-primary">
+
+                        </button>-->
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="addimage">
+
+
+                            <a href="#loadimage" class="btn-primary ">Add image</a>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <h2>favorite images</h2>
+                <div class="row gallery-item">
+                    <div class="col-md-3">
+                        <a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/2.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/3.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/4.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/5.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/6.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/7.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="img/works/8.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<a href="#x" class="overlay" id="loadimage"></a>
+<div class="popup">
+    <form method="post" enctype="multipart/form-data">
+        <label>
+            Описание
+            <input name="Description" type="text" />
+        </label>
+        <label>
+            Загрузить изображение
+            <input name="dataImage" type="file" />
+        </label>
+        <button>Добавить</button>
+    </form>
+    @*<form action="upload.php">
+
+       
+            <p>Drag an image from your desktop on to the drop zone or jast push to button</p>
+
+            <div id="holder" style="width:100px; height:100px; background-color:gray">
+
+            </div>
+            <p>
+                <input type="file" name="photo" multiple accept="image/*,image/jpeg">
+                <input type="submit" value="Отправить">
+            </p>
+            <p>Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
+
+
+        
+
+
+
+    </form>*@
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <h2>My images</h2>
+            <div class="row gallery-item">
+                <div class="col-md-4">
+                    <a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/1.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/2.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/3.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/4.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/5.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/6.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/7.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                        <img src="img/works/8.jpg" class="img-responsive" alt="img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@*<h2>Добавить изображение</h2>*@
+@*<form method="post" enctype="multipart/form-data">
     <label>
         Описание
         <input name="Description" type="text" />
@@ -14,5 +248,5 @@
         <input name="dataImage" type="file" />
     </label>
     <button>Добавить</button>
-</form>
+</form>*@
 
