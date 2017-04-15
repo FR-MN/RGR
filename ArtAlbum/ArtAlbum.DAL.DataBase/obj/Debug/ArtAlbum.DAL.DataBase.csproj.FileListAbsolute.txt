@@ -16,3 +16,12 @@ D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.Entities.pd
 D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\obj\Debug\ArtAlbum.DAL.DataBase.csprojResolveAssemblyReference.cache
 D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\obj\Debug\ArtAlbum.DAL.DataBase.dll
 D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\obj\Debug\ArtAlbum.DAL.DataBase.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.DAL.DataBase.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.DAL.DataBase.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.DAL.Abstract.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.Entities.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.DAL.Abstract.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\bin\Debug\ArtAlbum.Entities.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\obj\Debug\ArtAlbum.DAL.DataBase.csprojResolveAssemblyReference.cache
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\obj\Debug\ArtAlbum.DAL.DataBase.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.DataBase\obj\Debug\ArtAlbum.DAL.DataBase.pdb
