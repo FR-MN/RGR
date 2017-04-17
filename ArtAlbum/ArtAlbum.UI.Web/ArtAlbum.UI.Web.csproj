@@ -117,17 +117,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\drag_drop.css" />
+    <Content Include="Content\DropDown.css" />
+    <Content Include="Content\nivo-lightbox-theme\default\close%402x.png" />
+    <Content Include="Content\nivo-lightbox-theme\default\close.png" />
+    <Content Include="Content\nivo-lightbox-theme\default\default.css" />
+    <Content Include="Content\nivo-lightbox-theme\default\loading%402x.gif" />
+    <Content Include="Content\nivo-lightbox-theme\default\loading.gif" />
+    <Content Include="Content\nivo-lightbox-theme\default\next%402x.png" />
+    <Content Include="Content\nivo-lightbox-theme\default\next.png" />
+    <Content Include="Content\nivo-lightbox-theme\default\prev%402x.png" />
+    <Content Include="Content\nivo-lightbox-theme\default\prev.png" />
+    <Content Include="Content\nivo-lightbox.css" />
+    <Content Include="Content\Popup.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\Style1.css" />
+    <Content Include="Content\wrapper-dropdown.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\classie.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\drag_drop.js" />
+    <Content Include="Scripts\dropdown_menu.js" />
+    <Content Include="Scripts\gnmenu.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.scrollTo.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\nivo-lightbox.min.js" />
+    <Content Include="Scripts\Popup.js" />
+    <Content Include="Scripts\stellar.js" />
+    <Content Include="Scripts\wrapper_dropdown.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\color\" />
+    <Folder Include="Content\font-awesome\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj">
