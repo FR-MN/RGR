@@ -163,10 +163,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArtAlbumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ImageVM.cs" />
+    <Compile Include="Models\RegisterVM.cs" />
     <Compile Include="Models\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -185,6 +187,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ArtAlbum\Index.cshtml" />
     <Content Include="Views\ArtAlbum\AddImage.cshtml" />
+    <Content Include="Views\Register\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
