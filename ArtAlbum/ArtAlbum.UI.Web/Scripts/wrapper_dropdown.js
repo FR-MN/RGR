@@ -20,7 +20,7 @@ $(function () {
     var dd = new DropDown($('#dd'));
 
     $(document).click(function () {
-        // all dropdowns
+        
         $('.wrapper-dropdown-5').removeClass('active');
     });
 

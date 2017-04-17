@@ -1,14 +1,15 @@
-﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+﻿@*@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>*@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Изображения</h2>
 @Html.ActionLink("Register", "Register", "Register")
 
 
-<table class="table table-striped">
+@*<table class="table table-striped">
     <tr>
         <td>Дата создания</td>
         <td>Описание</td>
@@ -24,7 +25,7 @@
             </tr>
         }
     }
-</table>
+</table>*@
 
 <div class="container">
 
@@ -96,33 +97,33 @@
                 <h2>followers activity</h2>
                 <div class="row gallery-item">
                     <div class="col-md-4">
-                        <a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/1.jpg" class="img-responsive" alt="img">
+                        <a href="~/Contentimg/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/2.jpg" class="img-responsive" alt="img">
+                        <a href="~/Contentimg/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Contentimg/works/2.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/3.jpg" class="img-responsive" alt="img">
+                        <a href="~/Contentimg/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Contentimg/works/3.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/4.jpg" class="img-responsive" alt="img">
+                        <a href="~/Contentimg/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Contentimg/works/4.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/5.jpg" class="img-responsive" alt="img">
+                        <a href="img~/Content/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Contentimg/works/5.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/6.jpg" class="img-responsive" alt="img">
+                        <a href="~/Contentimg/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Contentimg/works/6.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                 </div>
@@ -168,8 +169,8 @@
 
                 <div class="row gallery-item">
                     <div class="col-md-4">
-                        <a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/1.jpg" class="img-responsive" alt="img">
+                        <a href="~/Contentimg/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Contentimg/works/1.jpg" class="img-responsive" alt="img">
                         </a>
                     </div>
                     <div class="col-md-4">

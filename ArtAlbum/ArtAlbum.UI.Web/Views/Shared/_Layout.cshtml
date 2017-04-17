@@ -19,7 +19,7 @@
     <link href="~/Content/DropDown.css" rel="stylesheet" />
     <style>
         body {
-            background-image: url('~/Content/1.PNG');
+            background-image: url('~/Content/img/1.PNG');
         }
     </style>
     <link href="~/Content/wrapper-dropdown.css" rel="stylesheet" />
@@ -28,6 +28,7 @@
     <link href="~/Content/Popup.css" rel="stylesheet" />
 
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
 </head>
 <body>
     <div class="container ">
@@ -50,16 +51,16 @@
                     </div><!-- /gn-scroller -->
                 </nav>
             </li>
+            <li >
+
+
+                <a href="@Html.ActionLink("AA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })"></a>
+                
+            </li>
             <li>
-
-
-                <a href="index.html">
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
-
-                    <span >AA</span>
-
-                </a>
+                <a href="~/Views/Register/Register.cshtml">Registration</a>
+                Ссылка не работает короче
+               
             </li>
 
             <li class="right">
@@ -82,7 +83,7 @@
             </li>-->
         </ul>
     </div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -97,7 +98,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
 
     <div class="container body-content">
         @RenderBody()
@@ -106,6 +107,7 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+   
 
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
@@ -122,7 +124,8 @@
 
     <script src="~/Scripts/wrapper_dropdown.js"></script>
     <script src="~/Scripts/Popup.js"></script>
-    <script src="~/Scripts/drag_drop.js"></script>
+    
+    
     
 </body>
 </html>

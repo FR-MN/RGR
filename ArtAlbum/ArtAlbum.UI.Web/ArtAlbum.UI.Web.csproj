@@ -139,38 +139,9 @@
     <Content Include="Content\Popup.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\Style1.css" />
     <Content Include="Content\wrapper-dropdown.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\DSC05967.JPG" />
-    <Content Include="img\DSC05968.JPG" />
-    <Content Include="img\DSC05969.JPG" />
-    <Content Include="img\DSC05970.JPG" />
-    <Content Include="img\DSC05971.JPG" />
-    <Content Include="img\DSC05972.JPG" />
-    <Content Include="img\DSC05973.JPG" />
-    <Content Include="img\DSC05974.JPG" />
-    <Content Include="img\DSC05975.JPG" />
-    <Content Include="img\DSC05976.JPG" />
-    <Content Include="img\DSC05977.JPG" />
-    <Content Include="img\DSC05978.JPG" />
-    <Content Include="img\DSC05979.JPG" />
-    <Content Include="img\DSC05980.JPG" />
-    <Content Include="img\DSC05981.JPG" />
-    <Content Include="img\k5wifKaPaZs.jpg" />
-    <Content Include="img\team\1.jpg" />
-    <Content Include="img\team\2.jpg" />
-    <Content Include="img\team\3.jpg" />
-    <Content Include="img\team\4.jpg" />
-    <Content Include="img\works\1.jpg" />
-    <Content Include="img\works\2.jpg" />
-    <Content Include="img\works\3.jpg" />
-    <Content Include="img\works\4.jpg" />
-    <Content Include="img\works\5.jpg" />
-    <Content Include="img\works\6.jpg" />
-    <Content Include="img\works\7.jpg" />
-    <Content Include="img\works\8.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -259,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj">
