@@ -21,9 +21,9 @@ namespace ArtAlbum.BLL.DefaultLogic
 
         static UsersBLL()
         {
-            regexEmail = new Regex(@"^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$");
-            regexNickname = new Regex(@"^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$");
-            regexName = new Regex(@"^[a-zA-Zа-яА-Я]+((-[a-zA-Zа-яА-Я]+)+)|([a-zA-Zа-яА-Я]+)$");
+            regexEmail = new Regex(@"^[-\w.]+@([A-z0-9][-A-z0-9]*\.)+[A-z]{2,4}$");
+            regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
+            regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
         public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL)
         {
