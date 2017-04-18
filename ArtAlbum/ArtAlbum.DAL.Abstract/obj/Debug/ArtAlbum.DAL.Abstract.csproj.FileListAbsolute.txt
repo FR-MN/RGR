@@ -12,10 +12,3 @@ D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.Entities.pd
 D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.csprojResolveAssemblyReference.cache
 D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.dll
 D:\Development\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.pdb
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.DAL.Abstract.dll
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.DAL.Abstract.pdb
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.Entities.dll
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\bin\Debug\ArtAlbum.Entities.pdb
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.csprojResolveAssemblyReference.cache
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.dll
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DAL.Abstract\obj\Debug\ArtAlbum.DAL.Abstract.pdb

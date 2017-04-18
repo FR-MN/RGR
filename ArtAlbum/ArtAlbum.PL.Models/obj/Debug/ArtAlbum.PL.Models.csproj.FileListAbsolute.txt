@@ -12,10 +12,3 @@ D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.pdb
 D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.csprojResolveAssemblyReference.cache
 D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.dll
 D:\Development\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.pdb
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.PL.Models.dll
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.PL.Models.pdb
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.dll
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\bin\Debug\ArtAlbum.Entities.pdb
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.csprojResolveAssemblyReference.cache
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.dll
-C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.PL.Models\obj\Debug\ArtAlbum.PL.Models.pdb
