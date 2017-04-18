@@ -14,28 +14,41 @@ namespace ArtAlbum.UI.Web.Controllers
         {
             return View();
         }
+
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Register(RegisterVM registerData)
         {
-            if(registerData!=null)
+            if (registerData != null)
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
-                    //todo add user
+                    UserVM.Create(registerData);
                 }
             }
             return View(registerData);
         }
-        public JsonResult CheckEmail(string Email)
+        public JsonResult CheckEmail(string email)
         {
             var res = true;
+            foreach (var user in UserVM.GetAllUsers())
+            {
+                res = user.Email != email;
+            }
             return Json(res, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult CheckLogin(string Login)
+        public JsonResult CheckNickname(string nickname)
         {
             var res = true;
+            foreach (var user in UserVM.GetAllUsers())
+            {
+                res = user.Nickname != nickname;
+            }
             return Json(res, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult CheckDateOfBirth(DateTime dateOfBirth)
+        {
+            return Json(dateOfBirth < DateTime.Now, JsonRequestBehavior.AllowGet);
         }
     }
 }

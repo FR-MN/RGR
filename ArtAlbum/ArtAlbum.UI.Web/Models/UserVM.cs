@@ -31,7 +31,7 @@ namespace ArtAlbum.UI.Web.Models
             regexName = new Regex(@"^[a-zA-Zа-яА-Я]+((-[a-zA-Zа-яА-Я]+)+)|([a-zA-Zа-яА-Я]+)$");
         }
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public int HashOfPassword { get; set; }
         public string FirstName
         {
@@ -105,6 +105,11 @@ namespace ArtAlbum.UI.Web.Models
                 }
                 return age;
             }
+        }
+
+        internal static bool Create(UserVM user)
+        {
+            return usersLogic.AddUser(user);
         }
 
         public override string ToString()
