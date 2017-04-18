@@ -1,3 +1,27 @@
 ﻿#list_dropdowns{
     cursor:pointer;
 }
+#list_dropdowns{
+    cursor:pointer;
+}
+.dropdown_menu:after { 
+    position: relative;
+    content: "";
+    width: 0;
+    height: 0;
+    
+    top: 50%;
+    left: 90px;
+    top:-40px;
+    border-width: 10px 10px 0px 10px;
+    border-style: solid;
+    border-color:  #eb5d1e transparent;
+
+
+     outline: none;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}

@@ -28,6 +28,7 @@
     <link href="~/Content/Popup.css" rel="stylesheet" />
 
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
@@ -46,6 +47,11 @@
                                 <a href="#about" class="gn-icon gn-icon-download">About</a>
                             </li>
                             <li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
+                            <li>
+                                <a href="@Url.Action("Register", "Register")">Registration</a>
+                               
+
+                            </li>
 
                         </ul>
                     </div><!-- /gn-scroller -->
@@ -57,11 +63,7 @@
                 <a href="@Html.ActionLink("AA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })"></a>
                 
             </li>
-            <li>
-                <a href="~/Views/Register/Register.cshtml">Registration</a>
-                Ссылка не работает короче
-               
-            </li>
+           
 
             <li class="right">
                 <div id="dd" class="wrapper-dropdown-5" tabindex="1">
