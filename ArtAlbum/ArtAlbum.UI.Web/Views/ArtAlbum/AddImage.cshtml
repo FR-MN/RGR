@@ -1,18 +1,211 @@
 ﻿
 @{
     ViewBag.Title = "AddImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h2>Добавить изображение</h2>
-<form method="post" enctype="multipart/form-data">
-    <label>
-        Описание
-        <input name="Description" type="text" />
-    </label>
-    <label>
-        Загрузить изображение
-        <input name="dataImage" type="file" />
-    </label>
-    <button>Добавить</button>
-</form>
 
+
+
+    <div class="container bg-gray ">
+        <div class="row">
+            <section class="home-section text-center bg-gray">
+
+                <div id="main info"  class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="row">
+
+
+                        
+
+                        <div class="col-md-5" style="align-self:center;">
+                            <h2>Privet</h2>
+                            @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
+                                
+                            </a>*@
+                            <img  width="250" height="250" src="~/Content/img/k5wifKaPaZs.jpg" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="list_dropdowns" class="col-md-4">
+
+                            <div class="dropdown_menu">
+                                <h3><span>Settings</span></h3>
+                                <ul class="list_item" style="display: none;">
+                                    <li> <a>Change Avatar</a></li>
+                                    <li>Change My page</li>
+                                    <li>Delete My page</li>
+
+                                </ul>
+                            </div>
+
+                            <!--<button class="btn btn-primary ">
+
+                            </button>
+                            <button class="btn btn-primary ">
+
+                            </button>
+                            <button class="btn btn-primary">
+
+                            </button>-->
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="addimage">
+                                <a href="#loadimage" class="btn-primary ">Add image</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-xs-12 col-md-8 col-lg-8">
+                    <h2>Favorite images</h2>
+                    <div class="row gallery-item">
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/2.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/3.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/4.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/5.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/6.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/7.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Content/img/works/9.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                <img src="~/Content/img/works/8.jpg" class="img-responsive" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <a href="#x" class="overlay" id="loadimage"></a>
+    <div class="popup">
+        <form method="post" enctype="multipart/form-data">
+            <label>
+                Описание
+                <input name="Description" type="text" />
+            </label>
+            <label>
+                Загрузить изображение
+                <input name="dataImage" type="file" />
+            </label>
+            <button>Добавить</button>
+        </form>
+        @*<form action="upload.php">
+
+
+                    <p>Drag an image from your desktop on to the drop zone or jast push to button</p>
+
+                    <div id="holder" style="width:100px; height:100px; background-color:gray">
+
+                    </div>
+                    <p>
+                        <input type="file" name="photo" multiple accept="image/*,image/jpeg">
+                        <input type="submit" value="Отправить">
+                    </p>
+                    <p>Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
+
+
+
+
+
+
+            </form>*@
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h2>My images</h2>
+                <div class="row gallery-item">
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*<h2>Добавить изображение</h2>*@
+    @*<form method="post" enctype="multipart/form-data">
+            <label>
+                Описание
+                <input name="Description" type="text" />
+            </label>
+            <label>
+                Загрузить изображение
+                <input name="dataImage" type="file" />
+            </label>
+            <button>Добавить</button>
+        </form>*@

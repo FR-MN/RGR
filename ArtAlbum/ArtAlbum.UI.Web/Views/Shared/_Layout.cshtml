@@ -1,15 +1,89 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta charset="utf-8">
+
+    <title>Art album</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/nivo-lightbox.css" rel="stylesheet" />
+    <link href="~/Content/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="~/Content/style.css" rel="stylesheet"/>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/color/default.css" rel="stylesheet"/>
+
+    <link href="~/Content/DropDown.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url('~/Content/img/1.PNG');
+        }
+    </style>
+    <link href="~/Content/wrapper-dropdown.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Popup.css" rel="stylesheet" />
+
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container ">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+                            <li>
+                                <a href="#about" class="gn-icon gn-icon-download">About</a>
+                            </li>
+                            <li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
+
+                        </ul>
+                    </div><!-- /gn-scroller -->
+                </nav>
+            </li>
+            <li >
+
+
+                <a href="@Html.ActionLink("AA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })"></a>
+                
+            </li>
+            <li>
+                <a href="~/Views/Register/Register.cshtml">Registration</a>
+                Ссылка не работает короче
+               
+            </li>
+
+            <li class="right">
+                <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+                    Иван Иванов
+                    <ul class="dropdown">
+                        <li><a href="#"><i class="icon-user"></i>Профиль</a></li>
+                        <li><a href="#"><i class="icon-cog"></i>Настройки</a></li>
+                        <li><a href="#"><i class="icon-remove"></i>Выйти</a></li>
+                    </ul>
+                </div>
+            </li>
+            <!--<li class="hidden-xs">
+                <ul class="company-social">
+                    <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                    <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </li>-->
+        </ul>
+    </div>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +98,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
 
     <div class="container body-content">
         @RenderBody()
@@ -33,8 +107,25 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+   
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/gnmenu.js"></script>
+    <script src="~/Scripts/jquery.scrollTo.js"></script>
+    <script src="~/Scripts/nivo-lightbox.min.js"></script>
+    <script src="~/Scripts/stellar.js"></script>
+    
+    <script src="~/Scripts/custom.js"></script>
+    
+    <script src="~/Scripts/dropdown_menu.js"></script>
+
+    <script src="~/Scripts/wrapper_dropdown.js"></script>
+    <script src="~/Scripts/Popup.js"></script>
+    
+    
+    
 </body>
 </html>
