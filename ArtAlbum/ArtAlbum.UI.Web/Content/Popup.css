@@ -1,4 +1,7 @@
-﻿.popup h1,
+﻿
+
+/*** Стили относящиеся к модальному окну и содержанию ***/
+.popup h1,
 .popup h2,
 .popup h3 {
 color: #008000;
@@ -90,10 +93,10 @@ transform: translate(-50%, -50%);
 .close {
 position: absolute;
 padding: 0;
-/*top: -10px;
+top: -10px;
 right: -10px;
 width: 22px;
-height: 22px;*/
+height: 22px;
 border: 2px solid #ccc;
 -webkit-border-radius: 50%;
 -moz-border-radius: 50%;
@@ -146,10 +149,10 @@ padding: 10px;
 display: block;
 border: none;
 width: 100%;
-height: 100%;
+height: auto;
 }
 /* миниатюры слева/справа */
-/*.pic-left, 
+.pic-left, 
 .pic-right {
     width: 25%;
     height: auto;
@@ -161,4 +164,21 @@ height: 100%;
 .pic-right {
     float: right;
     margin: 5px 0 5px 15px;
-}*/
+}
+/* встроенные элементы м-медиа, фреймы */
+/* адаптивный блок видео */
+.video { 
+position: relative; 
+padding-bottom: 56.25%; 
+height: 0; 
+overflow:hidden; 
+} 
+.video iframe, 
+.video object, 
+.video embed {
+position: absolute; 
+top: 0; 
+left: 0; 
+width: 100%;
+height: 100%; 
+}
