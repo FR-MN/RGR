@@ -15,7 +15,7 @@
                 <div id="main info"  class="col-xs-12 col-sm-12 col-md-4">
                     <div class="row">
 
-                        <div class="col-md-5" style="align-self:center;">
+                        <div class="col-md-8" style="margin: 0 auto;">
                             <h2>Privet</h2>
                             @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
                                 
@@ -25,9 +25,9 @@
                     </div>
                     <div class="row">
                        <br /> 
-                            <div id="list_dropdowns" class="col-md-5">
+                            <div id="list_dropdowns" class="col-md-8">
                                @*<div class="arrow-top">*@
-                                    <div class="dropdown_menu">
+                                    <div class="dropdown_menu" ">
                                         
                                             <h3  ><span>Settings</span></h3>
                                         
@@ -55,82 +55,59 @@
                     </div>
                         </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            
-                            <div class="addimage">
+                        <div class="col-md-8">
+                            <p>Для загрузки нового изоюражения в свой альбом нажмите на кнопку </p>
+                            <div class="addimage" style="margin: 0 auto;">
                                  <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span> Add image</a>
-                            </div>
+                                <a href="#x" class="overlay" id="loadimage"></a>
+                                <div class="popup">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <label>
+                                            Описание
+                                            <input name="Description" type="text" />
+                                        </label>
+                                        <label>
+                                            Загрузить изображение
+                                            <input name="dataImage" type="file" />
+                                        </label>
+                                        <button class="button15">Добавить</button>
+                                    </form>
 
 
-                        </div>
-                    </div>
+                                    <input type="file" id="files" name="files[]" multiple />
+                                    <output id="list"></output>
 
-                </div>
+                                    <script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
 
-                <div class="col-xs-12 col-md-8 col-lg-8">
-                    <h2>Favorite images</h2>
-                    <div class="row gallery-item">
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/2.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/3.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/4.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/5.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/6.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/7.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="~/Content/img/works/9.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                <img src="~/Content/img/works/8.jpg" class="img-responsive" alt="img">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-<br />
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+      var reader = new FileReader();
 
-    <a href="#x" class="overlay" id="loadimage"></a>
-    <div class="popup">
-        <form method="post" enctype="multipart/form-data">
-            <label>
-                Описание
-                <input  name="Description" type="text" />
-            </label>
-            <label>
-                Загрузить изображение
-                <input  name="dataImage" type="file" />
-            </label>
-            <button class="button15">Добавить</button>
-        </form>
-        @*<form action="upload.php">
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>'].join('');
+          document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+                                    </script>
+                                    @*<form action="upload.php">
 
 
                     <p>Drag an image from your desktop on to the drop zone or jast push to button</p>
@@ -150,7 +127,122 @@
 
 
             </form>*@
+                                </div>
+                            </div>
+                           
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-md-8 col-lg-8">
+                    <h2>Favorite images</h2>
+                    <div >
+                        <div class="col-md-4">
+                            <a class="Favorite_image" href="#win2">
+                                <img src="~/Content/img/DSC05978.jpg" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="win2"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="~/Content/img/DSC05978.jpg" />
+                                </div>
+                                <h2>Описание к изображению</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="Favorite_image" href="#win3">
+                                <img src="~/Content/img/2016-11-25 15.21 (7).jpg" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="win3"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="~/Content/img/2016-11-25 15.21 (7).jpg" />
+                                </div>
+                                <h2>Описание к изображению</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="Favorite_image" href="#win3">
+                                <img src="~/Content/img/2016-11-25 15.21 (7).jpg" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="win3"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="~/Content/img/2016-11-25 15.21 (7).jpg" />
+                                </div>
+                                <h2>Описание к изображению</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="Favorite_image" href="#win4">
+                                <img src="~/Content/img/2017-01-31 18.10.jpg" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="win4"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="~/Content/img/2017-01-31 18.10.jpg" />
+                                </div>
+                                <h2>Описание к изображению</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="Favorite_image" href="#win5">
+                                <img src="~/Content/img/2017-01-31 18.16 (1).jpg" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="win5"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="~/Content/img/2017-01-31 18.16 (1).jpg" />
+                                </div>
+                                <h2>Описание к изображению</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="Favorite_image" href="#win6">
+                                <img src="~/Content/img/DSC05970.jpg" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="win6"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="~/Content/img/DSC05970.jpg" />
+                                </div>
+                                <h2>Описание к изображению</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
+<br />
+
+    
 
     <div class="container">
 
