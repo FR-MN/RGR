@@ -48,7 +48,7 @@ namespace ArtAlbum.UI.Web.Models
         [MaxLength(49, ErrorMessage = "Максимальная длина - 50 символов")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Это поле не может быть пустым")]
-        [Remote("CheckDateOfBirth", "Register", ErrorMessage = "Дата рождения не может быть больше текущей даты")]
+        [Remote("CheckDateOfBirth", "Register", ErrorMessage = "Некорректная дата рождения")]
         [Display(Name = "Дата рождения")]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }

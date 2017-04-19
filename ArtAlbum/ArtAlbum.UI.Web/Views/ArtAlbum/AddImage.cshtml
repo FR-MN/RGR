@@ -250,6 +250,16 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h2>My images</h2>
                 <div class="row gallery-item">
+                    @{
+                        foreach (var image in ArtAlbum.UI.Web.Models.ImageVM.GetAllImages())
+                        {
+                            <div class="col-md-4">
+                                <a href="/artalbum/getimage/@image.Id" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+                                    <img src="/artalbum/getimage/@image.Id" class="img-responsive" alt="img">
+                                </a>
+                            </div>
+                        }
+                    }
                     <div class="col-md-4">
                         <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
                             <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">

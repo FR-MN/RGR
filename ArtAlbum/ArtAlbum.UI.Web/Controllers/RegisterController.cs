@@ -48,7 +48,7 @@ namespace ArtAlbum.UI.Web.Controllers
         }
         public JsonResult CheckDateOfBirth(DateTime dateOfBirth)
         {
-            return Json(dateOfBirth < DateTime.Now, JsonRequestBehavior.AllowGet);
+            return Json((dateOfBirth < DateTime.Now) && (dateOfBirth.Year > 1900), JsonRequestBehavior.AllowGet);
         }
     }
 }

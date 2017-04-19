@@ -65,5 +65,15 @@ namespace ArtAlbum.UI.Web.Models
         {
             return (ImageVM)imagesLogic.GetImageById(imageId);
         }
+
+        public static IEnumerable<ImageVM> GetImagesByUserId(Guid userId)
+        {
+            List<ImageVM> list = new List<ImageVM>();
+            foreach (var image in relationsLogic.GetImagesByUser(userId))
+            {
+                list.Add((ImageVM)image);
+            }
+            return list;
+        }
     }
 }
