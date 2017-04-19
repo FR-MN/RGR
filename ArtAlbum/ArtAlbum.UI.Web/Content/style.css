@@ -967,12 +967,3 @@ footer a:hover {
 } 
 .button7:hover { background: #eb5d1e; color:white }
 
-.Favorite_image img{
-    width:250px;
-    height:250px;
-       border: 2px ; /* Рамка вокруг фотографии */
-    padding: 10px; /* Расстояние от картинки до рамки */
-   /* Цвет фона */
-     /* Отступ справа */
-    margin-bottom: 15px; /* Отступ снизу */
-}
