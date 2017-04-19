@@ -249,52 +249,31 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h2>My images</h2>
-                <div class="row gallery-item">
+                <div >
                     @{
                         foreach (var image in ArtAlbum.UI.Web.Models.ImageVM.GetAllImages())
                         {
+
                             <div class="col-md-4">
-                                <a href="/artalbum/getimage/@image.Id" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                                    <img src="/artalbum/getimage/@image.Id" class="img-responsive" alt="img">
+                                <a class="top_image" href="#@image.Id">
+                                    <img src="/artalbum/getimage/@image.Id" class="img-responsive">
                                 </a>
+                                <a href="#x" class="overlay" id="@image.Id"></a>
+                                <div class="popup">
+                                    <div class="pic-right">
+                                        <img src="/artalbum/getimage/@image.Id" />
+                                    </div>
+                                    <h2>@image.Description</h2>
+                                    <p>
+                                        Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                    </p>
+                                    <a class="close" title="Закрыть" href="#close"></a>
+                                </div>
                             </div>
+                           
                         }
                     }
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Content/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
+
                 </div>
 
             </div>
