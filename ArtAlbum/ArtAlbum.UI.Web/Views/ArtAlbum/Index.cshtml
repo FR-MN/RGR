@@ -3,29 +3,18 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
-
-<h2>Изображения</h2>
-@Html.ActionLink("Register", "Register", "Register")
-
-
-<table class="table table-striped">
-    <tr>
-        <td>Дата создания</td>
-        <td>Описание</td>
-        <td>Изображение</td>
-    </tr>
-    @{
-        foreach (var image in Model)
-        {
-            <tr>
-                <td>@image.DateOfCreating</td>
-                <td>@image.Description</td>
-                <td><img src="/artalbum/getimage/@image.Id" /></td>
-            </tr>
-        }
+@{
+    System.Int32 x;
+    x = 0;
     }
-</table>
+
+@*<h2>Изображения</h2>
+@Html.ActionLink("Register", "Register", "Register")*@
+
+
+
 
 <div class="container">
 
@@ -37,7 +26,7 @@
             <h2 class="Header">Type</h2>
 
             <div class="dropdown_menu">
-                <h3><span>Природа</span></h3>
+                <h3><span>Тип 1</span></h3>
                 <ul class="list_item" style="display: none;">
                     <li> <a>Что то про Наруто</a></li>
                     <li>Пункт №2</li>
@@ -46,7 +35,7 @@
                 </ul>
             </div>
             <div class="dropdown_menu">
-                <h3><span>Люди</span></h3>
+                <h3><span>Тип 2</span></h3>
                 <ul class="list_item" style="display: none;">
                     <li>Пункт №5</li>
                     <li>Пункт №6</li>
@@ -55,7 +44,7 @@
                 </ul>
             </div>
             <div class="dropdown_menu">
-                <h3><span>Женщины</span></h3>
+                <h3><span>Тип 3</span></h3>
                 <ul class="list_item" style="display: none;">
                     <li> <a>Что то про Наруто</a></li>
                     <li>Пункт №2</li>
@@ -64,7 +53,7 @@
                 </ul>
             </div>
             <div class="dropdown_menu">
-                <h3><span>Бибки</span></h3>
+                <h3><span>Тип 4</span></h3>
                 <ul class="list_item" style="display: none;">
                     <li>Пункт №5</li>
                     <li>Пункт №6</li>
@@ -73,7 +62,7 @@
                 </ul>
             </div>
             <div class="dropdown_menu">
-                <h3><span>Что то про наруто</span></h3>
+                <h3><span>Тип 5</span></h3>
                 <ul class="list_item" style="display: none;">
                     <li> <a>Что то про Наруто</a></li>
                     <li>Пункт №2</li>
@@ -82,7 +71,7 @@
                 </ul>
             </div>
             <div class="dropdown_menu">
-                <h3><span>Крутые картиночки</span></h3>
+                <h3><span>Тип 6</span></h3>
                 <ul class="list_item" style="display: none;">
                     <li>Пункт №5</li>
                     <li>Пункт №6</li>
@@ -94,39 +83,36 @@
 
         <div class="col-xs-12 col-md-8 ">
             <div class="center-block">
-                <h2>followers activity</h2>
-                <div class="row gallery-item">
-                    <div class="col-md-4">
-                        <a href="~/Contentimg/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Content/img/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Contentimg/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Contentimg/works/2.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Contentimg/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Contentimg/works/3.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Contentimg/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Contentimg/works/4.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img~/Content/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Contentimg/works/5.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="~/Contentimg/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Contentimg/works/6.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                </div>
+                <h2>Followers activity</h2>
+                @{
+                    foreach (var image in ArtAlbum.UI.Web.Models.ImageVM.GetAllImages())
+                    {
+
+
+                        if(x==6)
+                        {
+                            break;
+                        }
+                        x += 1;
+                        <div class="col-md-4">
+                            <a class="litle_image" href="#@image.Id">
+                                <img src="/artalbum/getimage/@image.Id" class="img-responsive">
+                            </a>
+                            <a href="#x" class="overlay" id="@image.Id"></a>
+                            <div class="popup">
+                                <div class="pic-right">
+                                    <img src="/artalbum/getimage/@image.Id" />
+                                </div>
+                                <h2>@image.Description</h2>
+                                <p>
+                                    Я пока не придумал как это должно выглядеть.
+                                </p>
+                                <a class="close" title="Закрыть" href="#close"></a>
+                            </div>
+                        </div>
+
+                    }
+                }
 
             </div>
         </div>
@@ -167,47 +153,31 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
 
-                <div class="row gallery-item">
-                    <div class="col-md-4">
-                        <a href="~/Contentimg/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="~/Contentimg/works/1.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/2.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/3.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/4.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/5.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/6.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/7.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-                            <img src="img/works/8.jpg" class="img-responsive" alt="img">
-                        </a>
-                    </div>
+                <div >
+                     @{
+                        
+                        foreach (var image in ArtAlbum.UI.Web.Models.ImageVM.GetAllImages())
+                        {
+                             
+                            <div class="col-md-4">
+                                <a class="top_image" href="#@image.Id">
+                                    <img src="/artalbum/getimage/@image.Id" class="img-responsive">
+                                </a>
+                                <a href="#x" class="overlay" id="@image.Id"></a>
+                                <div class="popup">
+                                    <div class="pic-right">
+                                        <img src="/artalbum/getimage/@image.Id" />
+                                    </div>
+                                    <h2>@image.Description</h2>
+                                    <p>
+                                        Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                                    </p>
+                                    <a class="close" title="Закрыть" href="#close"></a>
+                                </div>
+                            </div>
+                           
+                        }
+                    }
                 </div>
 
             </div>
