@@ -17,11 +17,6 @@
     <link href="~/Content/color/default.css" rel="stylesheet"/>
 
     <link href="~/Content/DropDown.css" rel="stylesheet" />
-    <style>
-        body {
-            background-image: url('~/Content/img/1.PNG');
-        }
-    </style>
     <link href="~/Content/wrapper-dropdown.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
@@ -30,6 +25,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="description" content="The description of my page" />
 </head>
 <body>
     <div class="container ">
@@ -60,7 +56,7 @@
             <li >
 
 
-                <a href="@Html.ActionLink("AA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })"></a>
+                <a href="@Html.ActionLink("Главная страница", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })"></a>
                 
             </li>
            
@@ -70,7 +66,7 @@
                     Иван Иванов
                     <ul class="dropdown">
                        
-                        <li><a href="/artalbum/addimage"><i class="glyphicon glyphicon-user"></i>Профиль</a></li>
+                        <li><a href=@Url.Action("UserProfile", "Users")><i class="glyphicon glyphicon-user"></i>Профиль</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-cog"></i>Настройки</a></li>
                         <li><a href="#"><i class="icon-remove"></i>Выйти</a></li>
                     </ul>

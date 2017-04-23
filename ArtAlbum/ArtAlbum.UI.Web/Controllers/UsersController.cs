@@ -8,28 +8,24 @@ using System.Web.Mvc;
 
 namespace ArtAlbum.UI.Web.Controllers
 {
-    public class ArtAlbumController : Controller
+    public class UsersController : Controller
     {
-        // GET: ArtAlbum
-        public ActionResult Index()
-        {
-            return View(ImageVM.GetAllImages());
-        }
-
+        // GET: User
         [HttpGet]
-        public ActionResult AddImage()
+        public ActionResult UserProfile()
         {
+            ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(Guid.Parse("03cd9942-aa16-4a9e-95da-a5655fc1f4f2"));
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddImage(HttpPostedFileBase dataImage, ImageVM image)
+        public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image)
         {
             if (dataImage != null && (dataImage.ContentType != null))
             {
                 image.Type = dataImage.ContentType;
                 image.Data = new byte[dataImage.ContentLength];
-                using(BinaryReader reader = new BinaryReader(dataImage.InputStream))
+                using (BinaryReader reader = new BinaryReader(dataImage.InputStream))
                 {
                     for (int i = 0; i < image.Data.Length; i++)
                     {
@@ -42,17 +38,11 @@ namespace ArtAlbum.UI.Web.Controllers
                 {
                     if (ImageVM.Create(image))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("UserProfile", "User");
                     }
                 }
             }
             return View();
-        }
-
-        public ActionResult GetImage(string id)
-        {
-            Guid imageId = Guid.Parse(id);
-            return File(ImageVM.GetImageById(imageId).Data, ImageVM.GetImageById(imageId).Type);
         }
     }
 }

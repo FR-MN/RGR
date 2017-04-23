@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+
+@{
+    foreach (var image in @Model)
+    {
+        
+        <div class="col-md-4">
+            <a class="top_image" href="#@image.Id">
+                <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
+            </a>
+            <a href="#x" class="overlay" id="@image.Id"></a>
+            <div class="popup">
+                <div class="pic-right">
+                    <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" />
+                </div>
+                <h2>@image.Description</h2>
+                <p>
+                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
+                </p>
+                <a class="close" title="Закрыть" href="#close"></a>
+            </div>
+        </div>
+
+    }
+}

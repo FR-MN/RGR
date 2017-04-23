@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtAlbum.UI.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace ArtAlbum.UI.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            ViewBag.ImagesRecent = ImageVM.GetAllImages();
+            return View(ImageVM.GetAllImages());
         }
     }
 }
