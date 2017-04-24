@@ -29,12 +29,10 @@ namespace ArtAlbum.UI.Web.Models
                 description = value;
             }
         }
-        public byte[] Data { get; set; }
-        public string Type { get; set; }
 
-        internal static bool Create(ImageVM image)
+        internal static bool Create(ImageVM image, byte[] data, string type)
         {
-            return imagesLogic.AddImage(image);
+            return imagesLogic.AddImage(new ImageDTO() { Id = image.Id, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data });
         }
 
         public override string ToString()
@@ -44,11 +42,7 @@ namespace ArtAlbum.UI.Web.Models
 
         public static explicit operator ImageVM(ImageDTO data)
         {
-            return new ImageVM() { Id = data.Id, Description = data.Description, DateOfCreating = data.DateOfCreating, Data = data.Data, Type = data.Type };
-        }
-        public static implicit operator ImageDTO(ImageVM data)
-        {
-            return new ImageDTO() { Id = data.Id, Description = data.Description, DateOfCreating = data.DateOfCreating, Data = data.Data, Type = data.Type };
+            return new ImageVM() { Id = data.Id, Description = data.Description, DateOfCreating = data.DateOfCreating };
         }
 
         public static IEnumerable<ImageVM> GetAllImages()

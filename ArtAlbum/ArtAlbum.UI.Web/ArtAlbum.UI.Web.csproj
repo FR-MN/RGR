@@ -213,6 +213,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImageExtension.cs" />
+    <Compile Include="Models\ImageDataVM.cs" />
     <Compile Include="Models\ImageVM.cs" />
     <Compile Include="Models\RegisterVM.cs" />
     <Compile Include="Models\UserVM.cs" />

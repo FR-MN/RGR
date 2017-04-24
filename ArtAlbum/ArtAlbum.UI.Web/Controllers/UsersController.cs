@@ -23,20 +23,19 @@ namespace ArtAlbum.UI.Web.Controllers
         {
             if (dataImage != null && (dataImage.ContentType != null))
             {
-                image.Type = dataImage.ContentType;
-                image.Data = new byte[dataImage.ContentLength];
+                byte[] imageData = new byte[dataImage.ContentLength];
                 using (BinaryReader reader = new BinaryReader(dataImage.InputStream))
                 {
-                    for (int i = 0; i < image.Data.Length; i++)
+                    for (int i = 0; i < imageData.Length; i++)
                     {
-                        image.Data[i] = reader.ReadByte();
+                        imageData[i] = reader.ReadByte();
                     }
                 }
                 image.Id = Guid.NewGuid();
                 image.DateOfCreating = DateTime.Now;
                 if (!string.IsNullOrWhiteSpace(image.Description))
                 {
-                    if (ImageVM.Create(image))
+                    if (ImageVM.Create(image, imageData, dataImage.ContentType))
                     {
                         return RedirectToAction("UserProfile", "User");
                     }
