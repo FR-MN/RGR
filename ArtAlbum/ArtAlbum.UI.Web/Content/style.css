@@ -1067,15 +1067,7 @@ footer {
     margin-bottom: 15px; /* Отступ снизу */
 }
 
-.top_image img {
-    width: 400px;
-    height: 400px;
-    border: 2px; /* Рамка вокруг фотографии */
-    padding: 10px; /* Расстояние от картинки до рамки */
-    /* Цвет фона */
-    /* Отступ справа */
-    margin-bottom: 15px; /* Отступ снизу */
-}
+
 
 #list img {
     height: 100px;

@@ -5,80 +5,82 @@
     {
         
         <div class="col-md-4">
-            <a class="top_image" href="#@image.Id">
-                <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
-            </a>
-            <a href="#x" class="overlay" id="@image.Id"></a>
-            <div class="popup">
-                <div class="row">
-                    <div class="col-md-6">
+            <div class="block">
+                <a href="#@image.Id">
+                    <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
+                </a>
+            </div>  
+                <a href="#x" class="overlay" id="@image.Id"></a>
+                <div class="popup">
+                    <div class="row">
+                        <div class="col-md-6">
 
-                        <div class="main_image">
-                            <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" />
+                            <div class="top_image">
+                                <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" />
+                            </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="username">
+                                        art by dude
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="description">
+                                        <h2>@image.Description</h2>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="comments">
+                                        <ul>
+                                            <li>
+                                                <div class="comment">
+                                                    Комментарий 1
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="comment">
+                                                    Комментарий 2
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="comment">
+                                                    Комментарий 3
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="addcomment">
+                                        <form action="handler.php">
+                                            <p><b>Введите ваш Комментарий:</b></p>
+                                            <p><textarea name="comment"></textarea></p>
+                                            <p><input type="submit"></p>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
                     </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="username">
-                                    art by dude
-                                </div>
-                               
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="description">
-                                    <h2>@image.Description</h2>
-                                </div>
-                                
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="comments">
-                                    <ul>
-                                        <li>
-                                            <div class="comment">
-                                                Комментарий 1
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="comment">
-                                                Комментарий 2
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="comment">
-                                                Комментарий 3
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>                              
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="addcomment">
-                                    <form action="handler.php">
-                                        <p><b>Введите ваш Комментарий:</b></p>
-                                        <p><textarea name="comment"></textarea></p>
-                                        <p><input type="submit"></p>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
+                    <a class="close" title="Закрыть" href="#close"></a>
                 </div>
-                <a class="close" title="Закрыть" href="#close"></a>
-            </div>
-            
+
                
             
         </div>
