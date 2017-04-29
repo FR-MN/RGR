@@ -73,7 +73,7 @@ namespace ArtAlbum.DAL.DataBase
                         Nickname = (string)reader["Nickname"],
                         DateOfBirth = (DateTime)reader["DateOfBirth"],
                         Email = (string)reader["Email"],
-                        HashOfPassword = (int)reader["HashOfPassword"]
+                        HashOfPassword = (byte[])reader["HashOfPassword"]
                     };
                 }
             }
@@ -101,7 +101,7 @@ namespace ArtAlbum.DAL.DataBase
                         Nickname = (string)reader["Nickname"],
                         DateOfBirth = (DateTime)reader["DateOfBirth"],
                         Email = (string)reader["Email"],
-                        HashOfPassword = (int)reader["HashOfPassword"]
+                        HashOfPassword = (byte[])reader["HashOfPassword"]
                     };
                 }
                 throw new NotFoundDataException("user not found");

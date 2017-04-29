@@ -8,13 +8,18 @@ using System.Web.Mvc;
 
 namespace ArtAlbum.UI.Web.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         // GET: User
         [HttpGet]
         public ActionResult UserProfile()
         {
-            ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(Guid.Parse("03cd9942-aa16-4a9e-95da-a5655fc1f4f2"));
+            var userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            if (userId != Guid.Empty)
+            {
+                ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
+            }
             return View();
         }
 

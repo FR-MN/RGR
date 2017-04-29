@@ -5,6 +5,8 @@ using ArtAlbum.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -23,6 +25,7 @@ namespace ArtAlbum.UI.Web.Models
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
+        private static SHA256 hashFunction = SHA256.Create();
 
         static UserVM()
         {
@@ -32,7 +35,7 @@ namespace ArtAlbum.UI.Web.Models
         }
 
         public Guid Id { get; set; }
-        public int HashOfPassword { get; set; }
+        public byte[] HashOfPassword { get; set; }
         public string FirstName
         {
             get { return firstName; }
@@ -107,9 +110,11 @@ namespace ArtAlbum.UI.Web.Models
             }
         }
 
-        internal static bool Create(UserVM user)
+        internal static bool Add(RegisterVM user)
         {
-            return usersLogic.AddUser(user);
+            var hash = Encoding.UTF8.GetBytes(user.Password);
+            hashFunction.ComputeHash(hash);
+            return usersLogic.AddUser(new UserDTO { Id = Guid.NewGuid(), FirstName = user.FirstName, LastName = user.LastName, DateOfBirth = user.DateOfBirth, Email = user.Email, HashOfPassword = hash, Nickname = user.Nickname });
         }
 
         public override string ToString()
@@ -134,6 +139,36 @@ namespace ArtAlbum.UI.Web.Models
                 list.Add((UserVM)user);
             }
             return list;
+        }
+
+        internal static bool IsValid(string nickname, string password)
+        {
+            var user = usersLogic.GetAllUsers().FirstOrDefault(x => x.Nickname == nickname);
+            if (user != null)
+            {
+                var hash = user.HashOfPassword;
+                var data = Encoding.UTF8.GetBytes(password);
+                hashFunction.ComputeHash(data);
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    if (data[i] != hash[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
+        internal static Guid GetUserIdByNickname(string nickname)
+        {
+            var user = GetAllUsers().FirstOrDefault(x => x.Nickname == nickname);
+            if (user != null)
+            {
+                return user.Id;
+            }
+            return Guid.Empty;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace ArtAlbum.UI.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    UserVM.Create(registerData);
+                    UserVM.Add(registerData);
                 }
             }
             return View(registerData);

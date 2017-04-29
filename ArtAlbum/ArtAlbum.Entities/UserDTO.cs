@@ -13,7 +13,7 @@ namespace ArtAlbum.Entities
         public string LastName { get; set; }
         public string Nickname { get; set; }
         public string Email { get; set; }
-        public int HashOfPassword { get; set; }
+        public byte[] HashOfPassword { get; set; }
         public DateTime DateOfBirth { get; set; }
 
     }
