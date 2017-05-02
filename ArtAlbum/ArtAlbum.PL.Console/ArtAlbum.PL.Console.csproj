@@ -54,9 +54,9 @@
       <Project>{6a4979d1-9706-4e2a-822a-2aa7120ee892}</Project>
       <Name>ArtAlbum.BLL.Abstract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ArtAlbum.DI.Provaiders\ArtAlbum.DI.Provaiders.csproj">
+    <ProjectReference Include="..\ArtAlbum.DI.Provaiders\ArtAlbum.DI.Providers.csproj">
       <Project>{dc524918-b567-462b-a90f-742c54f1eb44}</Project>
-      <Name>ArtAlbum.DI.Provaiders</Name>
+      <Name>ArtAlbum.DI.Providers</Name>
     </ProjectReference>
     <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">
       <Project>{44a12a35-1389-408d-8e08-80a213ae314b}</Project>

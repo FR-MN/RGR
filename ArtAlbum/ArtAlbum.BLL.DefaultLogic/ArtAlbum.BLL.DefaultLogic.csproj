@@ -43,6 +43,7 @@
     <Compile Include="Exceptions\IncorrectDataException.cs" />
     <Compile Include="ImagesBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolesBLL.cs" />
     <Compile Include="UsersImagesBLL.cs" />
     <Compile Include="UsersBLL.cs" />
   </ItemGroup>

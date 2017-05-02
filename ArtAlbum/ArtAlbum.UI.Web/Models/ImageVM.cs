@@ -1,5 +1,5 @@
 ﻿using ArtAlbum.BLL.Abstract;
-using ArtAlbum.DI.Provaiders;
+using ArtAlbum.DI.Providers;
 using ArtAlbum.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,8 +10,8 @@ namespace ArtAlbum.UI.Web.Models
 {
     public class ImageVM
     {
-        private static IImagesBLL imagesLogic = Provaider.ImagesBLL;
-        private static IUsersImagesBLL relationsLogic = Provaider.RelationsBLL;
+        private static IImagesBLL imagesLogic = Provider.ImagesBLL;
+        private static IUsersImagesBLL relationsLogic = Provider.RelationsBLL;
 
         private string description;
 

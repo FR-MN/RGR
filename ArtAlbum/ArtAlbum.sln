@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{D9A9E2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DI", "DI", "{1F0393B0-ABC2-46F3-98FD-CA13F806F93E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtAlbum.DI.Provaiders", "ArtAlbum.DI.Provaiders\ArtAlbum.DI.Provaiders.csproj", "{DC524918-B567-462B-A90F-742C54F1EB44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtAlbum.DI.Providers", "ArtAlbum.DI.Provaiders\ArtAlbum.DI.Providers.csproj", "{DC524918-B567-462B-A90F-742C54F1EB44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtAlbum.PL.Models", "ArtAlbum.PL.Models\ArtAlbum.PL.Models.csproj", "{B31E028B-781A-4F8E-9898-C3EEE13BC8E2}"
 EndProject

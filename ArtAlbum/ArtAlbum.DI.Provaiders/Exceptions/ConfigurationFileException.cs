@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtAlbum.DI.Provaiders.Exceptions
+namespace ArtAlbum.DI.Providers.Exceptions
 {
     public class ConfigurationFileException : Exception
     {

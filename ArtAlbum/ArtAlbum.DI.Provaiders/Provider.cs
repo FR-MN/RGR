@@ -10,11 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtAlbum.DI.Provaiders
+namespace ArtAlbum.DI.Providers
 {
-    public static class Provaider
+    public static class Provider
     {
-        static Provaider()
+        static Provider()
         {
             string typeDAL = ConfigurationManager.AppSettings["DAL"];
             string typeBLL = ConfigurationManager.AppSettings["BLL"];
@@ -26,6 +26,7 @@ namespace ArtAlbum.DI.Provaiders
                         UsersDAL = new UsersDAL();
                         ImagesDAL = new ImagesDAL();
                         RelationsDAL = new UsersImagesDAL();
+                        RolesDAL = new RolesDAL();
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -37,6 +38,7 @@ namespace ArtAlbum.DI.Provaiders
                         UsersBLL = new UsersBLL(UsersDAL, RelationsDAL);
                         ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL);
                         RelationsBLL = new UsersImagesBLL(UsersDAL, ImagesDAL, RelationsDAL);
+                        RolesBLL = new RolesBLL(RolesDAL, UsersDAL);
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -46,8 +48,10 @@ namespace ArtAlbum.DI.Provaiders
         public static IUsersDAL UsersDAL { get; private set; }
         public static IImagesDAL ImagesDAL { get; private set; }
         public static IUsersImagesDAL RelationsDAL { get; private set; }
+        public static IRolesDAL RolesDAL { get; private set; }
         public static IUsersBLL UsersBLL { get; private set; }
         public static IImagesBLL ImagesBLL { get; private set; }
         public static IUsersImagesBLL RelationsBLL { get; private set; }
+        public static IRolesBLL RolesBLL { get; private set; }
     }
 }

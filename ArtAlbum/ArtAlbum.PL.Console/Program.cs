@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ArtAlbum.Entities;
 using ArtAlbum.BLL.Abstract;
 using ArtAlbum.PL.Models;
-using ArtAlbum.DI.Provaiders;
+using ArtAlbum.DI.Providers;
 
 
 namespace UsersImages.PL.Console
@@ -20,9 +20,9 @@ namespace UsersImages.PL.Console
         {
             try
             {
-                usersBLL = Provaider.UsersBLL;
-                imagesBLL = Provaider.ImagesBLL;
-                relationsBLL = Provaider.RelationsBLL;
+                usersBLL = Provider.UsersBLL;
+                imagesBLL = Provider.ImagesBLL;
+                relationsBLL = Provider.RelationsBLL;
 
                 bool succes;
                 int menuNumber = 0;

@@ -1,6 +1,6 @@
 ﻿using ArtAlbum.BLL.Abstract;
 using ArtAlbum.BLL.DefaultLogic;
-using ArtAlbum.DI.Provaiders;
+using ArtAlbum.DI.Providers;
 using ArtAlbum.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,8 +14,8 @@ namespace ArtAlbum.UI.Web.Models
 {
     public class UserVM
     {
-        private static IUsersBLL usersLogic = Provaider.UsersBLL;
-        private static IUsersImagesBLL relationsLogic = Provaider.RelationsBLL;
+        private static IUsersBLL usersLogic = Provider.UsersBLL;
+        private static IUsersImagesBLL relationsLogic = Provider.RelationsBLL;
 
         private string firstName;
         private string lastName;
@@ -114,7 +114,7 @@ namespace ArtAlbum.UI.Web.Models
         {
             var hash = Encoding.UTF8.GetBytes(user.Password);
             hashFunction.ComputeHash(hash);
-            return usersLogic.AddUser(new UserDTO { Id = Guid.NewGuid(), FirstName = user.FirstName, LastName = user.LastName, DateOfBirth = user.DateOfBirth, Email = user.Email, HashOfPassword = hash, Nickname = user.Nickname });
+            return usersLogic.AddUser(new UserDTO { Id = Guid.NewGuid(), FirstName = user.FirstName, LastName = user.LastName, DateOfBirth = user.DateOfBirth, Email = user.Email, HashOfPassword = hash, Nickname = user.Nickname }) && RoleVM.AddRoleToUser(user.Nickname, "User");
         }
 
         public override string ToString()
