@@ -1106,3 +1106,39 @@ footer {
         bottom: 0;
         right: 0;
     }
+
+    .top_requests li {
+        display:inline;
+        padding-right:10px;
+       
+    }
+    .comments li{
+        list-style-type: none;
+        
+        border-color:black;
+    }
+    
+
+
+.reply_author{
+
+}
+.reply_text{
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+div.comment {
+width:200px;
+}
+div.reply_image {
+float:left;
+width:40px;
+}
+div.content_commetn {
+float:right;
+
+width:150px;
+height:auto;
+}
+
+    

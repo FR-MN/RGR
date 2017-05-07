@@ -150,10 +150,10 @@ height: auto;
 }*/
 .top_image { 
 position: relative; 
-width: 450px; 
-height: 250px; 
+width: 600px; 
+height: 400px; 
 
-line-height: 250px; 
+line-height: 400px; 
 text-align: center; 
 } 
 .top_image img { 
