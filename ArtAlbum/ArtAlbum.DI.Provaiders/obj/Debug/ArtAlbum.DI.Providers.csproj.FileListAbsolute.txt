@@ -1,0 +1,15 @@
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.DI.Provaiders.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.DI.Provaiders.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.BLL.Abstract.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.BLL.DefaultLogic.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.DAL.Abstract.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.DAL.DataBase.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.Entities.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.BLL.Abstract.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.BLL.DefaultLogic.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.DAL.Abstract.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.DAL.DataBase.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\bin\Debug\ArtAlbum.Entities.pdb
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\obj\Debug\ArtAlbum.DI.Providers.csprojResolveAssemblyReference.cache
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\obj\Debug\ArtAlbum.DI.Provaiders.dll
+C:\Users\Roman\Documents\RGR\ArtAlbum\ArtAlbum.DI.Provaiders\obj\Debug\ArtAlbum.DI.Provaiders.pdb
