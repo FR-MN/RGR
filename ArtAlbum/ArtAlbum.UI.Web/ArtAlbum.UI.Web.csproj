@@ -210,6 +210,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +242,7 @@
     <Content Include="Views\Images\_ImagesPartial.cshtml" />
     <Content Include="Views\Users\UserProfile.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Settings\Settings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
