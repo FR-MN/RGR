@@ -12,6 +12,7 @@ namespace ArtAlbum.UI.Web.Controllers
     public class UsersController : Controller
     {
         // GET: User
+        [Authorize]
         [HttpGet]
         public ActionResult UserProfile()
         {
@@ -23,6 +24,7 @@ namespace ArtAlbum.UI.Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image)
         {
@@ -40,22 +42,28 @@ namespace ArtAlbum.UI.Web.Controllers
                 image.DateOfCreating = DateTime.Now;
                 if (!string.IsNullOrWhiteSpace(image.Description))
                 {
-                    if (ImageVM.Create(image, imageData, dataImage.ContentType))
+                    if (ImageVM.Create(image, imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name)))
                     {
-                        return RedirectToAction("UserProfile", "User");
+                        return RedirectToAction("UserProfile", "Users");
                     }
                 }
             }
             return View();
         }
 
+        [Authorize]
         public ActionResult GetUser(string nickname)
         {
-            var userId = UserVM.GetUserIdByNickname(nickname);
-            if (userId != Guid.Empty)
+            UserVM user = UserVM.GetAllUsers().FirstOrDefault(userData => userData.Nickname == nickname);
+            if (user == null)
             {
-                ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
+                return RedirectToAction("Index", "Home");
             }
+            else if (nickname == User.Identity.Name)
+            {
+                return RedirectToAction("UserProfile");
+            }
+            ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(user.Id);
             return View();
         }
     }
