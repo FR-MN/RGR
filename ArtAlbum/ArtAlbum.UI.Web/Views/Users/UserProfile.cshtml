@@ -19,7 +19,7 @@
                         <h2>Privet</h2>
                         @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
 
-                            </a>*@
+                        </a>*@
                         <img width="250" height="250" src="~/Content/img/k5wifKaPaZs.jpg" />
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div id="list_dropdowns" class="col-md-8">
                         @*<div class="arrow-top">*@
                         <div class="dropdown_menu">
-
+                            <a href="@Url.Action("GetUser", "Users", new { nickname = "user"})">Link</a>
                             <h3><span>Settings</span></h3>
 
                             <ul class="list_item" style="display: none;">
@@ -41,13 +41,13 @@
 
                             <!--<button class="btn btn-primary ">
 
-                            </button>
-                            <button class="btn btn-primary ">
+                        </button>
+                        <button class="btn btn-primary ">
 
-                            </button>
-                            <button class="btn btn-primary">
+                        </button>
+                        <button class="btn btn-primary">
 
-                            </button>-->
+                        </button>-->
 
                         </div>
 
@@ -55,7 +55,87 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                        <div class="col-md-8">
+                            <p>Для загрузки нового изоюражения в свой альбом нажмите на кнопку </p>
+                            <div class="addimage" style="margin: 0 auto;">
+                                <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span> Add image</a>
+                                <a href="#x" class="overlay" id="loadimage"></a>
+                                <div class="popup">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <label>
+                                            Описание
+                                            <input name="Description" type="text" />
+                                        </label>
+                                        <label>
+                                            Загрузить изображение
+                                            <input name="dataImage" type="file" />
+                                        </label>
+                                        <button class="button15">Добавить</button>
+                                    </form>
+
+
+                                    <input type="file" id="files" name="files[]" multiple />
+                                    <output id="list"></output>
+
+
+                                    <script>
+                                    function handleFileSelect(evt) {
+                                        var files = evt.target.files; // FileList object
+
+                                        // Loop through the FileList and render image files as thumbnails.
+                                        for (var i = 0, f; f = files[i]; i++) {
+                                            // Only process image files.
+                                            if (!f.type.match('image.*')) {
+                                                continue;
+                                            }
+                                            var reader = new FileReader();
+
+                                            // Closure to capture the file information.
+                                            reader.onload = (function (theFile) {
+                                                return function (e) {
+                                                    // Render thumbnail.
+                                                    var span = document.createElement('span');
+                                                    span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                                                      '" title="', escape(theFile.name), '"/>'].join('');
+                                                    document.getElementById('list').insertBefore(span, null);
+                                                };
+                                            })(f);
+
+                                            // Read in the image file as a data URL.
+                                            reader.readAsDataURL(f);
+                                        }
+                                    }
+
+                                    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+                                    </script>
+                                    @*<form action="upload.php">
+
+
+                                <p>Drag an image from your desktop on to the drop zone or jast push to button</p>
+
+                                <div id="holder" style="width:100px; height:100px; background-color:gray">
+
+                                </div>
+                                <p>
+                                    <input type="file" name="photo" multiple accept="image/*,image/jpeg">
+                                    <input type="submit" value="Отправить">
+                                </p>
+                                <p>Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
+
+
+
+
+
+
+                        </form>*@
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    @*Отличная загрузка изображения, только не работает и выглдяит ужасно, спасибо
+                        <div class="col-md-8">
                         <p>Для загрузки нового изоюражения в свой альбом нажмите на кнопку </p>
                         <div class="addimage" style="margin: 0 auto;">
                             <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span> Add image</a>
@@ -70,26 +150,26 @@
                                                  <div id="drop-files" ondragover="return false">
                                                     <div style="margin-top:-60px;">
                                                         <p>Перетащите изображение сюда или выберете файл</p>
-                                                        
+
                                                         <input class="button15" name="dataImage" type="file" id="uploadbtn" multiple="">
-                                                        
+
                                                     </div>
-                                                         
-                                                    
-                                                  
-                                                     
+
+
+
+
                                                  </div>
                                                  <!-- Область предпросмотра -->
                                                  <div id="uploaded-holder">
                                                      <div id="dropped-files">
-                                                        
+
                                                          <div id="upload-button">
                                                              <center>
-                                                                 
+
                                                                  <button class="button15">Загрузить</button>
                                                                  <a href="#" class="delete">Удалить</a>
                                                                  <!-- Прогресс бар загрузки -->
-                                                                 
+
                                                              </center>
                                                          </div>
                                                      </div>
@@ -97,7 +177,7 @@
                                                  <!-- Список загруженных файлов -->
                                                  <div id="file-name-holder">
                                                      <ul id="uploaded-files" style="display: none;">
-                                                         
+
                                                      </ul>
                                                  </div>
 
@@ -108,23 +188,22 @@
                                                 Описание
                                                 <input name="Description" type="text" />
                                             </label>
-                                            
+
                                         </div>
-                                      
+
                                     </div>
-                                   
-                                   
+
+
                                 </form>
 
 
 
-                               
+
                             </div>
                         </div>
 
 
-                    </div>
-                </div>
+                    </div>*@
 
             </div>
 
