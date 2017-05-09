@@ -243,6 +243,7 @@
     <Content Include="Views\Users\UserProfile.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
+    <Content Include="Views\Users\GetUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

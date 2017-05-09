@@ -48,5 +48,15 @@ namespace ArtAlbum.UI.Web.Controllers
             }
             return View();
         }
+
+        public ActionResult GetUser(string nickname)
+        {
+            var userId = UserVM.GetUserIdByNickname(nickname);
+            if (userId != Guid.Empty)
+            {
+                ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
+            }
+            return View();
+        }
     }
 }
