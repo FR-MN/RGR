@@ -81,43 +81,50 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-8 ">
-            <div class="center-block">
-                <h2>Followers activity</h2>
-                @{
-                    foreach (var image in ArtAlbum.UI.Web.Models.ImageVM.GetAllImages())
+        @{
+            <div class="col-xs-12 col-md-8 ">
+                <div class="center-block">
+                    <h2>Followers activity</h2>
+                    @if (ViewBag.ImagesOfSubscriptions == null)
                     {
-
-
-                        if (x == 6)
+                        <span>Вы не вошли, чтобы просматривать этот раздел</span>
+                    }
+                    else if (ViewBag.ImagesOfSubscriptions.Count == 0)
+                    {
+                        <span>Пока здесь ничего нет</span>
+                    }
+                    else
+                    {
+                        foreach (var image in ViewBag.ImagesOfSubscriptions)
                         {
-                            break;
-                        }
-                        x += 1;
-                        <div class="col-md-4">
+                            if (x == 6)
+                            {
+                                break;
+                            }
+                            x += 1;
+                            <div class="col-md-4">
                                 <div class="block" href="#@image.Id">
                                     <a href="#@image.Id">
                                         <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
                                     </a>
                                 </div>
-                            <a href="#x" class="overlay" id="@image.Id"></a>
-                            <div class="popup">
-                                <div class="top_image">
-                                    <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" />
+                                <a href="#x" class="overlay" id="@image.Id"></a>
+                                <div class="popup">
+                                    <div class="top_image">
+                                        <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" />
+                                    </div>
+                                    <h2>@image.Description</h2>
+                                    <p>
+                                        Я пока не придумал как это должно выглядеть.
+                                    </p>
+                                    <a class="close" title="Закрыть" href="#close"></a>
                                 </div>
-                                <h2>@image.Description</h2>
-                                <p>
-                                    Я пока не придумал как это должно выглядеть.
-                                </p>
-                                <a class="close" title="Закрыть" href="#close"></a>
                             </div>
-                        </div>
-
+                        }
                     }
-                }
-
+                </div>
             </div>
-        </div>
+        }
         <div id="tags" class="col-xs-12 col-sm-12 col-md-2">
             <h2 class="Header">Tags</h2>
 

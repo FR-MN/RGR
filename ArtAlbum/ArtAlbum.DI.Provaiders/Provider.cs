@@ -27,6 +27,7 @@ namespace ArtAlbum.DI.Providers
                         ImagesDAL = new ImagesDAL();
                         RelationsDAL = new UsersImagesDAL();
                         RolesDAL = new RolesDAL();
+                        SubscribersDAL = new SubscribersDAL();
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -39,6 +40,7 @@ namespace ArtAlbum.DI.Providers
                         ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL);
                         RelationsBLL = new UsersImagesBLL(UsersDAL, ImagesDAL, RelationsDAL);
                         RolesBLL = new RolesBLL(RolesDAL, UsersDAL);
+                        SubscribersBLL = new SubscribersBLL(UsersDAL, SubscribersDAL);
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -49,9 +51,11 @@ namespace ArtAlbum.DI.Providers
         public static IImagesDAL ImagesDAL { get; private set; }
         public static IUsersImagesDAL RelationsDAL { get; private set; }
         public static IRolesDAL RolesDAL { get; private set; }
+        public static ISubscribersDAL SubscribersDAL { get; private set; }
         public static IUsersBLL UsersBLL { get; private set; }
         public static IImagesBLL ImagesBLL { get; private set; }
         public static IUsersImagesBLL RelationsBLL { get; private set; }
         public static IRolesBLL RolesBLL { get; private set; }
+        public static ISubscribersBLL SubscribersBLL { get; private set; }
     }
 }

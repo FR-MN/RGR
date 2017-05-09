@@ -13,6 +13,15 @@ namespace ArtAlbum.UI.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.ImagesRecent = ImageVM.GetAllImages();
+            if (User.Identity.IsAuthenticated)
+            {
+                List<ImageVM> imagesOfSubscription = new List<ImageVM>();
+                foreach (var subscription in UserVM.GetSubscribtionsByUserId(UserVM.GetUserIdByNickname(User.Identity.Name)))
+                {
+                    imagesOfSubscription.AddRange(ImageVM.GetImagesByUserId(subscription.Id));
+                }
+                ViewBag.ImagesOfSubscriptions = imagesOfSubscription;
+            }
             return View(ImageVM.GetAllImages());
         }
     }

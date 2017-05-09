@@ -15,6 +15,7 @@ namespace ArtAlbum.BLL.DefaultLogic
     {
         private IUsersDAL usersDAL;
         private IUsersImagesDAL relationsDAL;
+        private IRolesBLL rolesDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -92,6 +93,10 @@ namespace ArtAlbum.BLL.DefaultLogic
             foreach (var awardId in relationsDAL.GetImagesIdsByUserId(userId).ToArray())
             {
                 relationsDAL.RemoveRelation(userId, awardId);
+            }
+            foreach (var role in rolesDAL.GetRolesByUserId(userId).ToArray())
+            {
+                rolesDAL.RemoveRoleFromUser(userId, role.Id);
             }
             return usersDAL.RemoveUserById(userId);
         }

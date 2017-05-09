@@ -16,6 +16,7 @@ namespace ArtAlbum.UI.Web.Models
     {
         private static IUsersBLL usersLogic = Provider.UsersBLL;
         private static IUsersImagesBLL relationsLogic = Provider.RelationsBLL;
+        private static ISubscribersBLL subscribersLogic = Provider.SubscribersBLL;
 
         private string firstName;
         private string lastName;
@@ -169,6 +170,44 @@ namespace ArtAlbum.UI.Web.Models
                 return user.Id;
             }
             return Guid.Empty;
+        }
+
+        internal static IEnumerable<UserVM> GetSubscribersByUserId(Guid userId)
+        {
+            if (userId == null)
+            {
+                return null;
+            }
+            List<UserVM> list = new List<UserVM>();
+            foreach (var user in subscribersLogic.GetSubscribersOfUser(userId))
+            {
+                list.Add((UserVM)user);
+            }
+            return list;
+        }
+
+        internal static IEnumerable<UserVM> GetSubscribtionsByUserId(Guid userId)
+        {
+            if (userId == null)
+            {
+                return null;
+            }
+            List<UserVM> list = new List<UserVM>();
+            foreach (var user in subscribersLogic.GetSubscriptionsOfUser(userId))
+            {
+                list.Add((UserVM)user);
+            }
+            return list;
+        }
+
+        internal static bool SubscribeToUser(Guid userId, Guid subscriberId)
+        {
+            return subscribersLogic.AddSubscriberToUser(subscriberId, userId);
+        }
+
+        internal static bool UnsubscribeToUser(Guid userId, Guid subscriberId)
+        {
+            return subscribersLogic.RemoveSubscriberFromUser(subscriberId, userId);
         }
     }
 }

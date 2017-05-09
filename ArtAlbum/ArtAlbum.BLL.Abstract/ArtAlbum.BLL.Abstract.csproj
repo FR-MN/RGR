@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IImagesBLL.cs" />
     <Compile Include="IRolesBLL.cs" />
+    <Compile Include="ISubscribersBLL.cs" />
     <Compile Include="IUsersBLL.cs" />
     <Compile Include="IUsersImagesBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

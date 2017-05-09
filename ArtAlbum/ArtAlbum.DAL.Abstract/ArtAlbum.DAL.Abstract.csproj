@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IImagesDAL.cs" />
     <Compile Include="IRolesDAL.cs" />
+    <Compile Include="ISubscribersDAL.cs" />
     <Compile Include="IUsersDAL.cs" />
     <Compile Include="IUsersImagesDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

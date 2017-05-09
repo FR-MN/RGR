@@ -64,6 +64,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 return RedirectToAction("UserProfile");
             }
             ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(user.Id);
+            ViewBag.UserId = user.Id;
             return View();
         }
     }

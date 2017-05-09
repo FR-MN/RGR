@@ -118,7 +118,5 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             return false;
         }
-
-       
     }
 }
