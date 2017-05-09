@@ -30,7 +30,15 @@ namespace ArtAlbum.UI.Web.Controllers
                 return File(streak.ToArray(), "image/png");
             }
         }
+        [HttpPost]
+        public JsonResult GetFullImage(string id)
+        {
+            string ID = id.Remove(0,1);
+            Guid imageId = Guid.Parse(id);
+            ImageDataVM imageSrc = ImageDataVM.GetImageById(imageId);
+            return Json(File(imageSrc.Data, imageSrc.Type));
 
+        }
         public ActionResult GetImage(string id)
         {
             Guid imageId = Guid.Parse(id);
