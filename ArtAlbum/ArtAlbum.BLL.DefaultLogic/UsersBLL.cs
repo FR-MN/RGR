@@ -15,7 +15,8 @@ namespace ArtAlbum.BLL.DefaultLogic
     {
         private IUsersDAL usersDAL;
         private IUsersImagesDAL relationsDAL;
-        private IRolesBLL rolesDAL;
+        private IRolesDAL rolesDAL;
+        private ISubscribersDAL subscribersDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -26,14 +27,16 @@ namespace ArtAlbum.BLL.DefaultLogic
             regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
             regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL)
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL)
         {
-            if (usersDAL == null || relationsDAL == null)
+            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
             this.usersDAL = usersDAL;
             this.relationsDAL = relationsDAL;
+            this.rolesDAL = rolesDAL;
+            this.subscribersDAL = subscribersDAL;
         }
 
         private bool IsUserCorrect(UserDTO user)
@@ -94,9 +97,17 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 relationsDAL.RemoveRelation(userId, awardId);
             }
-            foreach (var role in rolesDAL.GetRolesByUserId(userId).ToArray())
+            foreach (var roleId in rolesDAL.GetRolesIdsByUserId(userId).ToArray())
             {
-                rolesDAL.RemoveRoleFromUser(userId, role.Id);
+                rolesDAL.RemoveRoleFromUser(userId, roleId);
+            }
+            foreach (var subId in subscribersDAL.GetSubscribersOfUser(userId))
+            {
+                subscribersDAL.RemoveSubscriberFromUser(subId, userId);
+            }
+            foreach (var subscriptionId in subscribersDAL.GetSubscriptionsOfUser(userId))
+            {
+                subscribersDAL.RemoveSubscriberFromUser(userId, subscriptionId);
             }
             return usersDAL.RemoveUserById(userId);
         }
