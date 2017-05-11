@@ -1,19 +1,21 @@
 ﻿(function () {
-    var $ref = $('.show-image');
-     
-    
+    var $subscribeBtn = $('#subscribe-btn'),
+        userId = $('#userid').html();
+       
 
-    $ref.on('click', function (e) {
-        var temp = $(this).attr("href");
-        alert(temp);
 
-        var imageid = $(this).attr("href");
-        e.preventDefault();
+    $subscribeBtn.on('click', function (e) {
+
+
         $.ajax({
-            type: "POST",
-            url: "/Images/GetFullImage",
 
-            data: JSON.stringify("sadasdasdasdasd"),
+
+            type: "GET",
+            url: "/Users/Subscribe",
+
+            data: {
+                userId: userId
+            },
             contentType: "application/json; charset=utf-8",
             dataType: "json",
 
@@ -25,7 +27,9 @@
     })
 
     function successFunc(data, status) {
-        alert(data.id);
+        $subscribeBtn.text(data)
+
+        
     }
     function errorFunc(errorData) {
         alert('Ошибка' + errorData.responseText);

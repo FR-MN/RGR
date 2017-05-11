@@ -50,6 +50,25 @@ namespace ArtAlbum.UI.Web.Controllers
             }
             return View();
         }
+        
+        [Authorize]
+        public JsonResult Subscribe(string userId)
+        {
+
+            var currentUserId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            var subscribtionUserId = Guid.Parse(userId);
+
+            foreach (var subscription in UserVM.GetSubscribtionsByUserId(currentUserId))
+            {
+                if (subscription.Id == subscribtionUserId)
+                {
+                    UserVM.UnsubscribeToUser(currentUserId, subscribtionUserId);
+                    return Json("Подписаться",JsonRequestBehavior.AllowGet);
+                }
+            }
+            UserVM.SubscribeToUser(currentUserId, subscribtionUserId);
+            return Json("Отписаться", JsonRequestBehavior.AllowGet);
+        } 
 
         [Authorize]
         public ActionResult GetUser(string nickname)
