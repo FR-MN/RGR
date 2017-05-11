@@ -16,7 +16,7 @@
                 <div class="row">
 
                     <div class="col-md-8" style="margin: 0 auto;">
-                        <h2>Privet</h2>
+                        <h2 id="username">Privet</h2>
                         @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
 
                         </a>*@
@@ -134,6 +134,7 @@
 
                         </div>
                     </div>
+               
                     @*Отличная загрузка изображения, только не работает и выглдяит ужасно, спасибо
                         <div class="col-md-8">
                         <p>Для загрузки нового изоюражения в свой альбом нажмите на кнопку </p>
@@ -340,3 +341,8 @@
         <button>Добавить</button>
     </form>*@
 
+
+@section scripts{
+
+    <script src="~/Scripts/AjaxScript.js"></script>
+}
