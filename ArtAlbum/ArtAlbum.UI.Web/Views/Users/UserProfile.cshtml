@@ -25,29 +25,37 @@
                 </div>
                 <div class="row">
                     <br />
-                    <div id="list_dropdowns" class="col-md-8">
+                    <div  class="col-md-8">
+                        <a href="@Url.Action("GetUser", "Users", new { nickname = "user"})">Link</a>
                         @*<div class="arrow-top">*@
                         <div class="dropdown_menu">
-                            <a href="@Url.Action("GetUser", "Users", new { nickname = "user"})">Link</a>
-                            <h3><span>Settings</span></h3>
+                           
+                            
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Настройки
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Изменить аватар</a></li>
+                                <li><a href="#">Что то еще</a></li>
+                                <li><a href="#">Открыть настройки</a></li>
+                                
+                            </ul>
+                            
+                            
+                            
+                            @*<h3>
+                            Settings
+                            </h3>
 
                             <ul class="list_item" style="display: none;">
                                 <li> <a>Change Avatar</a></li>
                                 <li>Change My page</li>
                                 <li>Delete My page</li>
 
-                            </ul>
+                            </ul>*@
 
 
-                            <!--<button class="btn btn-primary ">
-
-                        </button>
-                        <button class="btn btn-primary ">
-
-                        </button>
-                        <button class="btn btn-primary">
-
-                        </button>-->
 
                         </div>
 
@@ -60,7 +68,66 @@
                             <div class="addimage" style="margin: 0 auto;">
                                 <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span> Add image</a>
                                 <a href="#x" class="overlay" id="loadimage"></a>
+
                                 <div class="popup">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="content">
+
+                                                    <!-- Область для перетаскивания -->
+                                                    <div id="drop-files" ondragover="return false">
+                                                        <div style="margin-top:-60px;">
+                                                            <p>Перетащите изображение сюда или выберете файл</p>
+
+                                                            <input class="button15" name="dataImage" type="file" id="uploadbtn" multiple="">
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                    <!-- Область предпросмотра -->
+                                                    <div id="uploaded-holder">
+                                                        <div id="dropped-files">
+
+                                                            <div id="upload-button">
+                                                                <center>
+
+                                                                    <button class="button15">Загрузить</button>
+                                                                    <a href="#" class="delete">Удалить</a>
+                                                                    <!-- Прогресс бар загрузки -->
+
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Список загруженных файлов -->
+                                                    <div id="file-name-holder">
+                                                        <ul id="uploaded-files" style="display: none;"></ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>
+                                                    Описание
+                                                    <input name="Description" type="text" />
+                                                </label>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </form>
+
+
+
+
+                                </div>
+                                @*<div class="popup">
                                     <form method="post" enctype="multipart/form-data">
                                         <label>
                                             Описание
@@ -128,13 +195,12 @@
 
 
                         </form>*@
-                                </div>
-                            </div>
+
 
 
                         </div>
                     </div>
-               
+               </div>
                     @*Отличная загрузка изображения, только не работает и выглдяит ужасно, спасибо
                         <div class="col-md-8">
                         <p>Для загрузки нового изоюражения в свой альбом нажмите на кнопку </p>
@@ -211,103 +277,9 @@
             <div class="col-xs-12 col-md-8 col-lg-8">
                 <h2>Favorite images</h2>
                 <div>
-                        <div class="col-md-4">
-                            <a class="litle_image" href="#win2">
-                                <img src="~/Content/img/DSC05978.jpg" class="img-responsive">
-                            </a>
-                            <a href="#x" class="overlay" id="win2"></a>
-                            <div class="popup">
-                                <div class="top_image">
-                                    <img src="~/Content/img/DSC05978.jpg" />
-                                </div>
-                                <h2>Описание к изображению</h2>
-                                <p>
-                                    Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                                </p>
-                                <a class="close" title="Закрыть" href="#close"></a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                        <a class="litle_image" href="#win3">
-                            <img src="~/Content/img/2016-11-25 15.21 (7).jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win3"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2016-11-25 15.21 (7).jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win3">
-                            <img src="~/Content/img/2016-11-25 15.21 (7).jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win3"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2016-11-25 15.21 (7).jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win4">
-                            <img src="~/Content/img/2017-01-31 18.10.jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win4"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2017-01-31 18.10.jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win5">
-                            <img src="~/Content/img/2017-01-31 18.16 (1).jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win5"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2017-01-31 18.16 (1).jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win6">
-                            <img src="~/Content/img/DSC05970.jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win6"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/DSC05970.jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
+                    @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
                 </div>
+               
             </div>
         </section>
     </div>

@@ -245,6 +245,7 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="Views\Users\GetUser.cshtml" />
+    <Content Include="Views\Images\_SmallImagesPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

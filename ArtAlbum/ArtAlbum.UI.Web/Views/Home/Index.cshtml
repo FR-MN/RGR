@@ -95,32 +95,8 @@
                     }
                     else
                     {
-                        foreach (var image in ViewBag.ImagesOfSubscriptions)
-                        {
-                            if (x == 6)
-                            {
-                                break;
-                            }
-                            x += 1;
-                            <div class="col-md-4">
-                                <div class="block" href="#@image.Id">
-                                    <a href="#@image.Id">
-                                        <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
-                                    </a>
-                                </div>
-                                <a href="#x" class="overlay" id="@image.Id"></a>
-                                <div class="popup">
-                                    <div class="top_image">
-                                        <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" />
-                                    </div>
-                                    <h2>@image.Description</h2>
-                                    <p>
-                                        Я пока не придумал как это должно выглядеть.
-                                    </p>
-                                    <a class="close" title="Закрыть" href="#close"></a>
-                                </div>
-                            </div>
-                        }
+                        @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesOfSubscriptions })
+                        
                     }
                 </div>
             </div>

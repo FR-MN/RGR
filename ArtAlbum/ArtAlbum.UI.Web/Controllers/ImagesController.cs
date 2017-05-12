@@ -15,6 +15,7 @@ namespace ArtAlbum.UI.Web.Controllers
     {
         public ActionResult GetResizedImage(string id, int newWidth, int maxHeight)
         {
+           
             Guid imageId = Guid.Parse(id);
             ImageDataVM imageSrc = ImageDataVM.GetImageById(imageId);
             Image image;
@@ -30,15 +31,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 return File(streak.ToArray(), "image/png");
             }
         }
-        [HttpPost]
-        public JsonResult GetFullImage(string id)
-        {
-            string ID = id.Remove(0,1);
-            Guid imageId = Guid.Parse(id);
-            ImageDataVM imageSrc = ImageDataVM.GetImageById(imageId);
-            return Json(File(imageSrc.Data, imageSrc.Type));
 
-        }
         public ActionResult GetImage(string id)
         {
             Guid imageId = Guid.Parse(id);
@@ -50,6 +43,14 @@ namespace ArtAlbum.UI.Web.Controllers
         public PartialViewResult ShowImages(IEnumerable<ImageVM> images)
         {
             return PartialView("_ImagesPartial", images);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult ShowSmallImages(IEnumerable<ImageVM> images)
+        {
+            
+            
+            return PartialView("_SmallImagesPartial", ImageVM.GetAllImages());
         }
     }
 }

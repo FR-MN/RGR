@@ -35,30 +35,36 @@
                 <nav class="gn-menu-wrapper">
                     <div class="gn-scroller">
                         <ul class="gn-menu">
+
                             <li class="gn-search-item">
                                 <input placeholder="Search" type="search" class="gn-search">
                                 <a class="gn-icon gn-icon-search"><span>Search</span></a>
                             </li>
-                            <li>
-                                <a href="#about"> <span class="gn-icon gn-icon-download"></span>About</a>
+                            <li >
+                                
+                                <a href="/Index/Home">
+                                 <div class="gn-item">
+                                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                     <p >
+                                         Главная страница
+                                     </p>
+                                 </div>
+                               
+                                     
+                                </a>
+                                
                             </li>
-                            <li><a href="#service" class="gn-icon gn-icon-cog">Service</a></li>
                             <li>
-                                <a href="@Url.Action("Register", "Register")">Registration</a>
-
-
+                                <a href="#t"> <span class="gn-icon gn-icon-download"></span>About</a>
                             </li>
+                            <li><a href="#" class="gn-icon gn-icon-cog">Service</a></li>
+                            
 
                         </ul>
                     </div><!-- /gn-scroller -->
                 </nav>
             </li>
-            <li>
 
-
-                <a href="@Html.ActionLink("Главная страница", "Index", "Home")"></a>
-
-            </li>
 
 
             <li class="right">
@@ -73,6 +79,7 @@
                             <span>Гость</span>
                         }
                     }
+
                     <ul class="dropdown">
                         @{
                             if (User.Identity.IsAuthenticated)

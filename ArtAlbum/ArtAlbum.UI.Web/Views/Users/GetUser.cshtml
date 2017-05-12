@@ -25,109 +25,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn btn-group-lg" id="subscribe-btn" >Подписаться</button>
+                    <div class="col-md-8">
+                        <button class="button7" id="subscribe-btn">Подписаться</button>
+                    </div>
+                  
                 </div>
             </div>
 
             <div class="col-xs-12 col-md-8 col-lg-8">
                 <h2>Favorite images</h2>
                 <div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win2">
-                            <img src="~/Content/img/DSC05978.jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win2"></a>
-                        <div class="popup">
-                            <div class="top_image">
-                                <img src="~/Content/img/DSC05978.jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win3">
-                            <img src="~/Content/img/2016-11-25 15.21 (7).jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win3"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2016-11-25 15.21 (7).jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win3">
-                            <img src="~/Content/img/2016-11-25 15.21 (7).jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win3"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2016-11-25 15.21 (7).jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win4">
-                            <img src="~/Content/img/2017-01-31 18.10.jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win4"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2017-01-31 18.10.jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win5">
-                            <img src="~/Content/img/2017-01-31 18.16 (1).jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win5"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/2017-01-31 18.16 (1).jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="litle_image" href="#win6">
-                            <img src="~/Content/img/DSC05970.jpg" class="img-responsive">
-                        </a>
-                        <a href="#x" class="overlay" id="win6"></a>
-                        <div class="popup">
-                            <div class="pic-right">
-                                <img src="~/Content/img/DSC05970.jpg" />
-                            </div>
-                            <h2>Описание к изображению</h2>
-                            <p>
-                                Я пока не придумал как это должно выглядеть.Но обещаю завтра это уже будет как то выглядеть.
-                            </p>
-                            <a class="close" title="Закрыть" href="#close"></a>
-                        </div>
-                    </div>
+                    @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
                 </div>
             </div>
         </section>

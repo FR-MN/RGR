@@ -1,26 +1,33 @@
 ﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
-
+@{
+    System.Int32 x;
+    x = 0;
+}
 @{
     foreach (var image in @Model)
     {
-       
+        if (x == 6)
+        {
+            break;
+        }
+        x += 1;
         <div class="col-md-4">
-            <div class="block">
-                <a class="show-image"  data-toggle="modal" data-target="#@image.Id" >
+            <div class="litle_image">
+                <a class="show-small-image" data-toggle="modal" data-target="#_@image.Id">
                     <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
                 </a>
-            </div> 
-            
+            </div>
+
 
             <!-- Modal -->
-            <div class="modal fade" id="@image.Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="_@image.Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="row">
                             <div class="col-md-8">
 
                                 <div class="top_image">
-                                    
+
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -113,12 +120,12 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-                @*<a href="#x" class="overlay" id="@image.Id"></a>*@
-               
+            </div>
+            @*<a href="#x" class="overlay" id="@image.Id"></a>*@
+           
 
-               
-            
+
+
         </div>
 
     }

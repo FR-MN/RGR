@@ -1050,6 +1050,7 @@ footer {
     border-radius: 3px;
     background: rgb(245,245,245);
     transition: 0.2s;
+    margin-top:15px;
 }
 
     .button7:hover {
@@ -1057,15 +1058,6 @@ footer {
         color: white;
     }
 
-.litle_image img {
-    width: 250px;
-    height: 250px;
-    border: 2px; /* Рамка вокруг фотографии */
-    padding: 10px; /* Расстояние от картинки до рамки */
-    /* Цвет фона */
-    /* Отступ справа */
-    margin-bottom: 15px; /* Отступ снизу */
-}
 
 
 
@@ -1087,7 +1079,7 @@ footer {
     }
 
 .block {
-    margin-bottom: 5px;
+    margin-bottom: 25px;
     position: relative;
     width: 220px;
     height: 220px;
@@ -1095,7 +1087,7 @@ footer {
     text-align: center;
 }
 
-    .block img {
+    .block .litle_image img {
         max-width: 100%;
         max-height: 100%;
         vertical-align: middle;
@@ -1106,6 +1098,17 @@ footer {
         bottom: 0;
         right: 0;
     }
+    .litle_image{
+        margin-bottom: 25px;
+    position: relative;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+    }
+    
+
+
 
     .top_requests li {
         display:inline;
@@ -1140,5 +1143,16 @@ float:right;
 width:150px;
 height:auto;
 }
-
-    
+.gn-item{
+    margin-left:23px;
+}
+.gn-item p{
+    margin-left:20px;
+    display:inline;
+}
+.modal-backdrop
+{
+display:none;
+visibility:hidden; 
+position:relative
+}
