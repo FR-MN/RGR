@@ -14,7 +14,7 @@
         <div class="col-md-4">
             <div class="litle_image">
                 <a class="show-small-image" data-toggle="modal" data-target="#_@image.Id">
-                    <img src="@Url.Action("GetImage", "Images", new { id = image.Id })" class="img-responsive">
+                    <img src="@Url.Action("GetResizedImage", "Images", new { id = image.Id, newWidth = 50, maxHeight = 50 })" class="img-responsive">
                 </a>
             </div>
 

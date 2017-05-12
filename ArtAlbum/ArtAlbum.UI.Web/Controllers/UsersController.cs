@@ -20,6 +20,7 @@ namespace ArtAlbum.UI.Web.Controllers
             if (userId != Guid.Empty)
             {
                 ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
+                ViewBag.Nickname = User.Identity.Name;
             }
             return View();
         }
@@ -84,6 +85,7 @@ namespace ArtAlbum.UI.Web.Controllers
             }
             ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(user.Id);
             ViewBag.UserId = user.Id;
+            ViewBag.Nickname = nickname;
             return View();
         }
     }

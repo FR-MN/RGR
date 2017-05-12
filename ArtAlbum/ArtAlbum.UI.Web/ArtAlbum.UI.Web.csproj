@@ -137,7 +137,6 @@
     <Content Include="Content\nivo-lightbox-theme\default\prev.png" />
     <Content Include="Content\nivo-lightbox.css" />
     <Content Include="Content\Popup.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\wrapper-dropdown.css" />
     <Content Include="fonts\ecoicons\ecoicons.dev.svg" />
