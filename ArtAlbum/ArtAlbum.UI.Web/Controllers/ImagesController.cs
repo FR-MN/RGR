@@ -50,7 +50,7 @@ namespace ArtAlbum.UI.Web.Controllers
         {
             
             
-            return PartialView("_SmallImagesPartial", ImageVM.GetAllImages());
+            return PartialView("_SmallImagesPartial", images);
         }
     }
 }
