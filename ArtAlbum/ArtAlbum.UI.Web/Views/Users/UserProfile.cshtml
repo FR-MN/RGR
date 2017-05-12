@@ -64,7 +64,7 @@
                 </div>
                 <div class="row">
                         <div class="col-md-8">
-                            
+                            <br />
                             <div class="addimage" style="margin: 0 auto;">
                                 <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
                                 <a href="#x" class="overlay" id="loadimage"></a>
@@ -201,81 +201,12 @@
                         </div>
                     </div>
                </div>
-                    @*Отличная загрузка изображения, только не работает и выглдяит ужасно, спасибо
-                        <div class="col-md-8">
-                        <p>Для загрузки нового изоюражения в свой альбом нажмите на кнопку </p>
-                        <div class="addimage" style="margin: 0 auto;">
-                            <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span> Add image</a>
-                            <a href="#x" class="overlay" id="loadimage"></a>
-                            <div class="popup">
-                                <form method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                         <div class="col-md-6">
-                                             <div class="content">
-
-                                                 <!-- Область для перетаскивания -->
-                                                 <div id="drop-files" ondragover="return false">
-                                                    <div style="margin-top:-60px;">
-                                                        <p>Перетащите изображение сюда или выберете файл</p>
-
-                                                        <input class="button15" name="dataImage" type="file" id="uploadbtn" multiple="">
-
-                                                    </div>
-
-
-
-
-                                                 </div>
-                                                 <!-- Область предпросмотра -->
-                                                 <div id="uploaded-holder">
-                                                     <div id="dropped-files">
-
-                                                         <div id="upload-button">
-                                                             <center>
-
-                                                                 <button class="button15">Загрузить</button>
-                                                                 <a href="#" class="delete">Удалить</a>
-                                                                 <!-- Прогресс бар загрузки -->
-
-                                                             </center>
-                                                         </div>
-                                                     </div>
-                                                 </div>
-                                                 <!-- Список загруженных файлов -->
-                                                 <div id="file-name-holder">
-                                                     <ul id="uploaded-files" style="display: none;">
-
-                                                     </ul>
-                                                 </div>
-
-                                             </div>
-                                         </div>
-                                        <div class="col-md-6">
-                                            <label>
-                                                Описание
-                                                <input name="Description" type="text" />
-                                            </label>
-
-                                        </div>
-
-                                    </div>
-
-
-                                </form>
-
-
-
-
-                            </div>
-                        </div>
-
-
-                    </div>*@
+                   
 
             </div>
 
             <div class="col-xs-12 col-md-8 col-lg-8">
-                <h2>Favorite images</h2>
+                <h2>Любимые изображения</h2>
                 <div>
                     @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
                 </div>
@@ -292,7 +223,7 @@
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <h2>My images</h2>
+            <h2>Мои изображения</h2>
             <div>
                 @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
             </div>

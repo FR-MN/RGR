@@ -132,16 +132,17 @@ width: 100%;
 height: auto;
 }*/
 .top_image { 
+    margin-top:20px;
 position: relative; 
-width: 450px; 
-height: 400px; 
+width: 600px; 
+height: 600px; 
 
-line-height: 400px; 
+line-height: 500px; 
 text-align: center; 
 } 
 .top_image img { 
-max-width: 100%; 
-max-height: 100%; 
+max-width: 95%; 
+max-height: 95%; 
 vertical-align: middle; 
 margin: auto; 
 position: absolute; 
@@ -153,10 +154,12 @@ right: 0;
 /* миниатюры слева/справа */
 .modal-content{
     min-width: 320px;
-max-width: 820px;
+max-width: 1200px;
+max-height: 900px;
+min-height: 320px;
 }
 @media (min-width: 768px) {
     .modal-dialog {
-        width: 750px;
+        width: 1050px;
     }
 }

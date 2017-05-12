@@ -34,7 +34,7 @@
             </div>
 
             <div class="col-xs-12 col-md-8 col-lg-8">
-                <h2>Favorite images</h2>
+                <h2>Любимые изображения</h2>
                 <div>
                     @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
                 </div>
@@ -50,7 +50,7 @@
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <h2>My images</h2>
+            <h2>Мои изображения</h2>
             <div>
                 @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
             </div>
@@ -58,18 +58,6 @@
         </div>
     </div>
 </div>
-@*<h2>Добавить изображение</h2>*@
-@*<form method="post" enctype="multipart/form-data">
-        <label>
-            Описание
-            <input name="Description" type="text" />
-        </label>
-        <label>
-            Загрузить изображение
-            <input name="dataImage" type="file" />
-        </label>
-        <button>Добавить</button>
-    </form>*@
 
 
 
