@@ -816,7 +816,7 @@ form#contact-form input, form#contact-form select, form#contact-form textarea {
 
 footer {
     text-align: center;
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
     footer p {
@@ -1074,10 +1074,12 @@ footer {
 }
 
     .registration h2 {
-        margin-left: -100px;
+        
         text-align: center;
     }
-
+    .form-control text-box single-line{
+        width:20%;
+    }
 .block {
     margin-bottom: 25px;
     position: relative;
@@ -1156,3 +1158,4 @@ display:none;
 visibility:hidden; 
 position:relative
 }
+
