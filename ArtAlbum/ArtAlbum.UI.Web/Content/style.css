@@ -1050,7 +1050,8 @@ footer {
     border-radius: 3px;
     background: rgb(245,245,245);
     transition: 0.2s;
-    margin-top:15px;
+    margin-bottom:-40px;
+    cursor: pointer;
 }
 
     .button7:hover {
@@ -1108,9 +1109,30 @@ footer {
     line-height: 140px;
     text-align: center;
     }
+     
+    .litle_image img {
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: middle;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .litle_image .img-responsive {
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: middle;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
     
-
-
 
     .top_requests li {
         display:inline;
