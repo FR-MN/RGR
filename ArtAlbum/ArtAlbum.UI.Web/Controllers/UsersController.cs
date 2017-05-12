@@ -62,11 +62,11 @@ namespace ArtAlbum.UI.Web.Controllers
             {
                 if (subscription.Id == subscribtionUserId)
                 {
-                    UserVM.UnsubscribeToUser(currentUserId, subscribtionUserId);
+                    UserVM.UnsubscribeToUser(subscribtionUserId, currentUserId);
                     return Json("Подписаться",JsonRequestBehavior.AllowGet);
                 }
             }
-            UserVM.SubscribeToUser(currentUserId, subscribtionUserId);
+            UserVM.SubscribeToUser(subscribtionUserId, currentUserId);
             return Json("Отписаться", JsonRequestBehavior.AllowGet);
         } 
 

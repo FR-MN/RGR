@@ -17,6 +17,7 @@ namespace ArtAlbum.BLL.DefaultLogic
         private IUsersImagesDAL relationsDAL;
         private IRolesDAL rolesDAL;
         private ISubscribersDAL subscribersDAL;
+        private ILikesDAL likesDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -27,9 +28,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
             regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL)
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL)
         {
-            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null)
+            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
@@ -37,6 +38,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.relationsDAL = relationsDAL;
             this.rolesDAL = rolesDAL;
             this.subscribersDAL = subscribersDAL;
+            this.likesDAL = likesDAL;
         }
 
         private bool IsUserCorrect(UserDTO user)
@@ -108,6 +110,10 @@ namespace ArtAlbum.BLL.DefaultLogic
             foreach (var subscriptionId in subscribersDAL.GetSubscriptionsOfUser(userId))
             {
                 subscribersDAL.RemoveSubscriberFromUser(userId, subscriptionId);
+            }
+            foreach (var imageId in likesDAL.GetIdsOfLikedImagesByUserId(userId))
+            {
+                likesDAL.RemoveLikeFromImage(userId, imageId);
             }
             return usersDAL.RemoveUserById(userId);
         }

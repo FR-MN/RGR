@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\IncorrectDataException.cs" />
     <Compile Include="ImagesBLL.cs" />
+    <Compile Include="LikesBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolesBLL.cs" />
     <Compile Include="SubscribersBLL.cs" />

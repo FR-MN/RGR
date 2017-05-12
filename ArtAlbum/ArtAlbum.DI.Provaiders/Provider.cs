@@ -28,6 +28,7 @@ namespace ArtAlbum.DI.Providers
                         RelationsDAL = new UsersImagesDAL();
                         RolesDAL = new RolesDAL();
                         SubscribersDAL = new SubscribersDAL();
+                        LikesDAL = new LikesDAL();
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -36,11 +37,12 @@ namespace ArtAlbum.DI.Providers
             {
                 case "DefaultLogic":
                     {
-                        UsersBLL = new UsersBLL(UsersDAL, RelationsDAL);
-                        ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL);
+                        UsersBLL = new UsersBLL(UsersDAL, RelationsDAL, RolesDAL, SubscribersDAL, LikesDAL);
+                        ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL, LikesDAL);
                         RelationsBLL = new UsersImagesBLL(UsersDAL, ImagesDAL, RelationsDAL);
                         RolesBLL = new RolesBLL(RolesDAL, UsersDAL);
                         SubscribersBLL = new SubscribersBLL(UsersDAL, SubscribersDAL);
+                        LikesBLL = new LikesBLL(UsersDAL, LikesDAL, ImagesDAL);
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -52,10 +54,12 @@ namespace ArtAlbum.DI.Providers
         public static IUsersImagesDAL RelationsDAL { get; private set; }
         public static IRolesDAL RolesDAL { get; private set; }
         public static ISubscribersDAL SubscribersDAL { get; private set; }
+        public static ILikesDAL LikesDAL { get; private set; }
         public static IUsersBLL UsersBLL { get; private set; }
         public static IImagesBLL ImagesBLL { get; private set; }
         public static IUsersImagesBLL RelationsBLL { get; private set; }
         public static IRolesBLL RolesBLL { get; private set; }
         public static ISubscribersBLL SubscribersBLL { get; private set; }
+        public static ILikesBLL LikesBLL { get; private set; }
     }
 }
