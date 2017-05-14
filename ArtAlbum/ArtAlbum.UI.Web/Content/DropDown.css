@@ -1,0 +1,38 @@
+﻿#list_dropdowns{
+    cursor:pointer;
+}
+#list_dropdowns{
+    cursor:pointer;
+}
+.arrow-top:after { 
+    /*position: relative;
+    content: "";
+    width: 0;
+    height: 0;
+    
+    top: 50%;
+    left: 90px;
+    top:-40px;
+    border-width: 10px 10px 0px 10px;
+    border-top-color: #eb5d1e;
+    
+    border: 10px solid transparent;*/
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -5px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color:  #eb5d1e transparent;
+
+
+     outline: none;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}

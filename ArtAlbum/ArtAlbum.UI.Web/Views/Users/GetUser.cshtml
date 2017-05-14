@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "MyPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div id="userid" style="display:none">@ViewBag.UserId</div>
+
+
+
+<div class="container bg-gray ">
+    <div class="row">
+        <section class="home-section text-center bg-gray">
+
+            <div id="main info" class="col-xs-12 col-sm-12 col-md-4">
+                <div class="row">
+
+                    <div class="col-md-8" style="margin: 0 auto;">
+                        <h2 id="nickname">@ViewBag.Nickname</h2>
+                        <a></a>
+                        @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
+
+                            </a>*@
+                        <img width="250" height="250" src="~/Content/img/ava.png" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <br />
+                        <a class="button7" id="subscribe-btn">Подписаться</a>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <h2>Любимые изображения</h2>
+                <div>
+                    @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<br />
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <h2>Мои изображения</h2>
+            <div>
+                @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+
+    <script src="~/Scripts/AjaxScript.js"></script>
+}

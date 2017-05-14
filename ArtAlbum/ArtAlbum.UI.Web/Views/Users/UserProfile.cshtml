@@ -1,0 +1,251 @@
+﻿
+@{
+    ViewBag.Title = "MyPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+
+<div class="container bg-gray ">
+    <div class="row">
+        <section class="home-section text-center bg-gray">
+
+            <div id="main info" class="col-xs-12 col-sm-12 col-md-4">
+                <div class="row">
+
+                    <div class="col-md-8" style="margin: 0 auto;">
+                        <h2 id="username">@ViewBag.Nickname</h2>
+                        @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
+
+                        </a>*@
+                        <img width="250" height="250" src="~/Content/img/ava.png" />
+                    </div>
+                </div>
+                <div class="row">
+                    <br />
+                    <div  class="col-md-8">
+                        <a href="@Url.Action("GetUser", "Users", new { nickname = "user"})">Link</a>
+                        @*<div class="arrow-top">*@
+                        <div class="dropdown_menu">
+                           
+                            
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Настройки
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Изменить аватар</a></li>
+                                <li><a href="#">Что то еще</a></li>
+                                <li><a href="#">Открыть настройки</a></li>
+                                
+                            </ul>
+                            
+                            
+                            
+                            @*<h3>
+                            Settings
+                            </h3>
+
+                            <ul class="list_item" style="display: none;">
+                                <li> <a>Change Avatar</a></li>
+                                <li>Change My page</li>
+                                <li>Delete My page</li>
+
+                            </ul>*@
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-8">
+                            <br />
+                            <div class="addimage" style="margin: 0 auto;">
+                                <a href="#loadimage" class="button7"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
+                                <a href="#x" class="overlay" id="loadimage"></a>
+
+                                <div class="popup">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="content">
+
+                                                    <!-- Область для перетаскивания -->
+                                                    <div id="drop-files" ondragover="return false">
+                                                        <div style="margin-top:-60px;">
+                                                            <p>Перетащите изображение сюда или выберете файл</p>
+
+                                                            <input class="button15" name="dataImage" type="file" id="uploadbtn" multiple="">
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                    <!-- Область предпросмотра -->
+                                                    <div id="uploaded-holder">
+                                                        <div id="dropped-files">
+
+                                                            <div id="upload-button">
+                                                                <center>
+
+                                                                    <button class="button15">Загрузить</button>
+                                                                    <a href="#" class="delete">Удалить</a>
+                                                                    <!-- Прогресс бар загрузки -->
+
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Список загруженных файлов -->
+                                                    <div id="file-name-holder">
+                                                        <ul id="uploaded-files" style="display: none;"></ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>
+                                                    Описание
+                                                    <input name="Description" type="text" />
+                                                </label>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </form>
+
+
+
+
+                                </div>
+                                @*<div class="popup">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <label>
+                                            Описание
+                                            <input name="Description" type="text" />
+                                        </label>
+                                        <label>
+                                            Загрузить изображение
+                                            <input name="dataImage" type="file" />
+                                        </label>
+                                        <button class="button15">Добавить</button>
+                                    </form>
+
+
+                                    <input type="file" id="files" name="files[]" multiple />
+                                    <output id="list"></output>
+
+
+                                    <script>
+                                    function handleFileSelect(evt) {
+                                        var files = evt.target.files; // FileList object
+
+                                        // Loop through the FileList and render image files as thumbnails.
+                                        for (var i = 0, f; f = files[i]; i++) {
+                                            // Only process image files.
+                                            if (!f.type.match('image.*')) {
+                                                continue;
+                                            }
+                                            var reader = new FileReader();
+
+                                            // Closure to capture the file information.
+                                            reader.onload = (function (theFile) {
+                                                return function (e) {
+                                                    // Render thumbnail.
+                                                    var span = document.createElement('span');
+                                                    span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                                                      '" title="', escape(theFile.name), '"/>'].join('');
+                                                    document.getElementById('list').insertBefore(span, null);
+                                                };
+                                            })(f);
+
+                                            // Read in the image file as a data URL.
+                                            reader.readAsDataURL(f);
+                                        }
+                                    }
+
+                                    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+                                    </script>
+                                    @*<form action="upload.php">
+
+
+                                <p>Drag an image from your desktop on to the drop zone or jast push to button</p>
+
+                                <div id="holder" style="width:100px; height:100px; background-color:gray">
+
+                                </div>
+                                <p>
+                                    <input type="file" name="photo" multiple accept="image/*,image/jpeg">
+                                    <input type="submit" value="Отправить">
+                                </p>
+                                <p>Upload progress: <progress id="uploadprogress" min="0" max="100" value="0">0</progress></p>
+
+
+
+
+
+
+                        </form>*@
+
+
+
+                        </div>
+                    </div>
+               </div>
+                   
+
+            </div>
+
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <h2>Любимые изображения</h2>
+                <div>
+                    @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
+                </div>
+               
+            </div>
+        </section>
+    </div>
+</div>
+<br />
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <h2>Мои изображения</h2>
+            <div>
+                @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
+            </div>
+
+        </div>
+    </div>
+</div>
+@*<h2>Добавить изображение</h2>*@
+@*<form method="post" enctype="multipart/form-data">
+        <label>
+            Описание
+            <input name="Description" type="text" />
+        </label>
+        <label>
+            Загрузить изображение
+            <input name="dataImage" type="file" />
+        </label>
+        <button>Добавить</button>
+    </form>*@
+
+
+@section scripts{
+
+    <script src="~/Scripts/AjaxScript.js"></script>
+}

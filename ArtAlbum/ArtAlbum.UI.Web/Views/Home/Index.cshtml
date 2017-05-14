@@ -1,0 +1,155 @@
+﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@{
+    System.Int32 x;
+    x = 0;
+}
+
+@*<h2>Изображения</h2>
+    @Html.ActionLink("Register", "Register", "Register")*@
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top:100px;">
+
+
+        <div id="list_dropdowns" class="col-xs-12  col-md-2">
+
+            <h2 class="Header">Type</h2>
+
+            <div class="dropdown_menu">
+                <h3><span>Тип 1</span></h3>
+                <ul class="list_item" style="display: none;">
+                    <li> <a>Что то про Наруто</a></li>
+                    <li>Пункт №2</li>
+                    <li>Пункт №3</li>
+                    <li>Пункт №4</li>
+                </ul>
+            </div>
+            <div class="dropdown_menu">
+                <h3><span>Тип 2</span></h3>
+                <ul class="list_item" style="display: none;">
+                    <li>Пункт №5</li>
+                    <li>Пункт №6</li>
+                    <li>Пункт №7</li>
+                    <li>Пункт №8</li>
+                </ul>
+            </div>
+            <div class="dropdown_menu">
+                <h3><span>Тип 3</span></h3>
+                <ul class="list_item" style="display: none;">
+                    <li> <a>Что то про Наруто</a></li>
+                    <li>Пункт №2</li>
+                    <li>Пункт №3</li>
+                    <li>Пункт №4</li>
+                </ul>
+            </div>
+            <div class="dropdown_menu">
+                <h3><span>Тип 4</span></h3>
+                <ul class="list_item" style="display: none;">
+                    <li>Пункт №5</li>
+                    <li>Пункт №6</li>
+                    <li>Пункт №7</li>
+                    <li>Пункт №8</li>
+                </ul>
+            </div>
+            <div class="dropdown_menu">
+                <h3><span>Тип 5</span></h3>
+                <ul class="list_item" style="display: none;">
+                    <li> <a>Что то про Наруто</a></li>
+                    <li>Пункт №2</li>
+                    <li>Пункт №3</li>
+                    <li>Пункт №4</li>
+                </ul>
+            </div>
+            <div class="dropdown_menu">
+                <h3><span>Тип 6</span></h3>
+                <ul class="list_item" style="display: none;">
+                    <li>Пункт №5</li>
+                    <li>Пункт №6</li>
+                    <li>Пункт №7</li>
+                    <li>Пункт №8</li>
+                </ul>
+            </div>
+        </div>
+
+        @{
+            <div class="col-xs-12 col-md-8 ">
+                <div class="center-block">
+                    <h2>Активность ваших подписок</h2>
+                    @if (ViewBag.ImagesOfSubscriptions == null)
+                    {
+                        <span>Вы не вошли, чтобы просматривать этот раздел</span>
+                    }
+                    else if (ViewBag.ImagesOfSubscriptions.Count == 0)
+                    {
+                        <span>Пока здесь ничего нет</span>
+                    }
+                    else
+                    {
+                        @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesOfSubscriptions })
+                        
+                    }
+                </div>
+            </div>
+        }
+        <div id="tags" class="col-xs-12 col-sm-12 col-md-2">
+            <h2 class="Header">Тэги</h2>
+
+
+            <h3><a href="#">#cool</a></h3>
+
+
+            <h3><a href="#">#cool</a></h3>
+            <h3><a href="#">#cool</a></h3>
+            <h3><a href="#">#cool</a></h3>
+            <h3><a href="#">#cool</a></h3>
+        </div>
+    </div>
+
+
+</div>
+<!-- /Section: types art and followers activity -->
+<!-- Section: works -->
+<section id="works" class="home-section text-center bg-gray">
+    <div class="heading-works marginbot-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+
+                    <div class="section-heading">
+                        <h2>Недавние работы</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+
+                <div>
+                    @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesRecent })
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section scripts{
+
+    <script src="~/Scripts/AjaxScript.js"></script>
+}
