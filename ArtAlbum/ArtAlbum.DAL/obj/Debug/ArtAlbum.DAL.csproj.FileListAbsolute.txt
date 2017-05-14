@@ -1,4 +1,0 @@
-D:\Development\RGR\ArtAlbum\ArtAlbum.DAL\bin\Debug\ArtAlbum.DAL.dll
-D:\Development\RGR\ArtAlbum\ArtAlbum.DAL\bin\Debug\ArtAlbum.DAL.pdb
-D:\Development\RGR\ArtAlbum\ArtAlbum.DAL\obj\Debug\ArtAlbum.DAL.dll
-D:\Development\RGR\ArtAlbum\ArtAlbum.DAL\obj\Debug\ArtAlbum.DAL.pdb
