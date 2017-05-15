@@ -12,6 +12,7 @@ namespace ArtAlbum.UI.Web.Models
     {
         private static IImagesBLL imagesLogic = Provider.ImagesBLL;
         private static IUsersImagesBLL relationsLogic = Provider.RelationsBLL;
+        private static ILikesBLL likesLogic = Provider.LikesBLL;
 
         private string description;
 
@@ -69,6 +70,17 @@ namespace ArtAlbum.UI.Web.Models
                 list.Add((ImageVM)image);
             }
             return list;
+        }
+
+        public static bool AddLikeToImage(Guid userId, Guid imageId)
+        {
+            LikeDTO like = new LikeDTO() { DateOfLike = DateTime.Now, LikerId = userId };
+            return likesLogic.AddLikeToImage(like, imageId);
+        }
+
+        public static bool RemoveLikeFromImage(Guid userId, Guid imageId)
+        {
+            return likesLogic.RemoveLikeFromImage(userId, imageId);
         }
     }
 }
