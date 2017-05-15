@@ -8,39 +8,83 @@
 
 
 
-<div class="container bg-gray ">
+<div class="user-page">
     <div class="row">
-        <section class="home-section text-center bg-gray">
+        
 
-            <div id="main info" class="col-xs-12 col-sm-12 col-md-4">
-                <div class="row">
 
-                    <div class="col-md-8" style="margin: 0 auto;">
-                        <h2 id="nickname">@ViewBag.Nickname</h2>
-                        <a></a>
-                        @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
+        <div id="main-info" class="col-xs-11 col-sm-3 col-md-3">
 
-                            </a>*@
-                        <img width="250" height="250" src="~/Content/img/ava.png" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <br />
-                        <a class="button7" id="subscribe-btn">Подписаться</a>
-                    </div>
-                  
+            <div id="first-user-block" class="row">
+
+                <div class="col-md-8" style="margin: 0 auto;">
+                    <h2 id="nickname">@ViewBag.Nickname</h2>
+                    <a></a>
+                    @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
+
+                    </a>*@
+                    <img width="200" height="200" src="~/Content/img/ava.png" />
+                    <br />
+                    <br />
+                    <br />
+                    <a class="button7" id="subscribe-btn">Подписаться</a>
+                    <br />
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-8 col-lg-8">
+            <div class="row">
+                <div id="user-date">
+                    
+                    <div class="col-xs-11 col-md-3" style="margin: 0 auto;">
+                        <div id="second-user-block">
+                            <h4>Число публикаций:4</h4>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Показать информацию</button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="user-date-item">
+                                            <h4>Имя</h4>
+                                            <p>Роман</p>
+                                        </div>
+                                        <div class="user-date-item">
+                                            <h4>Фамилия</h4>
+                                            <p>Алексеевич</p>
+                                        </div>
+                                        <div class="user-date-item">
+                                            <h4>Дата рождения</h4>
+                                            <p>Роман</p>
+                                        </div>
+                                        <div class="user-date-item">
+                                            <h4>Число публикаций</h4>
+                                            <p>Роман</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+                
+        
+
+
+
+        </div>
+        <div class="col-xs-11 col-md-9 ">
+            <div id="favorite-images">
                 <h2>Любимые изображения</h2>
                 <div>
                     @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
 </div>
 <br />
 
@@ -49,7 +93,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
+        <div id="main-images" class="col-xs-11 col-md-12 col-lg-12">
             <h2>Мои изображения</h2>
             <div>
                 @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
