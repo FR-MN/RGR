@@ -14,7 +14,7 @@ body {
     font-family: 'Lato',sans-serif;
     font-weight: 300;
     color: #666;
-    background-color: #f8f8f8;
+    background-color: #DCDCDC;
 }
 
 html {
@@ -1082,15 +1082,15 @@ footer {
         width:20%;
     }
 .block {
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     position: relative;
-    width: 220px;
-    height: 220px;
-    line-height: 220px;
+    width: 280px;
+    height: 280px;
+    line-height: 140px;
     text-align: center;
 }
 
-    .block .litle_image img {
+    .block  img {
         max-width: 100%;
         max-height: 100%;
         vertical-align: middle;
@@ -1180,4 +1180,44 @@ display:none;
 visibility:hidden; 
 position:relative
 }
+#first-user-block{
+background: #f8f8f8;
+ border-radius:10px;
+ margin-left:20px;
+ height:400px;
+ width:250px;
+ margin-bottom:10px;
+}
+#second-user-block{
+background: #f8f8f8;
+ border-radius:10px;
+ margin-left:20px;
+ height:100px;
+ width:250px;
+ text-align:center;
+ margin-top:5px;
+  margin-bottom:20px;
 
+}
+#loadimage{
+    margin-left:30px;
+}
+.user-page{
+    margin-top:100px;
+}
+#subscribe-btn{
+    margin-left:30px;
+}
+#favorite-images{
+    background: #f8f8f8;
+ border-radius:20px;
+ margin-left:40px;
+ height:520px;
+ width:90%;
+  margin-bottom:20px;
+
+}
+#main-images{
+     background: #f8f8f8;
+ border-radius:10px;
+}
