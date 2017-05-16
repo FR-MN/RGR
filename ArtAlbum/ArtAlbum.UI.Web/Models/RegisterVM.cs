@@ -15,6 +15,7 @@ namespace ArtAlbum.UI.Web.Models
         [DataType(DataType.EmailAddress, ErrorMessage ="Неверный формат почты")]
         [MaxLength(50, ErrorMessage ="Максимальная длина - 50 символов")]
         public string Email { get; set; }
+
         [Required(ErrorMessage = "Это поле не может быть пустым")]
         [Display(Name = "Ник")]
         [MinLength(4, ErrorMessage ="Минимальная допустимая длина ника - 4 символа")]
@@ -22,6 +23,7 @@ namespace ArtAlbum.UI.Web.Models
         [Remote("CheckNickname","Register",ErrorMessage = "Такой ник уже есть")]
         [MaxLength(50, ErrorMessage = "Максимальная длина - 50 символов")]
         public string Nickname { get; set; }
+
         [Required(ErrorMessage = "Это поле не может быть пустым")]
         [Display(Name = "Пароль")]
         [MinLength(8, ErrorMessage = "Минимальная допустимая длина пароля - 8 символа")]
@@ -29,24 +31,28 @@ namespace ArtAlbum.UI.Web.Models
         [DataType(DataType.Password)]
         [MaxLength(50, ErrorMessage = "Максимальная длина - 50 символов")]
         public string Password { get; set; }
+
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage ="Пароли не совпадают")]
         [Required(ErrorMessage = "Это поле не может быть пустым")]
         [Display(Name = "Подтверждение пароля")]
         [DataType(DataType.Password)]
         [MaxLength(49, ErrorMessage = "Максимальная длина - 50 символов")]
         public string ConfirmPassword { get; set; }
+
         [Required(ErrorMessage = "Это поле не может быть пустым")]
         [Display(Name = "Имя")]
         [MinLength(2, ErrorMessage = "Минимальная допустимая длина имени - 2 символа")]
         [RegularExpression("^[а-яА-ЯёЁa-zA-Z]+$")]
         [MaxLength(50, ErrorMessage = "Максимальная длина - 50 символов")]
         public string FirstName { get; set; }
+
         [Required(ErrorMessage = "Это поле не может быть пустым")]
         [Display(Name = "Фамилия")]
         [MinLength(2, ErrorMessage = "Минимальная допустимая длина фамилии - 2 символа")]
         [RegularExpression("^[а-яА-ЯёЁa-zA-Z]+$")]
         [MaxLength(50, ErrorMessage = "Максимальная длина - 50 символов")]
         public string LastName { get; set; }
+
         [Required(ErrorMessage = "Это поле не может быть пустым")]
         [Remote("CheckDateOfBirth", "Register", ErrorMessage = "Некорректная дата рождения")]
         [Display(Name = "Дата рождения")]

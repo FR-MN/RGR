@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ArtAlbum.UI.Web.Controllers
 {
@@ -86,6 +87,90 @@ namespace ArtAlbum.UI.Web.Controllers
             ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(user.Id);
             ViewBag.UserId = user.Id;
             ViewBag.Nickname = nickname;
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Settings()
+        {
+            UserVM user = UserVM.GetUserById(UserVM.GetUserIdByNickname(User.Identity.Name));
+            return View(new RegisterVM { FirstName = user.FirstName, LastName = user.LastName, DateOfBirth = user.DateOfBirth, Email = user.Email, Nickname = user.Nickname });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Settings(RegisterVM userData, string password)
+        {
+            UserVM user = UserVM.GetUserById(UserVM.GetUserIdByNickname(User.Identity.Name));
+            userData.Password = password;
+            userData.Nickname = user.Nickname;
+            userData.Email = user.Email;
+            if (userData != null)
+            {
+                bool isModelValid = ModelState.IsValidField("FirstName") && ModelState.IsValidField("LastName") && ModelState.IsValidField("DateOfBirth") && ModelState.IsValidField("FirstName");
+                if (UserVM.IsValid(userData.Nickname, userData.Password) && isModelValid)
+                {
+                    UserVM.Update(userData);
+                    ViewBag.isUpdate = true;
+                }
+                else
+                {
+                    ViewBag.isUpdate = false;
+                }
+            }
+            userData.Password = "";
+            return View(userData);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Delete(string password)
+        {
+            if (password != null && UserVM.IsValid(User.Identity.Name, password))
+            {
+                Guid userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+                FormsAuthentication.SignOut();
+                UserVM.Remove(userId);
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.isValid = false;
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(string currentPassword, RegisterVM userData)
+        {
+            if (currentPassword != null && UserVM.IsValid(User.Identity.Name, currentPassword))
+            {
+                UserVM user = UserVM.GetUserById(UserVM.GetUserIdByNickname(User.Identity.Name));
+                userData.DateOfBirth = user.DateOfBirth;
+                userData.Email = user.Email;
+                userData.FirstName = user.FirstName;
+                userData.LastName = user.LastName;
+                userData.Nickname = user.Nickname;
+                UserVM.Update(userData);
+                ViewBag.isUpdate = true;
+                return View();
+            }
+            ViewBag.isUpdate = false;
             return View();
         }
     }

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Удалить профиль";
+}
+
+<h2>Удалить профиль</h2>
+<p>Введите пароль для подтверждения удаления учетной записи</p>
+
+<form method="post" enctype="multipart/form-data">
+    <label>
+        Введите пароль
+        <input name="password" type="password" />
+    </label>
+    @if (ViewBag.isValid != null && !ViewBag.isValid)
+    {
+        <p>Неверный пароль</p>
+    }
+    <input type="submit" value="Подтвердить" class="btn btn-default" />
+</form>
+
+<div>
+    @Html.ActionLink("Назад", "Settings", "Users")
+</div>

@@ -43,7 +43,7 @@ namespace ArtAlbum.UI.Web.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("index", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

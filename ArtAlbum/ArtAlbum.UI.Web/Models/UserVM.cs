@@ -118,6 +118,18 @@ namespace ArtAlbum.UI.Web.Models
             return usersLogic.AddUser(new UserDTO { Id = Guid.NewGuid(), FirstName = user.FirstName, LastName = user.LastName, DateOfBirth = user.DateOfBirth, Email = user.Email, HashOfPassword = hash, Nickname = user.Nickname }) && RoleVM.AddRoleToUser(user.Nickname, "User");
         }
 
+        internal static bool Update(RegisterVM user)
+        {
+            var hash = Encoding.UTF8.GetBytes(user.Password);
+            hashFunction.ComputeHash(hash);
+            return usersLogic.UpdateUser(new UserDTO { Id = GetUserIdByNickname(user.Nickname), FirstName = user.FirstName, LastName = user.LastName, DateOfBirth = user.DateOfBirth, Email = user.Email, HashOfPassword = hash, Nickname = user.Nickname });
+        }
+
+        internal static bool Remove(Guid userId)
+        {
+            return usersLogic.RemoveUserById(userId);
+        }
+
         public override string ToString()
         {
             return string.Format("FirstName: {0} , LastName: {1}, date of birth: {2}, age: {3}, email: {4}, nickname: {5}", FirstName, LastName, DateOfBirth.ToShortDateString(), Age, Email, Nickname);
@@ -150,6 +162,10 @@ namespace ArtAlbum.UI.Web.Models
                 var hash = user.HashOfPassword;
                 var data = Encoding.UTF8.GetBytes(password);
                 hashFunction.ComputeHash(data);
+                if (data.Length != hash.Length)
+                {
+                    return false;
+                }
                 for (int i = 0; i < hash.Length; i++)
                 {
                     if (data[i] != hash[i])
@@ -170,6 +186,11 @@ namespace ArtAlbum.UI.Web.Models
                 return user.Id;
             }
             return Guid.Empty;
+        }
+
+        internal static UserVM GetUserById(Guid userId)
+        {
+            return (UserVM)usersLogic.GetUserById(userId);
         }
 
         internal static IEnumerable<UserVM> GetSubscribersByUserId(Guid userId)
