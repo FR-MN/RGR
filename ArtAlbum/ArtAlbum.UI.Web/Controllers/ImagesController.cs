@@ -38,6 +38,12 @@ namespace ArtAlbum.UI.Web.Controllers
             ImageDataVM imageSrc = ImageDataVM.GetImageById(imageId);
             return File(imageSrc.Data, imageSrc.Type);
         }
+        public JsonResult UpdateLike(string isitLikeMe , string imageId)
+        {
+            var UserId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            return Json("неа",JsonRequestBehavior.AllowGet);
+
+        }
 
         [ChildActionOnly]
         public PartialViewResult ShowImages(IEnumerable<ImageVM> images)
