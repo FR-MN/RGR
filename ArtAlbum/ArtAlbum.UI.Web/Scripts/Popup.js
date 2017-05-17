@@ -119,7 +119,7 @@
        
         
          
-        var islikeme = $(this).html();
+        var islikeme = $(this).children(".like-status").html();
         imageId = $(this).attr("value");
         $.ajax({
 
@@ -142,7 +142,7 @@
     })
 
     function successFunc(data, status) {
-        $('#'+imageId).find($(".like")).text(data)
+        $('#' + imageId).find($(".like").children(".like-status")).text(data)
 
 
     }

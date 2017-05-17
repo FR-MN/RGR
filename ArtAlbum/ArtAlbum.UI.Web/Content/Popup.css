@@ -188,24 +188,20 @@ min-height: 420px;
         width: 1250px;
     }
 }
-@media (min-width:560px) and (max-width: 768px) {
+
+@media screen and (max-width: 440px)  {
     .modal-dialog {
-        width: 850px;
+        width: 200px;
+        height:400px;
+    }
+    #list_dropdowns{
+        margin-left:25px;
+        width:240px;
     }
 
-    .top_image {
-        margin-left: 20px;
-        margin-bottom: 5px;
-        position: relative;
-        width: 600px;
-        height: 450px;
-        line-height: 140px;
-        text-align: center;
-    }
-}
-@media (min-width:200px) and (max-width: 250px) {
-    .modal-dialog {
-        width: 450px;
+    #tags{
+        margin-left:25px;
+        width:240px;
     }
 
     .top_image {
@@ -214,11 +210,11 @@ min-height: 420px;
         position: relative;
         width: 200px;
         height: 200px;
-        line-height: 140px;
+        line-height: 40px;
         text-align: center;
     }
 }
-@media (min-width:320px) and (max-width: 560px) {
+@media screen and (max-width: 850px) and (min-width: 450px) {
     .modal-dialog {
         width: 650px;
     }
@@ -237,16 +233,23 @@ min-height: 420px;
 
 div.social-panel {
     margin-left:10px;
-   width:130px;
+   width:350px;
   margin-top:5px;
+  
 }
 .like{
+    margin-left:40px;
 float:left;
-width:10px;
+width:150px;
+height:50px;
 }
-div.share {
+.like-status{
+    margin-left:15px;
+    display:inline;
+}
+.share {
 float:right;
-width:10px;
+width:150px;
 }
 
     .comments li{
@@ -285,4 +288,37 @@ height:auto;
     height:40px;
     width:300px;
     margin-left:20px;
+}
+    a.like {
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background-color: #00BFFF;
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.like:hover {  cursor:pointer }
+a.like:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+
+
+    a.share {
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background-color: #1E90FF;
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.share:hover {  cursor:pointer }
+a.share:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
 }

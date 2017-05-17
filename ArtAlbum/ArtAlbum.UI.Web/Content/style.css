@@ -1082,11 +1082,12 @@ footer {
         width:20%;
     }
 .block {
+    cursor:pointer;
     margin-bottom: 5px;
     position: relative;
     width: 280px;
     height: 280px;
-    line-height: 140px;
+    line-height: 100px;
     text-align: center;
 }
 
@@ -1102,10 +1103,11 @@ footer {
         right: 0;
     }
     .litle_image{
+         cursor:pointer;
         margin-bottom: 25px;
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: 230px;
     line-height: 140px;
     text-align: center;
     }
@@ -1192,5 +1194,57 @@ background: #f8f8f8;
 }
 #main-images{
      background: #f8f8f8;
- border-radius:10px;
+ border-radius:20px;
 }
+.section-heading{
+    text-align:center;
+}
+#list_dropdowns{
+    border-radius:15px;
+    margin-bottom:10px;
+    width:150px;
+         background: #f8f8f8;
+
+}
+.center-block{
+        border-radius:20px;
+    margin-bottom:10px;
+    width:800px;
+    height:550px;
+         background: #f8f8f8;
+}
+.center-block h2{
+    text-align:center;
+}
+
+
+@media screen and (max-width: 440px)  {
+        .center-block {
+        width: 250px;
+    }
+    .block{
+         width: 230px;
+    height: 230px;
+    }
+    }
+
+@media screen and (max-width: 850px) and (min-width: 450px) {
+.center-block {
+        height: 550px;
+    }
+}
+
+
+
+
+#tags{
+    margin-left:50px;
+     border-radius:20px;
+    margin-bottom:10px;
+    width:150px;
+         background: #f8f8f8;
+}
+#tags h3{
+    text-align:center;
+}
+
