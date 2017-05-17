@@ -178,7 +178,7 @@ namespace ArtAlbum.UI.Web.Models
             return false;
         }
 
-        internal static Guid GetUserIdByNickname(string nickname)
+        public static Guid GetUserIdByNickname(string nickname)
         {
             var user = GetAllUsers().FirstOrDefault(x => x.Nickname == nickname);
             if (user != null)
@@ -193,7 +193,7 @@ namespace ArtAlbum.UI.Web.Models
             return (UserVM)usersLogic.GetUserById(userId);
         }
 
-        internal static IEnumerable<UserVM> GetSubscribersByUserId(Guid userId)
+        public static IEnumerable<UserVM> GetSubscribersByUserId(Guid userId)
         {
             if (userId == null)
             {
@@ -207,7 +207,7 @@ namespace ArtAlbum.UI.Web.Models
             return list;
         }
 
-        internal static IEnumerable<UserVM> GetSubscribtionsByUserId(Guid userId)
+        public static IEnumerable<UserVM> GetSubscribtionsByUserId(Guid userId)
         {
             if (userId == null)
             {

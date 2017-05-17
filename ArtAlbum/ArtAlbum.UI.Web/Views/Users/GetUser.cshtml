@@ -4,6 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+@functions {
+    string GetSubscribeState()
+    {
+        Guid currentUserId = ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(User.Identity.Name);
+        foreach (var subscription in ArtAlbum.UI.Web.Models.UserVM.GetSubscribtionsByUserId(currentUserId))
+        {
+            if (subscription.Id == ViewBag.UserId)
+            {
+                return "Отписаться";
+            }
+        }
+        return "Подписаться";
+    }
+}
 <div id="userid" style="display:none">@ViewBag.UserId</div>
 
 
@@ -27,7 +41,7 @@
                     <br />
                     <br />
                     <br />
-                    <a class="button7" id="subscribe-btn">Подписаться</a>
+                    <a class="button7" id="subscribe-btn">@GetSubscribeState()</a>
                     <br />
                 </div>
             </div>

@@ -14,5 +14,6 @@ namespace ArtAlbum.BLL.Abstract
         IEnumerable<ImageDTO> GetLikedImagesByUserId(Guid userId);
         bool AddLikeToImage(LikeDTO like, Guid imageId);
         bool RemoveLikeFromImage(Guid userId, Guid imageId);
+        bool IsLikedByUser(Guid userId, Guid imageId);
     }
 }

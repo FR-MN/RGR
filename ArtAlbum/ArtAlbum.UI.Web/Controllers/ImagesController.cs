@@ -38,10 +38,27 @@ namespace ArtAlbum.UI.Web.Controllers
             ImageDataVM imageSrc = ImageDataVM.GetImageById(imageId);
             return File(imageSrc.Data, imageSrc.Type);
         }
+
+        [Authorize]
         public JsonResult UpdateLike(string isitLikeMe , string imageId)
         {
-            var UserId = UserVM.GetUserIdByNickname(User.Identity.Name);
-            return Json("неа",JsonRequestBehavior.AllowGet);
+            var userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            Guid imageIdData = Guid.Empty;
+            bool isImageIdValid = Guid.TryParse(imageId, out imageIdData);
+            if (isImageIdValid)
+            {
+                if (ImageVM.IsImageLikedByUser(userId, imageIdData))
+                {
+                    ImageVM.RemoveLikeFromImage(userId, imageIdData);
+                    return Json("Нравится", JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    ImageVM.AddLikeToImage(userId, imageIdData);
+                    return Json("Не нравится", JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json("Недоступно",JsonRequestBehavior.AllowGet);
 
         }
 

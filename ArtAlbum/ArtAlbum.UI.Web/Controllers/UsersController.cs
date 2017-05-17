@@ -22,6 +22,7 @@ namespace ArtAlbum.UI.Web.Controllers
             {
                 ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
                 ViewBag.Nickname = User.Identity.Name;
+                ViewBag.LikedImages = ImageVM.GetImagesLikedByUser(userId);
             }
             return View();
         }

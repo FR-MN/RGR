@@ -123,5 +123,30 @@ namespace ArtAlbum.BLL.DefaultLogic
             }
             return false;
         }
+
+        public bool IsLikedByUser(Guid userId, Guid imageId)
+        {
+            if (userId == null || imageId == null)
+            {
+                throw new ArgumentNullException("one of the relation ids are null");
+            }
+            try
+            {
+                imagesDAL.GetImageById(imageId);
+                usersDAL.GetUserById(userId);
+            }
+            catch
+            {
+                throw new ArgumentException("data is incorrect");
+            }
+            foreach (var userData in GetLikesByImageId(imageId))
+            {
+                if (userData.LikerId == userId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

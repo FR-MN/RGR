@@ -82,5 +82,20 @@ namespace ArtAlbum.UI.Web.Models
         {
             return likesLogic.RemoveLikeFromImage(userId, imageId);
         }
+
+        public static bool IsImageLikedByUser(Guid userId, Guid imageId)
+        {
+            return likesLogic.IsLikedByUser(userId, imageId);
+        }
+
+        internal static IEnumerable<ImageVM> GetImagesLikedByUser(Guid userId)
+        {
+            List<ImageVM> list = new List<ImageVM>();
+            foreach (var image in likesLogic.GetLikedImagesByUserId(userId))
+            {
+                list.Add((ImageVM)image);
+            }
+            return list;
+        }
     }
 }

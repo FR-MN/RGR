@@ -1,151 +1,162 @@
 ﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
 @{var list = @Model.ToList();
     int count = @Model.ToList().Count;}
+@functions {
+    string GetLikeState(Guid imageId)
+    {
+        if (ArtAlbum.UI.Web.Models.ImageVM.IsImageLikedByUser(ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(User.Identity.Name), imageId))
+        {
+            return "Не нравится";
+        }
+        return "Нравится";
+    }
+}
 @{
 
 
     for (int i = 0; i < @count; i++)
     {
-            <div class="col-md-4">
-                <div class="block">
-                    <a class="show-image" data-toggle="modal" data-target="#@list[i].Id">
-                        <img src="@Url.Action("GetResizedImage", "Images", new { id = list[i].Id, newWidth = 250, maxHeight = 250 })" class="img-responsive">
-                    </a>
-                </div>
+        <div class="col-md-4">
+            <div class="block">
+                <a class="show-image" data-toggle="modal" data-target="#@list[i].Id">
+                    <img src="@Url.Action("GetResizedImage", "Images", new { id = list[i].Id, newWidth = 250, maxHeight = 250 })" class="img-responsive">
+                </a>
+            </div>
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="@list[i].Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        @if (@i < @count - 1 ) {
+            <!-- Modal -->
+            <div class="modal fade" id="@list[i].Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    @if (@i < @count - 1)
+                    {
 
-                        <button  class="next" data-toggle="modal"  data-target="#@list[i + 1].Id" value="#@list[i].Id">Next</button>
-                       
-                        }
-                        @if(@i>0){
-                        <button  class="prev" data-toggle="modal" data-target="#@list[i - 1].Id" value="#@list[i].Id">Prev</button>
-                        }
-                        <div class="modal-content">
-                            <div class="row">
-                                <div class="col-md-12">
+                        <button class="next" data-toggle="modal" data-target="#@list[i + 1].Id" value="#@list[i].Id">Next</button>
 
-                                    <div class="top_image">
+                    }
+                    @if (@i > 0)
+                    {
+                        <button class="prev" data-toggle="modal" data-target="#@list[i - 1].Id" value="#@list[i].Id">Prev</button>
+                    }
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col-md-12">
 
-                                    </div>
+                                <div class="top_image">
+
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="description">
-                                                <h2>@list[i].Description</h2>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="social-panel">
-                                                
-                                                    <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">Нравится</p></a>
-                                                
-                                                
-                                                    <a class="share">Добавить в избранное</a>
-                                                
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="username">
-                                                <h3>Author</h3>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="comments">
-                                                <ul>
-                                                    <li>
-                                                        <div class="comment">
-                                                            <div class="reply_image">
-                                                                <a href="/id337666144">
-                                                                    <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
-                                                                </a>
-                                                            </div>
-
-                                                            <div content_commetn>
-                                                                <div class="reply_author">
-                                                                    <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
-                                                                </div>
-                                                                <div class="reply_text">
-
-                                                                    <div class="wall_reply_text">Комент 1</div>
-
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <hr />
-                                                    </li>
-                                                    <li>
-                                                        <div class="comment">
-                                                            <div class="reply_image">
-                                                                <a href="/id337666144">
-                                                                    <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="content_commetn">
-                                                                <div class="reply_author">
-                                                                    <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
-                                                                </div>
-                                                                <div class="reply_text">
-
-                                                                    <div class="wall_reply_text">Очень длинный комментарий прям очень очень ааааааааааааааааааааааааааааааааааааа</div>
-
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="addcomment">
-                                                <form action="handler.php">
-                                                    <p><b>Введите ваш Комментарий:</b></p>
-                                                    <p><textarea name="comment"></textarea></p>
-                                                    <p><input type="submit"></p>
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="description">
+                                            <h2>@list[i].Description</h2>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="social-panel">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
+                                            }
+                                            else
+                                            {
+                                                <p>Войдите чтобы оценивать изображения</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="username">
+                                            <h3>Author</h3>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="comments">
+                                            <ul>
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="reply_image">
+                                                            <a href="/id337666144">
+                                                                <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
+                                                            </a>
+                                                        </div>
+
+                                                        <div content_commetn>
+                                                            <div class="reply_author">
+                                                                <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
+                                                            </div>
+                                                            <div class="reply_text">
+
+                                                                <div class="wall_reply_text">Комент 1</div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                </li>
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="reply_image">
+                                                            <a href="/id337666144">
+                                                                <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="content_commetn">
+                                                            <div class="reply_author">
+                                                                <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
+                                                            </div>
+                                                            <div class="reply_text">
+
+                                                                <div class="wall_reply_text">Очень длинный комментарий прям очень очень ааааааааааааааааааааааааааааааааааааа</div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="addcomment">
+                                            <form action="handler.php">
+                                                <p><b>Введите ваш Комментарий:</b></p>
+                                                <p><textarea name="comment"></textarea></p>
+                                                <p><input type="submit"></p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                </div>
-                }
-                
-               
+            </div>
+        </div>
+    }
 
-                }
+
+
+}
                 }
 
