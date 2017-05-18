@@ -1,56 +1,97 @@
 ﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
-@{
-    System.Int32 x;
-    x = 0;
+@{var list = @Model.ToList();
+    int count = @Model.ToList().Count;}
+@functions {
+    string GetLikeState(Guid imageId)
+    {
+        if (ArtAlbum.UI.Web.Models.ImageVM.IsImageLikedByUser(ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(User.Identity.Name), imageId))
+        {
+            return "Не нравится";
+        }
+        return "Нравится";
+    }
 }
 @{
-    foreach (var image in @Model)
+    for (int i = 0; i < @count; i++)
     {
-        if (x == 6)
+        if (i == 5)
         {
             break;
         }
-        x += 1;
+        
         <div class="col-md-4">
             <div class="litle_image">
-                <a class="show-small-image" data-toggle="modal" data-target="#_@image.Id">
-                    <img src="@Url.Action("GetResizedImage", "Images", new { id = image.Id, newWidth = 220, maxHeight = 160 })" class="img-responsive">
+                <a class="show-small-image" data-toggle="modal" data-target="#_@list[i].Id">
+                    <img src="@Url.Action("GetResizedImage", "Images", new { id = list[i].Id, newWidth = 220, maxHeight = 160 })" class="img-responsive">
                 </a>
             </div>
 
 
             <!-- Modal -->
-            <div class="modal fade" id="_@image.Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="_@list[i].Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
+
+                    @if (@i < @count - 1)
+                    {
+
+                        <button class="_next" data-toggle="modal" data-target="#@list[i + 1].Id" value="#_@list[i].Id">Next</button>
+
+                    }
+                    @if (@i > 0)
+                    {
+                        <button class="_prev" data-toggle="modal" data-target="#@list[i - 1].Id" value="#_@list[i].Id">Prev</button>
+                    }
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+
+                    </div>
                     <div class="modal-content">
+
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
 
                                 <div class="top_image">
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <div class="username">
-                                            art by dude
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-9">
                                         <div class="description">
-                                            <h2>@image.Description</h2>
+                                            <h2>@list[i].Description</h2>
                                         </div>
+
 
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-9">
+                                        <div class="social-panel">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
+                                            }
+                                            else
+                                            {
+                                                <p>Войдите чтобы оценивать изображения</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="username">
+                                            <h3>Author</h3>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <div class="comments">
                                             <ul>
                                                 <li>
@@ -115,11 +156,11 @@
 
                                 </div>
                             </div>
-
-
                         </div>
+
                     </div>
                 </div>
+
             </div>
             @*<a href="#x" class="overlay" id="@image.Id"></a>*@
            

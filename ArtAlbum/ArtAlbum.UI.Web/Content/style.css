@@ -29,6 +29,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 30px;
+   
     font-family: Montserrat,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
@@ -1248,3 +1249,58 @@ background: #f8f8f8;
     text-align:center;
 }
 
+.center-block span{
+        height: auto;
+        display: block;
+        margin:30% 35%;
+        border: none;
+    
+        
+    font-size: 16px;
+    line-height: 1.6em;
+}
+.form-horizontal{
+    background-color:white;
+    border-radius:10px;
+    max-width:500px;
+}
+.settings .form-horizontal{
+    height:450px!important;
+}
+
+#header{
+     background-color:#eb5d1e;
+    border-radius:10px 10px 0 0;
+}
+#header h2 {
+    color:white;
+    margin-top:20px;
+    margin-right:90px;
+}
+.form-control{
+    
+    max-width:300px;
+}
+
+.form-group{
+    margin-left:70px !important;
+
+}
+
+@media (min-width:300px) and (max-width:780px)
+{
+    .form-group{
+    margin-left:5px !important;
+    margin-right:10px !important;
+}
+    .settings .form-horizontal{
+    height:750px !important;
+}
+}
+@media (min-width:780px) and (max-width:990px)
+{
+
+    .settings .form-horizontal{
+    height:750px !important;
+}
+}

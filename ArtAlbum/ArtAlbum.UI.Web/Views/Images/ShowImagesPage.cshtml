@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+@{
+    ViewBag.Title = "Избранное";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.PageName</title>
+    
+</head>
+<body>
+    <div> 
+        <br />
+        <br />
+        <br />
+        <div class="container">
+
+            <div class="row">
+                <div id="main-images" class="col-xs-11 col-md-12 col-lg-12">
+                    <h2>@ViewBag.PageName</h2>
+                    <div>
+                        @Html.Action("ShowImages", "Images", new { images = ViewBag.ShowedImages })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

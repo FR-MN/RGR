@@ -75,5 +75,29 @@ namespace ArtAlbum.UI.Web.Controllers
             
             return PartialView("_SmallImagesPartial", images);
         }
+        
+        public ActionResult ShowImagesPage(string typeofrequest, IEnumerable<ImageVM> images)
+        {
+            var userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            if (typeofrequest == "ShowFavoriteImage")
+            {
+                ViewBag.ShowedImages =  ImageVM.GetImagesLikedByUser(userId);
+                ViewBag.PageName = "Любимые изображения";
+            }
+            if (typeofrequest == "ShowImageOfFollowers")
+            {
+                List<ImageVM> imagesOfSubscription = new List<ImageVM>();
+                foreach (var subscription in UserVM.GetSubscribtionsByUserId(userId))
+                {
+                    imagesOfSubscription.AddRange(ImageVM.GetImagesByUserId(subscription.Id));
+                }
+                ViewBag.ShowedImages = imagesOfSubscription;
+                ViewBag.PageName = "Активность подписчиков";
+            }
+
+
+            return View();
+        }
+        
     }
 }

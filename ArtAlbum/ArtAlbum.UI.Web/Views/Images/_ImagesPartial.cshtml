@@ -27,23 +27,30 @@
             <!-- Modal -->
             <div class="modal fade" id="@list[i].Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
+
                     @if (@i < @count - 1)
                     {
-
-                        <button class="next" data-toggle="modal" data-target="#@list[i + 1].Id" value="#@list[i].Id">Next</button>
+                       
+                        <a class="next" data-toggle="modal" data-target="#@list[i + 1].Id" value="#@list[i].Id"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 
                     }
                     @if (@i > 0)
                     {
-                        <button class="prev" data-toggle="modal" data-target="#@list[i - 1].Id" value="#@list[i].Id">Prev</button>
+                        <a class="prev" data-toggle="modal" data-target="#@list[i - 1].Id" value="#@list[i].Id"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
                     }
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                       
+                    </div>
                     <div class="modal-content">
+                       
                         <div class="row">
                             <div class="col-md-12">
 
                                 <div class="top_image">
 
                                 </div>
+                                <button href="#" class="delete">Удалить фотографию</button>
                             </div>
                         </div>
                         <div class="row">
@@ -75,7 +82,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="username">
-                                            <h3>Author</h3>
+                                            <h3>Автор</h3>
                                         </div>
 
                                     </div>

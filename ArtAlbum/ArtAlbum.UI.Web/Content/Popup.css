@@ -88,43 +88,13 @@ transform: translate(-50%, -50%);
 }
 /* формируем кнопку закрытия */
 .close {
-position: absolute;
-padding: 0;
-top: -10px;
-right: -10px;
-width: 22px;
-height: 22px;
-border: 2px solid #ccc;
--webkit-border-radius: 50%;
--moz-border-radius: 50%;
--ms-border-radius: 50%;
--o-border-radius: 50%;
-border-radius: 50%;
-background-color: rgba(61, 61, 61, 0.8);
--webkit-box-shadow: 0px 0px 10px #000;
--moz-box-shadow: 0px 0px 10px #000;
-box-shadow: 0px 0px 10px #000;
-text-align: center;
-text-decoration: none;
-font-weight: bold;
-line-height: 20px;
--webkit-transition: background-color ease .7s;
--moz-transition:  background-color ease .7s;
--ms-transition:  background-color ease .7s;
--o-transition:  background-color ease .7s;
-transition: background-color ease .7s;
-}
-.close:before {
-color: rgba(255, 255, 255, 0.9);
-content: '\2715';
-text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
-font-size: 12px;
- 
+    cursor:pointer;
+    width:40px;
+
 }
 
-.close:hover {
-background-color: rgba(252, 20, 0, 0.8);
-}
+
+
 .popup p {
 margin: 0;
 padding: 10px;
@@ -166,8 +136,9 @@ height: auto;
 }
 
     .top_image  img {
-        max-width: 100%;
-        max-height: 100%;
+        margin-top:10px;
+        max-width: 95%;
+        max-height: 95%;
         vertical-align: middle;
         margin: auto;
         position: absolute;
@@ -193,7 +164,9 @@ min-height: 420px;
     .modal-dialog {
         width: 200px;
         height:400px;
+       
     }
+   
     #list_dropdowns{
         margin-left:25px;
         width:240px;
@@ -218,7 +191,12 @@ min-height: 420px;
     .modal-dialog {
         width: 650px;
     }
-
+     .modal-content{
+         margin-left:40px;
+    }
+     .modal-header{
+         margin-left:40px;
+     }
     .top_image {
         margin-left: 20px;
         margin-bottom: 5px;
@@ -240,7 +218,7 @@ div.social-panel {
 .like{
     margin-left:40px;
 float:left;
-width:150px;
+width:180px;
 height:50px;
 }
 .like-status{
@@ -268,16 +246,16 @@ width:150px;
     word-wrap: break-word;
 }
 div.comment {
-width:300px;
+width:600px;
 }
 div.reply_image {
 float:left;
-width:90px;
+width:50px;
 }
 div.content_commetn {
-float:right;
 
-width:250px;
+
+width:450px;
 height:auto;
 }
 .description{
@@ -292,12 +270,18 @@ height:auto;
     a.like {
   font-weight: 900;
   color: white;
-  text-decoration: none;
-  padding: .8em 1em calc(.8em + 3px);
-  border-radius: 3px;
+
+
   background-color: #00BFFF;
-  box-shadow: 0 -3px rgb(53,167,110) inset;
-  transition: 0.2s;
+  
+  
+   font-weight: 900;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    
+    transition: 0.2s;
+   
+    cursor: pointer;
 } 
 a.like:hover {  cursor:pointer }
 a.like:active {
@@ -321,4 +305,8 @@ a.share:hover {  cursor:pointer }
 a.share:active {
   background: rgb(33,147,90);
   box-shadow: 0 3px rgb(33,147,90) inset;
+}
+.next span{
+    width:100px;
+    height:100px;
 }

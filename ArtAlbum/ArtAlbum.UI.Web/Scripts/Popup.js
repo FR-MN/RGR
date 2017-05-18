@@ -86,6 +86,68 @@
 
 })();
 (function () {
+    var $ref = $('._next');
+    img = new Image();
+
+
+
+    $ref.on('click', function (e) {
+
+
+
+        var imageid = $(this).attr("data-target").slice(1),
+            temp = "_" + imageid,
+            md = $(temp).find($(".top_image"));
+        $(temp).appendTo("body");
+        e.preventDefault();
+
+
+        img.src = '/Images/GetImage/' + imageid;
+        md.append(img);
+        var imageid = $(this).attr("value");
+
+        $(imageid).modal('hide')
+
+
+
+
+    })
+
+
+
+})();
+(function () {
+    var $ref = $('._prev');
+    img = new Image();
+
+
+
+    $ref.on('click', function (e) {
+
+
+
+        var imageid = $(this).attr("data-target").slice(1),
+            temp = "#" + imageid,
+            md = $(temp).find($(".top_image"));
+        $(temp).appendTo("body");
+        e.preventDefault();
+
+
+        img.src = '/Images/GetImage/' + imageid;
+        md.append(img);
+        var imageid = $(this).attr("value");
+
+        $(imageid).modal('hide')
+
+
+
+
+    })
+
+
+
+})();
+(function () {
     var $ref = $('.show-small-image'),
 
     img = new Image();
@@ -143,6 +205,7 @@
 
     function successFunc(data, status) {
         $('#' + imageId).find($(".like").children(".like-status")).text(data)
+        $('#_' + imageId).find($(".like").children(".like-status")).text(data);
 
 
     }

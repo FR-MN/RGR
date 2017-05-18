@@ -132,7 +132,8 @@
 }
 
 
-#dropped-files #upload-button .delete {
+ .delete {
+     color:white;
 	padding: 7px 6px 4px 6px;
 	border-radius: 100px;
 	background-color: #B22222;
