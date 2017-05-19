@@ -94,7 +94,13 @@ namespace ArtAlbum.UI.Web.Controllers
                 ViewBag.ShowedImages = imagesOfSubscription;
                 ViewBag.PageName = "Активность подписчиков";
             }
-
+            else
+            {
+                userId = Guid.Parse(typeofrequest);
+                string username =  UserVM.GetUserById(userId).Nickname;
+                ViewBag.ShowedImages = ImageVM.GetImagesLikedByUser(userId);
+                ViewBag.PageName = "Любимые изображения пользователя:"+ username;
+            }
 
             return View();
         }

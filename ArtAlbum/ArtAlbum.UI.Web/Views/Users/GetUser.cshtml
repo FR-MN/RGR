@@ -94,7 +94,7 @@
         </div>
         <div class="col-xs-11 col-md-9 ">
             <div id="favorite-images">
-                <h2>Любимые изображения</h2>
+                <h2><a href="@Url.Action("ShowImagesPage", "Images", new { typeofrequest = ViewBag.UserId })">Любимые изображения</a></h2>
                 <div>
                     @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.LikedImages })
                 </div>
