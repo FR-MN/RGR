@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "MyPage";
+    ViewBag.Title = "Страница пользователя " + ViewBag.Nickname;
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
@@ -37,7 +37,7 @@
                     @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
 
                     </a>*@
-                    <img width="200" height="200" src="~/Content/img/ava.png" />
+                    <img width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.UserId })" />
                     <br />
                     <br />
                     <br />
@@ -96,7 +96,7 @@
             <div id="favorite-images">
                 <h2>Любимые изображения</h2>
                 <div>
-                    @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesRecent })
+                    @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.LikedImages })
                 </div>
             </div>
         </div>

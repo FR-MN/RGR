@@ -18,6 +18,7 @@ namespace ArtAlbum.BLL.DefaultLogic
         private IRolesDAL rolesDAL;
         private ISubscribersDAL subscribersDAL;
         private ILikesDAL likesDAL;
+        private IUsersAvatarsDAL avatarsDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -28,9 +29,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
             regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL)
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL)
         {
-            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null)
+            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
@@ -39,6 +40,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.rolesDAL = rolesDAL;
             this.subscribersDAL = subscribersDAL;
             this.likesDAL = likesDAL;
+            this.avatarsDAL = avatarsDAL;
         }
 
         private bool IsUserCorrect(UserDTO user)
@@ -149,6 +151,41 @@ namespace ArtAlbum.BLL.DefaultLogic
         public IEnumerable<UserDTO> GetAllUsers()
         {
             return usersDAL.GetAllUsers();
+        }
+
+        public bool AddUserAvatar(UserAvatarDTO userAvatar)
+        {
+            if (userAvatar == null)
+            {
+                throw new ArgumentNullException("user data is null");
+            }
+            try
+            {
+                usersDAL.GetUserById(userAvatar.UserId);
+            }
+            catch
+            {
+                throw new ArgumentNullException("such user does not exist");
+            }
+            return avatarsDAL.AddUserAvatar(userAvatar);
+        }
+
+        public UserAvatarDTO GetUserAvatarById(Guid userId)
+        {
+            if (userId == null)
+            {
+                throw new ArgumentNullException("user id is null");
+            }
+            return avatarsDAL.GetUserAvatarById(userId);
+        }
+
+        public bool RemoveUserAvatarById(Guid userId)
+        {
+            if (userId == null)
+            {
+                throw new ArgumentNullException("user data is null");
+            }
+            return avatarsDAL.RemoveUserAvatarById(userId);
         }
     }
 }

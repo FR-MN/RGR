@@ -15,5 +15,8 @@ namespace ArtAlbum.BLL.Abstract
         bool RemoveUserById(Guid userId);
         bool UpdateUser(UserDTO user);
         IEnumerable<UserDTO> GetAllUsers();
+        bool AddUserAvatar(UserAvatarDTO userAvatar);
+        UserAvatarDTO GetUserAvatarById(Guid userId);
+        bool RemoveUserAvatarById(Guid userId);
     }
 }

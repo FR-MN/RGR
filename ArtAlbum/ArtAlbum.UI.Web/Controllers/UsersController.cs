@@ -23,6 +23,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
                 ViewBag.Nickname = User.Identity.Name;
                 ViewBag.LikedImages = ImageVM.GetImagesLikedByUser(userId);
+                ViewBag.Id = userId;
             }
             return View();
         }
@@ -53,7 +54,17 @@ namespace ArtAlbum.UI.Web.Controllers
             }
             return View();
         }
-        
+
+        public ActionResult GetAvatar(Guid userId)
+        {
+            UserAvatarDataVM avatar = UserAvatarDataVM.GetUserAvatarById(userId);
+            if (avatar.Data != null && avatar.Type != null)
+            {
+                return File(avatar.Data, avatar.Type);
+            }
+            return File("~/Content/img/AvatarDefault.jpg", "image/jpeg");
+        }
+
         [Authorize]
         public JsonResult Subscribe(string userId)
         {
@@ -88,6 +99,7 @@ namespace ArtAlbum.UI.Web.Controllers
             ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(user.Id);
             ViewBag.UserId = user.Id;
             ViewBag.Nickname = nickname;
+            ViewBag.LikedImages = ImageVM.GetImagesLikedByUser(user.Id);
             return View();
         }
 
@@ -172,6 +184,36 @@ namespace ArtAlbum.UI.Web.Controllers
                 return View();
             }
             ViewBag.isUpdate = false;
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ChangeAvatar()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeAvatar(HttpPostedFileBase dataImage)
+        {
+            if (dataImage != null && (dataImage.ContentType != null))
+            {
+                byte[] imageData = new byte[dataImage.ContentLength];
+                using (BinaryReader reader = new BinaryReader(dataImage.InputStream))
+                {
+                    for (int i = 0; i < imageData.Length; i++)
+                    {
+                        imageData[i] = reader.ReadByte();
+                    }
+                }
+                if (UserAvatarDataVM.AddUserAvatar(imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name)))
+                {
+                    return RedirectToAction("UserProfile", "Users");
+                }
+            }
             return View();
         }
     }

@@ -15,6 +15,5 @@ namespace ArtAlbum.Entities
         public string Email { get; set; }
         public byte[] HashOfPassword { get; set; }
         public DateTime DateOfBirth { get; set; }
-
     }
 }
