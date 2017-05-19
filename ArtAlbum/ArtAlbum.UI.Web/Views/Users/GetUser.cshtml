@@ -53,29 +53,29 @@
                     <div class="col-xs-11 col-md-3" style="margin: 0 auto;">
                         <div id="second-user-block">
                             <h4>Число публикаций:4</h4>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Показать информацию</button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-info">Показать информацию</button>
+                            <div class="modal fade" id="user-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="user-date-item">
                                             <h4>Имя</h4>
-                                            <p>Роман</p>
+                                            <p>@ViewBag.FirstUserName</p>
                                         </div>
                                         <div class="user-date-item">
                                             <h4>Фамилия</h4>
-                                            <p>Алексеевич</p>
+                                            <p>@ViewBag.LastUserName</p>
                                         </div>
                                         <div class="user-date-item">
-                                            <h4>Дата рождения</h4>
-                                            <p>Роман</p>
+                                            <h4>Возраст</h4>
+                                            <p>@ViewBag.UserAge</p>
                                         </div>
                                         <div class="user-date-item">
                                             <h4>Число публикаций</h4>
-                                            <p>Роман</p>
+                                            <p></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

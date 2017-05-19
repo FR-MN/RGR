@@ -10,6 +10,10 @@
         }
         return "Нравится";
     }
+    string GetUserName(Guid imageId)
+    {
+      return  ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Nickname;
+    }
 }
 @{
 
@@ -82,7 +86,7 @@
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="username">
-                                            <h3>Автор</h3>
+                                            <h3> @GetUserName(list[i].Id)</h3>
                                         </div>
 
                                     </div>

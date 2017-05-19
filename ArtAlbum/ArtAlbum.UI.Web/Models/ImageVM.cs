@@ -97,5 +97,16 @@ namespace ArtAlbum.UI.Web.Models
             }
             return list;
         }
+        public static IEnumerable<UserVM> GetUserByImageId(Guid imageId)
+        {
+
+            List<UserVM> list = new List<UserVM>();
+            foreach (var image in relationsLogic.GetUsersByImage(imageId))
+            {
+                list.Add((UserVM)image);
+            }
+            return list;
+            
+        }
     }
 }

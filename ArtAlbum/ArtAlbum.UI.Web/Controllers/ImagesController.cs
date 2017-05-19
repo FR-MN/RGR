@@ -83,6 +83,7 @@ namespace ArtAlbum.UI.Web.Controllers
             {
                 ViewBag.ShowedImages =  ImageVM.GetImagesLikedByUser(userId);
                 ViewBag.PageName = "Любимые изображения";
+                return View();
             }
             if (typeofrequest == "ShowImageOfFollowers")
             {
@@ -93,6 +94,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 }
                 ViewBag.ShowedImages = imagesOfSubscription;
                 ViewBag.PageName = "Активность подписчиков";
+                return View();
             }
             else
             {

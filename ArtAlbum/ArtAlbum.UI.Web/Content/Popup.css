@@ -306,7 +306,7 @@ a.share:active {
   background: rgb(33,147,90);
   box-shadow: 0 3px rgb(33,147,90) inset;
 }
-.next span{
-    width:100px;
-    height:100px;
+
+#user-info > .modal-dialog{
+    max-width:400px;
 }

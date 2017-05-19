@@ -18,12 +18,17 @@ namespace ArtAlbum.UI.Web.Controllers
         public ActionResult UserProfile()
         {
             var userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+           
             if (userId != Guid.Empty)
             {
+                UserVM user = UserVM.GetAllUsers().FirstOrDefault(userData => userData.Id == userId);
                 ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
                 ViewBag.Nickname = User.Identity.Name;
                 ViewBag.LikedImages = ImageVM.GetImagesLikedByUser(userId);
                 ViewBag.Id = userId;
+                ViewBag.FirstUserName = user.FirstName;
+                ViewBag.LastUserName = user.LastName;
+                ViewBag.UserAge = user.Age;
             }
             return View();
         }
@@ -52,6 +57,7 @@ namespace ArtAlbum.UI.Web.Controllers
                     }
                 }
             }
+            
             return View();
         }
 
@@ -100,6 +106,9 @@ namespace ArtAlbum.UI.Web.Controllers
             ViewBag.UserId = user.Id;
             ViewBag.Nickname = nickname;
             ViewBag.LikedImages = ImageVM.GetImagesLikedByUser(user.Id);
+            ViewBag.FirstUserName = user.FirstName;
+            ViewBag.LastUserName = user.LastName;
+            ViewBag.UserAge = user.Age;
             return View();
         }
 
