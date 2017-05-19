@@ -30,6 +30,7 @@ namespace ArtAlbum.DI.Providers
                         SubscribersDAL = new SubscribersDAL();
                         LikesDAL = new LikesDAL();
                         AvatarDAL = new UsersAvatarsDAL();
+                        CommentsDAL = new CommentsDAL();
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -38,12 +39,13 @@ namespace ArtAlbum.DI.Providers
             {
                 case "DefaultLogic":
                     {
-                        UsersBLL = new UsersBLL(UsersDAL, RelationsDAL, RolesDAL, SubscribersDAL, LikesDAL, AvatarDAL);
+                        UsersBLL = new UsersBLL(UsersDAL, RelationsDAL, RolesDAL, SubscribersDAL, LikesDAL, AvatarDAL, CommentsDAL);
                         ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL, LikesDAL);
                         RelationsBLL = new UsersImagesBLL(UsersDAL, ImagesDAL, RelationsDAL);
                         RolesBLL = new RolesBLL(RolesDAL, UsersDAL);
                         SubscribersBLL = new SubscribersBLL(UsersDAL, SubscribersDAL);
                         LikesBLL = new LikesBLL(UsersDAL, LikesDAL, ImagesDAL);
+                        CommentsBLL = new CommentsBLL(CommentsDAL, UsersDAL, ImagesDAL);
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -57,11 +59,13 @@ namespace ArtAlbum.DI.Providers
         public static ISubscribersDAL SubscribersDAL { get; private set; }
         public static ILikesDAL LikesDAL { get; private set; }
         public static IUsersAvatarsDAL AvatarDAL { get; set; }
+        public static ICommentsDAL CommentsDAL { get; set; }
         public static IUsersBLL UsersBLL { get; private set; }
         public static IImagesBLL ImagesBLL { get; private set; }
         public static IUsersImagesBLL RelationsBLL { get; private set; }
         public static IRolesBLL RolesBLL { get; private set; }
         public static ISubscribersBLL SubscribersBLL { get; private set; }
         public static ILikesBLL LikesBLL { get; private set; }
+        public static ICommentsBLL CommentsBLL { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace ArtAlbum.UI.Web.Models
         private static IUsersBLL usersLogic = Provider.UsersBLL;
         private static IUsersImagesBLL relationsLogic = Provider.RelationsBLL;
         private static ISubscribersBLL subscribersLogic = Provider.SubscribersBLL;
+        private static ICommentsBLL commentsLogic = Provider.CommentsBLL;
 
         private string firstName;
         private string lastName;
@@ -229,6 +230,25 @@ namespace ArtAlbum.UI.Web.Models
         internal static bool UnsubscribeToUser(Guid userId, Guid subscriberId)
         {
             return subscribersLogic.RemoveSubscriberFromUser(subscriberId, userId);
+        }
+
+        internal static bool AddComment(string textData, Guid userId, Guid imageId)
+        {
+            if (!string.IsNullOrWhiteSpace(textData))
+            {
+                return commentsLogic.AddComment(new CommentDTO { Data = textData, Id = Guid.NewGuid(), AuthorId = userId }, imageId);
+            }
+            return false;
+        }
+
+        internal static bool RemoveComment(Guid commentId)
+        {
+            return commentsLogic.RemoveCommment(commentId);
+        }
+
+        internal static IEnumerable<CommentDTO> GetCommentsByImageId(Guid imageId)
+        {
+            return commentsLogic.GetCommentsByImageId(imageId);
         }
     }
 }

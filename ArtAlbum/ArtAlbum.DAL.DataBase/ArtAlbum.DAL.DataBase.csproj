@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentsDAL.cs" />
     <Compile Include="Exceptions\ConfigurationFileException.cs" />
     <Compile Include="Exceptions\NotFoundDataException.cs" />
     <Compile Include="ImagesDAL.cs" />

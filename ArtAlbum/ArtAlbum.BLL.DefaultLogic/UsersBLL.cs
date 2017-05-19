@@ -19,6 +19,7 @@ namespace ArtAlbum.BLL.DefaultLogic
         private ISubscribersDAL subscribersDAL;
         private ILikesDAL likesDAL;
         private IUsersAvatarsDAL avatarsDAL;
+        private ICommentsDAL commentsDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -29,9 +30,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
             regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL)
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL, ICommentsDAL commentsDAL)
         {
-            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null)
+            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null || commentsDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
@@ -41,6 +42,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.subscribersDAL = subscribersDAL;
             this.likesDAL = likesDAL;
             this.avatarsDAL = avatarsDAL;
+            this.commentsDAL = commentsDAL;
         }
 
         private bool IsUserCorrect(UserDTO user)
@@ -116,6 +118,10 @@ namespace ArtAlbum.BLL.DefaultLogic
             foreach (var imageId in likesDAL.GetIdsOfLikedImagesByUserId(userId))
             {
                 likesDAL.RemoveLikeFromImage(userId, imageId);
+            }
+            foreach (var commentId in commentsDAL.GetAllComments().Where(comment => comment.AuthorId == userId).Select(comment => comment.Id))
+            {
+                commentsDAL.RemoveCommment(commentId);
             }
             return usersDAL.RemoveUserById(userId);
         }
