@@ -49,18 +49,16 @@
                     <div class="modal-content">
                        
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
 
                                 <div class="top_image">
 
                                 </div>
                                 <button href="#" class="delete">Удалить фотографию</button>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-12">
                                         <div class="description">
                                             <h2>@list[i].Description</h2>
                                         </div>
@@ -70,7 +68,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-3">
                                         <div class="social-panel">
                                             @if (User.Identity.IsAuthenticated)
                                             {
@@ -84,16 +82,16 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-12">
                                         <div class="username">
-                                            <h3> @GetUserName(list[i].Id)</h3>
+                                            <h3>Автор: @GetUserName(list[i].Id)</h3>
                                         </div>
 
                                     </div>
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="comments">
                                             <ul>
                                                 <li>
@@ -158,6 +156,9 @@
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                          
                         </div>
 
                     </div>
