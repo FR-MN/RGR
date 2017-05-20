@@ -24,7 +24,7 @@
 
 })();
 (function () {
-    var $ref = $('.next');
+    var $ref = $('[name = previmage ]');
     img = new Image();
    
 
@@ -55,7 +55,7 @@
 
 })();
 (function () {
-    var $ref = $('.prev');
+    var $ref = $('[name = nextimage]');
     img = new Image();
 
 
@@ -86,7 +86,7 @@
 
 })();
 (function () {
-    var $ref = $('._next');
+    var $ref = $('[name = _previmage]');
     img = new Image();
 
 
@@ -95,8 +95,8 @@
 
 
 
-        var imageid = $(this).attr("data-target").slice(1),
-            temp = "_" + imageid,
+        var imageid = $(this).attr("data-target").slice(2),
+            temp = "#_" + imageid,
             md = $(temp).find($(".top_image"));
         $(temp).appendTo("body");
         e.preventDefault();
@@ -117,7 +117,7 @@
 
 })();
 (function () {
-    var $ref = $('._prev');
+    var $ref = $('[name = _nextimage]');
     img = new Image();
 
 
@@ -126,8 +126,8 @@
 
 
 
-        var imageid = $(this).attr("data-target").slice(1),
-            temp = "#" + imageid,
+        var imageid = $(this).attr("data-target").slice(2),
+            temp = "#_" + imageid,
             md = $(temp).find($(".top_image"));
         $(temp).appendTo("body");
         e.preventDefault();

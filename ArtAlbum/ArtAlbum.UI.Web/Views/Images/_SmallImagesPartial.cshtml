@@ -10,6 +10,10 @@
         }
         return "Нравится";
     }
+    string GetUserName(Guid imageId)
+    {
+        return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Nickname;
+    }
 }
 @{
     for (int i = 0; i < @count; i++)
@@ -33,13 +37,14 @@
 
                     @if (@i < @count - 1)
                     {
+                        <a data-toggle="modal" class="nivo-lightbox-next" data-target="#_@list[i + 1].Id" style="display: inline;" value="#_@list[i].Id" name="_nextimage"></a>
 
-                        <button class="_next" data-toggle="modal" data-target="#@list[i + 1].Id" value="#_@list[i].Id">Next</button>
 
                     }
                     @if (@i > 0)
                     {
-                        <button class="_prev" data-toggle="modal" data-target="#@list[i - 1].Id" value="#_@list[i].Id">Prev</button>
+                        <a data-toggle="modal" class="nivo-lightbox-prev" data-target="#_@list[i - 1].Id" style="display: inline;" value="#_@list[i].Id" name="_previmage"></a>
+
                     }
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
@@ -48,17 +53,16 @@
                     <div class="modal-content">
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-8">
 
                                 <div class="top_image">
 
                                 </div>
+                                <button href="#" class="delete">Удалить фотографию</button>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-12">
                                         <div class="description">
                                             <h2>@list[i].Description</h2>
                                         </div>
@@ -68,7 +72,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-4">
                                         <div class="social-panel">
                                             @if (User.Identity.IsAuthenticated)
                                             {
@@ -82,16 +86,16 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-12">
                                         <div class="username">
-                                            <h3>Author</h3>
+                                            <h3>Автор: @GetUserName(list[i].Id)</h3>
                                         </div>
 
                                     </div>
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-3">
                                         <div class="comments">
                                             <ul>
                                                 <li>
@@ -156,6 +160,9 @@
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+
                         </div>
 
                     </div>

@@ -48,12 +48,12 @@
 .nivo-lightbox-prev {
 	position: absolute;
 	top: 50%;
-	left: 0;
+	cursor:pointer;
 }
 .nivo-lightbox-next {
 	position: absolute;
 	top: 50%;
-	right: 0;
+	cursor:pointer;
 }
 .nivo-lightbox-close {
 	position: absolute;

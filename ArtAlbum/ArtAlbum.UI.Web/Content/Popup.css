@@ -126,10 +126,10 @@ height: auto;
 }*/
 
 .top_image {
-    margin-left:100px;
+    margin-left:50px;
     margin-bottom: 5px;
     position: relative;
-    width: 800px;
+    width: 700px;
     height: 500px;
     line-height: 140px;
     text-align: center;
@@ -154,17 +154,27 @@ max-width: 1200px;
 max-height: 1400px;
 min-height: 420px;
 }
-@media (min-width: 868px) {
-    .modal-dialog {
-        width: 1250px;
-    }
-}
 
-@media screen and (max-width: 440px)  {
+
+.modal-dialog {
+    width: 1250px;
+}
+@media (min-width:300px) and (max-width:780px)  {
     .modal-dialog {
+        position:fixed;
+        margin-left:10px;
         width: 200px;
         height:400px;
        
+    }
+    .nivo-lightbox-next{
+        width:40px;
+        right: 35px;
+
+    }
+    .nivo-lightbox-prev{
+         width:40px;
+         left:-20px;
     }
    
     #list_dropdowns{
@@ -187,27 +197,42 @@ min-height: 420px;
         text-align: center;
     }
 }
-@media screen and (max-width: 850px) and (min-width: 450px) {
+@media screen and (min-width:780px) and (max-width:1290px) {
     .modal-dialog {
-        width: 650px;
+        width: 950px;
     }
+     .nivo-lightbox-next { 
+	
+    right:-50px;
+    
+}
      .modal-content{
-         margin-left:40px;
+         margin-left:20px;
     }
      .modal-header{
          margin-left:40px;
      }
     .top_image {
-        margin-left: 20px;
+        margin-left: 10px;
         margin-bottom: 5px;
         position: relative;
-        width: 500px;
+        width: 450px;
         height: 350px;
         line-height: 140px;
         text-align: center;
     }
 }
-
+@media screen and (min-width:580px) and (max-width:990px) {
+    .modal-dialog {
+        width: 650px;
+    }
+         .modal-content{
+         margin-left:20px;
+    }
+     .modal-header{
+         margin-left:40px;
+     }
+}
 
 div.social-panel {
     margin-left:10px;
