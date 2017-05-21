@@ -40,18 +40,22 @@
                                 <a class="gn-icon gn-icon-search"><span>Search</span></a>
                             </li>*@
                             <li >
-                                
                                 <a href="@Url.Action("Index", "Home")">
-                                 <div class="gn-item">
-                                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                                     <p >
-                                         Главная страница
-                                     </p>
-                                 </div>
-                               
-                                     
+                                    <div class="gn-item">
+                                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                        <p>
+                                            Главная страница
+                                        </p>
+                                    </div>
                                 </a>
-                                
+                                <a href="@Url.Action("Search", "Home")">
+                                    <div class="gn-item">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        <p>
+                                            Поиск изображений
+                                        </p>
+                                    </div>
+                                </a>
                             </li>
                             @*<li>
                                 <a href="#t"> <span class="gn-icon gn-icon-download"></span>About</a>

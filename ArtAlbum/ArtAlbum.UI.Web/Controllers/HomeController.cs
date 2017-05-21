@@ -24,5 +24,21 @@ namespace ArtAlbum.UI.Web.Controllers
             }
             return View(ImageVM.GetAllImages());
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Search(string searchQuery)
+        {
+            List<ImageVM> resultImages;
+            resultImages = ImageVM.GetAllImages().Where(image => image.Description.ToLower().Contains(searchQuery.ToLower())).OrderBy(image => image.DateOfCreating).ToList();
+            return View(resultImages);
+        }
     }
 }

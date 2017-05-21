@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+@{
+    ViewBag.Title = "Поиск изображений";
+}
+
+<h2>Поиск</h2>
+@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" required="" />
+    <input type="submit" value="Поиск" />
+}
+@{
+    if (Model != null && Model.Count() != 0)
+    {
+        <div class="container">
+            <div class="row">
+                <div id="main-images" class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="section-heading">
+                        <h2>Результаты поиска</h2>
+                    </div>
+                    <div>
+                        @Html.Action("ShowImages", "Images", new { images = Model })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>Ничего не найдено</p>
+    }
+}
+

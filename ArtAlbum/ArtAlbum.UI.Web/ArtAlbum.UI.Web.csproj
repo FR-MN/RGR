@@ -250,6 +250,7 @@
     <Content Include="Views\Images\ShowImagesPage.cshtml" />
     <Content Include="Views\Users\ChangeAvatar.cshtml" />
     <Content Include="Views\Images\_CommentsPartial.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
