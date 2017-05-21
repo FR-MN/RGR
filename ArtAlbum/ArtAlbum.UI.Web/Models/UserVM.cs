@@ -231,24 +231,5 @@ namespace ArtAlbum.UI.Web.Models
         {
             return subscribersLogic.RemoveSubscriberFromUser(subscriberId, userId);
         }
-
-        internal static bool AddComment(string textData, Guid userId, Guid imageId)
-        {
-            if (!string.IsNullOrWhiteSpace(textData))
-            {
-                return commentsLogic.AddComment(new CommentDTO { Data = textData, Id = Guid.NewGuid(), AuthorId = userId }, imageId);
-            }
-            return false;
-        }
-
-        internal static bool RemoveComment(Guid commentId)
-        {
-            return commentsLogic.RemoveCommment(commentId);
-        }
-
-        internal static IEnumerable<CommentDTO> GetCommentsByImageId(Guid imageId)
-        {
-            return commentsLogic.GetCommentsByImageId(imageId);
-        }
     }
 }

@@ -216,6 +216,7 @@
     </Compile>
     <Compile Include="Helpers\ImageExtension.cs" />
     <Compile Include="Models\AuthVM.cs" />
+    <Compile Include="Models\CommentVM.cs" />
     <Compile Include="Models\ImageDataVM.cs" />
     <Compile Include="Models\ImageVM.cs" />
     <Compile Include="Models\RegisterVM.cs" />
@@ -249,8 +250,8 @@
     <Content Include="Views\Users\ChangePassword.cshtml" />
     <Content Include="Views\Images\ShowImagesPage.cshtml" />
     <Content Include="Views\Users\ChangeAvatar.cshtml" />
-    <Content Include="Views\Images\_CommentsPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Images\_CommentsPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

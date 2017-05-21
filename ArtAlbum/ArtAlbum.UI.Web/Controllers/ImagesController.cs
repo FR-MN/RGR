@@ -107,5 +107,23 @@ namespace ArtAlbum.UI.Web.Controllers
             return View();
         }
         
+        [HttpGet]
+        public PartialViewResult Comment(Guid imageId)
+        {
+            return PartialView("_CommentsPartial", CommentVM.GetCommentsByImageId(imageId));
+        }
+
+        public JsonResult Comment(string commentText, string imageId)
+        {
+            bool isAdded = false;
+
+            if (!string.IsNullOrWhiteSpace(commentText) && commentText.Length < 500 && imageId != null)
+            {
+                CommentVM.AddComment(new CommentVM() { Id = Guid.NewGuid(), AuthorId = UserVM.GetUserIdByNickname(User.Identity.Name), DateOfCreating = DateTime.Now, Data = commentText }, Guid.Parse(imageId));
+                isAdded = true;
+            }
+
+            return Json(isAdded, JsonRequestBehavior.AllowGet);
+        }
     }
 }
