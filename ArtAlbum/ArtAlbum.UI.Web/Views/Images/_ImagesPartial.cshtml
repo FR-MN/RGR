@@ -69,20 +69,6 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="social-panel">
-                                            @if (User.Identity.IsAuthenticated)
-                                            {
-                                                <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
-                                            }
-                                            else
-                                            {
-                                                <p>Войдите чтобы оценивать изображения</p>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-12">
                                         <div class="username">
                                             <h3>Автор: @GetUserName(list[i].Id)</h3>
@@ -91,6 +77,21 @@
                                     </div>
 
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
+                                            }
+                                            else
+                                            {
+                                                <p>Войдите чтобы оценивать изображения</p>
+                                            }
+                                        
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="comments">

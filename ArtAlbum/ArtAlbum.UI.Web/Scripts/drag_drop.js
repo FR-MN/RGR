@@ -63,21 +63,10 @@ $(document).ready(function () {
             if (!files[index].type.match('image.*')) {
 
                 if (errMessage == 0) {
-                    $('#drop-files p').html('Эй! только изображения!');
+                    $('#drop-files p').html('Только изображения!');
                     ++errMessage
                 }
-                else if (errMessage == 1) {
-                    $('#drop-files p').html('Стоп! Загружаются только изображения!');
-                    ++errMessage
-                }
-                else if (errMessage == 2) {
-                    $('#drop-files p').html("Не умеешь читать? Только изображения!");
-                    ++errMessage
-                }
-                else if (errMessage == 3) {
-                    $('#drop-files p').html("Хорошо! Продолжай в том же духе");
-                    errMessage = 0;
-                }
+               
                 return false;
             }
 
@@ -174,54 +163,7 @@ $(document).ready(function () {
     $('#dropped-files #upload-button .delete').click(restartFiles);
 
     // Загрузка изображений на сервер
-    $('#upload-button .upload').click(function () {
-
-        // Показываем прогресс бар
-        $("#loading").show();
-        // переменные для работы прогресс бара
-        var totalPercent = 100 / dataArray.length;
-        var x = 0;
-
-        $('#loading-content').html('Загружен ' + dataArray[0].name);
-        // Для каждого файла
-        $.each(dataArray, function (index, file) {
-            // загружаем страницу и передаем значения, используя HTTP POST запрос 
-            $.post('upload.php', dataArray[index], function (data) {
-
-                var fileName = dataArray[index].name;
-                ++x;
-
-                // Изменение бара загрузки
-                $('#loading-bar .loading-color').css({ 'width': totalPercent * (x) + '%' });
-                // Если загрузка закончилась
-                if (totalPercent * (x) == 100) {
-                    // Загрузка завершена
-                    $('#loading-content').html('Загрузка завершена!');
-
-                    // Вызываем функцию удаления всех изображений после задержки 1 секунда
-                    setTimeout(restartFiles, 1000);
-                    // если еще продолжается загрузка	
-                } else if (totalPercent * (x) < 100) {
-                    // Какой файл загружается
-                    $('#loading-content').html('Загружается ' + fileName);
-                }
-
-                // Формируем в виде списка все загруженные изображения
-                // data формируется в upload.php
-                var dataSplit = data.split(':');
-                if (dataSplit[1] == 'загружен успешно') {
-                    $('#uploaded-files').append('<li><a href="images/' + dataSplit[0] + '">' + fileName + '</a> загружен успешно</li>');
-
-                } else {
-                    $('#uploaded-files').append('<li><a href="images/' + data + '. Имя файла: ' + dataArray[index].name + '</li>');
-                }
-
-            });
-        });
-        // Показываем список загруженных файлов
-        $('#uploaded-files').show();
-        return false;
-    });
+  
 
     // Простые стили для области перетаскивания
     $('#drop-files').on('dragenter', function () {

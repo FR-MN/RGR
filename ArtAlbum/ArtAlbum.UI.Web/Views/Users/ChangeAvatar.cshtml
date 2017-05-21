@@ -6,8 +6,7 @@
 
 <h2>ChangeAvatar</h2>
 
-@using (Html.BeginForm())
-{
+
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -65,10 +64,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-
-
-                                </div>
+                              
 
                             </div>
 
@@ -79,7 +75,6 @@
             </div>
         </div>
     </div>
-}
 
             <div>
                 @Html.ActionLink("Назад", "Settings", "Users")

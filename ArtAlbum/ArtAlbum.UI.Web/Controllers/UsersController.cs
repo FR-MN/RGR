@@ -205,8 +205,8 @@ namespace ArtAlbum.UI.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ChangeAvatar(HttpPostedFileBase dataImage)
+        //[ValidateAntiForgeryToken]
+        public ActionResult ChangeAvatar(HttpPostedFileBase dataImage, ImageVM image)
         {
             if (dataImage != null && (dataImage.ContentType != null))
             {

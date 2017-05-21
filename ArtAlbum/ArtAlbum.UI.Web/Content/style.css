@@ -29,7 +29,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 30px;
-   
+    text-align:center;
     font-family: Montserrat,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
@@ -1032,7 +1032,7 @@ color:white;
     font-weight: 900;
     padding: .8em 1em calc(.8em + 3px);
     border-radius: 3px;
-    background: rgb(245,245,245);
+    background: #f8f8f8;
     transition: 0.2s;
     margin-bottom:-40px;
     cursor: pointer;
@@ -1152,12 +1152,16 @@ background: #f8f8f8;
 background: #f8f8f8;
  border-radius:10px;
  margin-left:20px;
- height:100px;
+ height:150px;
  width:250px;
  text-align:center;
  margin-top:5px;
   margin-bottom:20px;
 
+}
+#second-user-block a{
+    margin-left:0;
+    
 }
 #loadimage{
     margin-left:30px;
@@ -1171,15 +1175,18 @@ background: #f8f8f8;
 #favorite-images{
     background: #f8f8f8;
  border-radius:20px;
- margin-left:40px;
- height:520px;
- width:90%;
+ margin-left:20px;
+ height:570px;
+ width:95%;
   margin-bottom:20px;
 
 }
 #main-images{
      background: #f8f8f8;
  border-radius:20px;
+ margin-left: 15px;
+ margin-right:15px;
+ width: 95%;
 }
 .section-heading{
     text-align:center;
@@ -1303,4 +1310,13 @@ background: #f8f8f8;
     .settings .form-horizontal{
     height:750px !important;
 }
+}
+.btn-settings{
+    width:250px;
+    height:30px;
+    
+    margin-top:30px;
+}
+.addimage{
+    margin-top:230px !important;
 }
