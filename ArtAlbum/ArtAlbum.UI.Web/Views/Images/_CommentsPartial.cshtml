@@ -1,14 +1,54 @@
 ﻿@model IEnumerable<ArtAlbum.UI.Web.Models.CommentVM>
 
-@foreach (var comment in Model)
-{
-    <p>@comment.Data</p>
-    <p>@comment.DateOfCreating</p>
-    <hr />
+@functions {
+
+    string GetUserImageId(Guid authorId)
+    {
+        return ArtAlbum.UI.Web.Models.UserVM.GetUserById(authorId).Nickname;
+    }
 }
 
-@using (Html.BeginForm("Comment", "Images", FormMethod.Post))
-{
-    <input type="text" id="commentText" name="searchQuery" placeholder="Введите слово или фразу из описания" required="" />
-    <input type="submit" value="Готово" />
-}
+<div class="comments">
+    <ul>
+        @foreach (var comment in Model)
+        {
+            <li>
+                <div class="comment">
+                    <div class="reply_image">
+                        <a href="/id337666144">
+                            <img src="@Url.Action("GetAvatar", "Users", new { userId = comment.AuthorId })" width="40" height="40" class="reply_img" >
+                        </a>
+                    </div>
+
+                    <div class="content_commetn">
+                        <div class="reply_author">
+                            <a class="author" href="/id337666144" data-from-id="337666144">@GetUserImageId(@comment.AuthorId)</a>
+                        </div>
+                        <div class="reply_text">
+
+                            <div class="wall_reply_text">@comment.Data   @comment.DateOfCreating</div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </li>
+
+        }
+       
+       
+
+    </ul>
+</div>
+
+
+
+
+<div class="addcomment">
+    <form action="handler.php">
+        <p><b>Введите ваш Комментарий:</b></p>
+        <input type="text" class="commentText" name="searchQuery" />
+        <input class="submit" type="submit" id="@(ViewBag.ImageId + "submit")" value="Готово" />
+    </form>
+</div>

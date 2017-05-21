@@ -92,7 +92,9 @@ transform: translate(-50%, -50%);
     width:40px;
 
 }
-
+.modal{
+    overflow-y:hidden !important;
+}
 
 
 .popup p {

@@ -214,3 +214,69 @@
     }
 
 })();
+
+
+
+(function () {
+    var $ref = $('.submit'),
+        textarea,
+    correctimageid;
+
+    $ref.on('click', function (e) {
+
+       var imageId = $(this).attr("id");
+
+       correctimageid = imageId.replace('submit', ''),
+           temp = "#" + correctimageid,
+           md = $(temp).find($(".commentText")),
+           textarea = md.val(),
+           authorId = md.attr("id");
+      
+       $(temp).appendTo("body");
+        e.preventDefault();
+
+
+        $.ajax({
+
+
+            type: "GET",
+            url: "/Images/AddComment",
+
+            data: {
+                commentText: textarea,
+                imageId: correctimageid
+               
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: successFunc,
+            error: errorFunc
+        });
+       
+
+    })
+    function successFunc(data, status) {
+        if (data[0] === true)
+        {
+            var temp = data[1];
+            $('#' + correctimageid).find($("ul", ".comments")).append(
+                ' <li> <div class="comment"><div class="reply_image"><a href="/id337666144"><img src="/Users/GetAvatar?userId='+data[1]+'" width="40" height="40" class="reply_img" ></a></div><div class="content_commetn"><div class="reply_author"><a class="author" href="/id337666144" data-from-id="337666144">'+data[2]+'</a></div><div class="reply_text"><div class="wall_reply_text">'+textarea+'</div></div></div></div><hr /></li>'
+                );
+        }
+        else {
+
+        }
+     
+        
+       
+
+
+    }
+    function errorFunc(errorData) {
+        alert('Ошибка' + errorData.responseText);
+    }
+
+
+
+})();

@@ -110,20 +110,26 @@ namespace ArtAlbum.UI.Web.Controllers
         [HttpGet]
         public PartialViewResult Comment(Guid imageId)
         {
-            return PartialView("_CommentsPartial", CommentVM.GetCommentsByImageId(imageId));
+            ViewBag.ImageId = imageId;
+            return PartialView("_CommentsPartial", CommentVM.GetCommentsByImageId(imageId).OrderBy(comment => comment.DateOfCreating));
         }
 
-        public JsonResult Comment(string commentText, string imageId)
+        [Authorize]
+        public JsonResult AddComment(string commentText, string imageId)
         {
-            bool isAdded = false;
+            object[] arr = new object[3];
+            arr[0] = false;
 
             if (!string.IsNullOrWhiteSpace(commentText) && commentText.Length < 500 && imageId != null)
             {
-                CommentVM.AddComment(new CommentVM() { Id = Guid.NewGuid(), AuthorId = UserVM.GetUserIdByNickname(User.Identity.Name), DateOfCreating = DateTime.Now, Data = commentText }, Guid.Parse(imageId));
-                isAdded = true;
+                Guid userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+                CommentVM.AddComment(new CommentVM() { Id = Guid.NewGuid(), AuthorId = userId, DateOfCreating = DateTime.Now, Data = commentText }, Guid.Parse(imageId));
+                arr[0] = true;
+                arr[1] = userId.ToString();
+                arr[2] = User.Identity.Name;
             }
 
-            return Json(isAdded, JsonRequestBehavior.AllowGet);
+            return Json(arr, JsonRequestBehavior.AllowGet);
         }
     }
 }

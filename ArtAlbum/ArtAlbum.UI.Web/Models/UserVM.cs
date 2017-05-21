@@ -189,7 +189,7 @@ namespace ArtAlbum.UI.Web.Models
             return Guid.Empty;
         }
 
-        internal static UserVM GetUserById(Guid userId)
+        public static UserVM GetUserById(Guid userId)
         {
             return (UserVM)usersLogic.GetUserById(userId);
         }

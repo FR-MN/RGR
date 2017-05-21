@@ -94,66 +94,14 @@
 
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="comments">
-                                            <ul>
-                                                <li>
-                                                    <div class="comment">
-                                                        <div class="reply_image">
-                                                            <a href="/id337666144">
-                                                                <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
-                                                            </a>
-                                                        </div>
-
-                                                        <div content_commetn>
-                                                            <div class="reply_author">
-                                                                <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
-                                                            </div>
-                                                            <div class="reply_text">
-
-                                                                <div class="wall_reply_text">Комент 1</div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <hr />
-                                                </li>
-                                                <li>
-                                                    <div class="comment">
-                                                        <div class="reply_image">
-                                                            <a href="/id337666144">
-                                                                <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="content_commetn">
-                                                            <div class="reply_author">
-                                                                <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
-                                                            </div>
-                                                            <div class="reply_text">
-
-                                                                <div class="wall_reply_text">Очень длинный комментарий прям очень очень ааааааааааааааааааааааааааааааааааааа</div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
+                                        @Html.Action("Comment", "Images", new  { imageId = list[i].Id})
+                                      
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <div class="addcomment">
-                                            <form action="handler.php">
-                                                <p><b>Введите ваш Комментарий:</b></p>
-                                                <p><textarea name="comment"></textarea></p>
-                                                <p><input type="submit"></p>
-                                            </form>
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
