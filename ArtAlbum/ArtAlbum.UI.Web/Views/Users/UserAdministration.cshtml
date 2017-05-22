@@ -1,58 +1,119 @@
 ﻿@model IEnumerable<ArtAlbum.UI.Web.Models.UserVM>
 
 @{
+   
     ViewBag.Title = "Администрирование";
 }
 
 <h2>UserAdministration</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nickname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Age)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nickname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @Html.ActionLink("Удалить", "DeleteByAdmin", new { userId=item.Id })
-        </td>
-    </tr>
-}
+   
+    <ol class="user-list">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="dropdown col-md-2">
+                <a class="button7 dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @Html.DisplayFor(modelItem => item.Nickname) <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">Пользователь</a>
+                    </li>
+                    <li>
+                        Имя:@Html.DisplayFor(modelItem => item.Nickname)
+                    </li>
+                    <li>
+                       Фамилия:@Html.DisplayFor(modelItem => item.LastName)
+                    </li>
+                    <li>
+                        Почта:@Html.DisplayFor(modelItem => item.Email)
+                    </li>
+                    <li>
+                        Дата Рождения:@Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </li>
+                    <li>
+                        Возраст:@Html.DisplayFor(modelItem => item.Age)
+                    </li>
+                    <li>
 
-</table>
+                    </li>
+                </ul>
+            </div>
+            <div class="admins-btn col-md-9">
+                <a class="improveuser">Сделать администратором</a>
+                <a href="@Url.Action("Удалить", "DeleteByAdmin", new { userId = item.Id })" class="delete">Удалить пользователя</a>
+            </div>
+            <hr />
+        </li>
+       
+
+           
+        
+    }
+   
+
+</ol>
+
+    @*<h2 style="margin-top:10px;" class="Header">Type</h2>*@
+
+    @*<div class="dropdown_menu">
+        <h3><span>Иванушка<span class="glyphicon glyphicon-triangle-bottom"aria-hidden="true"></span></span></h3>
+        <ul class="list_item" style="display: none;">
+            <li> <a>Что то про Наруто</a></li>
+            <li>Пункт №2</li>
+            <li>Пункт №3</li>
+            <li>Пункт №4</li>
+        </ul>
+        <div class="admins-btn">
+            <a class="improveuser">Сделать администратором</a>
+            <a class="delete">Удалить пользователя</a>
+        </div>
+       
+    </div>
+    <div class="dropdown_menu">
+        <h3><span>Тип 2</span></h3>
+        <ul class="list_item" style="display: none;">
+            <li>Пункт №5</li>
+            <li>Пункт №6</li>
+            <li>Пункт №7</li>
+            <li>Пункт №8</li>
+        </ul>
+    </div>
+    <div class="dropdown_menu">
+        <h3><span>Тип 3</span></h3>
+        <ul class="list_item" style="display: none;">
+            <li> <a>Что то про Наруто</a></li>
+            <li>Пункт №2</li>
+            <li>Пункт №3</li>
+            <li>Пункт №4</li>
+        </ul>
+    </div>
+    <div class="dropdown_menu">
+        <h3><span>Тип 4</span></h3>
+        <ul class="list_item" style="display: none;">
+            <li>Пункт №5</li>
+            <li>Пункт №6</li>
+            <li>Пункт №7</li>
+            <li>Пункт №8</li>
+        </ul>
+    </div>
+    <div class="dropdown_menu">
+        <h3><span>Тип 5</span></h3>
+        <ul class="list_item" style="display: none;">
+            <li> <a>Что то про Наруто</a></li>
+            <li>Пункт №2</li>
+            <li>Пункт №3</li>
+            <li>Пункт №4</li>
+        </ul>
+    </div>
+    <div class="dropdown_menu">
+        <h3><span>Тип 6</span></h3>
+        <ul class="list_item" style="display: none;">
+            <li>Пункт №5</li>
+            <li>Пункт №6</li>
+            <li>Пункт №7</li>
+            <li>Пункт №8</li>
+        </ul>
+    </div>*@

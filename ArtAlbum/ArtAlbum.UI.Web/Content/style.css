@@ -1196,10 +1196,13 @@ background: #f8f8f8;
 #list_dropdowns{
     border-radius:15px;
     margin-bottom:10px;
-    width:130px;
+    width:auto;
          background: #f8f8f8;
 
 }
+
+
+
 .center-block{
         border-radius:20px;
     margin-bottom:10px;
@@ -1274,7 +1277,7 @@ background: #f8f8f8;
     max-width:500px;
 }
 .settings .form-horizontal{
-    height:450px!important;
+    height:550px!important;
 }
 
 #header{
@@ -1321,4 +1324,51 @@ background: #f8f8f8;
 }
 .addimage{
     margin-top:230px !important;
+}
+.change-avatar{
+    background-color:white;
+    border-radius:10px;
+        max-width: 540px;
+    height: 700px;
+}
+.dropdown-menu{
+
+}
+.admins-btn{
+   margin-top:5px;
+}
+.user-list{
+    padding-top:25px;
+     margin-left:10px;
+     border-radius:20px;
+    margin-bottom:10px;
+   width:auto;
+  min-height:100px;
+  height:auto;
+         background: #f8f8f8;
+         
+}
+.improveuser{
+    cursor:pointer;
+    color: white;
+    padding: 7px 6px 4px 6px;
+    border-radius: 100px;
+    background-color: #228B22;
+    box-shadow: none;
+    font-size: 1em;
+    margin-left: 8px;
+}
+.user-list li{
+        height: 80px;
+}
+.dropdown-menu li{
+    height: auto;
+}
+.user-list-item{
+   margin-left:10px;
+    margin-bottom:10px;
+}
+.user-list-item > p{
+       margin-left: 60px;
+   
 }

@@ -9,60 +9,60 @@
 
 @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>UserAvatarDataVM</h4>
+
+    <h4>Изменение аватара</h4>
     <hr />
-    <div class="addimage" style="margin: 0 auto;">
-        <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
-
-
-
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="loadimage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div id="upload-model" class="modal-dialog" role="document">
-                <div class="modal-content">
+   
+                <div class="container">
                     <form method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="content">
+                            <div class="col-md-offset-3">
+                                <div class="change-avatar">
+                                    <div class="content">
 
-                                    <!-- Область для перетаскивания -->
-                                    <div id="drop-files" ondragover="return false">
-                                        <div class="input-btn">
-                                            <p>Перетащите изображение сюда или выберете файл</p>
+                                        <!-- Область для перетаскивания -->
+                                        <div id="drop-files" ondragover="return false">
+                                            <div class="input-btn">
+                                                <p>Перетащите изображение сюда или выберете файл</p>
 
-                                            <input name="dataImage" type="file" id="uploadbtn" multiple="">
+                                                <input name="dataImage" type="file" id="uploadbtn" multiple="">
+
+                                            </div>
+
+
+
 
                                         </div>
 
+                                        <!-- Область предпросмотра -->
+                                        <div id="uploaded-holder">
+                                            <div id="dropped-files">
 
+                                                <div id="upload-button">
+                                                    <center>
 
+                                                        <button class="button15">Загрузить</button>
+                                                        <button class="delete">Удалить</button>
+                                                        <!-- Прогресс бар загрузки -->
 
-                                    </div>
-
-                                    <!-- Область предпросмотра -->
-                                    <div id="uploaded-holder">
-                                        <div id="dropped-files">
-
-                                            <div id="upload-button">
-                                                <center>
-
-                                                    <button class="button15">Загрузить</button>
-                                                    <button class="delete">Удалить</button>
-                                                    <!-- Прогресс бар загрузки -->
-
-                                                </center>
+                                                    </center>
+                                                </div>
+                                                <div>
+                                                    @if (ViewBag.ErrorMessage != null)
+                                                    {
+                                                        <p style="color:red;font-size:15px">@ViewBag.ErrorMessage</p>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Список загруженных файлов -->
-                                    <div id="file-name-holder">
-                                        <ul id="uploaded-files" style="display: none;"></ul>
-                                    </div>
+                                        <!-- Список загруженных файлов -->
+                                        <div id="file-name-holder">
+                                            <ul id="uploaded-files" style="display: none;"></ul>
+                                        </div>
 
+                                    </div>
                                 </div>
+                             
                             </div>
 
 
@@ -71,16 +71,9 @@
 
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div>
-    @if (ViewBag.ErrorMessage != null)
-    {
-        <p>@ViewBag.ErrorMessage</p>
-    }
-</div>
+            
+
+
 <div>
     @Html.ActionLink("Назад", "Settings", "Users")
 </div>

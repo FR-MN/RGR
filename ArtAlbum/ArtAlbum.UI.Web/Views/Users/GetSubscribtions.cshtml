@@ -9,55 +9,42 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nickname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Age)
-        </th>
-        <th></th>
-    </tr>
+<ol class="user-list">
+    @foreach (var item in Model)
+    {
+        <li>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nickname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <div class="user-list-item col-md-9">
+                <div class="reply_image">
+                    <a href="/id337666144">
+                        <img src="@Url.Action("GetAvatar", "Users", new { userId = item.Id })" class="reply_img">
+                    </a>
+                </div>
+                <p><a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">@Html.DisplayFor(modelItem => item.Nickname)</a>      <a href="#"><span class="glyphicon glyphicon-remove" style="color:red"></span></a></p>
 
-</table>
+                
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+
+
+            </div>
+            <br />
+            <hr />
+        </li>
+
+
+
+
+    }
+
+
+</ol>
+
+
+
+
+           
+
+
+

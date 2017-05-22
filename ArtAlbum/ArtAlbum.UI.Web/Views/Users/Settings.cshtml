@@ -92,36 +92,40 @@
                         </div>
 
                         <div class="form-group">
-
                             <div class="col-md-6 " style="height:50px;">
-                                <a class="button7" style="margin-left: 0px;" href="@Url.Action("Delete", "Users")">Удалить профиль</a>
+                                <a class="button7" style="margin-left: 0px;" href="@Url.Action("ChangeAvatar", "Users")">Сменить аватар</a>
                             </div>
                             <div class="col-md-6 " style="height:50px;">
                                 <a class="button7" style="margin-left: 0px;" href="@Url.Action("ChangePassword", "Users")">Сменить пароль</a>
                             </div>
-                            <div class="col-md-6 " style="height:50px;">
-                                <a class="button7" style="margin-left: 0px;" href="@Url.Action("ChangeAvatar", "Users")">Сменить аватар</a>
-                            </div>
+                           
+                            
+                           
 
 
                         </div>
+                        <hr />
+                        <div class="form-group">
+                           
+                            <div class="col-md-6 " style="height:50px;">
+                                <a class="button7" style="margin-left: 0px;" href="@Url.Action("Delete", "Users")">Удалить профиль</a>
+                            </div>
+                        </div>
+
+                            @if (ViewBag.isUpdate != null && ViewBag.isUpdate)
+                            {
+                                <p>Изменения сохранены</p>
+                            }
+                            else if (ViewBag.isUpdate != null && !ViewBag.isUpdate)
+                            {
+                                <p>Неверный пароль</p>
+                            }
 
 
 
-                        @if (ViewBag.isUpdate != null && ViewBag.isUpdate)
-                        {
-                            <p>Изменения сохранены</p>
-                        }
-                        else if (ViewBag.isUpdate != null && !ViewBag.isUpdate)
-                        {
-                            <p>Неверный пароль</p>
-                        }
 
 
-
-
-
-                    </div>
+                        </div>
 
 
                     <div>
