@@ -20,6 +20,7 @@ namespace ArtAlbum.BLL.DefaultLogic
         private ILikesDAL likesDAL;
         private IUsersAvatarsDAL avatarsDAL;
         private ICommentsDAL commentsDAL;
+        private IImagesDAL imagesDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -30,9 +31,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
             regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL, ICommentsDAL commentsDAL)
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL, ICommentsDAL commentsDAL, IImagesDAL imagesDAL)
         {
-            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null || commentsDAL == null)
+            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null || commentsDAL == null || imagesDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
@@ -43,6 +44,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.likesDAL = likesDAL;
             this.avatarsDAL = avatarsDAL;
             this.commentsDAL = commentsDAL;
+            this.imagesDAL = imagesDAL;
         }
 
         private bool IsUserCorrect(UserDTO user)
@@ -99,9 +101,19 @@ namespace ArtAlbum.BLL.DefaultLogic
             {
                 throw new ArgumentNullException("user id is null");
             }
-            foreach (var awardId in relationsDAL.GetImagesIdsByUserId(userId).ToArray())
+            foreach (var imageId in relationsDAL.GetImagesIdsByUserId(userId).ToArray())
             {
-                relationsDAL.RemoveRelation(userId, awardId);
+                relationsDAL.RemoveRelation(userId, imageId);
+                foreach (var commentId in commentsDAL.GetCommentsByImageId(imageId))
+                {
+                    commentsDAL.RemoveCommentFromImage(commentId, imageId);
+                    commentsDAL.RemoveCommment(commentId);
+                }
+                foreach (var like in likesDAL.GetLikesByImageId(imageId))
+                {
+                    likesDAL.RemoveLikeFromImage(like.LikerId, imageId);
+                }
+                imagesDAL.RemoveImageById(imageId);
             }
             foreach (var roleId in rolesDAL.GetRolesIdsByUserId(userId).ToArray())
             {

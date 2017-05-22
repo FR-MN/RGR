@@ -39,8 +39,8 @@ namespace ArtAlbum.DI.Providers
             {
                 case "DefaultLogic":
                     {
-                        UsersBLL = new UsersBLL(UsersDAL, RelationsDAL, RolesDAL, SubscribersDAL, LikesDAL, AvatarDAL, CommentsDAL);
-                        ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL, LikesDAL);
+                        UsersBLL = new UsersBLL(UsersDAL, RelationsDAL, RolesDAL, SubscribersDAL, LikesDAL, AvatarDAL, CommentsDAL, ImagesDAL);
+                        ImagesBLL = new ImagesBLL(ImagesDAL, RelationsDAL, LikesDAL, CommentsDAL);
                         RelationsBLL = new UsersImagesBLL(UsersDAL, ImagesDAL, RelationsDAL);
                         RolesBLL = new RolesBLL(RolesDAL, UsersDAL);
                         SubscribersBLL = new SubscribersBLL(UsersDAL, SubscribersDAL);

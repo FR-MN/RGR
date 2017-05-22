@@ -7,75 +7,80 @@
 <h2>ChangeAvatar</h2>
 
 
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>UserAvatarDataVM</h4>
-        <hr />
-        <div class="addimage" style="margin: 0 auto;">
-            <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
-
-
+<div class="form-horizontal">
+    <h4>UserAvatarDataVM</h4>
+    <hr />
+    <div class="addimage" style="margin: 0 auto;">
+        <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
 
 
 
-            <!-- Modal -->
-            <div class="modal fade" id="loadimage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div id="upload-model" class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <form method="post" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="content">
-
-                                        <!-- Область для перетаскивания -->
-                                        <div id="drop-files" ondragover="return false">
-                                            <div class="input-btn">
-                                                <p>Перетащите изображение сюда или выберете файл</p>
-
-                                                <input name="dataImage" type="file" id="uploadbtn" multiple="">
-
-                                            </div>
 
 
+        <!-- Modal -->
+        <div class="modal fade" id="loadimage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div id="upload-model" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="content">
 
+                                    <!-- Область для перетаскивания -->
+                                    <div id="drop-files" ondragover="return false">
+                                        <div class="input-btn">
+                                            <p>Перетащите изображение сюда или выберете файл</p>
+
+                                            <input name="dataImage" type="file" id="uploadbtn" multiple="">
 
                                         </div>
-                                       
-                                        <!-- Область предпросмотра -->
-                                        <div id="uploaded-holder">
-                                            <div id="dropped-files">
 
-                                                <div id="upload-button">
-                                                    <center>
 
-                                                        <button class="button15">Загрузить</button>
-                                                        <button class="delete">Удалить</button>
-                                                        <!-- Прогресс бар загрузки -->
 
-                                                    </center>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Список загруженных файлов -->
-                                        <div id="file-name-holder">
-                                            <ul id="uploaded-files" style="display: none;"></ul>
-                                        </div>
 
                                     </div>
-                                </div>
-                              
 
+                                    <!-- Область предпросмотра -->
+                                    <div id="uploaded-holder">
+                                        <div id="dropped-files">
+
+                                            <div id="upload-button">
+                                                <center>
+
+                                                    <button class="button15">Загрузить</button>
+                                                    <button class="delete">Удалить</button>
+                                                    <!-- Прогресс бар загрузки -->
+
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Список загруженных файлов -->
+                                    <div id="file-name-holder">
+                                        <ul id="uploaded-files" style="display: none;"></ul>
+                                    </div>
+
+                                </div>
                             </div>
 
 
-                        </form>
-                    </div>
+                        </div>
+
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-            <div>
-                @Html.ActionLink("Назад", "Settings", "Users")
-            </div>
+</div>
+<div>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p>@ViewBag.ErrorMessage</p>
+    }
+</div>
+<div>
+    @Html.ActionLink("Назад", "Settings", "Users")
+</div>

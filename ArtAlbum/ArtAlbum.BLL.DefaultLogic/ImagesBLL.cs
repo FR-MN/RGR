@@ -14,16 +14,18 @@ namespace ArtAlbum.BLL.DefaultLogic
         private IImagesDAL imagesDAL;
         private IUsersImagesDAL relationsDAL;
         private ILikesDAL likesDAL;
+        private ICommentsDAL commentsDAL;
 
-        public ImagesBLL(IImagesDAL imagesDAL, IUsersImagesDAL relationsDAL, ILikesDAL likesDAL)
+        public ImagesBLL(IImagesDAL imagesDAL, IUsersImagesDAL relationsDAL, ILikesDAL likesDAL, ICommentsDAL commentsDAL)
         {
-            if (imagesDAL == null || relationsDAL == null || likesDAL == null)
+            if (imagesDAL == null || relationsDAL == null || likesDAL == null || commentsDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
             this.imagesDAL = imagesDAL;
             this.relationsDAL = relationsDAL;
             this.likesDAL = likesDAL;
+            this.commentsDAL = commentsDAL;
         }
 
         private bool IsImageCorrect(ImageDTO image) 
@@ -75,6 +77,11 @@ namespace ArtAlbum.BLL.DefaultLogic
             if (imageId == null)
             {
                 throw new ArgumentNullException("image id is null");
+            }
+            foreach (var commentId in commentsDAL.GetCommentsByImageId(imageId))
+            {
+                commentsDAL.RemoveCommentFromImage(commentId, imageId);
+                commentsDAL.RemoveCommment(commentId);
             }
             foreach (var userId in relationsDAL.GetUsersIdsByImageId(imageId).ToArray())
             {

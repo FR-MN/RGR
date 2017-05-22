@@ -23,10 +23,6 @@ namespace ArtAlbum.UI.Web.Models
             get { return description; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value) && value.Length > 500)
-                {
-                    throw new ArgumentException("incorrect description");
-                }
                 description = value;
             }
         }

@@ -252,6 +252,9 @@
     <Content Include="Views\Users\ChangeAvatar.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Images\_CommentsPartial.cshtml" />
+    <Content Include="Views\Users\UserAdministration.cshtml" />
+    <Content Include="Views\Users\GetSubscribers.cshtml" />
+    <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

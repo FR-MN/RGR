@@ -1,6 +1,7 @@
 ﻿using ArtAlbum.UI.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -37,7 +38,7 @@ namespace ArtAlbum.UI.Web.Controllers
         [HttpPost]
         public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image)
         {
-            if (dataImage != null && (dataImage.ContentType != null))
+            if (dataImage != null && (dataImage.ContentType != null) && !string.IsNullOrWhiteSpace(image.Description))
             {
                 byte[] imageData = new byte[dataImage.ContentLength];
                 using (BinaryReader reader = new BinaryReader(dataImage.InputStream))
@@ -168,6 +169,14 @@ namespace ArtAlbum.UI.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteByAdmin(Guid userId)
+        {
+            UserVM.Remove(userId);
+            return RedirectToAction("UserAdministration", "Users");
+        }
+
         [Authorize]
         [HttpGet]
         public ActionResult ChangePassword()
@@ -218,12 +227,39 @@ namespace ArtAlbum.UI.Web.Controllers
                         imageData[i] = reader.ReadByte();
                     }
                 }
-                if (UserAvatarDataVM.AddUserAvatar(imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name)))
+
+                Bitmap imageBitmap;
+                using (var ms = new MemoryStream(imageData))
+                {
+                    imageBitmap = new Bitmap(ms);
+                }
+
+                if (imageBitmap.Height == imageBitmap.Width && imageBitmap.Height <= 500 && imageBitmap.Width <= 500 && UserAvatarDataVM.AddUserAvatar(imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name)))
                 {
                     return RedirectToAction("UserProfile", "Users");
                 }
             }
+            ViewBag.ErrorMessage = "Загружаемая картинка должна быть разрешением не более 500px и иметь соотношение 1:1";
             return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult UserAdministration()
+        {
+            IEnumerable<UserVM> users = UserVM.GetAllUsers().Where(user => user.Nickname != User.Identity.Name);
+            return View(users);
+        }
+
+        [Authorize]
+        public ActionResult GetSubscribers()
+        {
+            return View(UserVM.GetAllUsers());
+        }
+
+        [Authorize]
+        public ActionResult GetSubscribtions()
+        {
+            return View(UserVM.GetAllUsers());
         }
     }
 }
