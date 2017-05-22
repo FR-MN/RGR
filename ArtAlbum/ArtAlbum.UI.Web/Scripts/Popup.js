@@ -1,4 +1,20 @@
-﻿(function () {
+﻿
+
+    //var $ref = $('[aria-labelledby=myModalLabel]');
+
+    
+
+
+    //$.each($ref, function (e) {
+    //    $("html,body").css("overflow", "auto");
+    //});
+
+
+
+
+
+
+(function () {
     var $ref = $('.show-image'),
     
     img = new Image();
@@ -6,7 +22,7 @@
 
     $ref.on('click', function (e) {
         
-        
+       
 
         var imageid = $(this).attr("data-target").slice(1),
             temp = "#" + imageid,
@@ -20,7 +36,7 @@
 
     })
        
-     
+
 
 })();
 (function () {
@@ -61,7 +77,7 @@
 
 
     $ref.on('click', function (e) {
-
+        //$('body').css('overflow', 'hidden');
 
 
         var imageid = $(this).attr("data-target").slice(1),
@@ -77,6 +93,7 @@
 
         $(imageid).modal('hide')
 
+       
 
 
 
@@ -155,7 +172,7 @@
 
     $ref.on('click', function (e) {
 
-
+        
 
         var imageid = $(this).attr("data-target").slice(2),
             temp = "#_" + imageid,
@@ -259,9 +276,9 @@
     function successFunc(data, status) {
         if (data[0] === true)
         {
-            var temp = data[1];
+            var temp = data[3];
             $('#' + correctimageid).find($("ul", ".comments")).append(
-                ' <li> <div class="comment"><div class="reply_image"><a href="/id337666144"><img src="/Users/GetAvatar?userId='+data[1]+'" width="40" height="40" class="reply_img" ></a></div><div class="content_commetn"><div class="reply_author"><a class="author" href="/id337666144" data-from-id="337666144">'+data[2]+'</a></div><div class="reply_text"><div class="wall_reply_text">'+textarea+'</div></div></div></div><hr /></li>'
+                ' <li> <div class="comment"><div class="reply_image"><a href="/id337666144"><img src="/Users/GetAvatar?userId=' + data[1] + '"  class="reply_img" ></a></div><div class="content_commetn"><div class="reply_author"><a class="author" href="/id337666144" data-from-id="337666144">' + data[2] + '</a></div><div class="reply_text"><div class="wall_reply_text">' + textarea + '</div></div></div><div class="date-of-creating">'+data[3]+'</div></div><hr/></li>'
                 );
         }
         else {

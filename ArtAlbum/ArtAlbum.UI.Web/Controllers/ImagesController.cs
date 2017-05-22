@@ -117,7 +117,7 @@ namespace ArtAlbum.UI.Web.Controllers
         [Authorize]
         public JsonResult AddComment(string commentText, string imageId)
         {
-            object[] arr = new object[3];
+            object[] arr = new object[4];
             arr[0] = false;
 
             if (!string.IsNullOrWhiteSpace(commentText) && commentText.Length < 500 && imageId != null)
@@ -127,6 +127,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 arr[0] = true;
                 arr[1] = userId.ToString();
                 arr[2] = User.Identity.Name;
+                arr[3] = DateTime.Now.ToString();
             }
 
             return Json(arr, JsonRequestBehavior.AllowGet);
