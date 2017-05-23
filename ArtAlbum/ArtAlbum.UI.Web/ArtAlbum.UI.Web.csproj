@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
@@ -252,7 +253,7 @@
     <Content Include="Views\Users\ChangeAvatar.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Images\_CommentsPartial.cshtml" />
-    <Content Include="Views\Users\UserAdministration.cshtml" />
+    <Content Include="Views\Administration\UserAdministration.cshtml" />
     <Content Include="Views\Users\GetSubscribers.cshtml" />
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <None Include="Web.Debug.config">

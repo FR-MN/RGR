@@ -4,6 +4,19 @@
    
     ViewBag.Title = "Администрирование";
 }
+@functions{
+    bool IsAdmin(string nickname)
+    {
+        foreach (var role in ArtAlbum.UI.Web.Models.RoleVM.GetRolesForUser(nickname))
+        {
+            if (role == "Admin")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 <h2>UserAdministration</h2>
 
@@ -11,21 +24,29 @@
    
     <ol class="user-list">
     @foreach (var item in Model)
-    {
+        {
         <li>
             <div class="dropdown col-md-2">
+                @if (IsAdmin(item.Nickname))
+                {
+                    <span>Администратор</span>
+                }
+                else
+                {
+                    <span>Пользователь</span>
+                }
                 <a class="button7 dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @Html.DisplayFor(modelItem => item.Nickname) <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li>
-                        <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">Пользователь</a>
+                        <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">Ссылка на страницу</a>
                     </li>
                     <li>
                         Имя:@Html.DisplayFor(modelItem => item.Nickname)
                     </li>
                     <li>
-                       Фамилия:@Html.DisplayFor(modelItem => item.LastName)
+                        Фамилия:@Html.DisplayFor(modelItem => item.LastName)
                     </li>
                     <li>
                         Почта:@Html.DisplayFor(modelItem => item.Email)
@@ -42,19 +63,28 @@
                 </ul>
             </div>
             <div class="admins-btn col-md-9">
-                <a class="improveuser">Сделать администратором</a>
-                <a href="@Url.Action("Удалить", "DeleteByAdmin", new { userId = item.Id })" class="delete">Удалить пользователя</a>
+                @if (IsAdmin(item.Nickname))
+                {
+                    <a href="@Url.Action("RemoveAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Убрать права админа</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("AddAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Добавить права админа</a>
+                }
+                <a href="@Url.Action("DeleteUser", "Administration", new { userId = item.Id })" class="delete">Удалить</a>
             </div>
             <hr />
         </li>
-       
 
-           
-        
+
+
+
     }
-   
+
 
 </ol>
+
+
 
     @*<h2 style="margin-top:10px;" class="Header">Type</h2>*@
 

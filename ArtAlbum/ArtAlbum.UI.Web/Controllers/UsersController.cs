@@ -169,14 +169,6 @@ namespace ArtAlbum.UI.Web.Controllers
             return View();
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public ActionResult DeleteByAdmin(Guid userId)
-        {
-            UserVM.Remove(userId);
-            return RedirectToAction("UserAdministration", "Users");
-        }
-
         [Authorize]
         [HttpGet]
         public ActionResult ChangePassword()
@@ -241,14 +233,7 @@ namespace ArtAlbum.UI.Web.Controllers
             }
             ViewBag.ErrorMessage = "Загружаемая картинка должна быть разрешением не более 500px и иметь соотношение 1:1";
             return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult UserAdministration()
-        {
-            IEnumerable<UserVM> users = UserVM.GetAllUsers().Where(user => user.Nickname != User.Identity.Name);
-            return View(users);
-        }
+        }      
 
         [Authorize]
         public ActionResult GetSubscribers()

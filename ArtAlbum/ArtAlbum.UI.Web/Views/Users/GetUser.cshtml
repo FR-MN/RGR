@@ -46,7 +46,7 @@
                     <br />
                     @if (User.IsInRole("Admin"))
                     {
-                        <a href="@Url.Action("Удалить", "DeleteByAdmin", new { userId = ViewBag.UserId })">Удалить пользователя</a>
+                        <a href="@Url.Action("DeleteUser", "Administration", new { userId = ViewBag.UserId })">Удалить пользователя</a>
                         @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
                     }
                 </div>

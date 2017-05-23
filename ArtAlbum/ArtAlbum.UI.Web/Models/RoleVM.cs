@@ -49,5 +49,16 @@ namespace ArtAlbum.UI.Web.Models
             }
             return false;
         }
+
+        public static bool RemoveRoleFromUser(string nickname, string roleName)
+        {
+            Guid userId = UserVM.GetUserIdByNickname(nickname);
+            Guid roleId = rolesLogic.GetAllRoles().FirstOrDefault(x => x.Name == roleName).Id;
+            if (userId != null && roleId != null)
+            {
+                return rolesLogic.RemoveRoleFromUser(userId, roleId);
+            }
+            return false;
+        }
     }
 }
