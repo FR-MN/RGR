@@ -138,6 +138,7 @@
 
 
  .delete {
+         display: inline-block;
      color:white;
 	padding: 7px 6px 4px 6px;
 	border-radius: 100px;

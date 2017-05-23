@@ -21,69 +21,78 @@
 <h2>UserAdministration</h2>
 
 
-   
+   <div class="container">
+
+
     <ol class="user-list">
-    @foreach (var item in Model)
+        @foreach (var item in Model)
         {
-        <li>
-            <div class="dropdown col-md-2">
-                @if (IsAdmin(item.Nickname))
+            
+                <li>
+
+                    <div  class="col-md-2">
+                        @if (IsAdmin(item.Nickname))
+                        {
+                            <span>Роль:  Администратор</span>
+                        }
+                        else
+                        {
+                            <span>Роль:  Пользователь</span>
+                        }
+                    </div>
+
+                    <div class="dropdown col-md-2">
+
+                        <a class="button7 dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Html.DisplayFor(modelItem => item.Nickname) <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">Ссылка на страницу</a>
+                            </li>
+                            <li>
+                                Имя:@Html.DisplayFor(modelItem => item.Nickname)
+                            </li>
+                            <li>
+                                Фамилия:@Html.DisplayFor(modelItem => item.LastName)
+                            </li>
+                            <li>
+                                Почта:@Html.DisplayFor(modelItem => item.Email)
+                            </li>
+                            <li>
+                                Дата Рождения:@Html.DisplayFor(modelItem => item.DateOfBirth)
+                            </li>
+                            <li>
+                                Возраст:@Html.DisplayFor(modelItem => item.Age)
+                            </li>
+                            <li>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="admins-btn col-md-7">
+                        @if (IsAdmin(item.Nickname))
                 {
-                    <span>Администратор</span>
-                }
-                else
-                {
-                    <span>Пользователь</span>
-                }
-                <a class="button7 dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @Html.DisplayFor(modelItem => item.Nickname) <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li>
-                        <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">Ссылка на страницу</a>
-                    </li>
-                    <li>
-                        Имя:@Html.DisplayFor(modelItem => item.Nickname)
-                    </li>
-                    <li>
-                        Фамилия:@Html.DisplayFor(modelItem => item.LastName)
-                    </li>
-                    <li>
-                        Почта:@Html.DisplayFor(modelItem => item.Email)
-                    </li>
-                    <li>
-                        Дата Рождения:@Html.DisplayFor(modelItem => item.DateOfBirth)
-                    </li>
-                    <li>
-                        Возраст:@Html.DisplayFor(modelItem => item.Age)
-                    </li>
-                    <li>
+                            <a href="@Url.Action("RemoveAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Убрать права админа</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("AddAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Добавить права админа</a>
+                        }
+                        <a href="@Url.Action("DeleteUser", "Administration", new { userId = item.Id })" class="delete">Удалить</a>
+                    </div>
 
-                    </li>
-                </ul>
-            </div>
-            <div class="admins-btn col-md-9">
-                @if (IsAdmin(item.Nickname))
-                {
-                    <a href="@Url.Action("RemoveAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Убрать права админа</a>
-                }
-                else
-                {
-                    <a href="@Url.Action("AddAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Добавить права админа</a>
-                }
-                <a href="@Url.Action("DeleteUser", "Administration", new { userId = item.Id })" class="delete">Удалить</a>
-            </div>
-            <hr />
-        </li>
+                    <hr />
+                </li>
+
+           
 
 
+        }
 
 
-    }
-
-
-</ol>
-
+    </ol>
+</div>
 
 
     @*<h2 style="margin-top:10px;" class="Header">Type</h2>*@

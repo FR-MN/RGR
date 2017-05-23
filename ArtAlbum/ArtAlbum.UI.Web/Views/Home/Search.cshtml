@@ -6,9 +6,38 @@
 <h2>Поиск</h2>
 @using (Html.BeginForm("Search", "Home", FormMethod.Get))
 {
-    <input type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" />
-    <input type="text" id="tagsData" name="tagsData" placeholder="Введите теги через пробелы" />
-    <input type="submit" value="Поиск" />
+    <div class="search-inputs ">
+        <div class="container">
+            <div class="row">
+                <h1 class="standard-h1">Поиск изображений</h1>
+                <div style="margin-left:30px;" class="col-md7">
+
+                   
+                    
+                    
+                    <div  class="form-element search-input">
+                        <label for="search">Описание:</label>
+                        <input  class="form-control" type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" />
+                    </div>
+                    
+                    <div class="form-element search-input">
+                        <label for="search">Теги:</label>
+                        <input  class="form-control" type="text" id="tagsData" name="tagsData" placeholder="Введите теги  через  пробелы" />
+                    </div>
+                   
+                    <div class="form-element">
+                        
+                           <input type="submit" class="btn btn-primary" value="Поиск">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+       
+    </div>
 }
 @{
     if (Model != null && Model.Count() != 0)

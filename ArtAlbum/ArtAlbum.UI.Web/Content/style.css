@@ -1252,8 +1252,9 @@ background: #f8f8f8;
     margin-left:10px;
      border-radius:20px;
     margin-bottom:10px;
+     background: #f8f8f8;
     width:150px;
-         background: #f8f8f8;
+        
 }
 #tags h3{
     text-align:center;
@@ -1298,9 +1299,38 @@ background: #f8f8f8;
     margin-left:70px !important;
 
 }
+.search-inputs{
+   
+    
+    height:200px;
+    background: #f8f8f8;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-bottom:15px;
+    
+    width: 97%;
+}
+.search-input{
+    margin-left:10px;
+    margin-bottom:10px;
+}
+.search-input input{
+    width:300px;
+    display:inline;
+}
+.search-input label{
+    width:80px;
+}
 
 @media (min-width:300px) and (max-width:780px)
 {
+    .search-inputs{
+        height:250px;
+    }
+    .search-input input{
+    width:150px;
+    display:inline;
+}
     .form-group{
     margin-left:5px !important;
     margin-right:10px !important;
@@ -1311,7 +1341,17 @@ background: #f8f8f8;
 }
 @media (min-width:780px) and (max-width:990px)
 {
-
+    .search-input{
+    margin-left:0px;
+   
+}
+.search-input input{
+    width:200px;
+    display:inline;
+}
+.search-input label{
+    width:80px;
+}
     .settings .form-horizontal{
     height:750px !important;
 }
@@ -1322,9 +1362,7 @@ background: #f8f8f8;
     
     margin-top:30px;
 }
-.addimage{
-    margin-top:230px !important;
-}
+
 .change-avatar{
     background-color:white;
     border-radius:10px;
@@ -1334,8 +1372,9 @@ background: #f8f8f8;
 .dropdown-menu{
 
 }
-.admins-btn{
-   margin-top:5px;
+
+.admins-btn a{
+   margin-bottom:20px;
 }
 .user-list{
     padding-top:25px;
@@ -1359,7 +1398,12 @@ background: #f8f8f8;
     margin-left: 8px;
 }
 .user-list li{
-        height: 80px;
+   
+        height: auto;
+}
+.user-list li div{
+    margin-bottom:20px;;
+        
 }
 .dropdown-menu li{
     height: auto;
