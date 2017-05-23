@@ -132,5 +132,15 @@ namespace ArtAlbum.UI.Web.Controllers
 
             return Json(arr, JsonRequestBehavior.AllowGet);
         }
+
+        [Authorize]
+        public ActionResult Delete(Guid imageId)
+        {
+            if (ImageVM.RemoveImage(imageId))
+            {
+                return RedirectToAction("UserProfile", "Users");
+            }
+            return View();
+        }
     }
 }

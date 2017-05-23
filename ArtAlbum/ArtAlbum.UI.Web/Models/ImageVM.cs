@@ -104,5 +104,10 @@ namespace ArtAlbum.UI.Web.Models
             return list;
             
         }
+
+        public static bool RemoveImage(Guid imageId)
+        {
+            return imagesLogic.RemoveImageById(imageId);
+        }
     }
 }

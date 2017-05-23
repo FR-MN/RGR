@@ -58,7 +58,11 @@
                                 <div class="top_image">
 
                                 </div>
-                                <button href="#" class="delete">Удалить фотографию</button>
+                                @if (User.IsInRole("Admin") || User.Identity.Name == GetUserName(list[i].Id))
+                                {
+                                    <a href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })">Удалить изображение</a>
+                                    @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
+                                }
                             </div>
                             <div class="col-md-3">
                                 <div class="row">

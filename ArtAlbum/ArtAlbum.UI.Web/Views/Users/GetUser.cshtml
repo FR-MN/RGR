@@ -44,7 +44,11 @@
                     <a class="button7" id="subscribe-btn">@GetSubscribeState()</a>
                     <br />
                     <br />
-                    <button href="#" class="delete">Удалить страницу</button>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Удалить", "DeleteByAdmin", new { userId = ViewBag.UserId })">Удалить пользователя</a>
+                        @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
+                    }
                 </div>
             </div>
 
@@ -112,7 +116,7 @@
 
     <div class="row">
         <div id="main-images" class="col-xs-11 col-md-12 col-lg-12">
-            <h2>Мои изображения</h2>
+            <h2>Изображения пользователя</h2>
             <div>
                 @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
             </div>

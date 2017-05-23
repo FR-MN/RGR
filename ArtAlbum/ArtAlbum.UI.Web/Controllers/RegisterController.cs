@@ -24,6 +24,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     UserVM.Add(registerData);
+                    return RedirectToAction("UserProfile", "Users");
                 }
             }
             return View(registerData);
