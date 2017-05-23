@@ -45,6 +45,7 @@
     <Compile Include="LikeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleDTO.cs" />
+    <Compile Include="TagDTO.cs" />
     <Compile Include="UserAvatarDTO.cs" />
     <Compile Include="UserDTO.cs" />
   </ItemGroup>

@@ -14,6 +14,10 @@
     {
         return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Nickname;
     }
+    IEnumerable<string> GetTagsOfImage(Guid imageId)
+    {
+        return ArtAlbum.UI.Web.Models.ImageVM.GetTagsByImage(imageId);
+    }
 }
 @{
 
@@ -86,6 +90,11 @@
                                             <p>Войдите чтобы оценивать изображения</p>
                                         }
 
+                                        <span>Теги:</span>
+                                        @foreach (var tag in GetTagsOfImage(list[i].Id))
+                                        {
+                                            <span> </span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag })">#@tag</a>
+                                        }
                                     </div>
                                 </div>
 

@@ -45,6 +45,7 @@
     <Compile Include="ILikesDAL.cs" />
     <Compile Include="IRolesDAL.cs" />
     <Compile Include="ISubscribersDAL.cs" />
+    <Compile Include="ITagsDAL.cs" />
     <Compile Include="IUsersAvatarsDAL.cs" />
     <Compile Include="IUsersDAL.cs" />
     <Compile Include="IUsersImagesDAL.cs" />

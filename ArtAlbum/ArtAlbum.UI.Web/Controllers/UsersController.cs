@@ -36,7 +36,7 @@ namespace ArtAlbum.UI.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image)
+        public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image, string tagsData)
         {
             if (dataImage != null && (dataImage.ContentType != null) && !string.IsNullOrWhiteSpace(image.Description))
             {
@@ -52,8 +52,16 @@ namespace ArtAlbum.UI.Web.Controllers
                 image.DateOfCreating = DateTime.Now;
                 if (!string.IsNullOrWhiteSpace(image.Description))
                 {
+                    image.Id = Guid.NewGuid();
                     if (ImageVM.Create(image, imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name)))
                     {
+                        if (!string.IsNullOrWhiteSpace(tagsData))
+                        {
+                            foreach (var tagName in tagsData.Split(' '))
+                            {
+                                ImageVM.AddTag(tagName, image.Id);
+                            }
+                        }
                         return RedirectToAction("UserProfile", "Users");
                     }
                 }

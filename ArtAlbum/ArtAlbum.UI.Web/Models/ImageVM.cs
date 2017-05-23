@@ -13,6 +13,7 @@ namespace ArtAlbum.UI.Web.Models
         private static IImagesBLL imagesLogic = Provider.ImagesBLL;
         private static IUsersImagesBLL relationsLogic = Provider.RelationsBLL;
         private static ILikesBLL likesLogic = Provider.LikesBLL;
+        private static ITagsBLL tagsLogic = Provider.TagsBLL;
 
         private string description;
 
@@ -29,8 +30,8 @@ namespace ArtAlbum.UI.Web.Models
 
         internal static bool Create(ImageVM image, byte[] data, string type, Guid authorId)
         {
-            Guid imageId = Guid.NewGuid();
-            return imagesLogic.AddImage(new ImageDTO() { Id = imageId, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data }) && relationsLogic.AddImageToUser(authorId, imageId);
+
+            return imagesLogic.AddImage(new ImageDTO() { Id = image.Id, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data }) && relationsLogic.AddImageToUser(authorId, image.Id);
         }
 
         public override string ToString()
@@ -108,6 +109,25 @@ namespace ArtAlbum.UI.Web.Models
         public static bool RemoveImage(Guid imageId)
         {
             return imagesLogic.RemoveImageById(imageId);
+        }
+
+        public static bool AddTag(string tagName, Guid imageId)
+        {
+            if (!string.IsNullOrWhiteSpace(tagName) && tagName.Length <= 50)
+            {
+                return tagsLogic.AddTagToImage(new TagDTO() { Id = Guid.NewGuid(), Name = tagName }, imageId);
+            }
+            return false;
+        }
+
+        public static IEnumerable<string> GetTagsByImage(Guid imageId)
+        {
+            List<string> list = new List<string>();
+            foreach (var tag in tagsLogic.GetTagsByImageId(imageId))
+            {
+                list.Add(tag.Name);
+            }
+            return list;
         }
     }
 }

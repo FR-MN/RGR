@@ -21,6 +21,7 @@ namespace ArtAlbum.BLL.DefaultLogic
         private IUsersAvatarsDAL avatarsDAL;
         private ICommentsDAL commentsDAL;
         private IImagesDAL imagesDAL;
+        private ITagsDAL tagsDAL;
         private static Regex regexEmail;
         private static Regex regexNickname;
         private static Regex regexName;
@@ -31,9 +32,9 @@ namespace ArtAlbum.BLL.DefaultLogic
             regexNickname = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$");
             regexName = new Regex(@"^[а-яА-ЯёЁa-zA-Z]+$");
         }
-        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL, ICommentsDAL commentsDAL, IImagesDAL imagesDAL)
+        public UsersBLL(IUsersDAL usersDAL, IUsersImagesDAL relationsDAL, IRolesDAL rolesDAL, ISubscribersDAL subscribersDAL, ILikesDAL likesDAL, IUsersAvatarsDAL avatarsDAL, ICommentsDAL commentsDAL, IImagesDAL imagesDAL, ITagsDAL tagsDAL)
         {
-            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null || commentsDAL == null || imagesDAL == null)
+            if (usersDAL == null || relationsDAL == null || subscribersDAL == null || rolesDAL == null || likesDAL == null || avatarsDAL == null || commentsDAL == null || imagesDAL == null || tagsDAL == null)
             {
                 throw new ArgumentNullException("one of the dals is null");
             }
@@ -45,6 +46,7 @@ namespace ArtAlbum.BLL.DefaultLogic
             this.avatarsDAL = avatarsDAL;
             this.commentsDAL = commentsDAL;
             this.imagesDAL = imagesDAL;
+            this.tagsDAL = tagsDAL;
         }
 
         private bool IsUserCorrect(UserDTO user)
@@ -112,6 +114,14 @@ namespace ArtAlbum.BLL.DefaultLogic
                 foreach (var like in likesDAL.GetLikesByImageId(imageId))
                 {
                     likesDAL.RemoveLikeFromImage(like.LikerId, imageId);
+                }
+                foreach (var tagId in tagsDAL.GetTagsByImageId(imageId))
+                {
+                    tagsDAL.RemoveTagFromImage(tagId, imageId);
+                    if (tagsDAL.GetImagesByTagId(tagId) == null && tagsDAL.GetImagesByTagId(tagId).Count() == 0)
+                    {
+                        tagsDAL.RemoveTag(tagId);
+                    }
                 }
                 imagesDAL.RemoveImageById(imageId);
             }

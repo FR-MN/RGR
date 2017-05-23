@@ -4,9 +4,10 @@
 }
 
 <h2>Поиск</h2>
-@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
 {
-    <input type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" required="" />
+    <input type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" />
+    <input type="text" id="tagsData" name="tagsData" placeholder="Введите теги через пробелы" />
     <input type="submit" value="Поиск" />
 }
 @{
