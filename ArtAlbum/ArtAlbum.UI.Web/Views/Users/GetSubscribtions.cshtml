@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ArtAlbum.UI.Web.Models.UserVM>
 
 @{
-    ViewBag.Title = "GetSubscribtions";
+    ViewBag.Title = "Мои подписки";
 }
 
 <h2>GetSubscribtions</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Назад к личной странице", "UserProfile", "Users")
 </p>
 <ol class="user-list">
     @foreach (var item in Model)
@@ -16,16 +16,16 @@
 
             <div class="user-list-item col-md-9">
                 <div class="reply_image">
-                    <a href="/id337666144">
+                    <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">
                         <img src="@Url.Action("GetAvatar", "Users", new { userId = item.Id })" class="reply_img">
                     </a>
                 </div>
-                <p><a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">@Html.DisplayFor(modelItem => item.Nickname)</a>      <a href="#"><span class="glyphicon glyphicon-remove" style="color:red"></span></a></p>
+                <p><a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">@Html.DisplayFor(modelItem => item.Nickname)</a>      <a href="@Url.Action("DeleteSubscribtion", "Users", new { subscribtionUserId = item.Id })"><span class="glyphicon glyphicon-remove" style="color:red"></span></a></p>
 
-                
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) 
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
 
 
             </div>
@@ -37,9 +37,13 @@
 
 
     }
-
+    
 
 </ol>
+@if (Model == null || Model.Count() == 0)
+{
+    <p>Пока что вы ни на кого не подписаны</p>
+}
 
 
 

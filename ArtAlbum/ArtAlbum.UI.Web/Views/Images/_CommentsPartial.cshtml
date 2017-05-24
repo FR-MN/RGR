@@ -43,11 +43,14 @@
 
 
 
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="addcomment">
+        <form action="handler.php">
+            <p><b>Введите ваш Комментарий:</b></p>
+            <input style="width: 279px; display:initial" type="text" class="commentText" name="searchQuery" />
+            <input class="submit" type="submit" id="@(ViewBag.ImageId + "submit")" value="Готово" />
+        </form>
+    </div>
+}
 
-<div class="addcomment">
-    <form action="handler.php">
-        <p><b>Введите ваш Комментарий:</b></p>
-        <input style="width: 279px; display:initial" type="text" class="commentText" name="searchQuery" />
-        <input class="submit" type="submit" id="@(ViewBag.ImageId + "submit")" value="Готово" />
-    </form>
-</div>

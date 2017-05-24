@@ -13,6 +13,7 @@ namespace ArtAlbum.UI.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.ImagesRecent = ImageVM.GetAllImages();
+            ViewBag.TopTags = ImageVM.GetAllTags().OrderByDescending(tagName => ImageVM.CountOfImagesWithTag(tagName)).Take(8);
             if (User.Identity.IsAuthenticated)
             {
                 List<ImageVM> imagesOfSubscription = new List<ImageVM>();
@@ -25,12 +26,6 @@ namespace ArtAlbum.UI.Web.Controllers
             return View(ImageVM.GetAllImages());
         }
 
-        //[Authorize]
-        //[HttpGet]
-        //public ActionResult Search()
-        //{
-        //    return View();
-        //}
 
         [Authorize]
         [HttpGet]
@@ -54,7 +49,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 foreach (var image in resultImages)
                 {
                     bool isTagExist = false;
-                    foreach (var tag in tagsData.Split(' '))
+                    foreach (var tag in tagsData.ToLower().Split(' '))
                     {
                         foreach (var imageTag in ImageVM.GetTagsByImage(image.Id))
                         {
@@ -81,6 +76,18 @@ namespace ArtAlbum.UI.Web.Controllers
                 resultImages = newImages;
             }
             return View(resultImages);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult SearchUsers(string searchQuery)
+        {
+            IEnumerable<UserVM> resultUsers= new List<UserVM>();
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                resultUsers = UserVM.GetAllUsers().Where(user => user.Nickname.ToLower().Contains(searchQuery.ToLower())).OrderBy(user => user.Nickname).ToList();
+            }
+            return View(resultUsers);
         }
     }
 }

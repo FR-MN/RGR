@@ -94,7 +94,7 @@ namespace ArtAlbum.DAL.DataBase
             }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT Id,Name FROM Comments WHERE Id=@Id", connection);
+                SqlCommand command = new SqlCommand("SELECT Id,Name FROM Tags WHERE Id=@Id", connection);
                 command.Parameters.AddWithValue("@Id", tagId);
                 connection.Open();
                 var reader = command.ExecuteReader();

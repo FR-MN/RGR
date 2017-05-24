@@ -115,7 +115,7 @@ namespace ArtAlbum.UI.Web.Models
         {
             if (!string.IsNullOrWhiteSpace(tagName) && tagName.Length <= 50)
             {
-                return tagsLogic.AddTagToImage(new TagDTO() { Id = Guid.NewGuid(), Name = tagName }, imageId);
+                return tagsLogic.AddTagToImage(new TagDTO() { Id = Guid.NewGuid(), Name = tagName.ToLower() }, imageId);
             }
             return false;
         }
@@ -124,6 +124,21 @@ namespace ArtAlbum.UI.Web.Models
         {
             List<string> list = new List<string>();
             foreach (var tag in tagsLogic.GetTagsByImageId(imageId))
+            {
+                list.Add(tag.Name);
+            }
+            return list;
+        }
+
+        public static int CountOfImagesWithTag(string tagName)
+        {
+            return tagsLogic.GetImagesByTagId(tagsLogic.GetAllTags().Where(tag => tag.Name == tagName).First().Id).Count();
+        }
+
+        public static IEnumerable<string> GetAllTags()
+        {
+            List<string> list = new List<string>();
+            foreach (var tag in tagsLogic.GetAllTags())
             {
                 list.Add(tag.Name);
             }

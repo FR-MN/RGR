@@ -74,7 +74,7 @@
                                         <div class="username">
                                             <div class="reply_image">
                                                 <a href="/id337666144">
-                                                    <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(@list[i].Id) })" class="reply_img">
+                                                    <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(list[i].Id) })" class="reply_img">
                                                 </a>
                                             </div>
                                             <h4>@GetUserName(list[i].Id)</h4>
@@ -101,7 +101,7 @@
                                         }
                                         else
                                         {
-                                            <p>Войдите чтобы оценивать изображения</p>
+                                            <p>Войдите чтобы оценивать и комментировать изображения</p>
                                         }
 
 

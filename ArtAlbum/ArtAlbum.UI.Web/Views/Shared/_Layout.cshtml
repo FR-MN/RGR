@@ -56,6 +56,14 @@
                                         </p>
                                     </div>
                                 </a>
+                                <a href="@Url.Action("SearchUsers", "Home")">
+                                    <div class="gn-item">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        <p>
+                                            Поиск пользователей
+                                        </p>
+                                    </div>
+                                </a>
                                 @if (User.IsInRole("Admin"))
                                 {
                                         <a href="@Url.Action("UserAdministration", "Administration")">

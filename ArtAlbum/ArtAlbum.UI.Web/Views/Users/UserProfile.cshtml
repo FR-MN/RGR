@@ -129,12 +129,12 @@
                             <div id="second-user-block">
                                 <br />
                                 <div class="subscribers">
-                                   <h5><a href="@Url.Action("GetSubscribers", "Users")">4 подписчика</a></h5>
+                                   <h5><a href="@Url.Action("GetSubscribers", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribers подписчиков</a></h5>
                                 </div>
                                 <br />
                                
                                 <div class="subscribtions">
-                                   <h5><a href="@Url.Action("GetSubscribtions", "Users")">5 подпискок</a></h5>
+                                   <h5><a href="@Url.Action("GetSubscribtions", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribtions подпискок</a></h5>
                                     
                                 </div>
                                 
@@ -158,7 +158,7 @@
                                             </div>
                                             <div class="user-date-item">
                                                 <h4>Число публикаций</h4>
-                                                <p></p>
+                                                <p>@ViewBag.CountOfPublications</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

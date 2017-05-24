@@ -10,7 +10,6 @@ using System.Web.Security;
 
 namespace ArtAlbum.UI.Web.Controllers
 {
-    [Authorize]
     public class UsersController : Controller
     {
         // GET: User
@@ -30,6 +29,9 @@ namespace ArtAlbum.UI.Web.Controllers
                 ViewBag.FirstUserName = user.FirstName;
                 ViewBag.LastUserName = user.LastName;
                 ViewBag.UserAge = user.Age;
+                ViewBag.CountOfSubscribtions = UserVM.GetSubscribtionsByUserId(userId).Count();
+                ViewBag.CountOfSubscribers = UserVM.GetSubscribersByUserId(userId).Count();
+                ViewBag.CountOfPublications = ImageVM.GetImagesByUserId(userId).Count();
             }
             return View();
         }
@@ -98,6 +100,20 @@ namespace ArtAlbum.UI.Web.Controllers
             UserVM.SubscribeToUser(subscribtionUserId, currentUserId);
             return Json("Отписаться", JsonRequestBehavior.AllowGet);
         } 
+
+        [Authorize]
+        public ActionResult DeleteSubscribtion(Guid subscribtionUserId)
+        {
+            var currentUserId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            foreach (var subscription in UserVM.GetSubscribtionsByUserId(currentUserId))
+            {
+                if (subscription.Id == subscribtionUserId)
+                {
+                    UserVM.UnsubscribeToUser(subscribtionUserId, currentUserId);
+                }
+            }
+            return RedirectToAction("GetSubscribtions", "Users", new { userId = currentUserId } );
+        }
 
         [Authorize]
         public ActionResult GetUser(string nickname)
@@ -214,7 +230,6 @@ namespace ArtAlbum.UI.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult ChangeAvatar(HttpPostedFileBase dataImage, ImageVM image)
         {
             if (dataImage != null && (dataImage.ContentType != null))
@@ -244,15 +259,15 @@ namespace ArtAlbum.UI.Web.Controllers
         }      
 
         [Authorize]
-        public ActionResult GetSubscribers()
+        public ActionResult GetSubscribers(Guid userId)
         {
-            return View(UserVM.GetAllUsers());
+            return View(UserVM.GetSubscribersByUserId(userId));
         }
 
         [Authorize]
-        public ActionResult GetSubscribtions()
+        public ActionResult GetSubscribtions(Guid userId)
         {
-            return View(UserVM.GetAllUsers());
+            return View(UserVM.GetSubscribtionsByUserId(userId));
         }
     }
 }
