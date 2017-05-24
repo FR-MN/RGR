@@ -46,21 +46,22 @@
 
 
     $ref.on('click', function (e) {
+        //$('body').css('overflow', 'hidden');
 
+        var imageid = $(this).attr("value");
 
-
+        $(imageid).modal('hide')
         var imageid = $(this).attr("data-target").slice(1),
             temp = "#" + imageid,
             md = $(temp).find($(".top_image"));
         $(temp).appendTo("body");
         e.preventDefault();
-
-
+        $(temp).modal("show");
+        $("html,body").addClass("modal-open");
         img.src = '/Images/GetImage/' + imageid;
+
+
         md.append(img);
-        var imageid = $(this).attr("value");
-       
-        $(imageid).modal('hide')
 
 
       
@@ -79,21 +80,22 @@
     $ref.on('click', function (e) {
         //$('body').css('overflow', 'hidden');
 
+        var imageid = $(this).attr("value");
 
+        $(imageid).modal('hide')
         var imageid = $(this).attr("data-target").slice(1),
             temp = "#" + imageid,
             md = $(temp).find($(".top_image"));
         $(temp).appendTo("body");
         e.preventDefault();
-
-
+        $(temp).modal("show");
+        $("html,body").addClass("modal-open");
         img.src = '/Images/GetImage/' + imageid;
-        md.append(img);
-        var imageid = $(this).attr("value");
-
-        $(imageid).modal('hide')
-
        
+       
+        md.append(img);
+        
+        
 
 
 
@@ -111,19 +113,20 @@
     $ref.on('click', function (e) {
 
 
+        var imageid = $(this).attr("value");
 
+        $(imageid).modal('hide')
         var imageid = $(this).attr("data-target").slice(2),
             temp = "#_" + imageid,
             md = $(temp).find($(".top_image"));
         $(temp).appendTo("body");
         e.preventDefault();
-
-
+        $(temp).modal("show");
+        $("html,body").addClass("modal-open");
         img.src = '/Images/GetImage/' + imageid;
-        md.append(img);
-        var imageid = $(this).attr("value");
 
-        $(imageid).modal('hide')
+
+        md.append(img);
 
 
 
@@ -141,20 +144,20 @@
 
     $ref.on('click', function (e) {
 
+        var imageid = $(this).attr("value");
 
-
+        $(imageid).modal('hide')
         var imageid = $(this).attr("data-target").slice(2),
             temp = "#_" + imageid,
             md = $(temp).find($(".top_image"));
         $(temp).appendTo("body");
         e.preventDefault();
-
-
+        $(temp).modal("show");
+        $("html,body").addClass("modal-open");
         img.src = '/Images/GetImage/' + imageid;
-        md.append(img);
-        var imageid = $(this).attr("value");
 
-        $(imageid).modal('hide')
+
+        md.append(img);
 
 
 

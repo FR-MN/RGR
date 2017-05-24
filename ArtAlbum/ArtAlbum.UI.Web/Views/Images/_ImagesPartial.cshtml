@@ -14,6 +14,10 @@
     {
         return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Nickname;
     }
+    Guid GetUserId(Guid imageId)
+    {
+        return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Id;
+    }
     IEnumerable<string> GetTagsOfImage(Guid imageId)
     {
         return ArtAlbum.UI.Web.Models.ImageVM.GetTagsByImage(imageId);
@@ -38,13 +42,13 @@
 
                     @if (@i < @count - 1)
                     {
-                        <a data-toggle="modal" class="nivo-lightbox-next" data-target="#@list[i + 1].Id" style="display: inline;" value="#@list[i].Id" name="nextimage"></a>
+                        <a  class="nivo-lightbox-next" data-target="#@list[i + 1].Id" style="display: inline;" value="#@list[i].Id" name="nextimage"></a>
 
 
                     }
                     @if (@i > 0)
                     {
-                        <a data-toggle="modal" class="nivo-lightbox-prev" data-target="#@list[i - 1].Id" style="display: inline;" value="#@list[i].Id" name="previmage"></a>
+                        <a  class="nivo-lightbox-prev" data-target="#@list[i - 1].Id" style="display: inline;" value="#@list[i].Id" name="previmage"></a>
 
                     }
                     <div class="modal-header">
@@ -63,23 +67,30 @@
                             <div class="col-md-3">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="description">
-                                            <p>Описание: @list[i].Description</p>
+
+                                        <div class="username">
+                                            <div class="reply_image">
+                                                <a href="/id337666144">
+                                                    <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(@list[i].Id) })" class="reply_img">
+                                                </a>
+                                            </div>
+                                            <h4>@GetUserName(list[i].Id)</h4>
                                         </div>
+
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="username">
-                                            <h5>Автор: @GetUserName(list[i].Id)</h5>
+                                        <div class="description">
+                                            <h5>@list[i].Description</h5>
                                         </div>
-
                                     </div>
 
                                 </div>
+
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
 
                                         @if (User.Identity.IsAuthenticated)
                                         {
@@ -90,11 +101,20 @@
                                             <p>Войдите чтобы оценивать изображения</p>
                                         }
 
-                                        <span>Теги:</span>
-                                        @foreach (var tag in GetTagsOfImage(list[i].Id))
-                                        {
-                                            <span> </span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag })">#@tag</a>
-                                        }
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="tags">
+                                            <h5>Теги:</h5>
+                                            @foreach (var tag in GetTagsOfImage(list[i].Id))
+                                            {
+                                                <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag })">#@tag</a></span>
+                                            }
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -107,11 +127,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-9">
-                                        @if (User.IsInRole("Admin") || User.Identity.Name == GetUserName(list[i].Id))
-                                        {
-                                            <a href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })">Удалить изображение</a>
-                                            @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
-                                        }
+                                        <div class="delete-image">
+
+
+                                            @if (User.IsInRole("Admin") || User.Identity.Name == GetUserName(list[i].Id))
+                                            {
+                                                <a class="delete" href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })">Удалить изображение</a>
+                                                @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
+                                            }
+                                        </div>
                                     </div>
 
                                 </div>

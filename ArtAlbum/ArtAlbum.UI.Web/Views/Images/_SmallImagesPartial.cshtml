@@ -2,19 +2,27 @@
 @{var list = @Model.ToList();
     int count = @Model.ToList().Count;}
 @functions {
-    string GetLikeState(Guid imageId)
-    {
-        if (ArtAlbum.UI.Web.Models.ImageVM.IsImageLikedByUser(ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(User.Identity.Name), imageId))
-        {
-            return "Не нравится";
+            string GetLikeState(Guid imageId)
+            {
+                if (ArtAlbum.UI.Web.Models.ImageVM.IsImageLikedByUser(ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(User.Identity.Name), imageId))
+                {
+                    return "Не нравится";
+                }
+                return "Нравится";
+            }
+            string GetUserName(Guid imageId)
+            {
+                return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Nickname;
+            }
+            Guid GetUserId(Guid imageId)
+            {
+                return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Id;
+            }
+            IEnumerable<string> GetTagsOfImage(Guid imageId)
+            {
+                return ArtAlbum.UI.Web.Models.ImageVM.GetTagsByImage(imageId);
+            }
         }
-        return "Нравится";
-    }
-    string GetUserName(Guid imageId)
-    {
-        return ArtAlbum.UI.Web.Models.ImageVM.GetUserByImageId(imageId).First().Nickname;
-    }
-}
 @{
     for (int i = 0; i < @count; i++)
     {
@@ -22,7 +30,7 @@
         {
             break;
         }
-        
+
         <div class="col-md-4">
             <div class="litle_image">
                 <a class="show-small-image" data-toggle="modal" data-target="#_@list[i].Id">
@@ -36,14 +44,14 @@
                 <div class="modal-dialog" role="document">
 
                     @if (@i < @count - 1)
-                    {
-                        <a data-toggle="modal" class="nivo-lightbox-next" data-target="#_@list[i + 1].Id" style="display: inline;" value="#_@list[i].Id" name="_nextimage"></a>
+    {
+                        <a  class="nivo-lightbox-next" data-target="#_@list[i + 1].Id" style="display: inline;" value="#_@list[i].Id" name="_nextimage"></a>
 
 
                     }
                     @if (@i > 0)
-                    {
-                        <a data-toggle="modal" class="nivo-lightbox-prev" data-target="#_@list[i - 1].Id" style="display: inline;" value="#_@list[i].Id" name="_previmage"></a>
+    {
+                        <a  class="nivo-lightbox-prev" data-target="#_@list[i - 1].Id" style="display: inline;" value="#_@list[i].Id" name="_previmage"></a>
 
                     }
                     <div class="modal-header">
@@ -58,116 +66,85 @@
                                 <div class="top_image">
 
                                 </div>
-                                @if (User.IsInRole("Admin") || User.Identity.Name == GetUserName(list[i].Id))
-                                {
-                                    <a href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })">Удалить изображение</a>
-                                    @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
-                                }
                             </div>
                             <div class="col-md-3">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="description">
-                                            <h2>@list[i].Description</h2>
-                                        </div>
 
+                                        <div class="username">
+                                            <div class="reply_image">
+                                                <a href="/id337666144">
+                                                    <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(@list[i].Id) })" class="reply_img">
+                                                </a>
+                                            </div>
+                                            <h4>@GetUserName(list[i].Id)</h4>
+                                        </div>
 
                                     </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="social-panel">
-                                            @if (User.Identity.IsAuthenticated)
-                                            {
-                                                <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
-                                            }
-                                            else
-                                            {
-                                                <p>Войдите чтобы оценивать изображения</p>
-                                            }
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="username">
-                                            <h3>Автор: @GetUserName(list[i].Id)</h3>
+                                        <div class="description">
+                                            <h5>@list[i].Description</h5>
                                         </div>
-
                                     </div>
 
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        @if (User.Identity.IsAuthenticated)
+    {
+                                            <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
+                                        }
+                                        else
+                                        {
+                                            <p>Войдите чтобы оценивать изображения</p>
+                                        }
+
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="tags">
+                                            <h5>Теги:</h5>
+                                            @foreach (var tag in GetTagsOfImage(list[i].Id))
+                                            {
+                                                <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag })">#@tag</a></span>
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="comments">
-                                            <ul>
-                                                <li>
-                                                    <div class="comment">
-                                                        <div class="reply_image">
-                                                            <a href="/id337666144">
-                                                                <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
-                                                            </a>
-                                                        </div>
+                                        @Html.Action("Comment", "Images", new { imageId = list[i].Id })
 
-                                                        <div content_commetn>
-                                                            <div class="reply_author">
-                                                                <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
-                                                            </div>
-                                                            <div class="reply_text">
-
-                                                                <div class="wall_reply_text">Комент 1</div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <hr />
-                                                </li>
-                                                <li>
-                                                    <div class="comment">
-                                                        <div class="reply_image">
-                                                            <a href="/id337666144">
-                                                                <img src="https://pp.userapi.com/c638118/v638118144/2e841/62u6MoGqux8.jpg" width="40" height="40" class="reply_img" alt="Тимофей Наталин">
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="content_commetn">
-                                                            <div class="reply_author">
-                                                                <a class="author" href="/id337666144" data-from-id="337666144">Коментатор1</a>
-                                                            </div>
-                                                            <div class="reply_text">
-
-                                                                <div class="wall_reply_text">Очень длинный комментарий прям очень очень ааааааааааааааааааааааааааааааааааааа</div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <div class="addcomment">
-                                            <form action="handler.php">
-                                                <p><b>Введите ваш Комментарий:</b></p>
-                                                <p><textarea name="comment"></textarea></p>
-                                                <p><input type="submit"></p>
-                                            </form>
+                                        <div class="delete-image">
+
+
+                                            @if (User.IsInRole("Admin") || User.Identity.Name == GetUserName(list[i].Id))
+                                            {
+                                                <a class="delete" href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })">Удалить изображение</a>
+                                                @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
+                                            }
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-
-                        </div>
+                       
 
                     </div>
                 </div>
@@ -179,7 +156,7 @@
 
 
         </div>
-
+        }
     }
-}
+
 

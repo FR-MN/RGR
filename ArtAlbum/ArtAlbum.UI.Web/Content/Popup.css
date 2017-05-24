@@ -95,7 +95,9 @@ transform: translate(-50%, -50%);
 .modal{
    
 }
-
+.modal-header{
+   width: 104%;
+}
 
 .popup p {
 margin: 0;
@@ -129,11 +131,11 @@ height: auto;
 }*/
 
 .top_image {
-    margin-left:50px;
+    margin-left:40px;
     margin-bottom: 5px;
     position: relative;
-    width: 700px;
-    height: 500px;
+    width: 780px;
+    height: 550px;
     line-height: 140px;
     text-align: center;
 }
@@ -168,10 +170,10 @@ div.social-panel {
   
 }
 .like{
-    margin-left:40px;
+    margin-left:20px;
 float:left;
-width:180px;
-height:50px;
+width:160px;
+height:40px;
 }
 .like-status{
     margin-left:15px;
@@ -195,13 +197,20 @@ width:150px;
         
     }
           .comments {
+              margin-left:20px;
               height:200px;
-width: 350px; /* ширина нашего блока */
+width: 340px; /* ширина нашего блока */
  /* цвет фона, белый */
 border: 1px solid #C1C1C1; /* размер и цвет границы блока */
 
 overflow-y: scroll; /* прокрутка по вертикали */
 }
+
+          .delete-image{
+              margin-left:10px;
+              margin-top:10px;
+              margin-bottom:10px;
+          }
    .wall_reply_text{
        width:150px;
    }
@@ -236,31 +245,76 @@ float:right;
 height:auto;
 }
 .date-of-creating{
+    
        margin-top: -35px;
     width: 75px;
     float: right;
 }
-    
+   .addcomment{
+       margin-left:20px;
+       width:350px;
+   } 
+   
 .description{
-   margin-left:-20px;
+      margin-top: 20px;
+    max-width: 400px;
+    margin-left: 20px;
+}
+.description h5{
+    height:auto;
+    word-wrap:break-word;
+     text-align:start;
+     
 }
 .username{
-     margin-left:-20px;
+   
+     margin-left:30px;
     margin-top:10px;
     height:40px;
     
     
 }
+.username h4{
+   
+    margin-left: 50px;
+    text-align:start;
+}
+.tags{
+    margin-left:20px;
+    margin-top:20px;
+    width:350px;
+}
+.tags h5{
+    display:inline;
+    width:100px;
+    height:auto;
+    word-wrap:break-word;
+     text-align:start;
+     
+}
+.tags span{
+         border-radius:20px;
+    background-color: #eb5d1e;
+     
+    border-right:5px;
+    width:110%;
+    height:auto;
+    
+}
+.tags a{
+    color: white;
+}
+
     a.like {
-  font-weight: 900;
+ 
   color: white;
 
 
   background-color: #eb5d1e;
   
   margin-bottom:10px;
-   font-weight: 900;
-    padding: .8em 1em calc(.8em + 3px);
+   font-weight: 700;
+    padding: .3em 1em calc(.8em + 3px);
     border-radius: 3px;
     
     transition: 0.2s;
@@ -299,23 +353,26 @@ a.share:active {
     .modal-dialog {
         margin-left:30px;
         width:300px;
-       height:700px;
+       height:800px;
     }
-
+    .commentText{
+        width:150px !important;
+    }
    .comment{
        
-        width: 230px;
+        width: 200px;
         
     }
     .comments {
-        width: 250px;
+        
+        width: 220px;
     }
     div.content_commetn {
         
         width: 150px;
         
     }
-
+    
    
     #list_dropdowns{
         margin-left:25px;
@@ -341,6 +398,9 @@ a.share:active {
         .nivo-lightbox-next{
             right: 10px;
     }
+      .commentText{
+          width:150px !important;
+      }
     .nivo-lightbox-prev{
             left: -40px;
     }
@@ -355,6 +415,9 @@ a.share:active {
         width: 230px;
         
     }
+      .commentText{
+          width:200px !important;
+      }
     .comments {
         width: 250px;
     }
