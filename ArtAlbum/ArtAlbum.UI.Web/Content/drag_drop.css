@@ -9,6 +9,13 @@
     margin-bottom:10px;
 
 }
+#upload-model .form-control{
+    width:300px;
+}
+#upload-model b{
+   margin-left:20px;
+   
+}
 #drop-files {
    
 	position:relative;
@@ -23,8 +30,27 @@
 	text-align: center;
 
 }
-@media screen and (max-width: 440px) {
-    #upload-model{
+
+
+@media screen and (max-width: 850px) and (min-width: 450px) {
+        #upload-model{
+    width:300px;
+
+}
+            .form-control{
+        width:210px !important;
+    }
+    #drop-files {
+        position:relative;
+    width: 150px;
+	height: 150px;
+	margin-top:20px;
+    margin-left:5px;
+
+    }
+}
+@media screen and (max-width: 990px) and (min-width: 650px) {
+        #upload-model{
     width:350px;
 
 }
@@ -34,12 +60,25 @@
 	height: 200px;
 	margin-top:20px;
     margin-left:5px;
-    padding-top:0;
-    background: rgba(0,0,0,0.1);
-	border-radius: 10px;
-	border: 4px dashed rgba(0,0,0,0.2);
-	
-	text-align: center;
+
+    }
+
+}
+@media screen and (max-width: 440px) {
+            .form-control{
+        width:80% !important;
+    }
+    #upload-model{
+    width:200px;
+
+}
+    #drop-files {
+        position:relative;
+    width: 150px;
+	height: 150px;
+	margin-top:20px;
+    margin-left:5px;
+
     }
 }
 .input-btn{

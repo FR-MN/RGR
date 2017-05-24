@@ -21,13 +21,13 @@
         @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
 
             </a>*@
-        <img width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.Id })" />
+        <img style="margin-left:25px;" width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.Id })" />
     </div>
 
                         <div style="height: 100px;">
                             <a href="@Url.Action("GetUser", "Users", new { nickname = "user"})">Link</a>
 
-                            <div class="addimage" style="margin: 0 auto;">
+                            <div class="addimage">
                                 <br />
                                 <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
 
@@ -57,13 +57,16 @@
 
 
                                                             </div>
+                                                            <br />
+                                                            <b>Описание</b> 
                                                             <label id="description" class="input-group">
-                                                                Описание
-                                                                <input style="width:300px;" class="form-control" placeholder="Введите описание к изображению" name="Description" type="text" />
+                                                              
+                                                                <input  class="form-control" placeholder="Введите описание к изображению" name="Description" type="text" />
                                                             </label>
+                                                            <b>Теги:</b> 
                                                             <label id="description" class="input-group">
-                                                                Теги:
-                                                                <input style="width:300px;" class="form-control" placeholder="Введите теги через пробел" name="tagsData" type="text" />
+                                                               
+                                                                <input class="form-control" placeholder="Введите теги через пробел" name="tagsData" type="text" />
                                                             </label>
                                                             <!-- Область предпросмотра -->
                                                             <div id="uploaded-holder">
@@ -125,9 +128,18 @@
                         <div class="col-xs-11 col-md-3" style="margin: 0 auto;">
                             <div id="second-user-block">
                                 <br />
-                                <a href="@Url.Action("GetSubscribers", "Users")">Подписчики</a>
-                                <a href="@Url.Action("GetSubscribtions", "Users")">Подписки</a>
-                                <h5>4 подписчиков</h5>
+                                <div class="subscribers">
+                                   <h5><a href="@Url.Action("GetSubscribers", "Users")">4 подписчика</a></h5>
+                                </div>
+                                <br />
+                               
+                                <div class="subscribtions">
+                                   <h5><a href="@Url.Action("GetSubscribtions", "Users")">5 подпискок</a></h5>
+                                    
+                                </div>
+                                
+                                <br />
+                               
                                 <a class="button7" data-toggle="modal" data-target="#user-info">Показать информацию</a>
                                 <div class="modal fade" id="user-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                                     <div class="modal-dialog" role="document">
