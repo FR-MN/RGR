@@ -200,6 +200,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\nivo-lightbox.min.js" />
     <Content Include="Scripts\Popup.js" />
+    <Content Include="Scripts\SeachScript.js" />
     <Content Include="Scripts\stellar.js" />
     <Content Include="Scripts\wrapper_dropdown.js" />
     <Content Include="Web.config" />

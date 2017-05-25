@@ -132,6 +132,24 @@ namespace ArtAlbum.UI.Web.Controllers
 
             return Json(arr, JsonRequestBehavior.AllowGet);
         }
+        [Authorize]
+        public JsonResult DeleteComment(string commentId)
+        {
+            //object[] arr = new object[4];
+            //arr[0] = false;
+
+            //if (!string.IsNullOrWhiteSpace(commentText) && commentText.Length < 500 && imageId != null)
+            //{
+            //    Guid userId = UserVM.GetUserIdByNickname(User.Identity.Name);
+            //    CommentVM.AddComment(new CommentVM() { Id = Guid.NewGuid(), AuthorId = userId, DateOfCreating = DateTime.Now, Data = commentText }, Guid.Parse(imageId));
+            //    arr[0] = true;
+            //    arr[1] = userId.ToString();
+            //    arr[2] = User.Identity.Name;
+            //    arr[3] = DateTime.Now.ToString();
+            //}
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
 
         //[Authorize]
         //public JsonResult RemoveComment(string commentId, string imageId)

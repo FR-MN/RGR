@@ -1233,6 +1233,7 @@ background: #f8f8f8;
     width:300px;
         height: auto;
     }
+
 }
 @media screen and (max-width: 990px) and (min-width: 650px) {
 .center-block {
@@ -1241,6 +1242,10 @@ background: #f8f8f8;
      margin-left:30px;
         height: auto;
     }
+    .user-list li div{
+    margin-bottom:20px;
+        
+}
 
 }
 #tags{
@@ -1290,7 +1295,11 @@ background: #f8f8f8;
     
     max-width:300px;
 }
-
+.form-element .btn{
+    margin-top:10px;
+margin-left: 90px;
+}
+    
 .form-group{
     margin-left:70px !important;
 
@@ -1298,7 +1307,7 @@ background: #f8f8f8;
 .search-inputs{
    
     
-    height:200px;
+    height:300px;
     background: #f8f8f8;
     border-radius: 20px;
     margin-left: 20px;
@@ -1320,8 +1329,15 @@ background: #f8f8f8;
 
 @media (min-width:300px) and (max-width:780px)
 {
+    .radio-inline{
+        margin-left: 0px !important;
+}
+    .user-list li div{
+    margin-bottom:20px;
+        
+}
     .search-inputs{
-        height:250px;
+            height: 450px;
     }
     .search-input input{
     width:150px;
@@ -1395,12 +1411,9 @@ background: #f8f8f8;
 }
 .user-list li{
    
-        height: auto;
+        height: 100%;
 }
-.user-list li div{
-    margin-bottom:20px;;
-        
-}
+
 .dropdown-menu li{
     height: auto;
 }
@@ -1421,4 +1434,7 @@ background: #f8f8f8;
     
     margin-bottom:10px;
     height:20px;
+}
+.radio-inline{
+        margin-left: 90px;
 }

@@ -9,7 +9,7 @@
     <div class="search-inputs ">
         <div class="container">
             <div class="row">
-                <h1 class="standard-h1">Поиск изображений</h1>
+                <h1 class="standard-h1">Поиск по сайту</h1>
                 <div style="margin-left:30px;" class="col-md7">
 
                    
@@ -19,12 +19,19 @@
                         <label for="search">Описание:</label>
                         <input  class="form-control" type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" />
                     </div>
-                    
+
                     <div class="form-element search-input">
                         <label for="search">Теги:</label>
                         <input  class="form-control" type="text" id="tagsData" name="tagsData" placeholder="Введите теги  через  пробелы" />
                     </div>
+                    <div class="form-element search-input">
+                        <label for="search">Никнейм :</label>
+                        <input class="form-control" type="text" id="searchQuery" name="userData" placeholder="Введите никнейм частично или полностью" />
+                    </div>
                    
+                    
+                    <label class="radio-inline"><input type="radio" name="radio" value="image">Поиск изображения</label>
+                    <label class="radio-inline"><input type="radio" name="radio" value="user">Поиск пользователя</label>
                     <div class="form-element">
                         
                            <input type="submit" class="btn btn-primary" value="Поиск">
@@ -61,3 +68,7 @@
     }
 }
 
+@section searchscript{
+    
+<script src="~/Scripts/SeachScript.js"></script>
+    }

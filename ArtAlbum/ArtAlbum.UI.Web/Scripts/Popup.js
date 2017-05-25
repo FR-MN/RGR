@@ -287,9 +287,54 @@
         else {
 
         }
-     
-        
-       
+    }
+    function errorFunc(errorData) {
+        alert('Ошибка' + errorData.responseText);
+    }
+
+
+
+})();
+(function () {
+    var $ref = $("a", ".delete-comment"),
+        li,
+    commentId;
+
+    $ref.on('click', function (e) {
+
+        li= $((this)).parent().parent('li');
+        commentId = li.attr("id");
+
+        $.ajax({
+
+
+            type: "GET",
+            url: "/Images/DeleteComment",
+
+            data: {
+                commentId: commentId
+
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: successFunc,
+            error: errorFunc
+        });
+
+
+    })
+    function successFunc(data, status) {
+        if (data === true) {
+            var temp = data[3];
+            $("#"+commentId).remove()
+        }
+        else {
+
+        }
+
+
+
 
 
     }

@@ -30,7 +30,7 @@
             
                 <li>
 
-                    <div  class="col-md-2">
+                    <div style="margin-left:30px;" class="col-md-2">
                         @if (IsAdmin(item.Nickname))
                         {
                             <span>Роль:  Администратор</span>
@@ -70,7 +70,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="admins-btn col-md-7">
+                    <div class="admins-btn col-md-6">
                         @if (IsAdmin(item.Nickname))
                 {
                             <a href="@Url.Action("RemoveAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Убрать права админа</a>
@@ -81,9 +81,11 @@
                         }
                         <a href="@Url.Action("DeleteUser", "Administration", new { userId = item.Id })" class="delete">Удалить</a>
                     </div>
-
-                    <hr />
+                    <br />
+                    <br />
+                     <br />
                 </li>
+                
 
            
 

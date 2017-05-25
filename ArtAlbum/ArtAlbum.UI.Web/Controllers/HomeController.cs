@@ -29,53 +29,64 @@ namespace ArtAlbum.UI.Web.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult Search(string searchQuery, string tagsData)
+        public ActionResult Search(string searchQuery, string tagsData, string userData,string radio)
         {
-            bool isSearchQueryEmpty = true;
-            IEnumerable<ImageVM> resultImages = new List<ImageVM>();
-            if (!string.IsNullOrWhiteSpace(searchQuery))
+            if (radio == "image")
             {
-                isSearchQueryEmpty = false;
-                resultImages = ImageVM.GetAllImages().Where(image => image.Description.ToLower().Contains(searchQuery.ToLower())).OrderBy(image => image.DateOfCreating).ToList();
-            }
-            if (!string.IsNullOrWhiteSpace(tagsData))
-            {
-                List<ImageVM> newImages = new List<ImageVM>();
-                if (isSearchQueryEmpty)
-                {
-                    resultImages = ImageVM.GetAllImages().ToList();
-                }
 
-                foreach (var image in resultImages)
+
+                bool isSearchQueryEmpty = true;
+                IEnumerable<ImageVM> resultImages = new List<ImageVM>();
+                if (!string.IsNullOrWhiteSpace(searchQuery))
                 {
-                    bool isTagExist = false;
-                    foreach (var tag in tagsData.ToLower().Split(' '))
+                    isSearchQueryEmpty = false;
+                    resultImages = ImageVM.GetAllImages().Where(image => image.Description.ToLower().Contains(searchQuery.ToLower())).OrderBy(image => image.DateOfCreating).ToList();
+                }
+                if (!string.IsNullOrWhiteSpace(tagsData))
+                {
+                    List<ImageVM> newImages = new List<ImageVM>();
+                    if (isSearchQueryEmpty)
                     {
-                        foreach (var imageTag in ImageVM.GetTagsByImage(image.Id))
+                        resultImages = ImageVM.GetAllImages().ToList();
+                    }
+
+                    foreach (var image in resultImages)
+                    {
+                        bool isTagExist = false;
+                        foreach (var tag in tagsData.ToLower().Split(' '))
                         {
-                            if (tag == imageTag)
+                            foreach (var imageTag in ImageVM.GetTagsByImage(image.Id))
                             {
-                                isTagExist = true;
+                                if (tag == imageTag)
+                                {
+                                    isTagExist = true;
+                                    break;
+                                }
+                                isTagExist = false;
+                            }
+
+                            if (!isTagExist)
+                            {
                                 break;
                             }
-                            isTagExist = false;
                         }
 
-                        if (!isTagExist)
+                        if (isTagExist)
                         {
-                            break;
+                            newImages.Add(image);
                         }
                     }
 
-                    if (isTagExist)
-                    {
-                        newImages.Add(image);
-                    }
+                    resultImages = newImages;
                 }
-
-                resultImages = newImages;
+                return View(resultImages);
             }
-            return View(resultImages);
+            else if (radio == "user")
+            {
+                return View();
+            }
+
+            return View();
         }
 
         [Authorize]

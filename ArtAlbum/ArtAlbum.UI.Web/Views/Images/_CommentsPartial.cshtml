@@ -12,7 +12,7 @@
     <ul>
         @foreach (var comment in Model)
         {
-            <li>
+            <li  id="@comment.Id" >
                 <div class="comment">
                     <div class="reply_image">
                         <a href="/id337666144">
@@ -22,7 +22,7 @@
 
                     <div class="content_commetn">
                         <div class="reply_author">
-                            <a class="author" href="/id337666144" data-from-id="337666144">@GetUserImageId(@comment.AuthorId)</a>
+                            <a class="author" href="/id337666144" >@GetUserImageId(@comment.AuthorId)</a>
                         </div>
                         <div class="reply_text">
 
@@ -30,6 +30,11 @@
                         </div>
                     </div>
                     <div class="date-of-creating">@comment.DateOfCreating</div>
+
+                    
+                </div>
+                <div class="delete-comment">
+                    <a href="#"><span class="glyphicon glyphicon-remove" style="color:red"></span></a>
                 </div>
                 <hr />
             </li>
