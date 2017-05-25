@@ -55,47 +55,47 @@
                         </div>*@
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
                                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
                                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
                                 @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-2">Текущий пароль</label>
-                            <div class="col-md-10">
+                            <label class="control-label col-md-4">Текущий пароль</label>
+                            <div class="col-md-8">
                                 <input class="form-control" name="password" type="password" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
+                            <div class="col-md-offset-4 col-md-8">
                                 <input type="submit" value="Save" class="btn btn-default" />
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 " style="height:50px;">
+                        <div class="form-group" style="margin-left:50px;">
+                            <div class="col-md-5 " style="height:50px;">
                                 <a class="button7" style="margin-left: 0px;" href="@Url.Action("ChangeAvatar", "Users")">Сменить аватар</a>
                             </div>
-                            <div class="col-md-6 " style="height:50px;">
+                            <div class="col-md-5 " style="height:50px;">
                                 <a class="button7" style="margin-left: 0px;" href="@Url.Action("ChangePassword", "Users")">Сменить пароль</a>
                             </div>
                            
@@ -107,8 +107,8 @@
                         <hr />
                         <div class="form-group">
                            
-                            <div class="col-md-6 " style="height:50px;">
-                                <a class="button7" style="margin-left: 0px;" href="@Url.Action("Delete", "Users")">Удалить профиль</a>
+                            <div class="col-md-offset-3 " style="height:50px;">
+                                <a class="button7" style="margin-left:40px;" href="@Url.Action("Delete", "Users")">Удалить профиль</a>
                             </div>
                         </div>
 
@@ -124,13 +124,13 @@
 
 
 
-
+                        <div class="show-userpage">
+                            @Html.ActionLink("Вернуться на личную страницу", "UserProfile", "Users")
+                        </div>
                         </div>
 
 
-                    <div>
-                        @Html.ActionLink("Вернуться на личную страницу", "UserProfile", "Users")
-                    </div>
+
                 </div>
             </div>
         </div>

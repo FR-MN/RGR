@@ -4,20 +4,61 @@
 }
 
 <h2>Удалить профиль</h2>
-<p>Введите пароль для подтверждения удаления учетной записи</p>
 
-<form method="post" enctype="multipart/form-data">
-    <label>
-        Введите пароль
-        <input name="password" type="password" />
-    </label>
-    @if (ViewBag.isValid != null && !ViewBag.isValid)
-    {
-        <p>Неверный пароль</p>
-    }
-    <input type="submit" value="Подтвердить" class="btn btn-default" />
-</form>
 
-<div>
-    @Html.ActionLink("Назад", "Settings", "Users")
+<div class="container">
+   
+        <div class="row">
+            <div class="col-md-offset-3 col-xs-12">
+
+
+                <div class="form-horizontal">
+                    <form method="post" enctype="multipart/form-data">
+
+                        <div id="header">
+
+
+                            <div class="form-group">
+
+                                <h2>Удалить профиль</h2>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p style="margin-left:0; text-align:center">Введите пароль для подтверждения удаления учетной записи</p>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Введите пароль</label>
+                            <div class="col-md-8">
+                                <input class="form-control" name="password" type="password" />
+                            </div>
+                            @if (ViewBag.isValid != null && !ViewBag.isValid)
+            {
+                                <b>Неверный пароль</b>
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-10">
+                                <input type="submit" value="Подтвердить" class="btn btn-default" />
+                            </div>
+                        </div>
+
+
+                        <div class="show-userpage">
+                            @Html.ActionLink("Назад", "Settings", "Users")
+                        </div>
+                        <br />
+                    </form>
+                </div>
+
+            </div>
+       
+    </div>
 </div>
+
+
+
+

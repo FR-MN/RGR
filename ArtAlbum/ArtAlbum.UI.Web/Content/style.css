@@ -1300,9 +1300,10 @@ background: #f8f8f8;
 margin-left: 90px;
 }
     
-.form-group{
-    margin-left:70px !important;
-
+.form-group h2{
+    margin-left:0; 
+    text-align:center;
+     margin-right: 0 !important;
 }
 .search-inputs{
    
@@ -1437,4 +1438,11 @@ margin-left: 90px;
 }
 .radio-inline{
         margin-left: 90px;
+}
+.show-userpage{
+    margin-left:10px;
+    margin-bottom:5px;
+    position:absolute; 
+    
+     bottom:0;
 }

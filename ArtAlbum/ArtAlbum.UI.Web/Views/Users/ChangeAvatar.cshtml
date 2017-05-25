@@ -7,73 +7,82 @@
 <h2>ChangeAvatar</h2>
 
 
-@Html.AntiForgeryToken()
+@Html.AntiForgeryToken()   
+ <div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-offset-3 col-xs-12">
+                <div class="form-horizontal">
+                    <div id="header">
 
 
-    <h4>Изменение аватара</h4>
-    <hr />
-   
-                <div class="container">
-                    <form method="post" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-offset-3">
-                                <div class="change-avatar">
-                                    <div class="content">
+                        <div class="form-group">
 
-                                        <!-- Область для перетаскивания -->
-                                        <div id="drop-files" ondragover="return false">
-                                            <div class="input-btn">
-                                                <p>Перетащите изображение сюда или выберете файл</p>
+                            <h2>Изменение аватара</h2>
 
-                                                <input name="dataImage" type="file" id="uploadbtn" multiple="">
+                        </div>
+                    </div>
+                    <div class="change-avatar">
+                        <div class="content">
 
-                                            </div>
+                            <!-- Область для перетаскивания -->
+                            <div style="margin-left:0" id="drop-files" ondragover="return false">
+                                <div class="input-btn">
+                                    <p>Перетащите изображение сюда или выберете файл</p>
 
+                                    <input name="dataImage" type="file" id="uploadbtn" multiple="">
 
-
-
-                                        </div>
-
-                                        <!-- Область предпросмотра -->
-                                        <div id="uploaded-holder">
-                                            <div id="dropped-files">
-
-                                                <div id="upload-button">
-                                                    <center>
-
-                                                        <button class="button15">Загрузить</button>
-                                                        <button class="delete">Удалить</button>
-                                                        <!-- Прогресс бар загрузки -->
-
-                                                    </center>
-                                                </div>
-                                                <div>
-                                                    @if (ViewBag.ErrorMessage != null)
-                                                    {
-                                                        <p style="color:red;font-size:15px">@ViewBag.ErrorMessage</p>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Список загруженных файлов -->
-                                        <div id="file-name-holder">
-                                            <ul id="uploaded-files" style="display: none;"></ul>
-                                        </div>
-
-                                    </div>
                                 </div>
-                             
+
+
+
+
                             </div>
 
+                            <!-- Область предпросмотра -->
+                            <div id="uploaded-holder">
+                                <div id="dropped-files">
 
+                                    <div id="upload-button">
+                                        <center>
+
+                                            <button class="button15">Загрузить</button>
+                                            <button class="delete">Удалить</button>
+                                            <!-- Прогресс бар загрузки -->
+
+                                        </center>
+                                    </div>
+                                    <div>
+                                        @if (ViewBag.ErrorMessage != null)
+                                        {
+                                            <p style="color:red;font-size:15px">@ViewBag.ErrorMessage</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Список загруженных файлов -->
+                            <div id="file-name-holder">
+                                <ul id="uploaded-files" style="display: none;"></ul>
+                            </div>
+                            <div class="show-userpage">
+                                @Html.ActionLink("Вернуться на личную страницу", "UserProfile", "Users")
+                            </div>
                         </div>
 
 
-                    </form>
+
+                    </div>
+
                 </div>
-            
+
+            </div>
+        </div>
 
 
-<div>
-    @Html.ActionLink("Назад", "Settings", "Users")
+    </form>
+
+
+
+
 </div>
+
