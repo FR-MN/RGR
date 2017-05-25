@@ -29,12 +29,10 @@ namespace ArtAlbum.UI.Web.Controllers
 
         [Authorize]
         [HttpGet]
-        public ActionResult Search(string searchQuery, string tagsData, string userData,string radio)
+        public ActionResult Search(string searchQuery, string tagsData, string userData, string typeOfRequest)
         {
-            if (radio == "image")
+            if (typeOfRequest == "images")
             {
-
-
                 bool isSearchQueryEmpty = true;
                 IEnumerable<ImageVM> resultImages = new List<ImageVM>();
                 if (!string.IsNullOrWhiteSpace(searchQuery))
@@ -79,26 +77,19 @@ namespace ArtAlbum.UI.Web.Controllers
 
                     resultImages = newImages;
                 }
-                return View(resultImages);
+                ViewBag.ImagesSearch = resultImages;
             }
-            else if (radio == "user")
+            else if (typeOfRequest == "users")
             {
-                return View();
+                IEnumerable<UserVM> resultUsers = new List<UserVM>();
+                if (!string.IsNullOrWhiteSpace(userData))
+                {
+                    resultUsers = UserVM.GetAllUsers().Where(user => user.Nickname.ToLower().Contains(userData.ToLower())).OrderBy(user => user.Nickname).ToList();
+                }
+                ViewBag.UsersSearch = resultUsers;
             }
 
             return View();
-        }
-
-        [Authorize]
-        [HttpGet]
-        public ActionResult SearchUsers(string searchQuery)
-        {
-            IEnumerable<UserVM> resultUsers= new List<UserVM>();
-            if (!string.IsNullOrWhiteSpace(searchQuery))
-            {
-                resultUsers = UserVM.GetAllUsers().Where(user => user.Nickname.ToLower().Contains(searchQuery.ToLower())).OrderBy(user => user.Nickname).ToList();
-            }
-            return View(resultUsers);
         }
     }
 }

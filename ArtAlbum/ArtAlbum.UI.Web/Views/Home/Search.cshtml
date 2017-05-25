@@ -1,6 +1,6 @@
-﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+﻿
 @{
-    ViewBag.Title = "Поиск изображений";
+    ViewBag.Title = "Поиск";
 }
 
 <h2>Поиск</h2>
@@ -17,21 +17,21 @@
                     
                     <div  class="form-element search-input">
                         <label for="search">Описание:</label>
-                        <input  class="form-control" type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" />
+                        <input  class="form-control" type="text" id="searchQuery" name="searchQuery" placeholder="Введите слово или фразу из описания" disabled />
                     </div>
 
                     <div class="form-element search-input">
                         <label for="search">Теги:</label>
-                        <input  class="form-control" type="text" id="tagsData" name="tagsData" placeholder="Введите теги  через  пробелы" />
+                        <input  class="form-control" type="text" id="tagsData" name="tagsData" placeholder="Введите теги  через  пробелы" disabled />
                     </div>
                     <div class="form-element search-input">
                         <label for="search">Никнейм :</label>
-                        <input class="form-control" type="text" id="searchQuery" name="userData" placeholder="Введите никнейм частично или полностью" />
+                        <input class="form-control" type="text" id="searchQuery" name="userData" placeholder="Введите никнейм частично или полностью" disabled />
                     </div>
                    
                     
-                    <label class="radio-inline"><input type="radio" name="radio" value="image">Поиск изображения</label>
-                    <label class="radio-inline"><input type="radio" name="radio" value="user">Поиск пользователя</label>
+                    <label class="radio-inline"><input type="radio" name="typeOfRequest" value="images" >Поиск изображения</label>
+                    <label class="radio-inline"><input type="radio" name="typeOfRequest" value="users">Поиск пользователя</label>
                     <div class="form-element">
                         
                            <input type="submit" class="btn btn-primary" value="Поиск">
@@ -47,7 +47,7 @@
     </div>
 }
 @{
-    if (Model != null && Model.Count() != 0)
+    if (ViewBag.ImagesSearch != null)
     {
         <div class="container">
             <div class="row">
@@ -56,11 +56,34 @@
                         <h2>Результаты поиска</h2>
                     </div>
                     <div>
-                        @Html.Action("ShowImages", "Images", new { images = Model })
+                        @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesSearch })
                     </div>
                 </div>
             </div>
         </div>
+    }
+    else if (ViewBag.UsersSearch != null)
+    {
+        <ol class="user-list">
+            <div class="section-heading">
+                <h2>Результаты поиска</h2>
+            </div>
+            @foreach (var item in ViewBag.UsersSearch)
+            {
+                <li>
+                    <div class="user-list-item col-md-9">
+                        <div class="reply_image">
+                            <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">
+                                <img src="@Url.Action("GetAvatar", "Users", new { userId = item.Id })" class="reply_img">
+                            </a>
+                        </div>
+                        <p><a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">@item.Nickname</a>  </p>
+                    </div>
+                    <br />
+                    <hr />
+                </li>
+            }
+        </ol>
     }
     else
     {

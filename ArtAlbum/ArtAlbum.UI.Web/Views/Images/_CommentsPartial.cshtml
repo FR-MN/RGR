@@ -6,6 +6,11 @@
     {
         return ArtAlbum.UI.Web.Models.UserVM.GetUserById(authorId).Nickname;
     }
+
+    Guid GetUserIdByNickName(string nickname)
+    {
+        return ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(nickname);
+    }
 }
 
 <div class="comments">
@@ -33,9 +38,12 @@
 
                     
                 </div>
-                <div class="delete-comment">
-                    <a href="#"><span class="glyphicon glyphicon-remove" style="color:red"></span></a>
-                </div>
+                @if (User.IsInRole("Admin") || comment.AuthorId == GetUserIdByNickName(User.Identity.Name))
+                {
+                    <div class="delete-comment">
+                        <a ><span class="glyphicon glyphicon-remove" style="color:red"></span></a>
+                    </div>
+                }
                 <hr />
             </li>
 
