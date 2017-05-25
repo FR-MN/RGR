@@ -41,6 +41,19 @@ namespace ArtAlbum.UI.Web.Models
             return list;
         }
 
+        internal static bool IsCommentExist(Guid commentId)
+        {
+            try
+            {
+                commentsLogic.GetCommentById(commentId);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static explicit operator CommentVM(CommentDTO data)
         {
             return new CommentVM { Id = data.Id, Data = data.Data, AuthorId = data.AuthorId, DateOfCreating = data.DateOfCreating };

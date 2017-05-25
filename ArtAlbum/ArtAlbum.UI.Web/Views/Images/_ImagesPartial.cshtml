@@ -111,7 +111,7 @@
                                             <h5>Теги:</h5>
                                             @foreach (var tag in GetTagsOfImage(list[i].Id))
                                             {
-                                                <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag })">#@tag</a></span>
+                                                <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag, typeOfRequest="images" })">#@tag</a></span>
                                             }
                                         </div>
 
