@@ -14,105 +14,100 @@
 
             <div id="main info" class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                 <div id="first-user-block" class="row">
-                    
+                    <div>
+                        <h2 id="username">@ViewBag.Nickname</h2>
+                        <img style="margin-left:25px;" width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.Id })" />
+                    </div>
 
-    <div  >
-        <h2 id="username">@ViewBag.Nickname</h2>
-        <img style="margin-left:25px;" width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.Id })" />
-    </div>
+                    <div style="height: 100px; padding-top:10px;">
+                       
 
-                        <div style="height: 100px;">
-                            <a href="@Url.Action("GetUser", "Users", new { nickname = "user"})">Link</a>
-
-                            <div class="addimage">
-                                <br />
-                                <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
+                        <div class="addimage">
+                            <br />
+                            <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
 
 
 
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="loadimage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div id="upload-model" class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <form method="post" enctype="multipart/form-data">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="content">
+                            <!-- Modal -->
+                            <div class="modal fade" id="loadimage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div id="upload-model" class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form method="post" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="content">
 
-                                                            <!-- Область для перетаскивания -->
-                                                            <div id="drop-files" ondragover="return false">
-                                                                <div class="input-btn">
-                                                                    <p>Перетащите изображение сюда или выберете файл</p>
+                                                        <!-- Область для перетаскивания -->
+                                                        <div id="drop-files" ondragover="return false">
+                                                            <div class="input-btn">
+                                                                <p>Перетащите изображение сюда или выберете файл</p>
 
-                                                                    <input name="dataImage" type="file" id="uploadbtn" multiple="">
-
-                                                                </div>
-
-
-
+                                                                <input name="dataImage" type="file" id="uploadbtn" multiple="">
 
                                                             </div>
-                                                            <br />
-                                                            <b>Описание</b> 
-                                                            <label id="description" class="input-group">
-                                                              
-                                                                <input  class="form-control" placeholder="Введите описание к изображению" name="Description" type="text" />
-                                                            </label>
-                                                            <b>Теги:</b> 
-                                                            <label id="description" class="input-group">
-                                                               
-                                                                <input class="form-control" placeholder="Введите теги через пробел" name="tagsData" type="text" />
-                                                            </label>
-                                                            <label id="description">
-                                                                <b class="error-message" style="color:red;"></b>
-                                                            </label>
-                                                            
-                                                            <!-- Область предпросмотра -->
-                                                            <div id="uploaded-holder">
-                                                                <div id="dropped-files">
 
-                                                                    <div id="upload-button">
-                                                                        <center>
 
-                                                                            <button class="button15">Загрузить</button>
-                                                                            <button class="delete">Удалить</button>
-                                                                            <!-- Прогресс бар загрузки -->
 
-                                                                        </center>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Список загруженных файлов -->
-                                                            <div id="file-name-holder">
-                                                                <ul id="uploaded-files" style="display: none;"></ul>
-                                                            </div>
 
                                                         </div>
+                                                        <br />
+                                                        <b>Описание</b>
+                                                        <label id="description" class="input-group">
+
+                                                            <input class="form-control" placeholder="Введите описание к изображению" name="Description" type="text" />
+                                                        </label>
+                                                        <b>Теги:</b>
+                                                        <label id="description" class="input-group">
+
+                                                            <input class="form-control" placeholder="Введите теги через пробел" name="tagsData" type="text" />
+                                                        </label>
+                                                        <label id="description">
+                                                            <b class="error-message" style="color:red;"></b>
+                                                        </label>
+
+                                                        <!-- Область предпросмотра -->
+                                                        <div id="uploaded-holder">
+                                                            <div id="dropped-files">
+
+                                                                <div id="upload-button">
+                                                                    <center>
+
+                                                                        <button class="button15">Загрузить</button>
+                                                                        <button class="delete">Удалить</button>
+                                                                        <!-- Прогресс бар загрузки -->
+
+                                                                    </center>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Список загруженных файлов -->
+                                                        <div id="file-name-holder">
+                                                            <ul id="uploaded-files" style="display: none;"></ul>
+                                                        </div>
+
                                                     </div>
-
-
                                                 </div>
 
 
-                                            </form>
-                                        </div>
+                                            </div>
+
+
+                                        </form>
                                     </div>
                                 </div>
-
                             </div>
-                            <div class="btn-settings">
 
+                        </div>
+                        <div class="btn-settings">
+                            <a class="button7" href=@Url.Action("Settings", "Users")><i class="glyphicon glyphicon-cog"></i>Редактировать</a>
+                        </div>
 
-
-                                <a class="button7" href=@Url.Action("Settings", "Users")><i class="glyphicon glyphicon-cog"></i>Редактировать</a>
-                            </div>
-                        
                     </div>
-                  
+
                     <br />
-                        <br />
+                    <br />
                     <br />
 
                 </div>

@@ -37,7 +37,7 @@
                     @*<a href="~/Content/img/works/1.jpg" data-lightbox-gallery="gallery1">
 
                     </a>*@
-                    <img width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.UserId })" />
+                    <img style="margin-left:25px" width="200" height="200" src="@Url.Action("GetAvatar", "Users", new { userId = ViewBag.UserId })" />
                     <br />
                     <br />
                     <br />
@@ -59,12 +59,12 @@
                         <div id="second-user-block">
                             <br />
                             <div class="subscribers">
-                                <h5><a href="@Url.Action("GetSubscribers", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribers подписчиков</a></h5>
+                                <h5><a href="@Url.Action("GetSubscribers", "Users", new { userId = ViewBag.UserId })">@ViewBag.CountOfSubscribers подписчиков</a></h5>
                             </div>
                             <br />
 
                             <div class="subscribtions">
-                                <h5><a href="@Url.Action("GetSubscribtions", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribtions подпискок</a></h5>
+                                <h5><a href="@Url.Action("GetSubscribtions", "Users", new { userId = ViewBag.UserId })">@ViewBag.CountOfSubscribtions подпискок</a></h5>
 
                             </div>
 

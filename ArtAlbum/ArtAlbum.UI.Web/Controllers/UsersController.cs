@@ -138,6 +138,9 @@ namespace ArtAlbum.UI.Web.Controllers
             ViewBag.FirstUserName = user.FirstName;
             ViewBag.LastUserName = user.LastName;
             ViewBag.UserAge = user.Age;
+            ViewBag.CountOfSubscribtions = UserVM.GetSubscribtionsByUserId(user.Id).Count();
+            ViewBag.CountOfSubscribers = UserVM.GetSubscribersByUserId(user.Id).Count();
+            ViewBag.CountOfPublications = ImageVM.GetImagesByUserId(user.Id).Count();
             return View();
         }
 

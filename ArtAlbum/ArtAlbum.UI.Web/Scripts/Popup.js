@@ -281,7 +281,7 @@
         {
             var temp = data[3];
             $('#' + correctimageid).find($("ul", ".comments")).append(
-                ' <li id='+data[4]+'> <div class="comment"><div class="reply_image"><a href="/id337666144"><img src="/Users/GetAvatar?userId=' + data[1] + '"  class="reply_img" ></a></div><div class="content_commetn"><div class="reply_author"><a class="author" href="/id337666144" data-from-id="337666144">' + data[2] + '</a></div><div class="reply_text"><div class="wall_reply_text">' + textarea + '</div></div></div><div class="date-of-creating">'+data[3]+'</div></div><div class="delete-comment"><a><span class="glyphicon glyphicon-remove" style="color:red"></span></a></div><hr/></li>'
+                ' <li id=' + data[4] + '> <div class="comment"><div class="reply_image"><a href="/Users/GetUser?nickname=' + data[2] + '"><img src="/Users/GetAvatar?userId=' + data[1] + '"  class="reply_img" ></a></div><div class="content_commetn"><div class="reply_author"><a class="author" href="/Users/GetUser?nickname=' + data[2] + '" data-from-id="337666144">' + data[2] + '</a></div><div class="reply_text"><div class="wall_reply_text">' + textarea + '</div></div></div><div class="date-of-creating">' + data[3] + '</div></div><div class="delete-comment"><a><span class="glyphicon glyphicon-remove" style="color:red"></span></a></div><hr/></li>'
                 );
             md.val('');
             deleteComment();

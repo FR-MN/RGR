@@ -32,7 +32,7 @@
         }
         if (i < 4)
         {
-            <div class="col-sm-4 col-md-5 col-lg-4 ">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 ">
                 <div class="litle_image">
                     <a class="show-small-image" data-toggle="modal" data-target="#_@list[i].Id">
                         <img src="@Url.Action("GetResizedImage", "Images", new { id = list[i].Id, newWidth = 220, maxHeight = 160 })" class="img-responsive">
@@ -70,13 +70,14 @@
                                     <div class="row">
                                         <div class="col-md-12">
 
+
                                             <div class="username">
                                                 <div class="reply_image">
-                                                    <a href="/id337666144">
+                                                    <a href="@Url.Action("GetUser","Users" ,new {nickname =GetUserName(list[i].Id)})">
                                                         <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(list[i].Id) })" class="reply_img">
                                                     </a>
                                                 </div>
-                                                <h4>@GetUserName(list[i].Id)</h4>
+                                                <h4><a href="@Url.Action("GetUser","Users" ,new {nickname =GetUserName(list[i].Id) })">@GetUserName(list[i].Id)</a></h4>
                                             </div>
 
                                         </div>

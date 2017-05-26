@@ -78,13 +78,13 @@
 .wrapper-dropdown-5 .dropdown li i {
     margin-right: 5px;
     color: inherit;
-    vertical-align: middle;
+   
 }
 
 /* Hover state */
 
 .wrapper-dropdown-5 .dropdown li:hover a {
-    color: #57a9d9;
+    color: white;
 }
 
 /* Active state */
@@ -98,7 +98,7 @@
 }
 
 .wrapper-dropdown-5.active:after {
-    border-color: #82d1ff transparent;
+    border-color: white transparent;
 }
 
 .wrapper-dropdown-5.active .dropdown {

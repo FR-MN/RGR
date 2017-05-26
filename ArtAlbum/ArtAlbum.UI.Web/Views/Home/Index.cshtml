@@ -9,7 +9,7 @@
     <div class="row" style="margin-top:100px;">
 
 
-        <div id="tags" class="col-xs-12  col-md-3 ">
+        <div id="tags" class="col-xs-12 col-sm-5  col-md-3 ">
             <h2 class="Header">Топ теги</h2>
 
             @foreach (var tagName in ViewBag.TopTags)
@@ -18,7 +18,7 @@
             }
         </div>
         @{
-            <div  class="col-xs-11 col-md-8 col-lg-9 ">
+            <div  class="bl col-xs-12 col-sm-7 col-md-8 col-lg-9  ">
                 <div id="favorite-images" class="center-block">
                     <h2><a href="@Url.Action("ListImages", "Images", new { nameOfList = "Активность ваших подписок" })">Активность ваших подписок</a></h2>
                     @if (ViewBag.ImagesOfSubscriptions == null)
@@ -42,7 +42,7 @@
 
 
 </div>
-            }
+            
 
 
     <div class="heading-works marginbot-50">
@@ -59,7 +59,7 @@
     <div class="container">
 
         <div class="row">
-            <div id="main-images" class="col-sm-12 col-md-12 col-lg-12">
+            <div style="width: 98%;" id="main-images" class="col-sm-12 col-md-12 col-lg-12">
                 <div class="section-heading">
                     <h2><a href="@Url.Action("ListImages", "Images", new { images = ViewBag.ImagesRecentAll, nameOfList = "Недавние работы" })">Недавние работы</a></h2>
                 </div>

@@ -13,7 +13,7 @@ namespace ArtAlbum.UI.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.ImagesRecentPart = ImageVM.GetRecentImages(30);
-            ViewBag.TopTags = ImageVM.GetAllTags().OrderByDescending(tagName => ImageVM.CountOfImagesWithTag(tagName)).Take(8);
+            ViewBag.TopTags = ImageVM.GetAllTags().OrderByDescending(tagName => ImageVM.CountOfImagesWithTag(tagName)).Take(9);
             if (User.Identity.IsAuthenticated)
             {
                 List<ImageVM> imagesOfSubscription = new List<ImageVM>();

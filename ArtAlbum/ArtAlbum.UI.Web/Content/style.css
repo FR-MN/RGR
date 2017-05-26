@@ -1205,17 +1205,24 @@ background: #f8f8f8;
 
 
 .center-block{
-        border-radius:20px;
+        
     margin-bottom:10px;
     width:850px;
     height:550px;
-         background: #f8f8f8;
+         
 }
 .center-block h2{
     text-align:center;
 }
-
-
+.bl{
+    margin-left:20px;
+     background: #f8f8f8;
+     border-radius:20px;
+}
+.glyphicon {
+    top: 2px !important;
+    right: 2px;
+}
 @media screen and (max-width: 440px)  {
         .center-block {
         width: 250px;
@@ -1227,7 +1234,7 @@ background: #f8f8f8;
     height: 230px;
     }
         #favorite-images{
-        height:100%;
+        height:1100px;
     }
         #tags{
             margin-left:20px;
@@ -1289,6 +1296,7 @@ background: #f8f8f8;
      border-radius:20px;
     margin-bottom:10px;
      background: #f8f8f8;
+         min-height: 610px;
     width:250px;
         
 }

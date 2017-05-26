@@ -11,6 +11,10 @@
     {
         return ArtAlbum.UI.Web.Models.UserVM.GetUserIdByNickname(nickname);
     }
+    string GetUserNickNameById(Guid id)
+    {
+        return ArtAlbum.UI.Web.Models.UserVM.GetUserById(id).Nickname;
+    }
 }
 
 <div class="comments">
@@ -20,14 +24,15 @@
             <li  id="@comment.Id" >
                 <div class="comment">
                     <div class="reply_image">
-                        <a href="/id337666144">
-                            <img src="@Url.Action("GetAvatar", "Users", new { userId = comment.AuthorId })" class="reply_img" >
+                        <a href="@Url.Action("GetUser","Users" ,new {nickname =GetUserNickNameById(comment.AuthorId) })">
+                            <img src="@Url.Action("GetAvatar", "Users", new { userId = comment.AuthorId })" class="reply_img">
                         </a>
+                        
                     </div>
 
                     <div class="content_commetn">
                         <div class="reply_author">
-                            <a class="author" href="/id337666144" >@GetUserImageId(@comment.AuthorId)</a>
+                            <a class="author" href="@Url.Action("GetUser","Users" ,new {nickname =GetUserNickNameById(comment.AuthorId) })" >@GetUserImageId(@comment.AuthorId)</a>
                         </div>
                         <div class="reply_text">
 
