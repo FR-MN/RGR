@@ -21,7 +21,7 @@ namespace ArtAlbum.UI.Web.Models
         [MinLength(4, ErrorMessage ="Минимальная допустимая длина ника - 4 символа")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z0-9-_\.]{0,50}$", ErrorMessage ="Ник может содержать только цифры и буквы латинского алфавита")]
         [Remote("CheckNickname","Register",ErrorMessage = "Такой ник уже есть")]
-        [MaxLength(50, ErrorMessage = "Максимальная длина - 50 символов")]
+        [MaxLength(20, ErrorMessage = "Максимальная длина - 20 символов")]
         public string Nickname { get; set; }
 
         [Required(ErrorMessage = "Это поле не может быть пустым")]

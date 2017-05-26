@@ -41,7 +41,7 @@
                         }
                     </div>
 
-                    <div class="dropdown col-md-2">
+                    <div class="dropdown col-md-3">
 
                         <a class="button7 dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @Html.DisplayFor(modelItem => item.Nickname) <span class="caret"></span>
@@ -70,7 +70,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="admins-btn col-md-6">
+                    <div class="admins-btn col-md-4">
                         @if (IsAdmin(item.Nickname))
                 {
                             <a href="@Url.Action("RemoveAdministrator", "Administration", new { userId = item.Id })" class="improveuser">Убрать права админа</a>

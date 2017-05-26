@@ -1304,7 +1304,24 @@ background: #f8f8f8;
     margin-top:10px;
     text-align:center;
 }
+.tag{
+         font-weight: 400;
+     
+          padding: .2em 1em calc(.9em + 1px);
+       border-radius: 20px;
+    background-color: #eb5d1e;
+    border-right: 5px;
+    cursor: pointer;
 
+    float: left;
+     width: auto; 
+     height: 30px;
+      margin-left:10px;
+      
+}
+.tag a{
+    color:white;
+}
 
 
 .center-block span{
