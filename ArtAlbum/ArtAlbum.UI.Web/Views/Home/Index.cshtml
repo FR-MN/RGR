@@ -14,19 +14,16 @@
 
             @foreach (var tagName in ViewBag.TopTags)
             {
-                <h3><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tagName, typeOfRequest="images" })">#@tagName</a></h3>
+                <h3><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tagName, typeOfRequest = "images" })">#@tagName</a></h3>
             }
         </div>
         @{
-<<<<<<< HEAD
             <div  class="col-xs-11 col-md-8 col-lg-9 ">
                 <div id="favorite-images" class="center-block">
                     <h2> @Html.ActionLink("Активность ваших подписок", "ShowImagesPage", "Images", new { typeofrequest = "ShowImageOfFollowers" }, null)</h2>
-=======
             <div  class="col-xs-12 col-sm-6 col-md-8  ">
                 <div class="center-block">
                     <h2><a href="@Url.Action("ListImages", "Images", new { nameOfList = "Активность ваших подписок" })">Активность ваших подписок</a></h2>
->>>>>>> a98175c7ee249de649e036f2cf4e9c7455158945
                     @if (ViewBag.ImagesOfSubscriptions == null)
                     {
                         <span>Вы не вошли, чтобы просматривать этот раздел</span>
@@ -38,16 +35,17 @@
                     else
                     {
                         @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.ImagesOfSubscriptions })
-                        
+
                     }
                 </div>
             </div>
-        }
+        
        
     </div>
 
 
 </div>
+            }
 
 
     <div class="heading-works marginbot-50">
