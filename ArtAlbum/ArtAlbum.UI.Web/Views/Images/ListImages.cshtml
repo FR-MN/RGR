@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
+
+@{
+    ViewBag.Title = ViewBag.NameOfImages;
+}
+
+<h2>ViewBag.NameOfImages</h2>
+
+<div>
+    <br />
+    <br />
+    <br />
+    <div class="container">
+
+        <div class="row">
+            <div id="main-images" class="col-xs-11 col-md-12 col-lg-12">
+                <h2 style="text-align:center">@ViewBag.NameOfImages</h2>
+                <div>
+                    @Html.Action("ShowImages", "Images", new { images = Model })
+                </div>
+                @if (Model == null || Model.Count() == 0)
+                {
+                    <p>Здесь ничего нет</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

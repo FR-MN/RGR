@@ -257,6 +257,7 @@
     <Content Include="Views\Administration\UserAdministration.cshtml" />
     <Content Include="Views\Users\GetSubscribers.cshtml" />
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
+    <Content Include="Views\Images\ListImages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
