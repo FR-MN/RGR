@@ -75,7 +75,7 @@ namespace ArtAlbum.UI.Web.Controllers
         }
 
         [Authorize]
-        public ActionResult ListImages(string nameOfList)
+        public ActionResult ListImages(string nameOfList, string userId = "")
         {
             ViewBag.NameOfImages = nameOfList;
             if (nameOfList == "Недавние работы")
@@ -91,37 +91,24 @@ namespace ArtAlbum.UI.Web.Controllers
                 }
                 return View(imagesOfSubscription.Take(200));
             }
-            return View();
-        }
-
-        public ActionResult ShowImagesPage(string typeofrequest, IEnumerable<ImageVM> images)
-        {
-            var userId = UserVM.GetUserIdByNickname(User.Identity.Name);
-            if (typeofrequest == "ShowFavoriteImage")
+            else if (nameOfList == "Любимые изображения")
             {
-                ViewBag.ShowedImages =  ImageVM.GetImagesLikedByUser(userId);
-                ViewBag.PageName = "Любимые изображения";
-                return View();
+                return View(ImageVM.GetImagesLikedByUser(UserVM.GetUserIdByNickname(User.Identity.Name)));
             }
-            if (typeofrequest == "ShowImageOfFollowers")
+            else if (nameOfList == "Мои изображения")
             {
-                List<ImageVM> imagesOfSubscription = new List<ImageVM>();
-                foreach (var subscription in UserVM.GetSubscribtionsByUserId(userId))
-                {
-                    imagesOfSubscription.AddRange(ImageVM.GetImagesByUserId(subscription.Id));
-                }
-                ViewBag.ShowedImages = imagesOfSubscription;
-                ViewBag.PageName = "Активность подписчиков";
-                return View();
+                return View(ImageVM.GetImagesByUserId(UserVM.GetUserIdByNickname(User.Identity.Name)));
             }
-            else
+            else if (nameOfList == "Любимые изображения пользователя")
             {
-                userId = Guid.Parse(typeofrequest);
-                string username =  UserVM.GetUserById(userId).Nickname;
-                ViewBag.ShowedImages = ImageVM.GetImagesLikedByUser(userId);
-                ViewBag.PageName = "Любимые изображения пользователя:"+ username;
+                ViewBag.NameOfImages = nameOfList + " " + UserVM.GetUserById(Guid.Parse(userId)).Nickname;
+                return View(ImageVM.GetImagesByUserId(Guid.Parse(userId)));
             }
-
+            else if (nameOfList == "Изображения пользователя")
+            {
+                ViewBag.NameOfImages = nameOfList + " " + UserVM.GetUserById(Guid.Parse(userId)).Nickname;
+                return View(ImageVM.GetImagesByUserId(Guid.Parse(userId)));
+            }
             return View();
         }
         

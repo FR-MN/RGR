@@ -111,7 +111,7 @@
         </div>
         <div class="col-xs-11 col-md-8 col-lg-9 ">
             <div id="favorite-images">
-                <h2><a href="@Url.Action("ShowImagesPage", "Images", new { typeofrequest = ViewBag.UserId })">Любимые изображения</a></h2>
+                <h2><a href="@Url.Action("ListImages", "Images", new { nameOfList = "Любимые изображения пользователя", userId = ViewBag.UserId.ToString() })">Любимые изображения</a></h2>
                 <div>
                     @Html.Action("ShowSmallImages", "Images", new { images = ViewBag.LikedImages })
                 </div>
@@ -126,7 +126,7 @@
 
     <div class="row">
         <div id="main-images" class="col-xs-11 col-md-12 col-lg-12">
-            <h2>Изображения пользователя</h2>
+            <h2><a href="@Url.Action("ListImages", "Images", new { nameOfList = "Изображения пользователя", userId = ViewBag.UserId.ToString() })">Изображения пользователя</a></h2>
             <div>
                 @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesOfUser })
             </div>

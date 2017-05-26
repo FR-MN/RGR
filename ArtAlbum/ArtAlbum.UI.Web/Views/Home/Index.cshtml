@@ -20,9 +20,6 @@
         @{
             <div  class="col-xs-11 col-md-8 col-lg-9 ">
                 <div id="favorite-images" class="center-block">
-                    <h2> @Html.ActionLink("Активность ваших подписок", "ShowImagesPage", "Images", new { typeofrequest = "ShowImageOfFollowers" }, null)</h2>
-            <div  class="col-xs-12 col-sm-6 col-md-8  ">
-                <div class="center-block">
                     <h2><a href="@Url.Action("ListImages", "Images", new { nameOfList = "Активность ваших подписок" })">Активность ваших подписок</a></h2>
                     @if (ViewBag.ImagesOfSubscriptions == null)
                     {
@@ -39,8 +36,8 @@
                     }
                 </div>
             </div>
-        
-       
+            }
+
     </div>
 
 

@@ -22,7 +22,7 @@ namespace ArtAlbum.UI.Web.Controllers
             if (userId != Guid.Empty)
             {
                 UserVM user = UserVM.GetAllUsers().FirstOrDefault(userData => userData.Id == userId);
-                ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId);
+                ViewBag.ImagesOfUser = ImageVM.GetImagesByUserId(userId).Take(30);
                 ViewBag.Nickname = User.Identity.Name;
                 ViewBag.LikedImages = ImageVM.GetImagesLikedByUser(userId);
                 ViewBag.Id = userId;
