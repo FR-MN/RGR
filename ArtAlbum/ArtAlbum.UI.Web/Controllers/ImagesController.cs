@@ -71,11 +71,29 @@ namespace ArtAlbum.UI.Web.Controllers
         [ChildActionOnly]
         public PartialViewResult ShowSmallImages(IEnumerable<ImageVM> images)
         {
-            
-            
             return PartialView("_SmallImagesPartial", images);
         }
-        
+
+        [Authorize]
+        public ActionResult ListImages(string nameOfList)
+        {
+            ViewBag.NameOfImages = nameOfList;
+            if (nameOfList == "Недавние работы")
+            {
+                return View(ImageVM.GetRecentImages(200));
+            }
+            else if (nameOfList == "Активность ваших подписок")
+            {
+                List<ImageVM> imagesOfSubscription = new List<ImageVM>();
+                foreach (var subscription in UserVM.GetSubscribtionsByUserId(UserVM.GetUserIdByNickname(User.Identity.Name)))
+                {
+                    imagesOfSubscription.AddRange(ImageVM.GetImagesByUserId(subscription.Id));
+                }
+                return View(imagesOfSubscription.Take(200));
+            }
+            return View();
+        }
+
         public ActionResult ShowImagesPage(string typeofrequest, IEnumerable<ImageVM> images)
         {
             var userId = UserVM.GetUserIdByNickname(User.Identity.Name);

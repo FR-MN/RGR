@@ -132,13 +132,13 @@ namespace ArtAlbum.PL.Models
             return string.Format("FirstName: {0} , LastName: {1}, date of birth: {2}, age: {3}, email: {4}, nickname: {5}", FirstName, LastName, DateOfBirth.ToShortDateString(), Age, Email, Nickname);
         }
 
-        public static explicit operator UserVM(UserDTO data)
-        {
-            return new UserVM(data.Id, data.FirstName, data.LastName, data.Nickname, data.Email, data.DateOfBirth, data.HashOfPassword);
-        }
-        public static implicit operator UserDTO(UserVM data)
-        {
-            return new UserDTO() { Id = data.Id, FirstName = data.FirstName, LastName = data.LastName, Nickname = data.Nickname, Email = data.Email, DateOfBirth = data.DateOfBirth, HashOfPassword = data.HashOfPassword };
-        }
+        //public static explicit operator UserVM(UserDTO data)
+        //{
+        //    return new UserVM(data.Id, data.FirstName, data.LastName, data.Nickname, data.Email, data.DateOfBirth, data.HashOfPassword);
+        //}
+        //public static implicit operator UserDTO(UserVM data)
+        //{
+        //    return new UserDTO() { Id = data.Id, FirstName = data.FirstName, LastName = data.LastName, Nickname = data.Nickname, Email = data.Email, DateOfBirth = data.DateOfBirth, HashOfPassword = data.HashOfPassword };
+        //}
     }
 }

@@ -54,6 +54,20 @@ namespace ArtAlbum.UI.Web.Models
             return list;
         }
 
+        public static IEnumerable<ImageVM> GetRecentImages(int count)
+        {
+            if (count > 0)
+            {
+                List<ImageVM> list = new List<ImageVM>();
+                foreach (var image in imagesLogic.GetAllImages().OrderByDescending(image => image.DateOfCreating).Take(count))
+                {
+                    list.Add((ImageVM)image);
+                }
+                return list;
+            }
+            return null;
+        }
+
         public static ImageVM GetImageById(Guid imageId)
         {
             return (ImageVM)imagesLogic.GetImageById(imageId);

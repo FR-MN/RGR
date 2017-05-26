@@ -1,20 +1,8 @@
-﻿@model IEnumerable<ArtAlbum.UI.Web.Models.ImageVM>
-
-@{
+﻿@{
     ViewBag.Title = "Главная страница";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-@{
-    System.Int32 x;
-    x = 0;
-}
-
-@*<h2>Изображения</h2>
-    @Html.ActionLink("Register", "Register", "Register")*@
-
-
-
 
 <div class="container">
 
@@ -22,7 +10,7 @@
 
 
         <div id="tags" class="col-xs-12  col-md-3 ">
-            <h2 class="Header">Тэги</h2>
+            <h2 class="Header">Топ теги</h2>
 
             @foreach (var tagName in ViewBag.TopTags)
             {
@@ -30,9 +18,15 @@
             }
         </div>
         @{
+<<<<<<< HEAD
             <div  class="col-xs-11 col-md-8 col-lg-9 ">
                 <div id="favorite-images" class="center-block">
                     <h2> @Html.ActionLink("Активность ваших подписок", "ShowImagesPage", "Images", new { typeofrequest = "ShowImageOfFollowers" }, null)</h2>
+=======
+            <div  class="col-xs-12 col-sm-6 col-md-8  ">
+                <div class="center-block">
+                    <h2><a href="@Url.Action("ListImages", "Images", new { nameOfList = "Активность ваших подписок" })">Активность ваших подписок</a></h2>
+>>>>>>> a98175c7ee249de649e036f2cf4e9c7455158945
                     @if (ViewBag.ImagesOfSubscriptions == null)
                     {
                         <span>Вы не вошли, чтобы просматривать этот раздел</span>
@@ -72,10 +66,10 @@
         <div class="row">
             <div id="main-images" class="col-sm-12 col-md-12 col-lg-12">
                 <div class="section-heading">
-                    <h2>Недавние работы</h2>
+                    <h2><a href="@Url.Action("ListImages", "Images", new { images = ViewBag.ImagesRecentAll, nameOfList = "Недавние работы" })">Недавние работы</a></h2>
                 </div>
                 <div>
-                    @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesRecent })
+                    @Html.Action("ShowImages", "Images", new { images = ViewBag.ImagesRecentPart.ToArray() })
                 </div>
 
             </div>

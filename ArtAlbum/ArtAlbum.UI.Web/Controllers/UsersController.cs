@@ -40,7 +40,11 @@ namespace ArtAlbum.UI.Web.Controllers
         [HttpPost]
         public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image, string tagsData)
         {
-            if (dataImage != null && (dataImage.ContentType != null) && !string.IsNullOrWhiteSpace(image.Description))
+            if (string.IsNullOrWhiteSpace(image.Description))
+            {
+                image.Description = "Нет описания";
+            }
+            if (dataImage != null && (dataImage.ContentType != null))
             {
                 byte[] imageData = new byte[dataImage.ContentLength];
                 using (BinaryReader reader = new BinaryReader(dataImage.InputStream))

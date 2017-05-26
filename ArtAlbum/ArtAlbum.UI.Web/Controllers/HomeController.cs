@@ -12,7 +12,7 @@ namespace ArtAlbum.UI.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.ImagesRecent = ImageVM.GetAllImages();
+            ViewBag.ImagesRecentPart = ImageVM.GetRecentImages(30);
             ViewBag.TopTags = ImageVM.GetAllTags().OrderByDescending(tagName => ImageVM.CountOfImagesWithTag(tagName)).Take(8);
             if (User.Identity.IsAuthenticated)
             {
@@ -23,7 +23,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 }
                 ViewBag.ImagesOfSubscriptions = imagesOfSubscription;
             }
-            return View(ImageVM.GetAllImages());
+            return View();
         }
 
 
