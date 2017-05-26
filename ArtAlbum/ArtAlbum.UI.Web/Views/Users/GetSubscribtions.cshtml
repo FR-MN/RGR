@@ -7,7 +7,8 @@
 <h2>GetSubscribtions</h2>
 
 <p>
-    @Html.ActionLink("Назад к личной странице", "UserProfile", "Users")
+    <a style="margin-left:10px;" href="@Url.Action("UserProfile", "Users")" class="button7">Назад к личной странице</a>
+    
 </p>
 <ol class="user-list">
     @foreach (var item in Model)
@@ -30,7 +31,7 @@
 
             </div>
             <br />
-            <hr />
+            
         </li>
 
 

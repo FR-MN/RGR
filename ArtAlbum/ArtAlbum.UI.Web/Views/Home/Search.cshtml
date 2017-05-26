@@ -64,34 +64,40 @@
     }
     else if (ViewBag.UsersSearch != null)
     {
-        <ol class="user-list">
-            <div class="section-heading">
-                <h2>Результаты поиска</h2>
-            </div>
-            @foreach (var item in ViewBag.UsersSearch)
-            {
-                <li>
-                    <div class="user-list-item col-md-9">
-                        <div class="reply_image">
-                            <a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">
-                                <img src="@Url.Action("GetAvatar", "Users", new { userId = item.Id })" class="reply_img">
-                            </a>
+        <div class="container">
+            
+            <ol class="user-list">
+                <div class="section-heading">
+                    <h2>Результаты поиска</h2>
+                </div>  
+                @foreach (var item in ViewBag.UsersSearch)
+                {
+                    <li>
+                        <div class="user-list-item  col-md-12 " style="margin-left: 0">
+                            <div class="reply_image">
+                                <a href="@Url.Action("GetUser", "Users", new { nickname = item.Nickname })">
+                                    <img src="@Url.Action("GetAvatar", "Users", new { userId = item.Id })" class="reply_img">
+                                </a>
+                            </div>
+                            <p><a href="@Url.Action("GetUser", "Users", new { nickname = item.Nickname })">@item.Nickname</a>  </p>
                         </div>
-                        <p><a href="@Url.Action("GetUser","Users" ,new {nickname =item.Nickname})">@item.Nickname</a>  </p>
-                    </div>
-                    <br />
-                    <hr />
-                </li>
-            }
-        </ol>
-    }
-    else
-    {
-        <p>Ничего не найдено</p>
-    }
-}
+                        <br />
+                        <hr />
+                    </li>
+                }
+            </ol>
+            
+            </div>
+        }
+        else
+        {
+            <p> Ничего не найдено</p>
+        }
 
-@section searchscript{
-    
-<script src="~/Scripts/SeachScript.js"></script>
     }
+
+    
+            @section searchscript{
+
+                <script src="~/Scripts/SeachScript.js"></script>
+            }

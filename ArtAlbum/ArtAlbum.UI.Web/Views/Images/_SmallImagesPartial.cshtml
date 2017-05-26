@@ -26,31 +26,156 @@
 @{
     for (int i = 0; i < @count; i++)
     {
-        if (i == 5)
+        if (i == 6)
         {
             break;
         }
+        if (i < 4)
+        {
+            <div class="col-sm-4 col-md-5 col-lg-4 ">
+                <div class="litle_image">
+                    <a class="show-small-image" data-toggle="modal" data-target="#_@list[i].Id">
+                        <img src="@Url.Action("GetResizedImage", "Images", new { id = list[i].Id, newWidth = 220, maxHeight = 160 })" class="img-responsive">
+                    </a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="_@list[i].Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
 
-        <div class="col-md-4">
+                        @if (@i < @count - 1)
+                        {
+                            <a class="nivo-lightbox-next" data-target="#_@list[i + 1].Id" style="display: inline;" value="#_@list[i].Id" name="_nextimage"></a>
+
+
+                        }
+                        @if (@i > 0)
+                        {
+                            <a class="nivo-lightbox-prev" data-target="#_@list[i - 1].Id" style="display: inline;" value="#_@list[i].Id" name="_previmage"></a>
+
+                        }
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+
+                        </div>
+                        <div class="modal-content">
+
+                            <div class="row">
+                                <div class="col-md-8">
+
+                                    <div class="top_image">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="username">
+                                                <div class="reply_image">
+                                                    <a href="/id337666144">
+                                                        <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(list[i].Id) })" class="reply_img">
+                                                    </a>
+                                                </div>
+                                                <h4>@GetUserName(list[i].Id)</h4>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="description">
+                                                <h5>@list[i].Description</h5>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
+                                            }
+                                            else
+                                            {
+                                                <p>Войдите чтобы оценивать и комментировать изображения</p>
+                                            }
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="tags">
+                                                <h5>Теги:</h5>
+                                                @foreach (var tag in GetTagsOfImage(list[i].Id))
+                                                {
+                                                    <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag, typeOfRequest = "images" })">#@tag</a></span>
+                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.Action("Comment", "Images", new { imageId = list[i].Id })
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="delete-image">
+
+
+                                                @if (User.IsInRole("Admin") || User.Identity.Name == GetUserName(list[i].Id))
+                                                {
+                                                    <a class="delete" href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })">Удалить изображение</a>
+                                                    @*<button href="@Url.Action("Delete", "Images", new { imageId = list[i].Id })" class="delete">Удалить фотографию</button>*@
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        }
+        else
+        {
+        <div class="col-lg-4 visible-lg">
             <div class="litle_image">
                 <a class="show-small-image" data-toggle="modal" data-target="#_@list[i].Id">
                     <img src="@Url.Action("GetResizedImage", "Images", new { id = list[i].Id, newWidth = 220, maxHeight = 160 })" class="img-responsive">
                 </a>
             </div>
-
-
             <!-- Modal -->
             <div class="modal fade" id="_@list[i].Id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
 
                     @if (@i < @count - 1)
-    {
+                    {
                         <a  class="nivo-lightbox-next" data-target="#_@list[i + 1].Id" style="display: inline;" value="#_@list[i].Id" name="_nextimage"></a>
 
 
                     }
                     @if (@i > 0)
-    {
+                    {
                         <a  class="nivo-lightbox-prev" data-target="#_@list[i - 1].Id" style="display: inline;" value="#_@list[i].Id" name="_previmage"></a>
 
                     }
@@ -96,7 +221,7 @@
                                     <div class="col-md-12">
 
                                         @if (User.Identity.IsAuthenticated)
-    {
+                                        {
                                             <a class="like" value="@list[i].Id"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><p class="like-status">@GetLikeState(list[i].Id)</p></a>
                                         }
                                         else
@@ -114,7 +239,7 @@
                                             <h5>Теги:</h5>
                                             @foreach (var tag in GetTagsOfImage(list[i].Id))
                                             {
-                                                <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag, typeOfRequest="images" })">#@tag</a></span>
+                                                <span><a href="@Url.Action("Search", "Home", new { searchQuery = "", tagsData = tag, typeOfRequest = "images" })">#@tag</a></span>
                                             }
                                         </div>
 
@@ -150,12 +275,13 @@
                 </div>
 
             </div>
-            @*<a href="#x" class="overlay" id="@image.Id"></a>*@
+         
            
 
 
 
         </div>
+            }
         }
     }
 

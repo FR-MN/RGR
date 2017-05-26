@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     // Область информер о загруженных изображениях - скрыта
     $('#uploaded-files').hide();
-
+    var errorMessage = $('.error-message');
     // Метод при падении файла в зону загрузки
     $('#drop-files').on('drop', function (e) {
         // Передаем в files все полученные изображения
@@ -28,7 +28,7 @@ $(document).ready(function () {
             // Передаем массив с файлами в функцию загрузки на предпросмотр
             loadInView(files);
         } else {
-            alert('Вы не можете загружать больше ' + maxFiles + ' изображений!');
+            errorMessage.html('Вы не можете загружать больше ' + maxFiles + ' изображений!');
             files.length = 0; return;
         }
     });
@@ -46,7 +46,7 @@ $(document).ready(function () {
                 this.reset();
             });
         } else {
-            alert('Вы не можете загружать больше ' + maxFiles + ' изображений!');
+            errorMessage.html('Вы не можете загружать больше ' + maxFiles + ' изображений!');
             files.length = 0;
         }
     });
@@ -63,7 +63,7 @@ $(document).ready(function () {
             if (!files[index].type.match('image.*')) {
 
                 if (errMessage == 0) {
-                    $('#drop-files p').html('Только изображения!');
+                    errorMessage.html('Только изображения!');
                     ++errMessage
                 }
                
@@ -75,7 +75,7 @@ $(document).ready(function () {
                 // показываем область с кнопками
                 $('#upload-button').css({ 'display': 'block' });
             }
-            else { alert('Вы не можете загружать больше ' + maxFiles + ' изображений!'); return; }
+            else { errorMessage.html('Вы не можете загружать больше ' + maxFiles + ' изображений!'); return; }
 
             // Создаем новый экземпляра FileReader
             var fileReader = new FileReader();

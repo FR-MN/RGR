@@ -27,7 +27,7 @@
         
 
 
-        <div id="main-info" class="col-xs-11 col-sm-3 col-md-3">
+        <div id="main-info" class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 
             <div id="first-user-block" class="row">
 
@@ -55,11 +55,21 @@
             <div class="row">
                 <div id="user-date">
 
-                    <div class="col-xs-11 col-md-3" style="margin: 0 auto;">
+                    <div class="col-xs-11 col-md-3">
                         <div id="second-user-block">
                             <br />
-                            <h5>4 публикаций</h5>
-                            <h5>4 подписчиков</h5>
+                            <div class="subscribers">
+                                <h5><a href="@Url.Action("GetSubscribers", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribers подписчиков</a></h5>
+                            </div>
+                            <br />
+
+                            <div class="subscribtions">
+                                <h5><a href="@Url.Action("GetSubscribtions", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribtions подпискок</a></h5>
+
+                            </div>
+
+                            <br />
+
                             <a class="button7" data-toggle="modal" data-target="#user-info">Показать информацию</a>
                             <div class="modal fade" id="user-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                                 <div class="modal-dialog" role="document">
@@ -78,7 +88,7 @@
                                         </div>
                                         <div class="user-date-item">
                                             <h4>Число публикаций</h4>
-                                            <p></p>
+                                            <p>@ViewBag.CountOfPublications</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -99,7 +109,7 @@
 
 
         </div>
-        <div class="col-xs-11 col-md-9 ">
+        <div class="col-xs-11 col-md-8 col-lg-9 ">
             <div id="favorite-images">
                 <h2><a href="@Url.Action("ShowImagesPage", "Images", new { typeofrequest = ViewBag.UserId })">Любимые изображения</a></h2>
                 <div>
@@ -127,7 +137,7 @@
 
 
 
-
+    </div>
 
 @section scripts{
 

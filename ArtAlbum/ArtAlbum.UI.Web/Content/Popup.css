@@ -438,7 +438,12 @@ a.share:active {
 	
     right:-50px;
     
+     top: 25% !important;
+    
 }
+     .nivo-lightbox-prev{
+          top: 25% !important;
+     }
      .modal-content{
          margin-left:20px;
     }
