@@ -197,10 +197,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\map.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\nivo-lightbox.min.js" />
     <Content Include="Scripts\Popup.js" />
     <Content Include="Scripts\SeachScript.js" />
+    <Content Include="Scripts\select.js" />
     <Content Include="Scripts\stellar.js" />
     <Content Include="Scripts\wrapper_dropdown.js" />
     <Content Include="Web.config" />
@@ -211,6 +213,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\MapsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +260,7 @@
     <Content Include="Views\Users\GetSubscribers.cshtml" />
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <Content Include="Views\Images\ListImages.cshtml" />
+    <Content Include="Views\Maps\MapPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -297,7 +301,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61468</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

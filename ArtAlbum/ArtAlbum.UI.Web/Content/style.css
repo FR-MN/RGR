@@ -1507,3 +1507,140 @@ margin-left: 90px;
     
      bottom:0;
 }
+
+.dropcontainer {
+   position:relative;
+   font-size: 16px;
+   color: #777;
+         margin-left:20px;
+      width:300px;
+} 
+ 
+.trigger {
+   color: #777;
+   padding: 10px;
+   font-size: 16px;
+   width: 50%;
+   background: #fff url(../images/select-arrow-open.png) 98% center no-repeat;
+   display: block;
+   border: 1px solid #ccc;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   -webkit-transition: all 0.5s ease;
+   -moz-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease; 
+   transition: all 0.5s ease;
+}
+ 
+.trigger:hover {
+   color: #777;
+   background: #f5f5f5 url(../images/select-arrow-open.png) 98% center no-repeat;
+}
+ 
+.activetrigger {
+   color: #777;
+   padding: 10px;
+   font-size: 16px;
+   width: 50%;
+   background: #f5f5f5 url(../images/select-arrow-close.png) 98% center no-repeat;
+   display: block;
+   border: 1px solid #ccc;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+ 
+.activetrigger:hover {
+   background: #f5f5f5 url(../images/select-arrow-close.png) 98% center no-repeat;
+   color: #777;
+}
+ 
+.activetrigger:active {
+   background: #f5f5f5 url(../images/select-arrow-close.png) 98% center no-repeat;
+   color: #777;
+}
+ 
+.dropcontainer ul {
+
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-top: none;
+   background: #fff;
+   list-style-type: none;
+   padding: 10px;
+   margin: 0;
+   width: 50%;
+   z-index: 100;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+ 
+.dropcontainer ul li {
+   padding: 5px;
+   -webkit-transition: all 0.5s ease; 
+   -moz-transition: all 0.5s ease; 
+   -o-transition: all 0.5s ease; 
+   transition: all 0.5s ease;
+}
+ 
+.dropcontainer ul li:hover {
+   background: #f5f5f5;
+   outline: none;
+}
+ 
+.dropcontainer ul li:first-child {
+   display: none;
+}
+ 
+.dropcontainer ul li:last-child {
+   border-bottom: none;
+}
+ 
+.dropdownhidden {
+   display: none;
+}
+
+.dropdownvisible {
+     margin-left:20px;
+      width:300px;
+    height: auto;
+}
+.trigger{
+    width:300px;
+    margin-left:20px;
+   
+}
+.activetrigger{
+    width:300px;
+    margin-left:20px;
+}
+*{margin:0;padding:0;}
+
+svg{
+  width:100%;
+
+}
+path{transition:all .5s;}
+
+.indicator{
+  position:absolute;
+  display:inline;
+  background:rgba(12,121,89,0.6);
+  color:#f1f1f1;
+  padding:10px 30px;
+  font:20px Arial;
+  border-radius:5px;
+  
+  
+  text-transform:capitalize;
+  display:none;
+  
+
+}
+
+.clear{clear:both}
+.name{float:left;}
+.flag{position:absolute;top:10px;right:20px; marin-left:30px;}
+.capital{clear:both;}

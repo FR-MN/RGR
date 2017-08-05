@@ -38,8 +38,15 @@ namespace ArtAlbum.UI.Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image, string tagsData)
+        public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image, string tagsData ,string Country)
         {
+            //испарвить
+            if ((string.IsNullOrWhiteSpace(Country)) ||(Country=="Пожалуйста, выберите страну:"))
+            {
+                return View();
+            }
+
+
             if (string.IsNullOrWhiteSpace(image.Description))
             {
                 image.Description = "Нет описания";
