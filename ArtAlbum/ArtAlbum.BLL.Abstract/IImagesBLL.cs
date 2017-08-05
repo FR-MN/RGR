@@ -14,5 +14,6 @@ namespace ArtAlbum.BLL.Abstract
         bool RemoveImageById(Guid imageId);
         bool UpdateImage(ImageDTO user);
         IEnumerable<ImageDTO> GetAllImages();
+        int GetCountOfImagesByCountry(string countryName);
     }
 }

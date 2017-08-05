@@ -13,5 +13,6 @@ namespace ArtAlbum.Entities
         public DateTime DateOfCreating { get; set; }
         public byte[] Data { get; set; }
         public string Type { get; set; }
+        public string Country { get; set; }
     }
 }

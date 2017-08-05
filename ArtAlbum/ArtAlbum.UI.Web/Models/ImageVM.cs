@@ -19,6 +19,7 @@ namespace ArtAlbum.UI.Web.Models
 
         public Guid Id { get; set; }
         public DateTime DateOfCreating { get; set; }
+        public string Country { get; set; }
         public string Description
         {
             get { return description; }
@@ -31,7 +32,7 @@ namespace ArtAlbum.UI.Web.Models
         internal static bool Create(ImageVM image, byte[] data, string type, Guid authorId)
         {
 
-            return imagesLogic.AddImage(new ImageDTO() { Id = image.Id, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data }) && relationsLogic.AddImageToUser(authorId, image.Id);
+            return imagesLogic.AddImage(new ImageDTO() { Id = image.Id, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data, Country = image.Country }) && relationsLogic.AddImageToUser(authorId, image.Id);
         }
 
         public override string ToString()
@@ -66,6 +67,11 @@ namespace ArtAlbum.UI.Web.Models
                 return list;
             }
             return null;
+        }
+
+        public static int GetCountOfImagesByCountry(string countryName)
+        {
+            return imagesLogic.GetCountOfImagesByCountry(countryName);
         }
 
         public static ImageVM GetImageById(Guid imageId)

@@ -129,5 +129,15 @@ namespace ArtAlbum.BLL.DefaultLogic
         {
             return imagesDAL.GetAllImages();
         }
+
+        public int GetCountOfImagesByCountry(string countryName)
+        {
+            if (string.IsNullOrWhiteSpace(countryName))
+            {
+                return -1;
+            }
+
+            return imagesDAL.GetAllImages().Where(image => image.Country == countryName).Count();
+        }
     }
 }
