@@ -71,11 +71,12 @@
                                                             <p>
                                                                 <label class="label">Страны Великобритании:</label>
                                                                 <select name="Country" class="turnintodropdown">
-                                                                    <option>Пожалуйста, выберите страну:</option>
-                                                                    <option >Pendosi</option>
-                                                                    <option>Россиюшка </option>
-                                                                    <option>Россия</option>
-                                                                    <option>Russia</option>
+                                                                    <option>Выберите страну, где сделано фото:</option>
+                                                                    @{foreach (var countryName in ArtAlbum.UI.Web.Helpers.MapHelper.GetAllCountryNames())
+                                                                        {
+                                                                            <option>@countryName</option>
+                                                                        }
+                                                                    }
                                                                 </select>
                                                             </p>
                                                         </div>

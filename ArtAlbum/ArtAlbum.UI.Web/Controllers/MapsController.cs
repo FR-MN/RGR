@@ -13,5 +13,10 @@ namespace ArtAlbum.UI.Web.Controllers
         {
             return View();
         }
+
+        public JsonResult CountOfImages(string countryCode)
+        {
+            return Json(Models.ImageVM.GetCountOfImagesByCountryCode(countryCode).ToString(), JsonRequestBehavior.AllowGet);
+        }
     }
 }

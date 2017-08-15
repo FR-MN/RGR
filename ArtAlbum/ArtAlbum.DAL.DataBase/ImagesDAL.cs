@@ -47,7 +47,14 @@ namespace ArtAlbum.DAL.DataBase
                 command.Parameters.AddWithValue("@DateOfCreating", image.DateOfCreating);
                 command.Parameters.AddWithValue("@Data", image.Data);
                 command.Parameters.AddWithValue("@Type", image.Type);
-                command.Parameters.AddWithValue("@Country", image.Country);
+                if (image.Country != null)
+                {
+                    command.Parameters.AddWithValue("@Country", image.Country);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@Country", DBNull.Value);
+                }
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
                 return countRow == 1;
@@ -70,7 +77,7 @@ namespace ArtAlbum.DAL.DataBase
                         DateOfCreating = (DateTime)reader["DateOfCreating"],
                         Data = (byte[])reader["Data"],
                         Type = (string)reader["Type"],
-                        Country = (string)reader["Country"]
+                        Country = reader["Country"].ToString()
                     };
                 }
             }
@@ -97,7 +104,7 @@ namespace ArtAlbum.DAL.DataBase
                         DateOfCreating = (DateTime)reader["DateOfCreating"],
                         Data = (byte[])reader["Data"],
                         Type = (string)reader["Type"],
-                        Country = (string)reader["Country"]
+                        Country = reader["Country"].ToString()
                     };
                 }
                 throw new NotFoundDataException("image not found");

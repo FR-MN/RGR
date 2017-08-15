@@ -40,13 +40,6 @@ namespace ArtAlbum.UI.Web.Controllers
         [HttpPost]
         public ActionResult UserProfile(HttpPostedFileBase dataImage, ImageVM image, string tagsData ,string Country)
         {
-            //испарвить
-            if ((string.IsNullOrWhiteSpace(Country)) ||(Country=="Пожалуйста, выберите страну:"))
-            {
-                return View();
-            }
-
-
             if (string.IsNullOrWhiteSpace(image.Description))
             {
                 image.Description = "Нет описания";
@@ -66,7 +59,7 @@ namespace ArtAlbum.UI.Web.Controllers
                 if (!string.IsNullOrWhiteSpace(image.Description))
                 {
                     image.Id = Guid.NewGuid();
-                    if (ImageVM.Create(image, imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name)))
+                    if (ImageVM.Create(image, imageData, dataImage.ContentType, UserVM.GetUserIdByNickname(User.Identity.Name), Helpers.MapHelper.GetCountryCodeByName(Country)))
                     {
                         if (!string.IsNullOrWhiteSpace(tagsData))
                         {
