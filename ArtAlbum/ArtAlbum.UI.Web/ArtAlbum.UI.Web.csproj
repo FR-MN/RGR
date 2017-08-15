@@ -264,12 +264,12 @@
     <Content Include="Views\Users\GetSubscribers.cshtml" />
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <Content Include="Views\Images\ListImages.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Maps\MapPage.cshtml" />
     <Content Include="Views\Register\ExpertRegister.cshtml" />
-=======
+
     <Content Include="Views\Maps\Index.cshtml" />
->>>>>>> ede27b2662d3866d70daa897c4c9cca8d73643d9
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
