@@ -126,6 +126,7 @@
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\map.css" />
     <Content Include="Content\nivo-lightbox-theme\default\close%402x.png" />
     <Content Include="Content\nivo-lightbox-theme\default\close.png" />
     <Content Include="Content\nivo-lightbox-theme\default\default.css" />
@@ -220,6 +221,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ImageExtension.cs" />
+    <Compile Include="Helpers\MapHelper.cs" />
     <Compile Include="Models\AuthVM.cs" />
     <Compile Include="Models\CommentVM.cs" />
     <Compile Include="Models\ImageDataVM.cs" />

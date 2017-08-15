@@ -29,10 +29,10 @@ namespace ArtAlbum.UI.Web.Models
             }
         }
 
-        internal static bool Create(ImageVM image, byte[] data, string type, Guid authorId)
+        internal static bool Create(ImageVM image, byte[] data, string type, Guid authorId, string countryCode)
         {
 
-            return imagesLogic.AddImage(new ImageDTO() { Id = image.Id, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data, Country = image.Country }) && relationsLogic.AddImageToUser(authorId, image.Id);
+            return imagesLogic.AddImage(new ImageDTO() { Id = image.Id, Description = image.Description, DateOfCreating = image.DateOfCreating, Type = type, Data = data, Country = countryCode }) && relationsLogic.AddImageToUser(authorId, image.Id);
         }
 
         public override string ToString()
