@@ -14,6 +14,10 @@ namespace ArtAlbum.UI.Web.Controllers
         {
             return View();
         }
+        public ActionResult ExpertRegister()
+        {
+            return View();
+        }
 
         [ValidateAntiForgeryToken]
         [HttpPost]

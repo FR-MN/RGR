@@ -25,6 +25,7 @@
 
     <meta name="description" content="The description of my page" />
     @RenderSection("authstyle",false)
+    @RenderSection("uploadimages", false)
 </head>
 <body>
     <div class="container ">
@@ -167,11 +168,12 @@
     <script src="~/Scripts/wrapper_dropdown.js"></script>
     <script src="~/Scripts/Popup.js"></script>
 
-    <script src="~/Scripts/drag_drop.js"></script>
+
     
     @RenderSection("scripts",false)
     @RenderSection("searchscript", false)
     @RenderSection("mapscripts", false)
+    @RenderSection("uploadscript", false)
     
 </body>
 </html>

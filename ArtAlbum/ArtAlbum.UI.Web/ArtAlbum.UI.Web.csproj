@@ -138,6 +138,7 @@
     <Content Include="Content\nivo-lightbox.css" />
     <Content Include="Content\Popup.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\uploadimages.css" />
     <Content Include="Content\wrapper-dropdown.css" />
     <Content Include="fonts\ecoicons\ecoicons.dev.svg" />
     <Content Include="fonts\ecoicons\ecoicons.svg" />
@@ -204,6 +205,7 @@
     <Content Include="Scripts\SeachScript.js" />
     <Content Include="Scripts\select.js" />
     <Content Include="Scripts\stellar.js" />
+    <Content Include="Scripts\uploadimages.js" />
     <Content Include="Scripts\wrapper_dropdown.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -261,6 +263,7 @@
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <Content Include="Views\Images\ListImages.cshtml" />
     <Content Include="Views\Maps\MapPage.cshtml" />
+    <Content Include="Views\Register\ExpertRegister.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
