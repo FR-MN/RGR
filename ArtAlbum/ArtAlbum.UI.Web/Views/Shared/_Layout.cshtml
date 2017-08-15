@@ -16,7 +16,7 @@
 
     <link href="~/Content/DropDown.css" rel="stylesheet" />
     <link href="~/Content/wrapper-dropdown.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @RenderSection("mapcss", false)
 
     <link href="~/Content/Popup.css" rel="stylesheet" />
     <link href="~/Content/drag_drop.css" rel="stylesheet" />
@@ -53,6 +53,14 @@
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                         <p>
                                             Поиск
+                                        </p>
+                                    </div>
+                                </a>
+                                <a href="@Url.Action("Index", "Maps")">
+                                    <div class="gn-item">
+                                        <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+                                        <p>
+                                            Статистика
                                         </p>
                                     </div>
                                 </a>

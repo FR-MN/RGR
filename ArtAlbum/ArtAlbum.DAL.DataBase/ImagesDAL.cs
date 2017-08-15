@@ -70,7 +70,7 @@ namespace ArtAlbum.DAL.DataBase
                         DateOfCreating = (DateTime)reader["DateOfCreating"],
                         Data = (byte[])reader["Data"],
                         Type = (string)reader["Type"],
-                        Country = (string)reader["Country"]
+                        Country = reader["Country"].ToString()
                     };
                 }
             }
@@ -97,7 +97,7 @@ namespace ArtAlbum.DAL.DataBase
                         DateOfCreating = (DateTime)reader["DateOfCreating"],
                         Data = (byte[])reader["Data"],
                         Type = (string)reader["Type"],
-                        Country = (string)reader["Country"]
+                        Country = reader["Country"].ToString()
                     };
                 }
                 throw new NotFoundDataException("image not found");

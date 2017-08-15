@@ -1,7 +1,11 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "MapPage";
+    ViewBag.Title = "Статистика";
+}
+
+@section mapcss{
+    <link href="~/Content/map.css" rel="stylesheet" type="text/css" />
 }
 
 <h2>MapPage</h2>
@@ -349,9 +353,8 @@
 <div class="indicator"></div>
 
 @section mapscripts{
-
     <script src="~/Scripts/AjaxScript.js"></script>
-<script src="JavaScript.js"></script>
+    <script src="~/Scripts/map.js"></script>
 }
 
 
