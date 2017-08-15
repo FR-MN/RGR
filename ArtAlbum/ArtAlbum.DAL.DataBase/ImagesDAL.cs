@@ -47,7 +47,14 @@ namespace ArtAlbum.DAL.DataBase
                 command.Parameters.AddWithValue("@DateOfCreating", image.DateOfCreating);
                 command.Parameters.AddWithValue("@Data", image.Data);
                 command.Parameters.AddWithValue("@Type", image.Type);
-                command.Parameters.AddWithValue("@Country", image.Country);
+                if (image.Country != null)
+                {
+                    command.Parameters.AddWithValue("@Country", image.Country);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@Country", DBNull.Value);
+                }
                 connection.Open();
                 int countRow = command.ExecuteNonQuery();
                 return countRow == 1;

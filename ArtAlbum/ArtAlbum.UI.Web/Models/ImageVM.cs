@@ -69,9 +69,13 @@ namespace ArtAlbum.UI.Web.Models
             return null;
         }
 
-        public static int GetCountOfImagesByCountry(string countryName)
+        public static int GetCountOfImagesByCountryCode(string countryCode)
         {
-            return imagesLogic.GetCountOfImagesByCountry(countryName);
+            if (string.IsNullOrWhiteSpace(countryCode))
+            {
+                return 0;
+            }
+            return imagesLogic.GetCountOfImagesByCountry(countryCode);
         }
 
         public static ImageVM GetImageById(Guid imageId)
@@ -164,5 +168,14 @@ namespace ArtAlbum.UI.Web.Models
             }
             return list;
         }
+
+        //public static int GetCountOfImagesByCountryCode(string countryCode)
+        //{
+        //    if (string.IsNullOrWhiteSpace(countryCode))
+        //    {
+        //        return 0;
+        //    }
+        //    return GetAllImages().Where(image => image.Country == countryCode).Count();
+        //}
     }
 }
