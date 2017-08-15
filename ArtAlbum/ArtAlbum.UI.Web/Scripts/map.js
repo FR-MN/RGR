@@ -26,15 +26,57 @@ function update(json) {
         $('.indicator').html('Information could not be found').css('width', '300px');
 
     } else {
-
+        var $map = $(".map");
         $('.indicator').append('<h2 class="name">' + country.countryName + '</h2>');
         $('.indicator').append('<img src="http://www.geonames.org/flags/m/' + country.countryCode.toLowerCase() + '.png" alt="" class="flag" />');
 
-        $('.indicator').append('<div class="clear capital">Capital City : ' + country.capital + '</div>');
+        $('.indicator').append('<div class="clear capital">Столица : ' + country.capital + '</div>');
 
-        $('.indicator').append('<div class="population">Population :' + numberFormat(country.population) + '</div>');
+        //$('.indicator').append('<div class="population">Population :' + numberFormat(country.population) + '</div>');
 
-        $('.indicator').append('<div class="area">Area in m&sup2; :' + numberFormat(country.areaInSqKm) + '</div>');
+        $('.indicator').append('<div class="area">Площадь :' + numberFormat(country.areaInSqKm) + '</div>');
+
+        
+         
+
+
+                $.ajax({
+
+
+                    type: "GET",
+                    url: "/Maps/CountOfImages",
+
+                    data: {
+                        countryCode: country.countryCode
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+
+                    success: successFunc,
+                    error: errorFunc
+                });
+
+
+           
+
+                function successFunc(data, status) {
+                    
+                    
+                $('.indicator').append('<div class="population">Количество фото :' + data + '</div>');
+                $map.on('click', function (e) {
+
+                    $(".countofimages").children().remove();
+                    $('.countofimages').append('<h4 >Cтрана :' + country.countryName + '</h4>');
+                   
+                    $('.countofimages').append('<h4 >Количество фото :' + data + '</h4>');
+                })
+
+            }
+            function errorFunc(errorData) {
+                alert('Ошибка' + errorData.responseText);
+            }
+
+        
 
     }
 }
@@ -53,7 +95,7 @@ $('path').hover(function (e) {
     $('path').css('fill', 'rgba(0,0,0,0.5)');
     $('.indicator').css({ 'top': e.pageY, 'left': e.pageX + 30 }).show();
     console.log(this);
-    $(this).css('fill', '#4e6ab3');
+    $(this).css('fill', '#eb5d1e');
 
 }, function () {
     $('.indicator').html('');

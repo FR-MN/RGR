@@ -1868,3 +1868,10 @@ a.support-hover-two:hover + .tip-block .tip-two {
  	display:block;
 }
 
+.countofimages{
+    background-color:white;
+    width:230px;
+    height:150px;
+    border-radius:8px;
+    margin:0,auto;
+}
