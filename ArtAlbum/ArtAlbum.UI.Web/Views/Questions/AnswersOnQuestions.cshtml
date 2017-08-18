@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "AnswersOnQuestions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AnswersOnQuestions</h2>
+
+<div class="questionspage">
+    <h2>Вопрос пользователя : Вася</h2>
+   
+   
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="authorimage"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="Nickname"><h4>Автор: Вася</h4></div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="date-of-creating-question"><h4>Дата создания вопроса: 20.10.1998</h4></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="main-text-of-question"><h2>Как сделать вот так вотaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaa </h2></div>
+                        </div>
+                    </div>
+                </div>
+    <hr />
+    <div class="answears">
+
+
+        <h3>Ответы на вопрос:</h3>
+        <br />
+        <h4><a href="#">Показать все ответы</a></h4>
+
+        <ul >
+            <li class="answear">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="author-of-answear-image"></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="Nickname"><h5>Автор: Вася</h5></div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="date-of-creating-answear"><h5>Дата создания вопроса: 20.10.1998</h5></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="main-text-of-answear"><h3>Как сделать вот так вотaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaa </h3></div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="answear">
+
+            </li>
+        </ul>
+
+        <h4>Написать ответ:</h4>
+        <form>
+            <div class="row">
+                <textarea  class="col-md-9" id="question-input" name="text"></textarea>
+               
+                <div class="col-md-3">
+                    <input id="answerbtn" type="submit" value="Отправить" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>   
+</div>

@@ -217,6 +217,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\MapsController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -264,12 +265,12 @@
     <Content Include="Views\Users\GetSubscribers.cshtml" />
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <Content Include="Views\Images\ListImages.cshtml" />
-
     <Content Include="Views\Maps\MapPage.cshtml" />
     <Content Include="Views\Register\ExpertRegister.cshtml" />
-
     <Content Include="Views\Maps\Index.cshtml" />
-
+    <Content Include="Views\Questions\QuestionsPage.cshtml" />
+    <Content Include="Views\Questions\AskQuestion.cshtml" />
+    <Content Include="Views\Questions\AnswersOnQuestions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

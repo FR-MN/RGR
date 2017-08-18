@@ -34,7 +34,7 @@ function update(json) {
 
         //$('.indicator').append('<div class="population">Population :' + numberFormat(country.population) + '</div>');
 
-        $('.indicator').append('<div class="area">Площадь :' + numberFormat(country.areaInSqKm) + '</div>');
+        //$('.indicator').append('<div class="area">Площадь :' + numberFormat(country.areaInSqKm) + '</div>');
 
         
          
