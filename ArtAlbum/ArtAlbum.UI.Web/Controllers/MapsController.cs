@@ -16,7 +16,7 @@ namespace ArtAlbum.UI.Web.Controllers
 
         public JsonResult CountOfImages(string countryCode)
         {
-            return Json(Models.ImageVM.GetCountOfImagesByCountryCode(countryCode).ToString(), JsonRequestBehavior.AllowGet);
+            return Json(new { count = Models.ImageVM.GetCountOfImagesByCountryCode(countryCode).ToString(), name = Helpers.MapHelper.GetCountryNameByCode(countryCode) }, JsonRequestBehavior.AllowGet);
         }
     }
 }

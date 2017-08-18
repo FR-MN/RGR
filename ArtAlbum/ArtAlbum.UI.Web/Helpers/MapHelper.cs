@@ -270,5 +270,21 @@ namespace ArtAlbum.UI.Web.Helpers
             }
             return null;
         }
+
+        public static string GetCountryNameByCode(string countryCode)
+        {
+            if (!string.IsNullOrWhiteSpace(countryCode))
+            {
+                string countryCodeTemp;
+                foreach (var countryName in countryDic.Keys)
+                {
+                    if (countryDic.TryGetValue(countryName, out countryCodeTemp) && countryCodeTemp == countryCode)
+                    {
+                        return countryName;
+                    }
+                }
+            }
+            return "";
+        }
     }
 }

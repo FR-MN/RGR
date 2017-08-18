@@ -27,7 +27,7 @@ function update(json) {
 
     } else {
         var $map = $(".map");
-        $('.indicator').append('<h2 class="name">' + country.countryName + '</h2>');
+        //$('.indicator').append('<h2 class="name">' + country.countryName + '</h2>');
         $('.indicator').append('<img src="http://www.geonames.org/flags/m/' + country.countryCode.toLowerCase() + '.png" alt="" class="flag" />');
 
         $('.indicator').append('<div class="clear capital">Столица : ' + country.capital + '</div>');
@@ -36,47 +36,40 @@ function update(json) {
 
         $('.indicator').append('<div class="area">Площадь :' + numberFormat(country.areaInSqKm) + '</div>');
 
-        
-         
+        $.ajax({
 
 
-                $.ajax({
+            type: "GET",
+            url: "/Maps/CountOfImages",
+
+            data: {
+                countryCode: country.countryCode
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: successFunc,
+            error: errorFunc
+        });
+
+        function successFunc(data, status) {
+
+            $('.indicator').append('<h2 class="name">' + data.name + '</h2>');
+            $('.indicator').append('<div class="population">Количество фото :' + data.count + '</div>');
+            $map.on('click', function (e) {
+
+                $(".countofimages").children().remove();
+                $('.countofimages').append('<h4 >Cтрана :' + data.name + '</h4>');
+
+                $('.countofimages').append('<h4 >Количество фото :' + data.count + '</h4>');
+            })
+
+        }
+        function errorFunc(errorData) {
+            alert('Ошибка' + errorData.responseText);
+        }
 
 
-                    type: "GET",
-                    url: "/Maps/CountOfImages",
-
-                    data: {
-                        countryCode: country.countryCode
-                    },
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-
-                    success: successFunc,
-                    error: errorFunc
-                });
-
-
-           
-
-                function successFunc(data, status) {
-                    
-                    
-                $('.indicator').append('<div class="population">Количество фото :' + data + '</div>');
-                $map.on('click', function (e) {
-
-                    $(".countofimages").children().remove();
-                    $('.countofimages').append('<h4 >Cтрана :' + country.countryName + '</h4>');
-                   
-                    $('.countofimages').append('<h4 >Количество фото :' + data + '</h4>');
-                })
-
-            }
-            function errorFunc(errorData) {
-                alert('Ошибка' + errorData.responseText);
-            }
-
-        
 
     }
 }
