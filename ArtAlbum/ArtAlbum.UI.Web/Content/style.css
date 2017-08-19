@@ -2012,3 +2012,10 @@ a.support-hover-two:hover + .tip-block .tip-two {
         margin-left:20px;
         text-align:left;
     }
+    #Nicknameicon{
+        margin-left:5px;
+       
+    }
+    #Nicknameicon:before{
+         margin-top:10px;
+    }

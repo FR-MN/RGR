@@ -77,7 +77,7 @@
                                                         <img src="@Url.Action("GetAvatar", "Users", new { userId = GetUserId(list[i].Id) })" class="reply_img">
                                                     </a>
                                                 </div>
-                                                <h4><a href="@Url.Action("GetUser","Users" ,new {nickname =GetUserName(list[i].Id) })">@GetUserName(list[i].Id)</a></h4>
+                                                <h4><a href="@Url.Action("GetUser","Users" ,new {nickname =GetUserName(list[i].Id) })">@GetUserName(list[i].Id)</a><span id="Nicknameicon" class="glyphicon glyphicon-ok-circle fa-1x" aria-hidden="true"></span></h4>
                                             </div>
 
                                         </div>

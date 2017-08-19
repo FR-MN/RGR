@@ -33,6 +33,7 @@
                     <div class="content_commetn">
                         <div class="reply_author">
                             <a class="author" href="@Url.Action("GetUser","Users" ,new {nickname =GetUserNickNameById(comment.AuthorId) })" >@GetUserImageId(@comment.AuthorId)</a>
+                            <span id="Nicknameicon" class="glyphicon glyphicon-ok-circle " aria-hidden="true"></span>
                         </div>
                         <div class="reply_text">
 
