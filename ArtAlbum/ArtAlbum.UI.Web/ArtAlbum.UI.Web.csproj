@@ -126,6 +126,32 @@
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\blank.gif" />
+    <Content Include="Content\img\colorpicker_background.png" />
+    <Content Include="Content\img\colorpicker_hex.png" />
+    <Content Include="Content\img\colorpicker_hsb_b.png" />
+    <Content Include="Content\img\colorpicker_hsb_h.png" />
+    <Content Include="Content\img\colorpicker_hsb_s.png" />
+    <Content Include="Content\img\colorpicker_indic.gif" />
+    <Content Include="Content\img\colorpicker_overlay.png" />
+    <Content Include="Content\img\colorpicker_rgb_b.png" />
+    <Content Include="Content\img\colorpicker_rgb_g.png" />
+    <Content Include="Content\img\colorpicker_rgb_r.png" />
+    <Content Include="Content\img\colorpicker_select.gif" />
+    <Content Include="Content\img\colorpicker_submit.png" />
+    <Content Include="Content\img\custom_background.png" />
+    <Content Include="Content\img\custom_hex.png" />
+    <Content Include="Content\img\custom_hsb_b.png" />
+    <Content Include="Content\img\custom_hsb_h.png" />
+    <Content Include="Content\img\custom_hsb_s.png" />
+    <Content Include="Content\img\custom_indic.gif" />
+    <Content Include="Content\img\custom_rgb_b.png" />
+    <Content Include="Content\img\custom_rgb_g.png" />
+    <Content Include="Content\img\custom_rgb_r.png" />
+    <Content Include="Content\img\custom_submit.png" />
+    <Content Include="Content\img\select.png" />
+    <Content Include="Content\img\select2.png" />
+    <Content Include="Content\img\slider.png" />
     <Content Include="Content\map.css" />
     <Content Include="Content\nivo-lightbox-theme\default\close%402x.png" />
     <Content Include="Content\nivo-lightbox-theme\default\close.png" />
@@ -199,14 +225,18 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\layout.js" />
+    <Content Include="Scripts\Lib.js" />
     <Content Include="Scripts\map.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\nivo-lightbox.min.js" />
+    <Content Include="Scripts\picker.js" />
     <Content Include="Scripts\Popup.js" />
     <Content Include="Scripts\SeachScript.js" />
     <Content Include="Scripts\select.js" />
     <Content Include="Scripts\stellar.js" />
     <Content Include="Scripts\uploadimages.js" />
+    <Content Include="Scripts\utils.js" />
     <Content Include="Scripts\wrapper_dropdown.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -280,7 +310,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArtAlbum.BLL.Abstract\ArtAlbum.BLL.Abstract.csproj">

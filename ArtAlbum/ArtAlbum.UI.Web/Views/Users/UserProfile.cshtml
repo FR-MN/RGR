@@ -119,6 +119,7 @@
                         </div>
 
                     </div>
+                
 
                     <br />
                     <br />
@@ -126,13 +127,54 @@
 
                 </div>
                 
+                <a href="#" class="personalisation-modal-target" data-toggle="modal" data-target="#personalisation-modal"><span class="glyphicon glyphicon-cog fa-4x"></span></a>
 
+                <div class="modal fade" id="personalisation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div id="personalisation-modal-content" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Персонализация страницы</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p id="list-of-changing-elements" class="checkbox-inline">
+                                            <b>Выберете обьект для изменения цвета</b><Br>
+                                            <input type="checkbox" name="nav"> Навигационное меню<Br>
+                                            <input type="checkbox" name="background"> Задний фон<Br>
+                                            <input type="checkbox" name="main-elements"> Основные элементы <Br>
+                                            <input type="checkbox" name="font-color"> Шрифт<Br>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p id="colorpickerHolder">
+
+
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div id="user-date">
 
                         <div class="col-xs-11 col-md-3" style="margin: 0 auto;">
                             <div id="second-user-block">
                                 <br />
+                               
                                 <div class="subscribers">
                                    <h5><a href="@Url.Action("GetSubscribers", "Users", new { userId = ViewBag.Id })">@ViewBag.CountOfSubscribers подписчиков</a></h5>
                                 </div>
@@ -224,7 +266,15 @@
 
 
 @section scripts{
+<script src="~/Scripts/Lib.js"></script>
+<script src="~/Scripts/picker.js"></script>
+<script src="~/Scripts/utils.js"></script>
+<script src="~/Scripts/layout.js"></script>
+
 <script src="~/Scripts/drag_drop.js"></script>
 <script src="~/Scripts/select.js"></script>
-    <script src="~/Scripts/AjaxScript.js"></script>
+<script src="~/Scripts/AjaxScript.js"></script>
+
+
+
 }
