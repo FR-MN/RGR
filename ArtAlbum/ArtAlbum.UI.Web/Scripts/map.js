@@ -96,3 +96,27 @@ $('path').hover(function (e) {
     $('path').css('fill', 'black');
 });
 
+ymaps.ready(function () {
+    var $countrybtn = $('#countrybtn');
+
+    
+   
+
+    $countrybtn.on('click', function (e) {
+        var nameofCountry = $('#CountryName').val();
+        if (nameofCountry != null) {
+
+        
+            var myGeocoder = ymaps.geocode(nameofCountry);
+        myGeocoder.then(
+            function (res) {
+                alert('Координаты объекта :' + res.geoObjects.get(0).geometry.getCoordinates());
+            },
+            function (err) {
+                alert('Ошибка');
+            }
+        );
+        }
+    })
+})
+
