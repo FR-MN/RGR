@@ -56,6 +56,7 @@
 			    $(cal).data('colorpicker').currentColor.css('backgroundColor', '#' + HSBToHex(hsb));
 			},
 			setNewColor = function (hsb, cal) {
+			   
 			    $(cal).data('colorpicker').newColor.css('backgroundColor', '#' + HSBToHex(hsb));
 			},
 			keyDown = function (ev) {

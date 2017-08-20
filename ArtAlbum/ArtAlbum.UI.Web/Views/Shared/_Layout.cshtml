@@ -31,7 +31,7 @@
     <div class="container ">
         <ul id="gn-menu" class="gn-menu-main">
             <li class="gn-trigger">
-                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <a class="gn-icon-menu"><span id="gl-menu" class="glyphicon glyphicon-th-list fa-3x" aria-hidden="true"></span></a>
                 <nav class="gn-menu-wrapper">
                     <div class="gn-scroller">
                         <ul class="gn-menu">
@@ -95,11 +95,11 @@
                     @{
                         if (User.Identity.IsAuthenticated)
                         {
-                            <span>@User.Identity.Name</span>
+                            <span id="user-name">@User.Identity.Name <i  class="glyphicon glyphicon-chevron-down" ></i></span>
                         }
                         else
                         {
-                            <span>Гость</span>
+                            <span id="user-name" >Гость <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span>
                         }
                     }
 

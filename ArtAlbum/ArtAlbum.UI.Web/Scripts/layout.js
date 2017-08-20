@@ -13,6 +13,9 @@
             flat: true,
             color: '#00ff00',
             onSubmit: function (hsb, hex, rgb) {
+                $("#colorpicker_hex").find("input").val(hex);
+                $("#confirm-btn").val(hex);
+                $("#confirm-btn").attr(name, hex);
                 $('#colorSelector2 div').css('backgroundColor', '#' + hex);
             }
         });
@@ -24,6 +27,9 @@
         });
         $('#colorpickerField1, #colorpickerField2, #colorpickerField3').ColorPicker({
             onSubmit: function (hsb, hex, rgb, el) {
+                $("#colorpicker_hex").find("input").val(hex);
+                $("#confirm-btn").val(hex);
+                $("#confirm-btn").attr(name, hex);
                 $(el).val(hex);
                 $(el).ColorPickerHide();
             },
@@ -45,6 +51,8 @@
                 return false;
             },
             onChange: function (hsb, hex, rgb) {
+                $("#confirm-btn").val(hex);
+                $("#confirm-btn").attr(name, hex);
                 $('#colorSelector div').css('backgroundColor', '#' + hex);
             }
         });
