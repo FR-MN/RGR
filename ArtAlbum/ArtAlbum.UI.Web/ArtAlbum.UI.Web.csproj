@@ -295,7 +295,6 @@
     <Content Include="Views\Users\GetSubscribers.cshtml" />
     <Content Include="Views\Users\GetSubscribtions.cshtml" />
     <Content Include="Views\Images\ListImages.cshtml" />
-    <Content Include="Views\Maps\MapPage.cshtml" />
     <Content Include="Views\Register\ExpertRegister.cshtml" />
     <Content Include="Views\Maps\Index.cshtml" />
     <Content Include="Views\Questions\QuestionsPage.cshtml" />

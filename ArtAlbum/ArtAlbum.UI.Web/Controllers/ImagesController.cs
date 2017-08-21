@@ -109,6 +109,15 @@ namespace ArtAlbum.UI.Web.Controllers
                 ViewBag.NameOfImages = nameOfList + " " + UserVM.GetUserById(Guid.Parse(userId)).Nickname;
                 return View(ImageVM.GetImagesByUserId(Guid.Parse(userId)));
             }
+            else if (nameOfList.Length == 2)
+            {
+                string countryName = MapHelper.GetCountryNameByCode(nameOfList);
+                if (!string.IsNullOrWhiteSpace(countryName))
+                {
+                    ViewBag.NameOfImages = "Недавние фото из страны " + countryName;
+                    return View(ImageVM.GetImagesByCountryCode(nameOfList));
+                }
+            }
             return View();
         }
         

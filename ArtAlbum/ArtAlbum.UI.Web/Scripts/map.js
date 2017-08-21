@@ -62,6 +62,9 @@ function update(json) {
                 $('.countofimages').append('<h4 >Cтрана :' + data.name + '</h4>');
 
                 $('.countofimages').append('<h4 >Количество фото :' + data.count + '</h4>');
+                if (data.count != 0) {
+                    $('.countofimages').append('<h4><a href="/Images/ListImages?nameOfList=' + country.countryCode + '">Фото из страны ' + data.name + '</a></h4>');
+                }
             })
 
         }

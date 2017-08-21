@@ -42,7 +42,7 @@ namespace ArtAlbum.UI.Web.Models
 
         public static explicit operator ImageVM(ImageDTO data)
         {
-            return new ImageVM() { Id = data.Id, Description = data.Description, DateOfCreating = data.DateOfCreating };
+            return new ImageVM() { Id = data.Id, Description = data.Description, DateOfCreating = data.DateOfCreating, Country = data.Country };
         }
 
         public static IEnumerable<ImageVM> GetAllImages()
@@ -167,6 +167,16 @@ namespace ArtAlbum.UI.Web.Models
                 list.Add(tag.Name);
             }
             return list;
+        }
+
+        public static IEnumerable<ImageVM> GetImagesByCountryCode(string countryCode)
+        {
+            if (string.IsNullOrWhiteSpace(countryCode))
+            {
+                return null;
+            }
+            var tmp = GetAllImages().Where(image => image.Country == countryCode).OrderByDescending(image => image.DateOfCreating).Take(32);
+            return GetAllImages().Where(image => image.Country == countryCode).OrderByDescending(image => image.DateOfCreating).Take(32);
         }
 
         //public static int GetCountOfImagesByCountryCode(string countryCode)
