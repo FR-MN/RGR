@@ -298,8 +298,8 @@
     <Content Include="Views\Register\ExpertRegister.cshtml" />
     <Content Include="Views\Maps\Index.cshtml" />
     <Content Include="Views\Questions\QuestionsPage.cshtml" />
-    <Content Include="Views\Questions\AskQuestion.cshtml" />
-    <Content Include="Views\Questions\AnswersOnQuestions.cshtml" />
+    <Content Include="Views\Questions\CreateQuestion.cshtml" />
+    <Content Include="Views\Questions\AnswersPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

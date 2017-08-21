@@ -18,11 +18,11 @@ namespace ArtAlbum.UI.Web.Controllers
         {
             return View();
         }
-        public ActionResult AskQuestion()
+        public ActionResult CreateQuestion()
         {
             return View();
         }
-        public ActionResult AnswersOnQuestions()
+        public ActionResult AnswersPage()
         {
             return View();
         }

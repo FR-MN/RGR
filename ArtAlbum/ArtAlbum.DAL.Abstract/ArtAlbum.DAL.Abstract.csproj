@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAnswersDAL.cs" />
     <Compile Include="ICommentsDAL.cs" />
     <Compile Include="IImagesDAL.cs" />
     <Compile Include="ILikesDAL.cs" />
+    <Compile Include="IQuestionsDAL.cs" />
     <Compile Include="IRolesDAL.cs" />
     <Compile Include="ISubscribersDAL.cs" />
     <Compile Include="ITagsDAL.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="IUsersDAL.cs" />
     <Compile Include="IUsersImagesDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IQImagesDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">

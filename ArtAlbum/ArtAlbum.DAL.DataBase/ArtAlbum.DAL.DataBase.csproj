@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswersDAL.cs" />
     <Compile Include="CommentsDAL.cs" />
     <Compile Include="Exceptions\ConfigurationFileException.cs" />
     <Compile Include="Exceptions\NotFoundDataException.cs" />
     <Compile Include="ImagesDAL.cs" />
     <Compile Include="LikesDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QImagesDAL.cs" />
+    <Compile Include="QuestionsDAL.cs" />
     <Compile Include="RolesDAL.cs" />
     <Compile Include="SubscribersDAL.cs" />
     <Compile Include="TagsDAL.cs" />

@@ -28,9 +28,9 @@ function update(json) {
     } else {
         var $map = $(".map");
         //$('.indicator').append('<h2 class="name">' + country.countryName + '</h2>');
-        $('.indicator').append('<img src="http://www.geonames.org/flags/m/' + country.countryCode.toLowerCase() + '.png" alt="" class="flag" />');
+        //$('.indicator').append('<img src="http://www.geonames.org/flags/m/' + country.countryCode.toLowerCase() + '.png" alt="" class="flag" />');
 
-        $('.indicator').append('<div class="clear capital">Столица : ' + country.capital + '</div>');
+        //$('.indicator').append('<div class="clear capital">Столица : ' + country.capital + '</div>');
 
         //$('.indicator').append('<div class="population">Population :' + numberFormat(country.population) + '</div>');
 
@@ -54,8 +54,8 @@ function update(json) {
 
         function successFunc(data, status) {
 
-            $('.indicator').append('<h2 class="name">' + data.name + '</h2>');
-            $('.indicator').append('<div class="population">Количество фото :' + data.count + '</div>');
+            //$('.indicator').append('<h2 class="name">' + data.name + '</h2>');
+            //$('.indicator').append('<div class="population">Количество фото :' + data.count + '</div>');
             $map.on('click', function (e) {
 
                 $(".countofimages").children().remove();
@@ -89,7 +89,7 @@ $('path').hover(function (e) {
     document.body.appendChild(script);
 
     $('path').css('fill', 'rgba(0,0,0,0.5)');
-    $('.indicator').css({ 'top': e.pageY, 'left': e.pageX + 30 }).show();
+    //$('.indicator').css({ 'top': e.pageY, 'left': e.pageX + 30 }).show();
     console.log(this);
     $(this).css('fill', '#eb5d1e');
 

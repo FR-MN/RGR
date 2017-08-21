@@ -32,6 +32,9 @@ namespace ArtAlbum.DI.Providers
                         AvatarDAL = new UsersAvatarsDAL();
                         CommentsDAL = new CommentsDAL();
                         TagsDAL = new TagsDAL();
+                        AnswersDAL = new AnswersDAL();
+                        QImagesDAL = new QImagesDAL();
+                        QuestionsDAL = new QuestionsDAL();
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -72,5 +75,8 @@ namespace ArtAlbum.DI.Providers
         public static ILikesBLL LikesBLL { get; private set; }
         public static ICommentsBLL CommentsBLL { get; set; }
         public static ITagsBLL TagsBLL { get; set; }
+        public static IAnswersDAL AnswersDAL { get; set; }
+        public static IQImagesDAL QImagesDAL { get; set; }
+        public static IQuestionsDAL QuestionsDAL { get; set; }
     }
 }
