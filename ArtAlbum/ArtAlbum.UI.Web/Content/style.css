@@ -1337,7 +1337,9 @@ background: #f8f8f8;
 .tag a{
     color:white;
 }
-
+.user-list li{
+        margin-left: 20px;
+}
 
 .center-block span{
         height: auto;
@@ -1355,7 +1357,7 @@ background: #f8f8f8;
     max-width:500px;
 }
 .settings .form-horizontal{
-    height:550px!important;
+    height:600px!important;
 }
 
 #header{

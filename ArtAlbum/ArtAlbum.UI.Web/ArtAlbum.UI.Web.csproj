@@ -300,6 +300,7 @@
     <Content Include="Views\Questions\QuestionsPage.cshtml" />
     <Content Include="Views\Questions\CreateQuestion.cshtml" />
     <Content Include="Views\Questions\AnswersPage.cshtml" />
+    <Content Include="Views\Administration\ExpertAdministration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

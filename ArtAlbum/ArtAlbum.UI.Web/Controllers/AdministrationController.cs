@@ -15,6 +15,12 @@ namespace ArtAlbum.UI.Web.Controllers
             IEnumerable<UserVM> users = UserVM.GetAllUsers().Where(user => user.Nickname != User.Identity.Name);
             return View(users);
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult ExpertAdministration()
+        {
+           
+            return View();
+        }
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
