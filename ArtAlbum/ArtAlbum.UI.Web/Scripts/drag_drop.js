@@ -54,7 +54,7 @@ $(document).ready(function () {
     // Функция загрузки изображений на предросмотр
     function loadInView(files) {
         // Показываем обасть предпросмотра
-        $('#uploaded-holder').show();
+        $('.uploaded-holder').show();
 
         // Для каждого файла
         $.each(files, function (index, file) {
@@ -108,7 +108,7 @@ $(document).ready(function () {
         if (dataArray.length == 0) {
             // Если пустой массив скрываем кнопки и всю область
             $('#upload-button').hide();
-            $('#uploaded-holder').hide();
+            $('.uploaded-holder').hide();
         } else if (dataArray.length == 1) {
             $('#upload-button span').html("Был выбран 1 файл");
         } else {
@@ -135,7 +135,7 @@ $(document).ready(function () {
         // Удаляем все изображения на странице и скрываем кнопки
         $('#upload-button').hide();
         $('#dropped-files > .image').remove();
-        $('#uploaded-holder').hide();
+        $('.uploaded-holder').hide();
 
         // Очищаем массив
         dataArray.length = 0;
@@ -174,5 +174,34 @@ $(document).ready(function () {
     $('#drop-files').on('drop', function () {
         $(this).css({ 'box-shadow': 'none', 'border': '4px dashed rgba(0,0,0,0.2)' });
         return false;
+    });
+});
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+           
+            var text = 'url(' + e.target.result + ')';
+
+            $('body').css('background-image', text);
+            $("body").css("background-image", e.target.result);
+            
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInput").change(function () {
+    readURL(this);
+});
+
+$(window).scroll(function () {
+    var movement = -parseInt($(this).scrollTop() / 10);
+    $('body').css({
+        backgroundPosition: 'center ' + movement + 'px'
     });
 });

@@ -125,6 +125,7 @@
     <Content Include="Content\DropDown.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\13350003.JPG" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\blank.gif" />
     <Content Include="Content\img\colorpicker_background.png" />

@@ -9,6 +9,7 @@
 
 
 body {
+    background:fixed center 0px;
     overflow-y: scroll;
     padding-right: 0 !important;
     width: 100%;
@@ -16,7 +17,9 @@ body {
     font-family: 'Lato',sans-serif;
     font-weight: 300;
     color: #666;
-    background-color: #DCDCDC;
+    background-color:#DCDCDC;
+    /*background-image:url("fonts/ecoicons/13350003.JPG");*/
+   
 }
 
 html {
