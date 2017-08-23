@@ -91,7 +91,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
 
                                         @if (User.Identity.IsAuthenticated)
                                         {
@@ -104,8 +104,30 @@
 
 
                                     </div>
-                                </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a class="vote-btn" value="@list[i].Id"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><p class="like-status">Проголосовать</p></a>
+                                            <a class="support-hover" tabindex="1">
+                                                <em>?</em>
+                                                <span class="tip">
+                                                    С помощью этой кнопки вы выбираете лучшие фотографии на этом сервисе за один день
+
+                                                </span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <p>Войдите чтобы оценивать и комментировать изображения</p>
+                                        }
+
+
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12">
 

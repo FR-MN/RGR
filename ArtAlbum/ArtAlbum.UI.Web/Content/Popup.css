@@ -327,6 +327,22 @@ height:auto;
    
     cursor: pointer;
 } 
+    a.vote-btn{
+          color: white;
+
+
+  background-color: #eb5d1e;
+  
+  margin-bottom:10px;
+   font-weight: 700;
+    padding: .9em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    
+    transition: 0.2s;
+   
+    cursor: pointer;
+      margin-left:20px;
+    }
 a.like:hover {  cursor:pointer }
 a.like:active {
   background: rgb(33,147,90);
