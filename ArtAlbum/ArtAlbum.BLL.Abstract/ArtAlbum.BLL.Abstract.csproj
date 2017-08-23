@@ -40,15 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAnswersBLL.cs" />
     <Compile Include="ICommentsBLL.cs" />
     <Compile Include="IImagesBLL.cs" />
     <Compile Include="ILikesBLL.cs" />
+    <Compile Include="IQImagesBLL.cs" />
     <Compile Include="IRolesBLL.cs" />
     <Compile Include="ISubscribersBLL.cs" />
     <Compile Include="ITagsBLL.cs" />
     <Compile Include="IUsersBLL.cs" />
     <Compile Include="IUsersImagesBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IQuestionsBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArtAlbum.Entities\ArtAlbum.Entities.csproj">

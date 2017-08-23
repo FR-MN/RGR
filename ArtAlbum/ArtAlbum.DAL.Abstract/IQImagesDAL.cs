@@ -12,5 +12,6 @@ namespace ArtAlbum.DAL.Abstract
         bool RemoveImageFromQuestion(Guid imageId, Guid questionId);
         IEnumerable<Guid> GetImagesIdsByQuestionId(Guid questionId);
         QImageDTO GetImageById(Guid imageId);
+        IEnumerable<Guid> GetQuestionsIdsByImageId(Guid imageId);
     }
 }

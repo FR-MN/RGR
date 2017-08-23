@@ -106,6 +106,21 @@ namespace ArtAlbum.DAL.DataBase
             }
         }
 
+        public IEnumerable<Guid> GetQuestionsIdsByImageId(Guid qimageId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT questionId,qimageId FROM QuestionsQImagess WHERE qimageId=@qimageId", connection);
+                command.Parameters.AddWithValue("@qimageId", qimageId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return (Guid)reader["questionId"];
+                }
+            }
+        }
+
         public bool RemoveImage(Guid imageId)
         {
             if (imageId == null)

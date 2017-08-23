@@ -12,7 +12,9 @@ namespace ArtAlbum.DAL.Abstract
         bool RemoveAnswer(Guid answerId);
         bool RemoveAnswerFromUser(Guid answerId, Guid userId);
         bool RemoveAnswerFromQuestion(Guid answerId, Guid questionId);
-        IEnumerable<AnswerDTO> GetAnswersByQuestionId(Guid questionId);
+        AnswerDTO GetAnswerById(Guid answerId);
+        IEnumerable<Guid> GetAnswersIdsByQuestionId(Guid questionId);
         IEnumerable<Guid> GetUsersIdsByAnswerId(Guid answerId);
+        IEnumerable<Guid> GetQuestionsIdsByAnswerId(Guid answerId);
     }
 }

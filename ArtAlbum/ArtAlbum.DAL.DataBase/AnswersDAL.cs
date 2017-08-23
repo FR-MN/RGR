@@ -83,9 +83,59 @@ namespace ArtAlbum.DAL.DataBase
             }
         }
 
-        public IEnumerable<AnswerDTO> GetAnswersByQuestionId(Guid questionId)
+        public AnswerDTO GetAnswerById(Guid answerId)
         {
-            throw new NotImplementedException();
+            if (answerId == null)
+            {
+                throw new ArgumentNullException("answer id is null");
+            }
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT Id,DateOfCreating,Data FROM Answers WHERE Id=@Id", connection);
+                command.Parameters.AddWithValue("@Id", answerId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return new AnswerDTO()
+                    {
+                        Id = (Guid)reader["Id"],
+                        DateOfCreating = (DateTime)reader["DateOfCreating"],
+                        Data = (string)reader["Data"]
+                    };
+                }
+                throw new NotFoundDataException("answer not found");
+            }
+        }
+
+        public IEnumerable<Guid> GetAnswersIdsByQuestionId(Guid questionId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT questionId,answerId FROM QuestionsAnswers WHERE questionId=@questionId", connection);
+                command.Parameters.AddWithValue("@questionId", questionId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return (Guid)reader["answerId"];
+                }
+            }
+        }
+
+        public IEnumerable<Guid> GetQuestionsIdsByAnswerId(Guid answerId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT questionId,answerId FROM QuestionsAnswers WHERE answerId=@answerId", connection);
+                command.Parameters.AddWithValue("@answerId", answerId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return (Guid)reader["questionId"];
+                }
+            }
         }
 
         public IEnumerable<Guid> GetUsersIdsByAnswerId(Guid answerId)
