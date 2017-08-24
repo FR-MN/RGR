@@ -13,7 +13,7 @@ namespace ArtAlbum.UI.Web.Controllers
         // GET: Questions
         public ActionResult QuestionsPage()
         {
-            return View();
+            return View(QuestionVM.GetAllQuestions());
         }
 
         [HttpGet]
@@ -32,10 +32,17 @@ namespace ArtAlbum.UI.Web.Controllers
             return View("QuestionsPage");
         }
 
+        [HttpGet]
+        public ActionResult AnswersPage(Guid questionId)
+        {
+            ViewBag.Question = QuestionVM.GetQuestionById(questionId);
+            return View(AnswerVM.GetAnswersByQuestionId(questionId));
+        }
+
+        [HttpPost]
         public ActionResult AnswersPage()
         {
             return View();
         }
-
     }
 }

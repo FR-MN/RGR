@@ -256,6 +256,7 @@
     </Compile>
     <Compile Include="Helpers\ImageExtension.cs" />
     <Compile Include="Helpers\MapHelper.cs" />
+    <Compile Include="Models\AnswerVM.cs" />
     <Compile Include="Models\AuthVM.cs" />
     <Compile Include="Models\CommentVM.cs" />
     <Compile Include="Models\ImageDataVM.cs" />

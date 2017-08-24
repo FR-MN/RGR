@@ -45,5 +45,30 @@ namespace ArtAlbum.UI.Web.Models
         {
             return questionsLogic.AddQuestion(new QuestionDTO { Id = Guid.NewGuid(), Caption = question.Caption, DateOfCreating = DateTime.Now }, authorId);
         }
+
+        public static IEnumerable<QuestionVM> GetAllQuestions()
+        {
+            List<QuestionVM> list = new List<QuestionVM>();
+            foreach (var question in questionsLogic.GetAllQuestions())
+            {
+                list.Add((QuestionVM)question);
+            }
+            return list;
+        }
+
+        public static explicit operator QuestionVM(QuestionDTO data)
+        {
+            return new QuestionVM { Id = data.Id, Caption = data.Caption, DateOfCreating = data.DateOfCreating };
+        }
+
+        public static UserVM GetAuthorByQuestionId(Guid questionId)
+        {
+            return (UserVM)questionsLogic.GetUserByQuestionId(questionId);
+        }
+
+        public static QuestionVM GetQuestionById(Guid questionId)
+        {
+            return (QuestionVM)questionsLogic.GetQuestionById(questionId);
+        }
     }
 }
