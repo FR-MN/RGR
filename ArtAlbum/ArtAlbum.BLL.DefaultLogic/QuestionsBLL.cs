@@ -31,7 +31,7 @@ namespace ArtAlbum.BLL.DefaultLogic
 
         private bool IsQuestionCorrect(QuestionDTO question)
         {
-            return !string.IsNullOrWhiteSpace(question.Caption) && question.Caption.Length < 1000 && question.DateOfCreating < DateTime.Now && question.Id != null;
+            return !string.IsNullOrWhiteSpace(question.Caption) && question.Caption.Length < 1000 && question.DateOfCreating <= DateTime.Now && question.Id != null;
         }
 
         public bool AddQuestion(QuestionDTO question, Guid authorId)
@@ -51,10 +51,6 @@ namespace ArtAlbum.BLL.DefaultLogic
             catch
             {
                 throw new ArgumentNullException("user doesn't exist");
-            }
-            if (questionsDAL.GetQuestionById(question.Id) != null)
-            {
-                return false;
             }
             return questionsDAL.AddQuestion(question) && questionsDAL.AddQuestionToUser(question.Id, authorId);
         }

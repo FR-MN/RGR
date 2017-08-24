@@ -51,6 +51,9 @@ namespace ArtAlbum.DI.Providers
                         LikesBLL = new LikesBLL(UsersDAL, LikesDAL, ImagesDAL);
                         CommentsBLL = new CommentsBLL(CommentsDAL, UsersDAL, ImagesDAL);
                         TagsBLL = new TagsBLL(TagsDAL, ImagesDAL);
+                        AnswersBLL = new AnswersBLL(UsersDAL, AnswersDAL, QuestionsDAL);
+                        QImagesBLL = new QImagesBLL(QImagesDAL, QuestionsDAL);
+                        QuestionsBLL = new QuestionsBLL(QuestionsDAL, UsersDAL, AnswersDAL, QImagesDAL);
                     }
                     break;
                 default: { throw new ConfigurationFileException("error in configuration file"); }
@@ -78,5 +81,8 @@ namespace ArtAlbum.DI.Providers
         public static IAnswersDAL AnswersDAL { get; set; }
         public static IQImagesDAL QImagesDAL { get; set; }
         public static IQuestionsDAL QuestionsDAL { get; set; }
+        public static IAnswersBLL AnswersBLL { get; set; }
+        public static IQImagesBLL QImagesBLL { get; set; }
+        public static IQuestionsBLL QuestionsBLL { get; set; }
     }
 }

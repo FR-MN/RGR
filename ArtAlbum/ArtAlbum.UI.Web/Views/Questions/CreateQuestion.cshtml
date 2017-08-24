@@ -1,6 +1,7 @@
-﻿
+﻿@model ArtAlbum.UI.Web.Models.QuestionVM
+
 @{
-    ViewBag.Title = "AskQuestion";
+    ViewBag.Title = "Новый вопрос";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,152 +10,43 @@
 <div class="container">
 
     <div class="settings">
-
-
         <div class="row">
-
             <div class="col-md-offset-3 col-xs-12">
                 <div class="form-horizontal">
                     <div id="header">
-
-
                         <div class="form-group">
-
                             <h2>Создание вопроса</h2>
-
                         </div>
                     </div>
 
                     <hr />                              
-                    <form autocomplete="off" >
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-
-                        <div class="form-group">
-                            <label class="control-label col-md-5">Введите текст вопроса</label>
-                            <div class="col-md-12">
-                                <textarea type="text" id="question-input" class="col-md-4"> </textarea>
+                        <div class="form-horizontal">
+                            <h4>QuestionVM</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Caption, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Caption, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Caption, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            
-                            <div class="col-md-offset-0">
-                                <div class="addimage">
-                                    <br />
-                                    <a class="button7" data-toggle="modal" data-target="#loadimage"><span class="glyphicon glyphicon-file"></span>Загрузить фото</a>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="loadimage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                        <div id="upload-model" class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <form method="post" enctype="multipart/form-data">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="content">
 
-                                                                <!-- Область для перетаскивания -->
-                                                                <div id="drop-files" ondragover="return false">
-                                                                    <div class="input-btn">
-                                                                        <p>Перетащите изображение сюда или выберете файл</p>
-
-                                                                        <input name="dataImage" type="file" id="uploadbtn" multiple="">
-
-                                                                    </div>
-
-
-
-
-                                                                </div>
-                                                                <br />
-                                                                <b>Описание</b>
-                                                                <label id="description" class="input-group">
-
-                                                                    <input class="form-control" placeholder="Введите описание к изображению" name="Description" type="text" />
-                                                                </label>
-                                                                <b>Теги:</b>
-                                                                <label id="description" class="input-group">
-
-                                                                    <input class="form-control" placeholder="Введите теги через пробел" name="tagsData" type="text" />
-                                                                </label>
-                                                                <label id="description">
-                                                                    <b class="error-message" style="color:red;"></b>
-                                                                </label>
-
-                                                                <div action="#">
-                                                                    <p>
-                                                                        <label class="label">Страны Великобритании:</label>
-                                                                        <select name="Country" class="turnintodropdown">
-                                                                            <option>Выберите страну, где сделано фото:</option>
-                                                                            @{foreach (var countryName in ArtAlbum.UI.Web.Helpers.MapHelper.GetAllCountryNames())
-                                                                                {
-                                                                                    <option>@countryName</option>
-                                                                                }
-                                                                            }
-                                                                        </select>
-                                                                    </p>
-                                                                </div>
-                                                                <!-- Область предпросмотра -->
-                                                                <div id="uploaded-holder">
-                                                                    <div id="dropped-files">
-
-                                                                        <div id="upload-button">
-                                                                            <center>
-
-                                                                                <button class="button15">Загрузить</button>
-                                                                                <button class="delete">Удалить</button>
-                                                                                <!-- Прогресс бар загрузки -->
-
-                                                                            </center>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- Список загруженных файлов -->
-                                                                <div id="file-name-holder">
-                                                                    <ul id="uploaded-files" style="display: none;"></ul>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Создать" class="btn btn-default" />
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-4 col-md-8">
-                                <input type="submit" value="Отправить" class="btn btn-default" />
-                            </div>
-                        </div>
-
-                    </form>
-                  
-
-                    @if (ViewBag.isUpdate != null && ViewBag.isUpdate)
-                    {
-                        <p>Изменения сохранены</p>
                     }
-                    else if (ViewBag.isUpdate != null && !ViewBag.isUpdate)
-                    {
-                        <p>Неверный пароль</p>
-                    }
-
-
-
-
                     <div class="show-userpage">
                         @Html.ActionLink("Вернуться на личную страницу", "UserProfile", "Users")
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

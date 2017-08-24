@@ -260,6 +260,7 @@
     <Compile Include="Models\CommentVM.cs" />
     <Compile Include="Models\ImageDataVM.cs" />
     <Compile Include="Models\ImageVM.cs" />
+    <Compile Include="Models\QuestionVM.cs" />
     <Compile Include="Models\RegisterVM.cs" />
     <Compile Include="Models\RoleVM.cs" />
     <Compile Include="Models\UserAvatarDataVM.cs" />
